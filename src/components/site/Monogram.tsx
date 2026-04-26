@@ -1,23 +1,37 @@
 import { cn } from "@/lib/utils";
 
-export function Monogram({ className, color = "currentColor" }: { className?: string; color?: string }) {
+export function Monogram({
+  className,
+  color = "currentColor",
+}: {
+  className?: string;
+  color?: string;
+}) {
   return (
     <svg
       viewBox="0 0 64 64"
-      fill="none"
-      stroke={color}
-      className={cn("h-9 w-9", className)}
+      className={cn("h-10 w-10", className)}
       aria-hidden
     >
-      <circle cx="32" cy="32" r="30" strokeWidth="0.75" opacity="0.5" />
-      <circle cx="32" cy="32" r="26" strokeWidth="0.5" opacity="0.35" />
-      {/* Я · A monogram */}
-      <path
-        d="M22 44 V20 H30 Q38 20 38 28 Q38 35 31 36 L40 44 M22 36 H31"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      {/* Concentric rings */}
+      <circle cx="32" cy="32" r="30.5" fill="none" stroke={color} strokeWidth="0.6" opacity="0.45" />
+      <circle cx="32" cy="32" r="27" fill="none" stroke={color} strokeWidth="0.4" opacity="0.3" />
+      {/* serif initials Ю · А, drawn as text for crispness */}
+      <text
+        x="32"
+        y="40"
+        textAnchor="middle"
+        fontFamily="Cormorant Garamond, Georgia, serif"
+        fontSize="22"
+        fontStyle="italic"
+        fontWeight="500"
+        fill={color}
+        letterSpacing="0.5"
+      >
+        ЮА
+      </text>
+      {/* tiny gold dot above */}
+      <circle cx="32" cy="14" r="0.9" fill="#B9986A" />
     </svg>
   );
 }
