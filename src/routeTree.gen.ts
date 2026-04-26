@@ -12,7 +12,6 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IntensiveRouteImport } from './routes/intensive'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesCreditHistoryRouteImport } from './routes/services.credit-history'
 import { Route as ServicesBankruptcyRouteImport } from './routes/services.bankruptcy'
 
@@ -31,11 +30,6 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ServicesCreditHistoryRoute = ServicesCreditHistoryRouteImport.update({
   id: '/services/credit-history',
   path: '/services/credit-history',
@@ -48,7 +42,6 @@ const ServicesBankruptcyRoute = ServicesBankruptcyRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacts': typeof ContactsRoute
   '/intensive': typeof IntensiveRoute
@@ -56,7 +49,6 @@ export interface FileRoutesByFullPath {
   '/services/credit-history': typeof ServicesCreditHistoryRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacts': typeof ContactsRoute
   '/intensive': typeof IntensiveRoute
@@ -65,7 +57,6 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacts': typeof ContactsRoute
   '/intensive': typeof IntensiveRoute
@@ -75,7 +66,6 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/about'
     | '/contacts'
     | '/intensive'
@@ -83,7 +73,6 @@ export interface FileRouteTypes {
     | '/services/credit-history'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/about'
     | '/contacts'
     | '/intensive'
@@ -91,7 +80,6 @@ export interface FileRouteTypes {
     | '/services/credit-history'
   id:
     | '__root__'
-    | '/'
     | '/about'
     | '/contacts'
     | '/intensive'
@@ -100,7 +88,6 @@ export interface FileRouteTypes {
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactsRoute: typeof ContactsRoute
   IntensiveRoute: typeof IntensiveRoute
@@ -131,13 +118,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/services/credit-history': {
       id: '/services/credit-history'
       path: '/services/credit-history'
@@ -156,7 +136,6 @@ declare module '@tanstack/react-router' {
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactsRoute: ContactsRoute,
   IntensiveRoute: IntensiveRoute,
