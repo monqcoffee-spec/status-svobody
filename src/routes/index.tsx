@@ -69,17 +69,21 @@ function Hero() {
           {/* Photo column */}
           <div className="order-1 lg:order-2 lg:col-span-5">
             <div className="relative mx-auto max-w-sm lg:max-w-none">
-              {/* outer frame */}
-              <div className="absolute -inset-3 border border-gold/30" />
-              <div className="absolute -inset-3 border border-gold/30" style={{ transform: "translate(10px,10px)", opacity: 0.3 }} />
+              {/* Decorative gold corner frame, behind image */}
+              <div className="pointer-events-none absolute -inset-3 z-0 border border-gold/30" aria-hidden />
+              <div
+                className="pointer-events-none absolute -inset-3 z-0 hidden border border-gold/15 md:block"
+                style={{ transform: "translate(14px, 14px)" }}
+                aria-hidden
+              />
               <img
                 src={portrait}
                 alt="Юлия Армина — финансовый управляющий"
-                className="relative aspect-[4/5] w-full object-cover object-top"
+                className="relative z-10 block aspect-[4/5] w-full object-cover object-top"
                 loading="eager"
               />
               {/* Gold accent label on image */}
-              <div className="absolute -bottom-4 -right-4 hidden bg-cream px-5 py-3 text-navy shadow-xl md:block">
+              <div className="absolute -bottom-4 -right-4 z-20 hidden bg-cream px-5 py-3 text-navy shadow-xl md:block">
                 <div className="smallcaps text-[9px] text-gold">СРО</div>
                 <div className="font-serif text-base">«Созидание»</div>
               </div>
