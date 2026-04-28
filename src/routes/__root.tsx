@@ -32,10 +32,14 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#050608" },
       { title: "STATUS SVOBODY — Освобождение от долгов" },
       { name: "description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
-      { property: "og:title", content: "STATUS SVOBODY" },
-      { property: "og:description", content: "Превращение тяжести долгов в ясность финансовой свободы." },
+      { property: "og:title", content: "STATUS SVOBODY — Освобождение от долгов" },
+      { property: "og:description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "STATUS SVOBODY — Освобождение от долгов" },
+      { name: "twitter:description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5702adcc-0d9a-41de-9841-b8f6ad06a837/id-preview-54f49a2b--f7724e52-3eef-4cf0-af24-f6ad8cddbdf5.lovable.app-1777417904827.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5702adcc-0d9a-41de-9841-b8f6ad06a837/id-preview-54f49a2b--f7724e52-3eef-4cf0-af24-f6ad8cddbdf5.lovable.app-1777417904827.png" },
     ],
     links: [
       {
