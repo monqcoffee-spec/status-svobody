@@ -8,7 +8,8 @@ export function FloatingContacts() {
         target="_blank"
         rel="noopener"
         aria-label="WhatsApp"
-        className="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-105"
+        className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-cyan/30 bg-ink-soft text-cyan transition-all hover:border-cyan hover:text-cyan-glow"
+        style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 25%, transparent)" }}
       >
         <MessageCircle className="h-5 w-5" />
       </a>
@@ -17,7 +18,8 @@ export function FloatingContacts() {
         target="_blank"
         rel="noopener"
         aria-label="Telegram"
-        className="group inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#229ED9] text-white shadow-lg transition-transform hover:scale-105"
+        className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-cyan/40 bg-ink-soft text-cyan transition-all hover:border-cyan hover:text-cyan-glow"
+        style={{ boxShadow: "0 0 24px color-mix(in oklab, var(--cyan) 35%, transparent)" }}
       >
         <Send className="h-5 w-5" />
       </a>

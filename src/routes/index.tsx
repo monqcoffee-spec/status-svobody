@@ -1,23 +1,24 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Copy } from "lucide-react";
+import { ArrowUpRight, Cpu, Shield, Zap, Eye, Layers, GitBranch } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { Monogram } from "@/components/site/Monogram";
-import portrait from "@/assets/armina-portrait.png";
+import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
+import { ParticleField } from "@/components/site/ParticleField";
+import { Logo } from "@/components/site/Logo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Юлия Армина — финансовый управляющий, банкротство физлиц" },
+      { title: "STATUS SVOBODY — Освобождение от долгов нового поколения" },
       {
         name: "description",
         content:
-          "Прямой арбитражный управляющий, не посредник. 888 млн ₽ списанных долгов, 323 дела с 2020 года. Банкротство по 127-ФЗ и восстановление кредитной истории.",
+          "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим. 888 млн ₽ списанных долгов, 323 дела. Технологичный подход к финансовой свободе.",
       },
-      { property: "og:title", content: "Юлия Армина — финансовый управляющий" },
+      { property: "og:title", content: "STATUS SVOBODY — Status of Freedom" },
       {
         property: "og:description",
         content:
-          "Честно о деньгах, долгах и финансовой свободе. Банкротство физлиц по 127-ФЗ.",
+          "Освобождение от долгов через арбитражную процедуру. Технология. Прозрачность. Результат.",
       },
     ],
   }),
@@ -29,118 +30,114 @@ function IndexPage() {
     <SiteLayout>
       <Hero />
       <Marquee />
-      <Trust />
       <Manifesto />
+      <Services />
+      <Technology />
       <BigNumber />
-      <Audience />
-      <Compare />
       <Process />
-      <Intensive />
-      <Credit />
-      <FAQ />
+      <Trust />
+      <FinalCTA />
     </SiteLayout>
   );
 }
 
-/* ────────────────── HERO ────────────────── */
+/* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative -mt-20 overflow-hidden navy-texture pt-28 text-cream">
-      {/* Decorative gold corner frame */}
-      <div className="pointer-events-none absolute inset-x-6 top-24 bottom-6 hidden border border-gold/15 lg:block" />
-      <div className="pointer-events-none absolute left-10 top-28 hidden h-3 w-3 -translate-x-1/2 -translate-y-1/2 border-l border-t border-gold lg:block" />
-      <div className="pointer-events-none absolute right-10 top-28 hidden h-3 w-3 translate-x-1/2 -translate-y-1/2 border-r border-t border-gold lg:block" />
+    <section className="relative -mt-20 min-h-[100svh] overflow-hidden bg-aurora pt-20">
+      {/* Particle field background */}
+      <ParticleField density={90} />
 
-      <div className="container-tight relative pt-10 pb-20 lg:pt-16 lg:pb-28">
-        {/* Top eyebrow row */}
-        <div className="mb-12 flex items-center justify-between gap-4 text-cream/70">
-          <div className="flex items-center gap-3">
-            <span className="gold-rule-tight" />
-            <span className="smallcaps text-cream/60">Москва · с 2020</span>
-          </div>
-          <div className="hidden items-center gap-3 md:flex">
-            <span className="smallcaps text-cream/60">Реестр АУ № 20068</span>
-            <span className="gold-rule-tight" />
-          </div>
-        </div>
+      {/* Grid pattern */}
+      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-50" />
 
-        {/* Mobile-first: photo first, then text */}
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          {/* Photo column */}
-          <div className="order-1 lg:order-2 lg:col-span-5">
-            <div className="relative mx-auto max-w-sm lg:max-w-none">
-              {/* Decorative gold corner frame, behind image */}
-              <div className="pointer-events-none absolute -inset-3 z-0 border border-gold/30" aria-hidden />
+      {/* Soft glow orbs */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-32 h-[600px] w-[600px] rounded-full opacity-40 animate-drift"
+        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 25%, transparent), transparent)" }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -left-32 bottom-20 h-[500px] w-[500px] rounded-full opacity-30 animate-drift"
+        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--teal) 30%, transparent), transparent)", animationDelay: "-8s" }}
+      />
+
+      <div className="container-tight relative grid min-h-[80svh] place-items-center pt-12 pb-24 md:pt-20">
+        <div className="text-center max-w-5xl">
+          {/* Top eyebrow */}
+          <div className="reveal flex items-center justify-center gap-3 text-silver-dim">
+            <span className="hairline-tight" />
+            <span className="smallcaps text-cyan">Legal · Tech · Liberation</span>
+            <span className="hairline-tight" />
+          </div>
+
+          {/* Logo with floating animation */}
+          <div className="reveal reveal-delay-1 mt-10 flex justify-center">
+            <div className="relative animate-float">
+              <Logo size={140} className="md:!h-44 md:!w-44" />
               <div
-                className="pointer-events-none absolute -inset-3 z-0 hidden border border-gold/15 md:block"
-                style={{ transform: "translate(14px, 14px)" }}
                 aria-hidden
+                className="absolute inset-0 -z-10 animate-pulse-glow"
+                style={{
+                  background: "radial-gradient(circle, color-mix(in oklab, var(--cyan) 35%, transparent) 0%, transparent 65%)",
+                  filter: "blur(20px)",
+                }}
               />
-              <img
-                src={portrait}
-                alt="Юлия Армина — финансовый управляющий"
-                className="relative z-10 block aspect-[4/5] w-full object-cover object-top"
-                loading="eager"
-              />
-              {/* Gold accent label on image */}
-              <div className="absolute -bottom-4 -right-4 z-20 hidden bg-cream px-5 py-3 text-navy shadow-xl md:block">
-                <div className="smallcaps text-[9px] text-gold">СРО</div>
-                <div className="font-serif text-base">«Созидание»</div>
-              </div>
             </div>
           </div>
 
-          {/* Text column */}
-          <div className="order-2 lg:order-1 lg:col-span-7 flex flex-col justify-center">
-            <div className="smallcaps text-gold">Финансовый управляющий</div>
-            <h1 className="display mt-6 text-[clamp(3rem,11vw,7.5rem)] text-cream">
-              Юлия<br />
-              <span className="italic-serif text-gold/90">Армина</span>
-            </h1>
+          {/* Title */}
+          <h1 className="reveal reveal-delay-2 display mt-12 text-[clamp(2.5rem,9vw,7rem)] text-glow">
+            <span className="text-gradient-cyan">Статус Свободы</span>
+          </h1>
+          <div className="reveal reveal-delay-2 mt-3 font-display text-xs tracking-[0.5em] text-cyan uppercase md:text-sm">
+            Status · Svobody
+          </div>
 
-            <div className="mt-8 flex items-center gap-4">
-              <span className="gold-rule-tight" />
-              <p className="italic-serif text-lg text-cream/85 md:text-xl">
-                Честно о&nbsp;деньгах, долгах и&nbsp;финансовой свободе
-              </p>
-            </div>
+          {/* Tagline */}
+          <p className="reveal reveal-delay-3 mx-auto mt-10 max-w-2xl text-base leading-relaxed text-silver/75 md:text-lg">
+            Превращение тяжести долгов в&nbsp;ясность финансовой свободы.
+            Арбитражная процедура нового поколения — прямо, технологично, законно.
+          </p>
 
-            {/* Hero CTA */}
-            <div className="mt-12 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="https://t.me/status_svobody_bot"
-                target="_blank"
-                rel="noopener"
-                className="group inline-flex h-14 items-center justify-between gap-4 border border-gold bg-gold px-6 text-navy transition-colors hover:bg-gold-hover hover:border-gold-hover"
-              >
-                <span className="smallcaps">Бесплатный интенсив</span>
-                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-              <Link
-                to="/contacts"
-                className="group inline-flex h-14 items-center justify-between gap-4 border border-cream/25 px-6 text-cream transition-colors hover:border-gold"
-              >
-                <span className="smallcaps">Связаться лично</span>
-                <ArrowUpRight className="h-5 w-5 text-gold transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-            </div>
+          {/* CTA */}
+          <div className="reveal reveal-delay-3 mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a
+              href="https://t.me/status_svobody_bot"
+              target="_blank"
+              rel="noopener"
+              className="btn-cyan group rounded-sm"
+            >
+              <span>Запустить интенсив</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <Link to="/services/bankruptcy" className="btn-ghost group rounded-sm">
+              <span>Узнать о процедуре</span>
+              <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="reveal reveal-delay-3 mt-20 inline-flex flex-col items-center gap-3 text-silver-dim">
+            <span className="text-[10px] tracking-[0.4em] uppercase">Scroll</span>
+            <div className="h-12 w-px bg-gradient-to-b from-cyan/60 to-transparent" />
           </div>
         </div>
+      </div>
 
-        {/* Hero footer regalia */}
-        <div className="mt-20 grid grid-cols-2 gap-px border-y border-cream/10 bg-cream/5 md:mt-24 md:grid-cols-4">
+      {/* Stats footer */}
+      <div className="container-tight relative pb-12">
+        <div className="grid grid-cols-2 gap-px overflow-hidden border border-white/5 bg-white/[0.03] backdrop-blur-sm md:grid-cols-4">
           {[
             { v: "888 млн ₽", l: "Списано долгов" },
-            { v: "323", l: "Дела с 2020 года" },
-            { v: "50", l: "Активных дел сейчас" },
+            { v: "323", l: "Завершённых дел" },
+            { v: "50", l: "Активных процедур" },
             { v: "5 лет", l: "В реестре АУ" },
           ].map((s) => (
-            <div
-              key={s.l}
-              className="bg-navy/40 px-5 py-6 text-center md:px-6 md:py-8 md:text-left"
-            >
-              <div className="font-serif text-2xl text-gold tabular md:text-3xl">{s.v}</div>
-              <div className="smallcaps mt-2 text-[10px] text-cream/55">{s.l}</div>
+            <div key={s.l} className="bg-ink/40 px-5 py-7 text-center md:text-left">
+              <div className="font-display text-2xl text-cyan tabular md:text-3xl text-glow">{s.v}</div>
+              <div className="smallcaps mt-2 text-[9px] text-silver-dim">{s.l}</div>
             </div>
           ))}
         </div>
@@ -149,7 +146,7 @@ function Hero() {
   );
 }
 
-/* ────────────────── MARQUEE (regalia strip) ────────────────── */
+/* ───────────────────── MARQUEE ───────────────────── */
 function Marquee() {
   const items = [
     "ЕФРСБ № 20068",
@@ -163,12 +160,12 @@ function Marquee() {
   ];
   const repeated = [...items, ...items];
   return (
-    <section className="overflow-hidden border-y border-border bg-cream-warm py-5">
+    <section className="overflow-hidden border-y border-white/5 bg-ink py-5">
       <div className="marquee flex w-max items-center gap-12 whitespace-nowrap">
         {repeated.map((t, i) => (
           <div key={i} className="flex items-center gap-12">
-            <span className="smallcaps text-navy/60">{t}</span>
-            <span className="text-gold">✦</span>
+            <span className="smallcaps text-silver-dim">{t}</span>
+            <span className="text-cyan">◆</span>
           </div>
         ))}
       </div>
@@ -176,463 +173,303 @@ function Marquee() {
   );
 }
 
-/* ────────────────── TRUST (registry cards) ────────────────── */
+/* ───────────────────── MANIFESTO ───────────────────── */
+function Manifesto() {
+  return (
+    <Section variant="darker">
+      <div className="grid gap-16 lg:grid-cols-12">
+        <div className="lg:col-span-4">
+          <SectionLabel n="01" title="Манифест" />
+          <h2 className="display mt-8 text-4xl text-silver md:text-5xl">
+            От тяжести —<br />
+            <span className="text-cyan text-glow italic">к свету.</span>
+          </h2>
+        </div>
+        <div className="lg:col-span-8 space-y-6 text-lg leading-relaxed text-silver/75 max-w-2xl">
+          <p>
+            Долг — это не приговор. Это статус, который можно изменить.
+            <span className="text-silver"> Закон 127-ФЗ дал право на финансовую свободу каждому. </span>
+            Мы превращаем это право в результат.
+          </p>
+          <p>
+            Юридическая фирма продаёт услугу. Арбитражный управляющий несёт
+            <span className="text-cyan"> личную имущественную ответственность через СРО</span> —
+            это другой уровень вовлечённости и другая цена ошибки.
+          </p>
+          <p className="text-silver-dim">
+            Здесь нет менеджеров, скриптов и колл-центров. Только прямой диалог,
+            прозрачная процедура и измеримый результат.
+          </p>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── SERVICES ───────────────────── */
+function Services() {
+  const services = [
+    {
+      icon: <Shield className="h-6 w-6" />,
+      n: "01",
+      title: "Банкротство 127-ФЗ",
+      desc: "Законное списание долгов через арбитражный суд. От 500 000 ₽ задолженности. Личное ведение дела от первой консультации до решения.",
+      to: "/services/bankruptcy",
+      tag: "Основная процедура",
+    },
+    {
+      icon: <GitBranch className="h-6 w-6" />,
+      n: "02",
+      title: "Восстановление КИ",
+      desc: "Уникальная услуга после процедуры. Алгоритм возвращения кредитного рейтинга за 1,5–3 года. Реальный путь к ипотеке.",
+      to: "/services/credit-history",
+      tag: "После банкротства",
+    },
+    {
+      icon: <Zap className="h-6 w-6" />,
+      n: "03",
+      title: "Интенсив «Status Svobody»",
+      desc: "5 уроков в Telegram. Бесплатно, без звонков и навязывания. Чек-лист «подходит ли вам банкротство» за 3 минуты.",
+      to: "/intensive",
+      tag: "Бесплатно",
+    },
+  ];
+
+  return (
+    <Section variant="default">
+      <div className="flex items-end justify-between gap-8 flex-wrap">
+        <div>
+          <SectionLabel n="02" title="Направления" />
+          <H2 className="mt-8 max-w-3xl">
+            Три пути <span className="text-cyan italic">к статусу свободы</span>
+          </H2>
+        </div>
+        <p className="max-w-sm text-sm text-silver-dim">
+          Выберите точку входа — каждое направление выстроено как самостоятельный продукт
+          с прозрачной структурой и фиксированным результатом.
+        </p>
+      </div>
+
+      <div className="mt-16 grid gap-6 md:grid-cols-3">
+        {services.map((s) => (
+          <Link
+            key={s.n}
+            to={s.to}
+            className="group relative overflow-hidden border border-white/8 bg-ink-soft/60 p-8 transition-all duration-500 hover:border-cyan/40 hover:bg-ink-soft"
+            style={{ borderRadius: "2px" }}
+          >
+            <div
+              aria-hidden
+              className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+              style={{
+                background: "radial-gradient(ellipse at top, color-mix(in oklab, var(--cyan) 12%, transparent), transparent 70%)",
+              }}
+            />
+            <div className="relative">
+              <div className="flex items-center justify-between">
+                <div className="font-display text-xs tabular text-cyan/70 tracking-[0.3em]">{s.n}</div>
+                <div className="smallcaps text-[9px] text-silver-dim">{s.tag}</div>
+              </div>
+              <div className="mt-8 inline-flex h-12 w-12 items-center justify-center border border-cyan/30 text-cyan transition-all group-hover:border-cyan group-hover:text-cyan-glow group-hover:shadow-[0_0_24px_color-mix(in_oklab,var(--cyan)_40%,transparent)]" style={{ borderRadius: "2px" }}>
+                {s.icon}
+              </div>
+              <h3 className="mt-7 font-display text-2xl text-silver group-hover:text-cyan-glow transition-colors">
+                {s.title}
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-silver-dim">{s.desc}</p>
+              <div className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-cyan">
+                Подробнее <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── TECHNOLOGY ───────────────────── */
+function Technology() {
+  const features = [
+    { icon: <Cpu className="h-5 w-5" />, t: "Telegram-бот", d: "Первичная диагностика и интенсив автоматизированы. 24/7, без ожидания." },
+    { icon: <Eye className="h-5 w-5" />, t: "Прозрачный трекинг", d: "Каждое действие в деле фиксируется. Доступ к статусу в любой момент." },
+    { icon: <Layers className="h-5 w-5" />, t: "Интеграция с реестрами", d: "Прямая работа с ЕФРСБ, БКИ, ФНС, арбитражной системой." },
+    { icon: <Shield className="h-5 w-5" />, t: "Защита данных", d: "Документы хранятся в зашифрованном контуре. NDA по умолчанию." },
+  ];
+  return (
+    <Section variant="glow">
+      <div className="grid gap-16 lg:grid-cols-12">
+        <div className="lg:col-span-5">
+          <SectionLabel n="03" title="Технология" />
+          <H2 className="mt-8">
+            Legal-tech, <br />
+            <span className="text-cyan italic text-glow">а не «юристы по старинке»</span>
+          </H2>
+          <p className="mt-6 max-w-md text-silver-dim">
+            Каждый этап процедуры цифровизован. Вы видите процесс, а не ждёте звонка
+            «у нас всё хорошо». Это бренд новой эпохи юридических услуг.
+          </p>
+        </div>
+
+        <div className="lg:col-span-7 grid gap-px bg-white/8 border border-white/8 sm:grid-cols-2" style={{ borderRadius: "2px" }}>
+          {features.map((f) => (
+            <div key={f.t} className="group bg-ink-soft p-7 transition-colors hover:bg-ink">
+              <div className="inline-flex h-10 w-10 items-center justify-center border border-cyan/30 text-cyan transition-all group-hover:border-cyan group-hover:shadow-[0_0_18px_color-mix(in_oklab,var(--cyan)_40%,transparent)]" style={{ borderRadius: "2px" }}>
+                {f.icon}
+              </div>
+              <h3 className="mt-5 font-display text-lg text-silver">{f.t}</h3>
+              <p className="mt-2 text-sm text-silver-dim leading-relaxed">{f.d}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── BIG NUMBER ───────────────────── */
+function BigNumber() {
+  return (
+    <Section variant="default">
+      <div className="text-center">
+        <SectionLabel n="04" title="Главная метрика" />
+
+        <div className="relative mt-14">
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 -z-10 opacity-60"
+            style={{
+              background: "radial-gradient(ellipse 70% 60% at 50% 50%, color-mix(in oklab, var(--cyan) 18%, transparent), transparent 70%)",
+            }}
+          />
+          <div className="display tabular text-[clamp(4rem,18vw,14rem)] text-gradient-cyan text-glow leading-none">
+            888
+          </div>
+          <div className="smallcaps mt-2 text-cyan">миллионов ₽</div>
+        </div>
+
+        <p className="mx-auto mt-10 max-w-2xl font-display text-2xl text-silver md:text-3xl">
+          восемьсот восемьдесят восемь миллионов рублей
+        </p>
+        <p className="mx-auto mt-3 max-w-md text-silver-dim italic">
+          списано с долгов клиентов с 2020 года
+        </p>
+
+        <div className="mx-auto mt-12 flex max-w-md items-center gap-4">
+          <span className="h-px flex-1 bg-white/10" />
+          <a href="https://fedresurs.ru/" target="_blank" rel="noopener" className="smallcaps text-cyan hover:text-cyan-glow">
+            Подтверждено в ЕФРСБ →
+          </a>
+          <span className="h-px flex-1 bg-white/10" />
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── PROCESS ───────────────────── */
+function Process() {
+  const steps = [
+    { n: "01", t: "Бесплатная диагностика", d: "Запускаете бота — за 3 минуты понимаете, подходит ли вам процедура." },
+    { n: "02", t: "Личная консультация", d: "Разбираем ситуацию, имущество, риски. Финальное решение — за вами." },
+    { n: "03", t: "Подготовка дела", d: "Сбор документов, заявление в арбитражный суд. Берём на себя." },
+    { n: "04", t: "Процедура и списание", d: "Веду дело до решения суда. Долги списаны, статус свободы получен." },
+  ];
+
+  return (
+    <Section variant="darker">
+      <SectionLabel n="05" title="Процесс" />
+      <H2 className="mt-8 max-w-3xl">
+        Четыре шага <span className="text-cyan italic">от диагностики до свободы</span>
+      </H2>
+
+      <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-4" style={{ borderRadius: "2px" }}>
+        {steps.map((s, i) => (
+          <div key={s.n} className="relative bg-ink p-8">
+            {i < steps.length - 1 && (
+              <div aria-hidden className="absolute right-0 top-1/2 hidden h-px w-6 -translate-y-1/2 translate-x-1/2 bg-cyan/40 lg:block" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
+            )}
+            <div className="font-display text-3xl tabular text-cyan text-glow">{s.n}</div>
+            <h3 className="mt-6 font-display text-lg text-silver">{s.t}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-silver-dim">{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── TRUST ───────────────────── */
 function Trust() {
   const items = [
     { label: "Реестр ЕФРСБ", value: "АУ № 20068", sub: "от 17.11.2020", href: "https://fedresurs.ru/" },
     { label: "СРО", value: "«Созидание»", sub: "Союз АУ", href: "https://sozidanie-sro.ru/" },
-    { label: "ИНН", value: "312300900561", sub: "ИП Армина Ю. Ю.", copy: "312300900561" },
-    { label: "ОГРНИП", value: "324774600450864", sub: "Свидетельство ИП", copy: "324774600450864" },
+    { label: "ИНН", value: "312300900561", sub: "ИП Армина Ю. Ю." },
+    { label: "ОГРНИП", value: "324774600450864", sub: "Свидетельство ИП" },
   ];
   return (
-    <section className="cream-texture py-24 md:py-32">
-      <div className="container-tight">
-        <SectionLabel n="01" title="Прозрачность" />
-        <h2 className="display mt-8 max-w-3xl text-4xl text-navy md:text-6xl">
-          Все данные открыты <br />
-          и&nbsp;<span className="italic-serif text-gold">проверяемы</span>
+    <Section variant="default">
+      <div className="flex items-end justify-between gap-8 flex-wrap">
+        <div>
+          <SectionLabel n="06" title="Прозрачность" />
+          <H2 className="mt-8 max-w-2xl">
+            Все данные открыты <br />
+            и <span className="text-cyan italic text-glow">проверяемы.</span>
+          </H2>
+        </div>
+        <p className="max-w-sm text-sm text-silver-dim">
+          Каждую цифру с этого сайта можно сверить в государственных реестрах.
+          Это не маркетинг — юридический факт.
+        </p>
+      </div>
+
+      <div className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-4" style={{ borderRadius: "2px" }}>
+        {items.map((it) => (
+          <div key={it.label} className="group relative bg-ink-soft p-7 transition-all hover:bg-ink">
+            <div className="absolute inset-x-7 top-0 h-px bg-cyan/0 transition-colors group-hover:bg-cyan" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
+            <div className="smallcaps text-[9px] text-silver-dim">{it.label}</div>
+            <div className="mt-4 font-display text-2xl tabular text-silver md:text-3xl">{it.value}</div>
+            <div className="mt-2 text-xs text-silver-dim">{it.sub}</div>
+            {it.href && (
+              <a href={it.href} target="_blank" rel="noopener" className="mt-6 inline-flex items-center gap-1.5 text-xs text-cyan hover:text-cyan-glow">
+                Открыть реестр <ArrowUpRight className="h-3 w-3" />
+              </a>
+            )}
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── FINAL CTA ───────────────────── */
+function FinalCTA() {
+  return (
+    <section className="relative overflow-hidden bg-aurora py-32 md:py-40">
+      <ParticleField density={50} />
+      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
+
+      <div className="container-tight relative text-center">
+        <Eyebrow>Точка входа</Eyebrow>
+        <h2 className="display mt-8 text-[clamp(2.25rem,7vw,5rem)] max-w-4xl mx-auto">
+          <span className="text-gradient-cyan text-glow">Получите свой статус свободы.</span>
         </h2>
-        <p className="mt-6 max-w-xl text-base text-muted-foreground">
-          Каждую цифру с&nbsp;этого сайта можно сверить в&nbsp;государственных реестрах.
-          Это не маркетинг — это юридический факт.
+        <p className="mx-auto mt-8 max-w-xl text-silver/75">
+          Начните с бесплатного интенсива в Telegram. 5 уроков, чек-лист, чёткое
+          понимание — подходит ли вам процедура.
         </p>
 
-        <div className="mt-14 grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
-          {items.map((it) => (
-            <div key={it.label} className="group relative bg-card p-7 transition-colors hover:bg-cream-warm">
-              <div className="absolute inset-x-7 top-0 h-px bg-gold/0 transition-colors group-hover:bg-gold" />
-              <div className="smallcaps text-[10px] text-muted-foreground">{it.label}</div>
-              <div className="mt-4 font-serif text-2xl tabular text-navy md:text-3xl">
-                {it.value}
-              </div>
-              <div className="mt-2 text-xs text-muted-foreground">{it.sub}</div>
-              {it.href ? (
-                <a
-                  href={it.href}
-                  target="_blank"
-                  rel="noopener"
-                  className="mt-6 inline-flex items-center gap-1.5 text-xs text-gold link-gold"
-                >
-                  Открыть реестр
-                  <ArrowUpRight className="h-3 w-3" />
-                </a>
-              ) : (
-                <button
-                  onClick={() => navigator.clipboard?.writeText(it.copy!)}
-                  className="mt-6 inline-flex items-center gap-1.5 text-xs text-gold link-gold"
-                >
-                  Скопировать
-                  <Copy className="h-3 w-3" />
-                </button>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── MANIFESTO ────────────────── */
-function Manifesto() {
-  return (
-    <section className="bg-cream-warm py-24 md:py-32">
-      <div className="container-tight grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-3">
-          <SectionLabel n="02" title="Принцип" />
-        </div>
-        <div className="lg:col-span-9">
-          <p className="dropcap font-serif text-2xl leading-[1.4] text-navy md:text-3xl md:leading-[1.45]">
-            Юридическая фирма продаёт вам услугу. Я несу за&nbsp;неё имущественную
-            ответственность через&nbsp;СРО — это разные уровни вовлечённости
-            и&nbsp;разная цена ошибки. Когда вы&nbsp;приходите ко&nbsp;мне, мы&nbsp;работаем
-            напрямую: я&nbsp;лично веду ваше дело в&nbsp;арбитражном суде от&nbsp;первой
-            консультации до&nbsp;решения о&nbsp;списании.
-          </p>
-          <div className="mt-10 flex items-center gap-4">
-            <Monogram className="h-8 w-8 text-gold" />
-            <div>
-              <div className="font-serif text-lg text-navy">Юлия Армина</div>
-              <div className="smallcaps text-[10px] text-muted-foreground">Арбитражный управляющий</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── BIG NUMBER ────────────────── */
-function BigNumber() {
-  return (
-    <section className="navy-texture py-32 text-cream md:py-40">
-      <div className="container-tight text-center">
-        <SectionLabel n="03" title="Главная цифра" theme="dark" align="center" />
-
-        <div className="relative mt-12">
-          <div className="absolute inset-x-0 top-1/2 -z-10 hidden h-px -translate-y-1/2 bg-gold/20 md:block" />
-          <div className="display inline-block bg-navy px-6 text-[clamp(3.5rem,16vw,12rem)] tabular text-gold md:px-12">
-            <span className="italic-serif font-light">8</span>88<span className="italic-serif font-light">,0</span>
-          </div>
-          <div className="mt-2 smallcaps text-cream/60">миллиардов ₽? — нет, миллионов</div>
-        </div>
-
-        <p className="mx-auto mt-12 max-w-2xl font-serif text-2xl text-cream md:text-3xl">
-          восемьсот восемьдесят восемь миллионов рублей
-        </p>
-        <p className="mx-auto mt-4 max-w-md italic-serif text-cream/70">
-          списано с&nbsp;долгов клиентов с&nbsp;2020 года
-        </p>
-
-        <div className="mx-auto mt-14 flex max-w-md items-center gap-4">
-          <span className="h-px flex-1 bg-cream/20" />
-          <a
-            href="https://fedresurs.ru/"
-            target="_blank"
-            rel="noopener"
-            className="smallcaps text-cream/70 link-gold"
-          >
-            Подтверждено в ЕФРСБ →
+        <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan group rounded-sm">
+            <span>Запустить бесплатно</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
-          <span className="h-px flex-1 bg-cream/20" />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── AUDIENCE ────────────────── */
-function Audience() {
-  const items = [
-    { t: "Долг от 500 000 ₽,\nнечем платить", d: "Кредиты, микрозаймы, поручительство — когда платежи стали больше дохода и просрочки уже несколько месяцев." },
-    { t: "Звонят коллекторы\nи приставы", d: "Списания со счетов, арест карт, давление на родственников. Всё это останавливается с момента введения процедуры." },
-    { t: "ИП с долгами\nперед налоговой", d: "Доначисления, дробление бизнеса, субсидиарка. Здесь нужна тонкая работа — расскажу, что реально, а что нет." },
-    { t: "Уже банкрот, нужна\nкредитная история", d: "Прошли процедуру, но банки отказывают. Помогу выстроить путь восстановления КИ за 1,5–3 года." },
-  ];
-  return (
-    <section className="cream-texture py-24 md:py-32">
-      <div className="container-tight">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionLabel n="04" title="Кому я помогаю" />
-            <h2 className="display mt-8 text-4xl text-navy md:text-6xl">
-              К кому я <br />
-              <span className="italic-serif text-gold">обращаюсь</span>
-            </h2>
-            <p className="mt-6 max-w-sm text-muted-foreground">
-              Четыре типичные ситуации. Если вы узнаёте в одной из них себя — мы
-              сможем поговорить предметно, не теряя времени.
-            </p>
-          </div>
-
-          <div className="lg:col-span-7 grid gap-px border border-border bg-border sm:grid-cols-2">
-            {items.map((it, i) => (
-              <div key={i} className="group bg-card p-7 transition-all hover:bg-navy hover:text-cream">
-                <div className="font-serif text-3xl text-gold tabular">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="mt-6 whitespace-pre-line font-serif text-xl leading-tight text-navy group-hover:text-cream">
-                  {it.t}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground group-hover:text-cream/70">
-                  {it.d}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── COMPARE ────────────────── */
-function Compare() {
-  const rows: [string, string][] = [
-    ["Посредник между вами и судом", "Сама веду дело в суде"],
-    ["Нанимает АУ со стороны", "Личная ответственность по СРО"],
-    ["Агентские наценки в стоимости", "Работаете напрямую, без надбавок"],
-    ["Менеджер ≠ ваш юрист", "Один человек ведёт всё дело"],
-    ["Видит процедуру «снаружи»", "Знаю систему изнутри 5+ лет"],
-  ];
-  return (
-    <section className="navy-texture py-24 text-cream md:py-32">
-      <div className="container-tight">
-        <SectionLabel n="05" title="Главное возражение" theme="dark" />
-        <h2 className="display mt-8 max-w-4xl text-4xl text-cream md:text-6xl">
-          Почему лучше работать <br />
-          напрямую с&nbsp;<span className="italic-serif text-gold">арбитражным управляющим</span>
-        </h2>
-
-        <div className="mt-14 overflow-hidden border border-cream/15">
-          <div className="grid grid-cols-2 border-b border-cream/15 bg-cream/[0.03]">
-            <div className="border-r border-cream/15 p-5 md:p-7">
-              <div className="smallcaps text-cream/55">Юридическая компания</div>
-            </div>
-            <div className="p-5 md:p-7">
-              <div className="smallcaps text-gold">Арбитражный управляющий</div>
-            </div>
-          </div>
-          {rows.map(([a, b], i) => (
-            <div key={i} className="grid grid-cols-2 border-b border-cream/10 last:border-0">
-              <div className="border-r border-cream/15 p-5 text-sm text-cream/55 md:p-7 md:text-base">
-                <span className="text-cream/35 line-through decoration-gold/40 decoration-1">{a}</span>
-              </div>
-              <div className="p-5 md:p-7">
-                <div className="flex items-start gap-3">
-                  <span className="font-serif text-sm text-gold tabular pt-0.5">
-                    0{i + 1}
-                  </span>
-                  <span className="text-sm text-cream md:text-base">{b}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── PROCESS ────────────────── */
-function Process() {
-  const steps = [
-    { n: "I", t: "Анализ ситуации", time: "1–2 дня · бесплатно", d: "Смотрю долги, имущество, доход. Говорю честно — подходит банкротство или нет." },
-    { n: "II", t: "Подготовка заявления", time: "2–4 недели", d: "Сбор документов, расчёт задолженности, выбор стратегии." },
-    { n: "III", t: "Введение процедуры", time: "1–3 месяца", d: "Суд назначает финансового управляющего. Приставы и коллекторы прекращают давление." },
-    { n: "IV", t: "Реализация или план", time: "6–9 месяцев", d: "Защищаем единственное жильё и личные вещи. Работаем по 127-ФЗ." },
-    { n: "V", t: "Списание долгов", time: "Финал", d: "Решение суда. Долг закрыт. Сведения публикуются в ЕФРСБ." },
-  ];
-  return (
-    <section className="cream-texture py-24 md:py-32">
-      <div className="container-tight">
-        <SectionLabel n="06" title="Процедура" />
-        <h2 className="display mt-8 max-w-3xl text-4xl text-navy md:text-6xl">
-          Путь к&nbsp;финансовой свободе
-          <span className="italic-serif text-gold"> — пять этапов</span>
-        </h2>
-
-        <div className="mt-16 border-t border-border">
-          {steps.map((s) => (
-            <article
-              key={s.n}
-              className="group grid gap-6 border-b border-border py-8 transition-colors hover:bg-cream-warm md:grid-cols-12 md:gap-10 md:py-10"
-            >
-              <div className="md:col-span-2">
-                <div className="font-serif text-5xl italic font-light text-gold tabular md:text-6xl">
-                  {s.n}
-                </div>
-              </div>
-              <div className="md:col-span-7">
-                <h3 className="font-serif text-2xl text-navy md:text-3xl">{s.t}</h3>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-                  {s.d}
-                </p>
-              </div>
-              <div className="md:col-span-3 md:text-right">
-                <div className="smallcaps text-muted-foreground">{s.time}</div>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <p className="mt-10 italic-serif text-base text-muted-foreground md:text-lg">
-          Средняя процедура — 8–11&nbsp;месяцев. Сроки зависят от&nbsp;объёма имущества
-          и&nbsp;количества кредиторов.
-        </p>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── INTENSIVE ────────────────── */
-function Intensive() {
-  const items = [
-    "Пошаговый план списания долгов по 127-ФЗ — простыми словами",
-    "Как законно сохранить единственное жильё и личные вещи",
-    "Что делать со звонками коллекторов и приставов прямо сейчас",
-    "Чек-лист: подходит ли вам банкротство (3 минуты)",
-  ];
-  return (
-    <section className="relative overflow-hidden navy-texture py-24 text-cream md:py-32">
-      <div className="container-tight grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-6">
-          <SectionLabel n="07" title="Бесплатно · 5 уроков · Telegram" theme="dark" />
-          <h2 className="display mt-8 text-4xl text-cream md:text-6xl">
-            Интенсив <br />
-            <span className="italic-serif text-gold">«Статус свободы»</span>
-          </h2>
-          <p className="mt-8 max-w-md italic-serif text-xl text-cream/85">
-            Разберётесь, подходит&nbsp;ли вам банкротство — без&nbsp;звонков
-            и&nbsp;навязывания.
-          </p>
-
-          <a
-            href="https://t.me/status_svobody_bot"
-            target="_blank"
-            rel="noopener"
-            className="group mt-10 inline-flex h-14 items-center justify-between gap-6 border border-gold bg-gold px-7 text-navy transition-colors hover:bg-gold-hover"
-          >
-            <span className="smallcaps">Запустить в Telegram</span>
-            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
-          <p className="mt-4 max-w-sm text-xs text-cream/55">
-            Никаких звонков менеджера. Никаких автодозвонов.
-          </p>
-        </div>
-
-        <div className="lg:col-span-6">
-          <div className="border border-cream/15 bg-cream/[0.03] p-8 md:p-10">
-            <div className="smallcaps text-gold">Программа</div>
-            <ol className="mt-8 divide-y divide-cream/10">
-              {items.map((t, i) => (
-                <li key={i} className="grid grid-cols-12 gap-4 py-5">
-                  <span className="col-span-2 font-serif text-2xl italic text-gold tabular">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <span className="col-span-10 text-cream/90">{t}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── CREDIT HISTORY ────────────────── */
-function Credit() {
-  return (
-    <section className="cream-texture py-24 md:py-32">
-      <div className="container-tight grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-5">
-          <SectionLabel n="08" title="Уникальная услуга" />
-          <h2 className="display mt-8 text-4xl text-navy md:text-5xl">
-            Жизнь после банкротства:<br />
-            <span className="italic-serif text-gold">кредитная история</span>
-          </h2>
-          <p className="mt-8 max-w-md text-base text-muted-foreground">
-            «После банкротства мне больше никогда не&nbsp;дадут кредит» — самый частый
-            страх. Это миф. Кредитная история восстанавливается. Вопрос только —
-            насколько грамотно вы&nbsp;это сделаете.
-          </p>
-          <Link
-            to="/services/credit-history"
-            className="mt-8 inline-flex items-center gap-2 link-gold smallcaps text-navy"
-          >
-            Подробнее об услуге
-            <ArrowUpRight className="h-3 w-3 text-gold" />
+          <Link to="/contacts" className="btn-ghost group rounded-sm">
+            <span>Связаться лично</span>
+            <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </div>
-
-        <div className="lg:col-span-7 space-y-px border border-border bg-border">
-          {[
-            { t: "Чистим записи", d: "После завершения процедуры в БКИ часто остаются некорректные записи — открытые долги, продолжающиеся проценты. Убираем их через официальные обращения." },
-            { t: "Выстраиваем рейтинг", d: "План на 1,5–3 года через малые финансовые инструменты — с конкретными шагами, не «общими советами»." },
-            { t: "Готовим к крупным займам", d: "Цель — ипотека или автокредит через 2–3 года после списания. У моих клиентов это работает." },
-          ].map((it, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-12 gap-5 bg-card p-7 transition-colors hover:bg-cream-warm"
-            >
-              <div className="col-span-2">
-                <div className="font-serif text-3xl italic text-gold tabular">
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-              </div>
-              <div className="col-span-10">
-                <h3 className="font-serif text-xl text-navy">{it.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{it.d}</p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
-  );
-}
-
-/* ────────────────── FAQ ────────────────── */
-function FAQ() {
-  const qa = [
-    { q: "Меня посадят за долги?", a: "Нет. Невозможность платить по гражданским долгам — не уголовное преступление. Уголовная ответственность возможна только за мошенничество или преднамеренное банкротство. В обычной процедуре банкротства физлица этого нет." },
-    { q: "Узнают ли о банкротстве на работе?", a: "Сведения публичны и есть в ЕФРСБ — теоретически их может найти любой. На практике работодатели редко проверяют. Уведомлять обязанности нет, кроме отдельных случаев (госслужба, руководящие должности в финсекторе)." },
-    { q: "Могу ли я быть директором или ИП после банкротства?", a: "На время процедуры — нет. После завершения: 5 лет нельзя занимать руководящие должности в кредитных организациях, 3 года — в обычных компаниях, 5 лет — нельзя повторно банкротиться." },
-    { q: "Сколько стоит банкротство?", a: "Обязательные расходы: госпошлина 300 ₽, вознаграждение АУ 25 000 ₽ за процедуру, публикации в ЕФРСБ и «Коммерсантъ» (15–20 тыс.₽). Моё сопровождение — обсуждается индивидуально, никаких «доп.расходов в процессе»." },
-    { q: "У меня единственная квартира, её заберут?", a: "Нет, если она не в ипотеке. Единственное жильё защищено ст. 446 ГПК РФ. Исключение: ипотечная квартира — её банк имеет право реализовать." },
-    { q: "Правда ли, что после банкротства не дают кредиты?", a: "Первые 1–2 года — действительно сложно. Но кредитная история восстанавливается. У моих клиентов через 2–3 года после списания получалось получить ипотеку и автокредит." },
-    { q: "Сколько длится процедура?", a: "В среднем 8–11 месяцев. Простое дело — 6 месяцев, сложное — до 1,5 лет." },
-    { q: "Что отличает АУ от юридической компании?", a: "Юр.компания — посредник: подаёт заявление, нанимает АУ со стороны. АУ — лицо, назначенное судом, ведущее процедуру и несущее личную имущественную ответственность через СРО." },
-  ];
-  return (
-    <section className="bg-cream-warm py-24 md:py-32">
-      <div className="container-tight grid gap-16 lg:grid-cols-12">
-        <div className="lg:col-span-4">
-          <SectionLabel n="09" title="Вопросы и ответы" />
-          <h2 className="display mt-8 text-4xl text-navy md:text-5xl">
-            Ответы на тревоги, <br />
-            <span className="italic-serif text-gold">которые мешают спать</span>
-          </h2>
-          <p className="mt-6 max-w-sm text-sm text-muted-foreground">
-            Если ответа нет — задайте свой в Telegram-боте или по телефону. Я отвечаю
-            лично.
-          </p>
-        </div>
-
-        <div className="lg:col-span-8">
-          <div className="border-y border-navy/15">
-            {qa.map((item, i) => (
-              <details
-                key={i}
-                className="group border-b border-navy/10 py-6 last:border-b-0"
-              >
-                <summary className="flex cursor-pointer list-none items-start justify-between gap-6">
-                  <div className="flex items-baseline gap-5">
-                    <span className="font-serif text-sm italic text-gold tabular">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
-                    <span className="font-serif text-xl leading-snug text-navy md:text-2xl">
-                      {item.q}
-                    </span>
-                  </div>
-                  <span className="mt-2 grid h-6 w-6 shrink-0 place-items-center text-gold transition-transform group-open:rotate-45">
-                    <span className="block h-px w-4 bg-current" />
-                    <span className="absolute block h-4 w-px bg-current" />
-                  </span>
-                </summary>
-                <p className="mt-5 max-w-2xl pl-11 text-base leading-relaxed text-muted-foreground">
-                  {item.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ────────────────── small bits ────────────────── */
-function SectionLabel({
-  n,
-  title,
-  theme = "light",
-  align = "left",
-}: {
-  n: string;
-  title: string;
-  theme?: "light" | "dark";
-  align?: "left" | "center";
-}) {
-  const dimmed = theme === "dark" ? "text-cream/55" : "text-muted-foreground";
-  return (
-    <div className={"flex items-center gap-4 " + (align === "center" ? "justify-center" : "")}>
-      <span className={"font-serif text-sm italic " + (theme === "dark" ? "text-gold" : "text-gold")}>
-        № {n}
-      </span>
-      <span className="gold-rule-tight" />
-      <span className={"smallcaps " + dimmed}>{title}</span>
-    </div>
   );
 }
