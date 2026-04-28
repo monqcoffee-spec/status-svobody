@@ -54,10 +54,21 @@ export function SiteHeader() {
               key={n.to}
               to={n.to}
               className="group relative text-silver/65 hover:text-cyan transition-colors duration-300"
-              activeProps={{ className: "text-cyan" }}
+              activeProps={{ className: "!text-cyan" }}
+              activeOptions={{ exact: false }}
             >
-              {n.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-cyan transition-all duration-300 group-hover:w-full" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
+              {({ isActive }) => (
+                <>
+                  {n.label}
+                  <span
+                    className={
+                      "absolute -bottom-1.5 left-0 h-px bg-cyan transition-all duration-300 " +
+                      (isActive ? "w-full" : "w-0 group-hover:w-full")
+                    }
+                    style={{ boxShadow: "0 0 8px var(--cyan)" }}
+                  />
+                </>
+              )}
             </Link>
           ))}
         </nav>
@@ -89,10 +100,21 @@ export function SiteHeader() {
               <Link
                 key={n.to}
                 to={n.to}
-                className="border-b border-white/5 py-4 font-display text-lg text-silver/80 hover:text-cyan tracking-wide"
-                activeProps={{ className: "text-cyan" }}
+                className="flex items-center justify-between border-b border-white/5 py-4 font-display text-lg text-silver/80 hover:text-cyan tracking-wide"
+                activeProps={{ className: "!text-cyan" }}
+                activeOptions={{ exact: n.to === "/" }}
               >
-                {n.label}
+                {({ isActive }) => (
+                  <>
+                    <span>{n.label}</span>
+                    {isActive && (
+                      <span
+                        className="h-1.5 w-1.5 rounded-full bg-cyan"
+                        style={{ boxShadow: "0 0 8px var(--cyan)" }}
+                      />
+                    )}
+                  </>
+                )}
               </Link>
             ))}
             <a
