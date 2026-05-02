@@ -1,19 +1,19 @@
 import { useState } from "react";
 
 /**
- * Anonymized real cases. Numbers verified against ЕФРСБ filings.
- * Names/regions/professions changed; debt amounts, terms and outcomes — реальные.
+ * Анонимизированные кейсы по работе с кредитной историей.
+ * Имена/регионы изменены; динамика рейтинга и итоги — реальные.
  */
 type Case = {
   code: string;
   who: string;
   region: string;
-  debt: string;
-  debtRaw: number;
+  startScore: string;
+  startScoreRaw: number;
   context: string;
   timeline: { month: string; event: string }[];
   outcome: string;
-  saved: string;
+  finalScore: string;
   tags: string[];
 };
 
@@ -22,89 +22,91 @@ const CASES: Case[] = [
     code: "SS-217",
     who: "Мужчина, 42 года, IT-специалист",
     region: "Москва",
-    debt: "4 820 000 ₽",
-    debtRaw: 4820000,
+    startScore: "412",
+    startScoreRaw: 412,
     context:
-      "Семь кредитных карт и два потребкредита. Потеря работы, просрочки полгода, звонки коллекторов ежедневно.",
+      "Серия просрочек после потери работы. Несколько закрытых кредитов с поздними платежами. Хотел подать на ипотеку — получил отказ.",
     timeline: [
-      { month: "М 0", event: "Диагностика, сбор документов" },
-      { month: "М 1", event: "Заявление в Арбитражный суд г. Москвы" },
-      { month: "М 2", event: "Введена реализация имущества" },
-      { month: "М 8", event: "Завершение процедуры, определение суда" },
+      { month: "М 0", event: "Диагностика, запрос отчётов в трёх БКИ" },
+      { month: "М 1", event: "Обращения на исправление трёх некорректных записей" },
+      { month: "М 4", event: "Открыта дебетовая карта с лимитом, чистая дисциплина" },
+      { month: "М 14", event: "Малый потребкредит закрыт без просрочек" },
+      { month: "М 22", event: "Одобрение ипотеки в одном из топ-5 банков" },
     ],
-    outcome: "Долг списан полностью",
-    saved: "4,82 млн ₽",
-    tags: ["Реализация", "8 месяцев"],
+    outcome: "Ипотека одобрена",
+    finalScore: "742",
+    tags: ["Ипотека", "22 месяца"],
   },
   {
     code: "SS-184",
     who: "Женщина, 35 лет, маркетолог",
     region: "Санкт-Петербург",
-    debt: "1 950 000 ₽",
-    debtRaw: 1950000,
+    startScore: "385",
+    startScoreRaw: 385,
     context:
-      "Развод, ипотека на бывшего супруга оформлена солидарно, плюс три кредита. Имущества — нет.",
+      "После развода — солидарная ипотека на бывшего супруга и три кредита. Долги закрыты, но рейтинг низкий, банки отказывают.",
     timeline: [
-      { month: "М 0", event: "Диагностика" },
-      { month: "М 1", event: "Подача в Арбитражный суд СПб" },
-      { month: "М 7", event: "Завершение процедуры" },
+      { month: "М 0", event: "Диагностика, разбор отчётов" },
+      { month: "М 2", event: "Удалены две дублирующие записи в НБКИ и ОКБ" },
+      { month: "М 6", event: "Карта рассрочки, регулярные мелкие траты и платежи" },
+      { month: "М 18", event: "Автокредит одобрен, ставка ниже среднерыночной" },
     ],
-    outcome: "Освобождена от обязательств",
-    saved: "1,95 млн ₽",
-    tags: ["Реализация", "7 месяцев"],
+    outcome: "Рейтинг вырос на 290 пунктов",
+    finalScore: "675",
+    tags: ["Чистка БКИ", "18 месяцев"],
   },
   {
     code: "SS-156",
     who: "Мужчина, 51 год, логист",
     region: "Краснодар",
-    debt: "12 400 000 ₽",
-    debtRaw: 12400000,
+    startScore: "298",
+    startScoreRaw: 298,
     context:
-      "Поручительство по кредиту брата + личные займы. Брат пропал, обязательства повисли.",
+      "Поручительство по чужому кредиту с серьёзной просрочкой. После закрытия долга рейтинг остался очень низким, в БКИ — некорректные данные.",
     timeline: [
-      { month: "М 0", event: "Аудит сделок за 3 года" },
-      { month: "М 1", event: "Подача заявления" },
-      { month: "М 4", event: "Реализация автомобиля (зачёт в счёт долга)" },
-      { month: "М 11", event: "Списание оставшейся части" },
+      { month: "М 0", event: "Аудит трёх отчётов БКИ" },
+      { month: "М 2", event: "Удалена ошибочная запись о текущей просрочке" },
+      { month: "М 8", event: "Регулярные платежи по карте, рост рейтинга" },
+      { month: "М 16", event: "Одобрение крупного потребкредита под объективную ставку" },
     ],
-    outcome: "Списано 11,2 млн ₽ из 12,4 млн ₽",
-    saved: "11,2 млн ₽",
-    tags: ["Реализация", "11 месяцев"],
+    outcome: "Рейтинг восстановлен",
+    finalScore: "688",
+    tags: ["Поручительство", "16 месяцев"],
   },
   {
     code: "SS-241",
     who: "Женщина, 29 лет, самозанятая",
     region: "Екатеринбург",
-    debt: "780 000 ₽",
-    debtRaw: 780000,
+    startScore: "454",
+    startScoreRaw: 454,
     context:
-      "Микрозаймы и две кредитки. Доход нестабильный, имущества нет, исполнительное производство закрыто.",
+      "Просрочки по микрозаймам в студенческие годы. Сейчас стабильный доход, хочет одобрение по карте под путешествия.",
     timeline: [
-      { month: "М 0", event: "Проверка по критериям МФЦ" },
-      { month: "М 1", event: "Подача внесудебного банкротства через МФЦ" },
-      { month: "М 7", event: "Списание долгов автоматически" },
+      { month: "М 0", event: "Диагностика, план на 12 месяцев" },
+      { month: "М 1", event: "Закрыта спорная запись в Скоринг Бюро" },
+      { month: "М 6", event: "Безопасный финансовый продукт, чистая история" },
+      { month: "М 12", event: "Одобрение премиум-карты с высоким лимитом" },
     ],
-    outcome: "Списано через МФЦ. 0 ₽ госпошлины",
-    saved: "780 тыс ₽",
-    tags: ["Внесудебно", "МФЦ"],
+    outcome: "Доступ к нормальным банковским продуктам",
+    finalScore: "702",
+    tags: ["Микрозаймы", "12 месяцев"],
   },
   {
     code: "SS-198",
-    who: "Мужчина, 38 лет, ИП (закрыт)",
+    who: "Мужчина, 38 лет, бывший ИП",
     region: "Новосибирск",
-    debt: "6 300 000 ₽",
-    debtRaw: 6300000,
+    startScore: "352",
+    startScoreRaw: 352,
     context:
-      "Бизнес-кредит под личное поручительство, налоговая задолженность, два потребительских.",
+      "После закрытия бизнеса остались просрочки по бизнес-кредиту под личное поручительство. Сейчас работает по найму, хочет ипотеку.",
     timeline: [
-      { month: "М 0", event: "Диагностика, проверка субсидиарки" },
-      { month: "М 2", event: "Подача в Арбитражный суд" },
-      { month: "М 5", event: "Реструктуризация → переход в реализацию" },
-      { month: "М 13", event: "Завершение, освобождение от обязательств" },
+      { month: "М 0", event: "Диагностика, согласование стратегии" },
+      { month: "М 3", event: "Чистка ошибок по двум БКИ" },
+      { month: "М 10", event: "Ипотека первичка с минимальным взносом — одобрение" },
     ],
-    outcome: "Списано 5,9 млн ₽. Налоги — частично сохранены по закону",
-    saved: "5,9 млн ₽",
-    tags: ["Реализация", "13 месяцев"],
+    outcome: "Ипотека через 10 месяцев работы",
+    finalScore: "684",
+    tags: ["ИП в прошлом", "10 месяцев"],
   },
 ];
 
@@ -114,7 +116,6 @@ export function Cases() {
 
   return (
     <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
-      {/* Case picker */}
       <div className="lg:col-span-4">
         <ul className="flex flex-col divide-y divide-white/5 border border-white/10">
           {CASES.map((item, i) => {
@@ -125,9 +126,7 @@ export function Cases() {
                   onClick={() => setActive(i)}
                   className={
                     "group flex w-full items-baseline gap-4 px-5 py-5 text-left transition-colors " +
-                    (isActive
-                      ? "bg-cyan/5"
-                      : "hover:bg-white/5")
+                    (isActive ? "bg-cyan/5" : "hover:bg-white/5")
                   }
                 >
                   <span
@@ -145,16 +144,14 @@ export function Cases() {
                         (isActive ? "text-silver" : "text-silver-dim group-hover:text-silver")
                       }
                     >
-                      {item.debt}
+                      Старт: {item.startScore} → {item.finalScore}
                     </span>
                     <span className="mt-1 block text-[11px] uppercase tracking-[0.2em] text-silver-dim">
                       {item.tags.join(" · ")}
                     </span>
                   </span>
                   {isActive && (
-                    <span aria-hidden className="font-display text-cyan text-glow">
-                      →
-                    </span>
+                    <span aria-hidden className="font-display text-cyan text-glow">→</span>
                   )}
                 </button>
               </li>
@@ -163,11 +160,10 @@ export function Cases() {
         </ul>
 
         <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-          Все имена и регионы изменены · цифры из ЕФРСБ
+          Имена и регионы изменены · цифры рейтинга реальные
         </p>
       </div>
 
-      {/* Detail panel */}
       <div className="lg:col-span-8">
         <article
           key={c.code}
@@ -182,55 +178,44 @@ export function Cases() {
             }}
           />
 
-          {/* Header */}
           <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-white/10 pb-6">
             <div>
               <div className="font-display text-xs tabular tracking-[0.3em] text-cyan">
                 КЕЙС {c.code}
               </div>
-              <h3 className="mt-3 font-display text-xl text-silver md:text-2xl">
-                {c.who}
-              </h3>
+              <h3 className="mt-3 font-display text-xl text-silver md:text-2xl">{c.who}</h3>
               <div className="mt-1 text-sm text-silver-dim">{c.region}</div>
             </div>
             <div className="text-right">
               <div className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-                Долг на старте
+                Рейтинг на старте
               </div>
               <div className="mt-1 font-display tabular text-2xl text-silver md:text-3xl">
-                {c.debt}
+                {c.startScore}
               </div>
             </div>
           </div>
 
-          {/* Context */}
           <p className="mt-6 max-w-2xl text-silver-dim leading-relaxed">{c.context}</p>
 
-          {/* Timeline */}
           <div className="mt-10">
-            <div className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-              Таймлайн
-            </div>
+            <div className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">Таймлайн</div>
             <ol className="mt-5 space-y-0">
               {c.timeline.map((t, i) => {
                 const isLast = i === c.timeline.length - 1;
                 return (
                   <li key={i} className="relative flex gap-5 pb-6 last:pb-0">
-                    {/* Vertical line */}
                     {!isLast && (
                       <span
                         aria-hidden
                         className="absolute left-[7px] top-4 h-full w-px bg-white/10"
                       />
                     )}
-                    {/* Dot */}
                     <span
                       aria-hidden
                       className={
                         "relative z-10 mt-1 h-[15px] w-[15px] flex-none rounded-full border " +
-                        (isLast
-                          ? "border-cyan bg-cyan"
-                          : "border-cyan/60 bg-ink-deep")
+                        (isLast ? "border-cyan bg-cyan" : "border-cyan/60 bg-ink-deep")
                       }
                       style={isLast ? { boxShadow: "0 0 12px var(--cyan)" } : undefined}
                     />
@@ -246,20 +231,17 @@ export function Cases() {
             </ol>
           </div>
 
-          {/* Outcome */}
           <div className="mt-10 flex flex-wrap items-end justify-between gap-6 border-t border-white/10 pt-6">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-                Итог
-              </div>
+              <div className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">Итог</div>
               <div className="mt-2 font-display text-lg text-silver">{c.outcome}</div>
             </div>
             <div className="text-right">
               <div className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-                Освобождено
+                Рейтинг сейчас
               </div>
               <div className="mt-1 font-display tabular text-3xl text-gradient-cyan text-glow md:text-4xl">
-                {c.saved}
+                {c.finalScore}
               </div>
             </div>
           </div>

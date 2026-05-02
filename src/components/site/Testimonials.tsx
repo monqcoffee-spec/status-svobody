@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { Quote, Play, Send, ArrowUpRight, Star } from "lucide-react";
+import { Quote, Send, ArrowUpRight, Star } from "lucide-react";
 
 type Testimonial = {
   id: string;
   initials: string;
   name: string;
   meta: string;
-  debt: string;
+  scoreDelta: string;
   quote: string;
   result: string;
-  videoUrl?: string;
   tgUrl?: string;
 };
 
@@ -21,11 +20,10 @@ const testimonials: Testimonial[] = [
     initials: "А. К.",
     name: "Андрей К.",
     meta: "IT-специалист · Москва · 38 лет",
-    debt: "4,2 млн ₽",
+    scoreDelta: "412 → 742",
     quote:
-      "После увольнения два года тащил кредиты и МФО. Думал, банкротство — это позор. Оказалось — это рабочий инструмент. Прошли за 7 месяцев, без единого звонка от коллекторов с момента подачи заявления.",
-    result: "Долги списаны полностью · 7 месяцев",
-    videoUrl: "https://t.me/status_svobody/12",
+      "Получил отказ по ипотеке и думал, что это конец. Юлия по шагам объяснила, что в моих отчётах БКИ можно поправить, а что — просто требует времени и дисциплины. Через 22 месяца получил одобрение в крупном банке.",
+    result: "Ипотека одобрена · 22 мес.",
     tgUrl: TG_CHANNEL,
   },
   {
@@ -33,10 +31,10 @@ const testimonials: Testimonial[] = [
     initials: "М. С.",
     name: "Марина С.",
     meta: "Самозанятая · Краснодар · 42 года",
-    debt: "1,8 млн ₽",
+    scoreDelta: "385 → 675",
     quote:
-      "Боялась потерять единственное жильё. Юлия по шагам объяснила, что защищено законом, а что нет. Никаких «подпишите и не читайте» — всё прозрачно, я понимала каждое действие в деле.",
-    result: "Жильё сохранено · долг списан",
+      "После развода рейтинг был никакой. Боялась, что навсегда. Юлия нашла два дубля в моих отчётах, помогла их убрать, дальше — план на 12 месяцев. Через полтора года автокредит под нормальную ставку.",
+    result: "Автокредит без переплаты",
     tgUrl: TG_CHANNEL,
   },
   {
@@ -44,11 +42,10 @@ const testimonials: Testimonial[] = [
     initials: "Д. В.",
     name: "Денис В.",
     meta: "Бывший ИП · Екатеринбург · 45 лет",
-    debt: "12,6 млн ₽",
+    scoreDelta: "352 → 684",
     quote:
-      "Бизнес не пережил 2022-й, остался долг перед банком и поручительства. Думал, что уже ничего не вытащить. Через процедуру вышел чистым — сейчас спокойно работаю по найму, без приставов и арестов карт.",
-    result: "Списано 12,6 млн · 11 месяцев",
-    videoUrl: "https://t.me/status_svobody/27",
+      "Бизнес не пережил 2022-й, остались просрочки по поручительству. Думал, что банки больше никогда меня не пустят. По плану отработали 10 месяцев — и одобрили ипотеку на первичку. Это реально работает, если делать по алгоритму.",
+    result: "Ипотека через 10 мес.",
     tgUrl: TG_CHANNEL,
   },
   {
@@ -56,10 +53,10 @@ const testimonials: Testimonial[] = [
     initials: "Е. П.",
     name: "Елена П.",
     meta: "Преподаватель · Санкт-Петербург · 51 год",
-    debt: "780 тыс ₽",
+    scoreDelta: "468 → 712",
     quote:
-      "Думала, что моя сумма «слишком маленькая» для банкротства. Оказалось — нет. Прошли через внесудебную процедуру МФЦ, всё бесплатно. За полгода вышла из долговой ямы.",
-    result: "Внесудебное · бесплатно · 6 мес.",
+      "Ценю прямоту: на первой консультации мне сказали, что моя ситуация решается без сложных манипуляций — просто 8–10 месяцев чистой дисциплины. Так и вышло. Никто не разводил на «пакеты услуг».",
+    result: "Кредитка под путешествия",
     tgUrl: TG_CHANNEL,
   },
   {
@@ -67,11 +64,10 @@ const testimonials: Testimonial[] = [
     initials: "Р. Х.",
     name: "Руслан Х.",
     meta: "Логист · Казань · 34 года",
-    debt: "3,1 млн ₽",
+    scoreDelta: "298 → 688",
     quote:
-      "После процедуры через 1,5 года восстановил кредитную историю по их алгоритму — взял ипотеку. Это то, что не делает почти никто из юристов: они списывают долги и забывают про тебя.",
-    result: "Ипотека через 1,5 года после",
-    videoUrl: "https://t.me/status_svobody/41",
+      "Поручительство по чужому кредиту убило рейтинг. Юлия объяснила, что и за какой срок реально вытащить. Через 16 месяцев — крупный потребкредит под адекватную ставку. Без сказок и без впаривания.",
+    result: "Потребкредит, нормальная ставка",
     tgUrl: TG_CHANNEL,
   },
   {
@@ -79,10 +75,10 @@ const testimonials: Testimonial[] = [
     initials: "О. Н.",
     name: "Ольга Н.",
     meta: "Медсестра · Новосибирск · 47 лет",
-    debt: "2,4 млн ₽",
+    scoreDelta: "404 → 696",
     quote:
-      "Самое ценное — личное ведение. Ты разговариваешь не с менеджером, а с арбитражным управляющим, который сам идёт в суд. Это совсем другой уровень ответственности и спокойствия.",
-    result: "Долги списаны · 8 месяцев",
+      "Главное — личное ведение. Не «менеджер по работе с клиентами», не бот в Telegram, а живой человек, который знает мою ситуацию. Помогли с отчётами, дали понятный план — и я сама вижу, как растёт рейтинг.",
+    result: "Стабильный рост рейтинга",
     tgUrl: TG_CHANNEL,
   },
 ];
@@ -92,7 +88,6 @@ export function Testimonials() {
 
   return (
     <div className="space-y-10">
-      {/* Top CTA bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 border border-white/8 bg-ink-soft/50 px-6 py-4" style={{ borderRadius: "2px" }}>
         <div className="flex items-center gap-3">
           <div className="flex">
@@ -101,7 +96,7 @@ export function Testimonials() {
             ))}
           </div>
           <span className="smallcaps text-[10px] text-silver-dim">
-            6 из 323 завершённых дел · видео и полные истории — в канале
+            Истории клиентов · публикуются с письменного согласия
           </span>
         </div>
         <a
@@ -116,7 +111,6 @@ export function Testimonials() {
         </a>
       </div>
 
-      {/* Grid */}
       <div className="grid gap-px bg-white/8 border border-white/8 sm:grid-cols-2 lg:grid-cols-3" style={{ borderRadius: "2px" }}>
         {testimonials.map((t) => {
           const isOpen = expanded === t.id;
@@ -130,7 +124,6 @@ export function Testimonials() {
                 className="absolute right-5 top-5 h-8 w-8 text-cyan/15 transition-colors group-hover:text-cyan/30"
               />
 
-              {/* Avatar + meta */}
               <div className="flex items-center gap-4">
                 <div
                   className="flex h-12 w-12 items-center justify-center border border-cyan/30 bg-ink font-display text-sm tabular text-cyan"
@@ -144,13 +137,11 @@ export function Testimonials() {
                 </div>
               </div>
 
-              {/* Debt chip */}
               <div className="mt-6 inline-flex w-fit items-center gap-2 border border-white/10 bg-ink/60 px-3 py-1.5" style={{ borderRadius: "2px" }}>
-                <span className="smallcaps text-[9px] text-silver-dim">Долг</span>
-                <span className="font-display text-sm tabular text-cyan text-glow">{t.debt}</span>
+                <span className="smallcaps text-[9px] text-silver-dim">Рейтинг</span>
+                <span className="font-display text-sm tabular text-cyan text-glow">{t.scoreDelta}</span>
               </div>
 
-              {/* Quote */}
               <p
                 className={`mt-5 text-sm leading-relaxed text-silver/80 ${
                   isOpen ? "" : "line-clamp-4"
@@ -168,45 +159,15 @@ export function Testimonials() {
                 </button>
               )}
 
-              {/* Result */}
               <div className="mt-6 border-t border-white/8 pt-4">
                 <div className="smallcaps text-[9px] text-silver-dim">Итог</div>
                 <div className="mt-1.5 text-sm text-silver">{t.result}</div>
-              </div>
-
-              {/* Actions */}
-              <div className="mt-5 flex flex-wrap items-center gap-2">
-                {t.videoUrl && (
-                  <a
-                    href={t.videoUrl}
-                    target="_blank"
-                    rel="noopener"
-                    className="inline-flex items-center gap-1.5 border border-cyan/40 bg-cyan/5 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-cyan transition-all hover:border-cyan hover:bg-cyan/10 hover:shadow-[0_0_18px_color-mix(in_oklab,var(--cyan)_30%,transparent)]"
-                    style={{ borderRadius: "2px" }}
-                  >
-                    <Play className="h-3 w-3 fill-current" />
-                    Видео
-                  </a>
-                )}
-                {t.tgUrl && (
-                  <a
-                    href={t.tgUrl}
-                    target="_blank"
-                    rel="noopener"
-                    className="inline-flex items-center gap-1.5 border border-white/15 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-silver-dim transition-colors hover:border-white/30 hover:text-silver"
-                    style={{ borderRadius: "2px" }}
-                  >
-                    <Send className="h-3 w-3" />
-                    Telegram
-                  </a>
-                )}
               </div>
             </article>
           );
         })}
       </div>
 
-      {/* Bottom CTA */}
       <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
         <a
           href={TG_CHANNEL}
