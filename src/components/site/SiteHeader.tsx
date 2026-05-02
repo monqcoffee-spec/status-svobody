@@ -6,9 +6,8 @@ import { Logo } from "./Logo";
 const nav = [
   { to: "/", label: "Главная" },
   { to: "/about", label: "О бренде" },
-  { to: "/services/bankruptcy", label: "Банкротство" },
+  { to: "/services/diagnostic", label: "Финансовая диагностика" },
   { to: "/services/credit-history", label: "Кредитная история" },
-  { to: "/intensive", label: "Интенсив" },
   { to: "/contacts", label: "Контакты" },
 ] as const;
 
@@ -43,7 +42,7 @@ export function SiteHeader() {
               Статус<span className="text-cyan"> </span>Свободы
             </div>
             <div className="text-[9px] tracking-[0.42em] text-silver-dim uppercase mt-0.5">
-              Status Svobody · Legal-Tech
+              Кредитная история · Финансы
             </div>
           </div>
         </Link>
@@ -81,7 +80,7 @@ export function SiteHeader() {
           style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 20%, transparent)" }}
         >
           <span className="relative h-1.5 w-1.5 rounded-full bg-cyan animate-pulse-glow" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
-          Запустить
+          Разбор КИ
         </a>
 
         <button
@@ -123,7 +122,7 @@ export function SiteHeader() {
               rel="noopener"
               className="mt-6 btn-cyan rounded-sm"
             >
-              Запустить интенсив
+              Записаться на разбор КИ
             </a>
           </nav>
         </div>
