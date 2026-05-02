@@ -83,7 +83,7 @@ function Hero() {
         style={{ background: "linear-gradient(180deg, transparent 0%, var(--ink, #000) 100%)" }}
       />
 
-      <div className="container-tight relative flex min-h-[70svh] flex-col items-center justify-between pt-1 pb-8 md:min-h-[80svh] md:justify-center md:pt-10 md:pb-20">
+      <div className="container-tight relative flex flex-col items-center justify-start pt-1 pb-10 md:min-h-[80svh] md:justify-center md:pt-10 md:pb-20">
         <h1 className="sr-only">Статус Свободы — восстановление кредитной истории с Юлией Арминой</h1>
 
         <div className="reveal reveal-delay-1 relative w-full">
