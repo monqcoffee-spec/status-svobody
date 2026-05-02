@@ -3,6 +3,7 @@ import { ArrowRight, Check, X } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import aboutImg from "@/assets/about-transformation.jpg";
 
 export const Route = createFileRoute("/services/bankruptcy")({
@@ -180,7 +181,13 @@ function BankruptcyPage() {
           <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
             Узнать стоимость моего сопровождения <ArrowRight className="h-4 w-4" />
           </a>
-          <Link to="/contacts" className="btn-ghost rounded-sm">Связаться лично</Link>
+          <LeadFormDialog
+            source="bankruptcy"
+            headline="Расчёт стоимости — на ваших данных"
+            trigger={
+              <button type="button" className="btn-ghost rounded-sm">Оставить заявку</button>
+            }
+          />
         </div>
       </Section>
     </SiteLayout>
