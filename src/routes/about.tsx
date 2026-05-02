@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
+import aboutImg from "@/assets/about-transformation.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -31,6 +32,15 @@ function AboutPage() {
       {/* Hero */}
       <section className="relative -mt-20 overflow-hidden bg-aurora pt-32 pb-24 md:pt-40 md:pb-32">
         <ParticleField density={60} />
+        <img
+          src={aboutImg}
+          alt=""
+          aria-hidden
+          width={1280}
+          height={1280}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40"
+          style={{ maskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 50% 50%, black 20%, transparent 80%)" }}
+        />
         <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-40" />
         <div className="container-tight relative text-center">
           <Eyebrow>О бренде</Eyebrow>

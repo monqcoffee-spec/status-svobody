@@ -3,6 +3,7 @@ import { Phone, Send, MessageCircle, MapPin, Building2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import featherImg from "@/assets/feather-light.jpg";
 
 export const Route = createFileRoute("/contacts")({
   head: () => ({
@@ -28,6 +29,16 @@ function ContactsPage() {
     <SiteLayout>
       <section className="relative -mt-20 overflow-hidden bg-aurora pt-32 pb-20 md:pt-40 md:pb-28">
         <ParticleField density={50} />
+        <img
+          src={featherImg}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          width={1080}
+          height={1920}
+          className="pointer-events-none absolute right-0 top-0 h-full w-1/2 object-cover object-center opacity-40"
+          style={{ maskImage: "linear-gradient(to left, black 20%, transparent 95%)", WebkitMaskImage: "linear-gradient(to left, black 20%, transparent 95%)" }}
+        />
         <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
         <div className="container-tight relative">
           <Eyebrow>Контакты</Eyebrow>

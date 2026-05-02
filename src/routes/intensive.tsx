@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import featherImg from "@/assets/feather-light.jpg";
 
 export const Route = createFileRoute("/intensive")({
   head: () => ({
@@ -37,6 +38,16 @@ function IntensivePage() {
     <SiteLayout>
       <section className="relative -mt-20 min-h-[80svh] overflow-hidden bg-aurora pt-32 pb-24 md:pt-40">
         <ParticleField density={80} />
+        <img
+          src={featherImg}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          width={1080}
+          height={1920}
+          className="pointer-events-none absolute right-0 top-0 h-full w-full object-cover object-right opacity-50 md:w-2/3"
+          style={{ maskImage: "linear-gradient(to left, black 30%, transparent 90%)", WebkitMaskImage: "linear-gradient(to left, black 30%, transparent 90%)" }}
+        />
         <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
         <div
           aria-hidden

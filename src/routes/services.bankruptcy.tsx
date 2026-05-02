@@ -3,6 +3,7 @@ import { ArrowRight, Check, X } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import aboutImg from "@/assets/about-transformation.jpg";
 
 export const Route = createFileRoute("/services/bankruptcy")({
   head: () => ({
@@ -29,6 +30,16 @@ function BankruptcyPage() {
     <SiteLayout>
       <section className="relative -mt-20 overflow-hidden bg-aurora pt-32 pb-20 md:pt-40 md:pb-28">
         <ParticleField density={50} />
+        <img
+          src={aboutImg}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          width={1280}
+          height={1280}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
+          style={{ maskImage: "radial-gradient(ellipse 80% 70% at 60% 50%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 80% 70% at 60% 50%, black, transparent 80%)" }}
+        />
         <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
         <div className="container-tight relative">
           <Eyebrow>Услуга 01</Eyebrow>

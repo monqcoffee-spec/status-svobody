@@ -9,7 +9,7 @@ export function Logo({ className, size = 40 }: { className?: string; size?: numb
       width={size}
       height={size}
       className={cn("object-contain", className)}
-      style={{ filter: "drop-shadow(0 0 12px rgba(120, 220, 240, 0.45))" }}
+      style={{ filter: "drop-shadow(0 0 14px rgba(201, 166, 107, 0.45))" }}
     />
   );
 }

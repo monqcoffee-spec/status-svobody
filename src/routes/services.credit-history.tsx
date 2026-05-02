@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import particlesRise from "@/assets/particles-rise.jpg";
 
 export const Route = createFileRoute("/services/credit-history")({
   head: () => ({
@@ -44,6 +45,16 @@ function CreditPage() {
     <SiteLayout>
       <section className="relative -mt-20 overflow-hidden bg-aurora pt-32 pb-20 md:pt-40 md:pb-28">
         <ParticleField density={50} />
+        <img
+          src={particlesRise}
+          alt=""
+          aria-hidden
+          loading="lazy"
+          width={1920}
+          height={1080}
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-35"
+          style={{ maskImage: "radial-gradient(ellipse 80% 80% at 70% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 70% 60%, black, transparent 80%)" }}
+        />
         <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
         <div className="container-tight relative">
           <Eyebrow>Услуга 02 · уникальная</Eyebrow>

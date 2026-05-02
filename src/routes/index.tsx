@@ -4,6 +4,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
+import heroLiberation from "@/assets/hero-liberation.jpg";
+import particlesRise from "@/assets/particles-rise.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -47,6 +49,17 @@ function Hero() {
     <section className="relative -mt-20 min-h-[100svh] overflow-hidden bg-aurora pt-20">
       {/* Particle field background */}
       <ParticleField density={90} />
+
+      {/* Airy liberation imagery */}
+      <img
+        src={heroLiberation}
+        alt=""
+        aria-hidden
+        width={1920}
+        height={1080}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-screen"
+        style={{ maskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%)" }}
+      />
 
       {/* Grid pattern */}
       <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-50" />
@@ -331,6 +344,16 @@ function Technology() {
 function BigNumber() {
   return (
     <Section variant="default">
+      <img
+        src={particlesRise}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        width={1920}
+        height={1080}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
+        style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
+      />
       <div className="text-center">
         <SectionLabel n="04" title="Главная метрика" />
 
