@@ -3,7 +3,6 @@ import { ArrowUpRight, Cpu, Shield, Zap, Eye, Layers, GitBranch } from "lucide-r
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
-import { Logo } from "@/components/site/Logo";
 import { BankruptcyCalculator } from "@/components/site/BankruptcyCalculator";
 import { Cases } from "@/components/site/Cases";
 import { Testimonials } from "@/components/site/Testimonials";
