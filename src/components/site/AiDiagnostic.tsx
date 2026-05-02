@@ -11,6 +11,18 @@ import {
   ArrowUpRight,
   Loader2,
 } from "lucide-react";
+function scrollToContact() {
+  const el = document.getElementById("contact");
+  if (!el) return;
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+  // brief highlight pulse so it's clear the user landed in the right place
+  el.classList.remove("is-flashing");
+  // force reflow to restart the animation if it was already applied
+  void el.offsetWidth;
+  el.classList.add("is-flashing");
+  window.setTimeout(() => el.classList.remove("is-flashing"), 1800);
+}
+
 import {
   saveConsultation,
   submitLeadWithConsultation,
@@ -393,15 +405,15 @@ function VerdictPanel({
         </div>
         {!verdict.hot && (
           <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="https://t.me/+example"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-ghost inline-flex rounded-sm"
+            <button
+              type="button"
+              onClick={scrollToContact}
+              className="btn-cyan group inline-flex rounded-sm"
             >
               <MessageSquare className="h-4 w-4" />
-              <span>Спросить в Telegram</span>
-            </a>
+              <span>Уточнить у юриста</span>
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </button>
             <button onClick={onReset} className="btn-ghost rounded-sm">
               <RotateCcw className="h-4 w-4" />
               <span>Пройти заново</span>
