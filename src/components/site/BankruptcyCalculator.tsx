@@ -222,15 +222,88 @@ export function BankruptcyCalculator() {
       style={{ borderRadius: "2px" }}
     >
       {/* Top progress */}
-      <div className="relative h-px w-full bg-white/5">
+      <div className="relative h-1 w-full overflow-hidden bg-white/5">
+        {/* base track shimmer */}
         <div
-          className="h-full bg-cyan transition-all duration-500"
+          aria-hidden
+          className="absolute inset-0 opacity-40"
           style={{
-            width: `${progress}%`,
-            boxShadow: "0 0 12px var(--cyan)",
+            background:
+              "linear-gradient(90deg, transparent, color-mix(in oklab, var(--cyan) 18%, transparent), transparent)",
+            backgroundSize: "200% 100%",
+            animation: "progress-shimmer 3.2s linear infinite",
           }}
         />
+        {/* fill */}
+        <div
+          className="relative h-full bg-gradient-to-r from-cyan/70 via-cyan to-cyan-glow"
+          style={{
+            width: `${progress}%`,
+            transition: "width 700ms cubic-bezier(0.22, 1, 0.36, 1)",
+            boxShadow: "0 0 14px color-mix(in oklab, var(--cyan) 70%, transparent)",
+          }}
+        >
+          {/* leading edge glow */}
+          <span
+            aria-hidden
+            className="absolute right-0 top-1/2 h-3 w-3 -translate-y-1/2 translate-x-1/2 rounded-full bg-cyan"
+            style={{
+              boxShadow:
+                "0 0 14px var(--cyan), 0 0 28px color-mix(in oklab, var(--cyan) 60%, transparent)",
+              opacity: progress > 0 ? 1 : 0,
+              transition: "opacity 300ms ease",
+            }}
+          />
+          {/* moving sheen on the fill */}
+          <span
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%)",
+              backgroundSize: "200% 100%",
+              animation: "progress-sheen 1.8s linear infinite",
+              mixBlendMode: "overlay",
+            }}
+          />
+        </div>
       </div>
+
+      {/* Step pips */}
+      <div className="pointer-events-none absolute inset-x-0 top-1 z-10 flex justify-between px-[2px]">
+        {Array.from({ length: total }).map((_, i) => {
+          const reached = done || i <= step;
+          return (
+            <span
+              key={i}
+              aria-hidden
+              className="h-2 w-2 -translate-y-1/2 rounded-full border"
+              style={{
+                borderColor: reached
+                  ? "var(--cyan)"
+                  : "color-mix(in oklab, white 12%, transparent)",
+                background: reached ? "var(--cyan)" : "transparent",
+                boxShadow: reached
+                  ? "0 0 10px color-mix(in oklab, var(--cyan) 70%, transparent)"
+                  : "none",
+                transition:
+                  "background-color 400ms ease, box-shadow 400ms ease, border-color 400ms ease",
+              }}
+            />
+          );
+        })}
+      </div>
+
+      <style>{`
+        @keyframes progress-shimmer {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+        @keyframes progress-sheen {
+          0% { background-position: -100% 0; }
+          100% { background-position: 200% 0; }
+        }
+      `}</style>
 
       <div className="grid gap-0 md:grid-cols-12">
         {/* Side panel */}
