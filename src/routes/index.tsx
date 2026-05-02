@@ -552,7 +552,7 @@ function Trust() {
 /* ───────────────────── FINAL CTA ───────────────────── */
 function FinalCTA() {
   return (
-    <section className="relative overflow-hidden bg-aurora py-32 md:py-40">
+    <section id="contact" className="relative overflow-hidden bg-aurora py-32 md:py-40 scroll-mt-24">
       <ParticleField density={50} />
       <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
 
