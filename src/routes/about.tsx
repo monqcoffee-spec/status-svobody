@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, Sparkles, ShieldCheck, Workflow } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
@@ -10,17 +10,17 @@ import aboutImg from "@/assets/about-transformation.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "О бренде — STATUS SVOBODY · Legal-tech нового поколения" },
+      { title: "О бренде — Статус Свободы · Финансовый консультант" },
       {
         name: "description",
         content:
-          "STATUS SVOBODY — бренд освобождения от долгов. 5 лет в реестре арбитражных управляющих, 323 завершённые процедуры, 888 миллионов списанных долгов.",
+          "Статус Свободы — бренд работы с кредитной историей и личными финансами. Прямой контакт с консультантом, без колл-центров и посредников.",
       },
-      { property: "og:title", content: "О бренде STATUS SVOBODY" },
+      { property: "og:title", content: "О бренде Статус Свободы" },
       {
         property: "og:description",
         content:
-          "Превращение тяжести долгов в ясность финансовой свободы. Технологичная процедура банкротства по 127-ФЗ.",
+          "Превращение тяжести долгов в ясность финансовой свободы. Технологичный подход к работе с кредитной историей.",
       },
     ],
   }),
@@ -30,7 +30,6 @@ export const Route = createFileRoute("/about")({
 function AboutPage() {
   return (
     <SiteLayout>
-      {/* Hero */}
       <section className="relative -mt-20 overflow-hidden bg-aurora pt-32 pb-24 md:pt-40 md:pb-32">
         <ParticleField density={60} />
         <img
@@ -46,17 +45,16 @@ function AboutPage() {
         <div className="container-tight relative text-center">
           <Eyebrow>О бренде</Eyebrow>
           <h1 className="display mt-8 text-[clamp(2.5rem,8vw,6rem)] text-gradient-cyan text-glow">
-            Status Svobody
+            Статус Свободы
           </h1>
           <p className="mx-auto mt-8 max-w-2xl text-lg text-silver/75">
-            Legal-tech бренд, выросший из практики арбитражного управляющего.
-            Превращаем тяжесть долгов в&nbsp;ясность финансовой свободы — технологично,
-            прозрачно, законно.
+            Финансовый консультант, специализация — кредитная история и работа
+            с долгами. Превращаем тяжесть финансовых записей в&nbsp;ясный план
+            действий — прозрачно, законно, без обещаний «волшебных удалений».
           </p>
         </div>
       </section>
 
-      {/* Founder card */}
       <Section variant="darker">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
@@ -72,56 +70,54 @@ function AboutPage() {
               />
             </div>
             <div className="mt-8 text-center lg:text-left">
-              <div className="smallcaps text-cyan">Основатель и арбитражный управляющий</div>
+              <div className="smallcaps text-cyan">Основатель и финансовый консультант</div>
               <div className="mt-3 font-display text-2xl text-silver">Юлия Армина</div>
-              <div className="mt-1 text-sm text-silver-dim">Реестр АУ № 20068 · с 17.11.2020</div>
+              <div className="mt-1 text-sm text-silver-dim">Опыт работы с БКИ и сложными финансовыми ситуациями с 2020 года</div>
             </div>
           </div>
 
           <div className="lg:col-span-8 space-y-6 text-lg leading-relaxed text-silver/80">
             <p>
-              <span className="text-cyan italic">STATUS SVOBODY</span> — это не юридическая
-              фирма. Это бренд новой формации: арбитражная процедура по 127-ФЗ, упакованная
-              в технологичный продукт с измеримыми метриками.
+              <span className="text-cyan italic">Статус Свободы</span> — это не «юридическая
+              контора с конвейером». Это персональное консультирование: одна точка ответственности,
+              цифровой контур и измеримый результат по вашей кредитной истории.
             </p>
             <p>
-              За пять лет — <span className="text-silver">323 завершённые процедуры</span> банкротства
-              физических лиц. Сегодня в работе <span className="text-silver">50 активных дел</span>.
-              Сумма законно списанных долгов — <span className="text-cyan">888 миллионов рублей</span>.
-              Каждое дело завершено решением арбитражного суда и опубликовано в ЕФРСБ.
+              За пять лет я помогла сотням людей привести в порядок отчёты в БКИ,
+              убрать ошибки и вернуть нормальный кредитный рейтинг. Сегодня клиенты
+              получают одобрение по ипотеке через 1,5–3 года после старта работы.
             </p>
             <p className="text-silver-dim">
-              Здесь нет менеджеров и колл-центров. Один арбитражный управляющий,
-              цифровой контур, прямой контакт. Освобождение от долгов как продукт,
-              а не услуга «по старинке».
+              Здесь нет менеджеров и колл-центров. Один консультант, прямой контакт,
+              честный диалог. Если ваша задача решается без меня — я скажу об этом
+              на первой встрече, бесплатно.
             </p>
           </div>
         </div>
       </Section>
 
-      {/* Pillars */}
       <Section variant="default">
         <SectionLabel n="01" title="Принципы" />
         <H2 className="mt-8 max-w-3xl">
-          Что отличает <span className="text-cyan italic">Status Svobody</span>
+          Что отличает <span className="text-cyan italic">Статус Свободы</span>
         </H2>
 
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {[
             {
               icon: <ShieldCheck className="h-6 w-6" />,
-              t: "Личная ответственность",
-              d: "Имущественная ответственность через СРО. Не «команда», не «партнёры» — конкретный арбитражный управляющий.",
+              t: "Личная работа",
+              d: "Никаких передач между менеджерами. С вами от первой консультации до результата — один человек.",
             },
             {
               icon: <Workflow className="h-6 w-6" />,
-              t: "Технологичный контур",
-              d: "Telegram-бот, цифровая диагностика, прозрачный трекинг процедуры. Виден каждый этап.",
+              t: "Цифровой контур",
+              d: "Telegram-связь, прозрачный план действий, регулярный мониторинг отчётов в трёх БКИ.",
             },
             {
               icon: <Sparkles className="h-6 w-6" />,
               t: "Честность на входе",
-              d: "Если процедура вам не подходит — скажу сразу и бесплатно. Никаких 100% гарантий списания.",
+              d: "Никаких «100% удалим всё за день». Объясняю, как работают БКИ на самом деле и какой реалистичный горизонт.",
             },
           ].map((p) => (
             <div key={p.t} className="group border border-white/8 bg-ink-soft/60 p-8 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
@@ -135,18 +131,18 @@ function AboutPage() {
         </div>
       </Section>
 
-      {/* CTA */}
       <Section variant="glow">
         <div className="text-center">
           <H2 className="max-w-3xl mx-auto">
-            Готовы получить <span className="text-cyan italic text-glow">свой статус свободы?</span>
+            Готовы вернуть <span className="text-cyan italic text-glow">свой рейтинг?</span>
           </H2>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
-              Запустить интенсив <ArrowRight className="h-4 w-4" />
+              Написать в Telegram <ArrowRight className="h-4 w-4" />
             </a>
             <LeadFormDialog
               source="about"
+              headline="Запись на разбор кредитной истории"
               trigger={
                 <button type="button" className="btn-ghost rounded-sm">Оставить заявку</button>
               }
