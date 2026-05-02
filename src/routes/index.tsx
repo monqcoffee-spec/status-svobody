@@ -102,13 +102,24 @@ function Hero() {
         {/* Portrait — blended into pure black, no frame, no text */}
         <div className="reveal reveal-delay-1 relative w-full">
           <div className="relative mx-auto w-fit">
+            {/* Soft warm halo behind */}
             <div
               aria-hidden
               className="absolute inset-0 -z-10 animate-pulse-glow"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 45%, color-mix(in oklab, var(--cyan) 22%, transparent) 0%, transparent 65%)",
-                filter: "blur(60px)",
+                  "radial-gradient(ellipse 60% 55% at 50% 42%, color-mix(in oklab, var(--cyan) 20%, transparent) 0%, transparent 70%)",
+                filter: "blur(70px)",
+              }}
+            />
+            {/* Floor shadow — anchors portrait to ground */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-24"
+              style={{
+                background:
+                  "radial-gradient(ellipse 50% 100% at 50% 100%, rgba(0,0,0,0.85) 0%, transparent 70%)",
+                filter: "blur(8px)",
               }}
             />
             <img
@@ -119,10 +130,11 @@ function Hero() {
               className="relative z-10 mx-auto h-[62svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
               style={{
                 maskImage:
-                  "radial-gradient(ellipse 70% 78% at 50% 48%, black 50%, transparent 100%)",
+                  "radial-gradient(ellipse 78% 88% at 50% 46%, black 38%, rgba(0,0,0,0.6) 70%, transparent 100%)",
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 70% 78% at 50% 48%, black 50%, transparent 100%)",
-                filter: "drop-shadow(0 24px 60px rgba(201,166,107,0.16))",
+                  "radial-gradient(ellipse 78% 88% at 50% 46%, black 38%, rgba(0,0,0,0.6) 70%, transparent 100%)",
+                filter:
+                  "drop-shadow(0 30px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 80px rgba(201,166,107,0.10))",
               }}
             />
           </div>
