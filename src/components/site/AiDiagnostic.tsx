@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useServerFn } from "@tanstack/react-start";
 import { toast } from "sonner";
 import {
@@ -83,8 +83,6 @@ export function AiDiagnostic() {
   const [messages, setMessages] = useState<ChatMsg[]>([]);
   const [stage, setStage] = useState<Stage>({ kind: "intro" });
   const saveConsultationFn = useServerFn(saveConsultation);
-  const stageRef = useRef(stage);
-  stageRef.current = stage;
 
   async function startOrAdvance(history: ChatMsg[], qIndex: number) {
     setStage({ kind: "loading", qIndex });
