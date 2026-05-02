@@ -14,6 +14,53 @@ export type Database = {
   }
   public: {
     Tables: {
+      ai_consultations: {
+        Row: {
+          created_at: string
+          hot: boolean
+          id: string
+          lead_id: string | null
+          recommendation: string | null
+          source: string
+          transcript: Json
+          user_agent: string | null
+          verdict_summary: string | null
+          verdict_title: string | null
+        }
+        Insert: {
+          created_at?: string
+          hot?: boolean
+          id?: string
+          lead_id?: string | null
+          recommendation?: string | null
+          source?: string
+          transcript?: Json
+          user_agent?: string | null
+          verdict_summary?: string | null
+          verdict_title?: string | null
+        }
+        Update: {
+          created_at?: string
+          hot?: boolean
+          id?: string
+          lead_id?: string | null
+          recommendation?: string | null
+          source?: string
+          transcript?: Json
+          user_agent?: string | null
+          verdict_summary?: string | null
+          verdict_title?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ai_consultations_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "lead_requests"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       lead_requests: {
         Row: {
           created_at: string
