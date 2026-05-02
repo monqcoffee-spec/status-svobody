@@ -2,6 +2,7 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
+import { ThemeToggle } from "./ThemeToggle";
 
 const nav = [
   { to: "/", label: "Главная" },
@@ -75,24 +76,28 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <a
-          href="https://t.me/status_svobody_bot"
-          target="_blank"
-          rel="noopener"
-            className="hidden lg:inline-flex h-11 items-center gap-2.5 px-5 text-[10px] font-medium tracking-[0.28em] uppercase text-cyan-glow border border-cyan/40 bg-cyan/5 hover:bg-cyan/15 hover:border-cyan transition-all rounded-sm"
-          style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 20%, transparent)" }}
-        >
-          <span className="relative h-1.5 w-1.5 rounded-full bg-cyan animate-pulse-glow" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
-            Консультация
-        </a>
+        <div className="flex items-center gap-2 md:gap-3">
+          <ThemeToggle className="h-10 w-10 md:h-11 md:w-11" />
 
-        <button
-          aria-label="Меню"
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden inline-flex h-11 w-11 items-center justify-center border border-white/10 text-silver hover:border-cyan/50 hover:text-cyan rounded-sm"
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </button>
+          <a
+            href="https://t.me/status_svobody_bot"
+            target="_blank"
+            rel="noopener"
+            className="hidden lg:inline-flex h-11 items-center gap-2.5 px-5 text-[10px] font-medium tracking-[0.28em] uppercase text-cyan-glow border border-cyan/40 bg-cyan/5 hover:bg-cyan/15 hover:border-cyan transition-all rounded-sm"
+            style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 20%, transparent)" }}
+          >
+            <span className="relative h-1.5 w-1.5 rounded-full bg-cyan animate-pulse-glow" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
+            Консультация
+          </a>
+
+          <button
+            aria-label="Меню"
+            onClick={() => setOpen((v) => !v)}
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center border border-cyan/20 text-silver hover:border-cyan/60 hover:text-cyan rounded-sm transition-colors"
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
