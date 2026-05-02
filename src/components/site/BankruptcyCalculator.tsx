@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { z } from "zod";
-import { ArrowRight, ArrowLeft, RotateCcw, Check, AlertTriangle, X, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowLeft, RotateCcw, Check, AlertTriangle, X, Sparkles, MessageSquare } from "lucide-react";
 
 /**
  * Калькулятор «Подходит ли мне банкротство».
@@ -388,6 +388,20 @@ function VerdictView({ verdict, onReset }: { verdict: Verdict; onReset: () => vo
         >
           {verdict.cta.primary}
           <ArrowRight className="h-4 w-4" />
+        </a>
+        <a
+          href="#contact"
+          className="btn-ghost rounded-sm"
+          onClick={(e) => {
+            const el = document.getElementById("contact");
+            if (el) {
+              e.preventDefault();
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          }}
+        >
+          <MessageSquare className="h-4 w-4 text-cyan" />
+          Уточнить у юриста
         </a>
         <button type="button" onClick={onReset} className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-silver-dim hover:text-cyan transition-colors">
           <RotateCcw className="h-3.5 w-3.5" /> Пройти заново
