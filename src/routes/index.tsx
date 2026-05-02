@@ -386,7 +386,7 @@ function BigNumber() {
         style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
       />
       <div className="text-center">
-        <SectionLabel n="04" title="Главная метрика" />
+        <SectionLabel n="05" title="Главная метрика" />
 
         <div className="relative mt-14">
           <div
@@ -432,7 +432,7 @@ function Process() {
 
   return (
     <Section variant="darker">
-      <SectionLabel n="05" title="Процесс" />
+      <SectionLabel n="06" title="Процесс" />
       <H2 className="mt-8 max-w-3xl">
         Четыре шага <span className="text-cyan italic">от диагностики до свободы</span>
       </H2>
@@ -465,7 +465,7 @@ function Trust() {
     <Section variant="default">
       <div className="flex items-end justify-between gap-8 flex-wrap">
         <div>
-          <SectionLabel n="06" title="Прозрачность" />
+          <SectionLabel n="07" title="Прозрачность" />
           <H2 className="mt-8 max-w-2xl">
             Все данные открыты <br />
             и <span className="text-cyan italic text-glow">проверяемы.</span>
