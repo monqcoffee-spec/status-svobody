@@ -66,13 +66,23 @@ function IntensivePage() {
           </p>
 
           <div className="mt-12 flex flex-wrap items-center gap-4">
-            <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan group rounded-sm">
-              <span>Открыть первый урок</span>
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-            </a>
-            <a href="/about" className="text-sm text-silver-dim hover:text-cyan transition-colors">
-              Узнать больше о бренде →
-            </a>
+            <div className="flex flex-col gap-2">
+              <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan group rounded-sm">
+                <span>Открыть первый урок</span>
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+              </a>
+              <span className="text-[11px] tracking-[0.2em] uppercase text-silver-dim">
+                Бот ответит за секунду · 24/7
+              </span>
+            </div>
+            <div className="flex flex-col gap-2">
+              <a href="/about" className="text-sm text-silver hover:text-cyan transition-colors">
+                Узнать больше о бренде →
+              </a>
+              <span className="text-[11px] tracking-[0.2em] uppercase text-silver-dim">
+                2 минуты на чтение
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -126,9 +136,14 @@ function IntensivePage() {
             Один шаг отделяет вас от понимания процедуры. Бот ответит за секунду —
             и проведёт по всему пути.
           </p>
-          <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="mt-10 btn-cyan rounded-sm">
-            Открыть первый урок <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
+              Открыть первый урок <ArrowRight className="h-4 w-4" />
+            </a>
+            <span className="text-[11px] tracking-[0.2em] uppercase text-silver-dim">
+              Старт за 3 секунды · без звонков
+            </span>
+          </div>
         </div>
       </Section>
     </SiteLayout>
