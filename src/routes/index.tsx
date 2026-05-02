@@ -374,6 +374,30 @@ function CalculatorSection() {
   );
 }
 
+/* ───────────────────── CASES ───────────────────── */
+function CasesSection() {
+  return (
+    <Section variant="default" id="cases">
+      <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          <SectionLabel n="05" title="Кейсы" />
+          <H2 className="mt-8">
+            Реальные дела. <span className="text-cyan italic text-glow">Реальные цифры.</span>
+          </H2>
+        </div>
+        <p className="max-w-sm text-sm text-silver-dim lg:col-span-5">
+          Анонимизировано: имена, регионы и профессии изменены. Суммы долгов, сроки
+          и решения судов — без изменений, проверяются в ЕФРСБ.
+        </p>
+      </div>
+
+      <div className="mt-14">
+        <Cases />
+      </div>
+    </Section>
+  );
+}
+
 function BigNumber() {
   return (
     <Section variant="default">
@@ -467,7 +491,7 @@ function Trust() {
     <Section variant="default">
       <div className="flex items-end justify-between gap-8 flex-wrap">
         <div>
-          <SectionLabel n="07" title="Прозрачность" />
+          <SectionLabel n="08" title="Прозрачность" />
           <H2 className="mt-8 max-w-2xl">
             Все данные открыты <br />
             и <span className="text-cyan italic text-glow">проверяемы.</span>
