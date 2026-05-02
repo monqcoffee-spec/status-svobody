@@ -29,7 +29,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#050608" },
+      { name: "theme-color", content: "#0a0907" },
       { title: "STATUS SVOBODY — Освобождение от долгов" },
       { name: "description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
       { property: "og:title", content: "STATUS SVOBODY — Освобождение от долгов" },

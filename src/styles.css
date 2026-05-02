@@ -77,12 +77,13 @@
   --ink: oklch(0.06 0.005 250);              /* near-black #050608 */
   --ink-deep: oklch(0.02 0.003 250);         /* pure black */
   --ink-soft: oklch(0.14 0.01 240);          /* card surface */
-  --cyan: oklch(0.78 0.13 200);              /* turquoise glow */
-  --cyan-soft: oklch(0.65 0.10 200);
-  --cyan-glow: oklch(0.85 0.14 195);
-  --teal: oklch(0.55 0.10 195);
-  --silver: oklch(0.85 0.005 240);
-  --silver-dim: oklch(0.55 0.008 240);
+  /* Warm gold / champagne — extracted from logo */
+  --cyan: oklch(0.78 0.09 75);               /* warm gold (token name kept for compat) */
+  --cyan-soft: oklch(0.68 0.08 70);          /* deep gold */
+  --cyan-glow: oklch(0.88 0.08 80);          /* champagne glow */
+  --teal: oklch(0.55 0.06 65);               /* bronze */
+  --silver: oklch(0.92 0.012 75);            /* warm ivory */
+  --silver-dim: oklch(0.62 0.015 70);        /* warm taupe */
 
   /* Semantic — dark by default */
   --background: var(--ink-deep);
