@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
+import { BankruptcyCalculator } from "@/components/site/BankruptcyCalculator";
 import heroLiberation from "@/assets/hero-liberation.jpg";
 import particlesRise from "@/assets/particles-rise.jpg";
 
@@ -35,6 +36,7 @@ function IndexPage() {
       <Manifesto />
       <Services />
       <Technology />
+      <CalculatorSection />
       <BigNumber />
       <Process />
       <Trust />
@@ -341,6 +343,35 @@ function Technology() {
 }
 
 /* ───────────────────── BIG NUMBER ───────────────────── */
+/* ───────────────────── CALCULATOR ───────────────────── */
+function CalculatorSection() {
+  return (
+    <Section variant="darker" id="calculator">
+      <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-5">
+          <SectionLabel n="04" title="Диагностика" />
+          <H2 className="mt-8">
+            Узнайте за <span className="text-cyan italic text-glow">2 минуты</span>
+          </H2>
+          <p className="mt-6 max-w-md text-silver-dim">
+            Шесть вопросов о вашей ситуации — и персональный вердикт: подходит ли вам
+            процедура, какая стратегия и сколько это стоит.
+          </p>
+        </div>
+        <div className="lg:col-span-7 text-right">
+          <span className="smallcaps text-silver-dim">
+            Без email · без звонков · ничего не сохраняем
+          </span>
+        </div>
+      </div>
+
+      <div className="mt-12">
+        <BankruptcyCalculator />
+      </div>
+    </Section>
+  );
+}
+
 function BigNumber() {
   return (
     <Section variant="default">
@@ -355,7 +386,7 @@ function BigNumber() {
         style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
       />
       <div className="text-center">
-        <SectionLabel n="04" title="Главная метрика" />
+        <SectionLabel n="05" title="Главная метрика" />
 
         <div className="relative mt-14">
           <div
@@ -401,7 +432,7 @@ function Process() {
 
   return (
     <Section variant="darker">
-      <SectionLabel n="05" title="Процесс" />
+      <SectionLabel n="06" title="Процесс" />
       <H2 className="mt-8 max-w-3xl">
         Четыре шага <span className="text-cyan italic">от диагностики до свободы</span>
       </H2>
@@ -434,7 +465,7 @@ function Trust() {
     <Section variant="default">
       <div className="flex items-end justify-between gap-8 flex-wrap">
         <div>
-          <SectionLabel n="06" title="Прозрачность" />
+          <SectionLabel n="07" title="Прозрачность" />
           <H2 className="mt-8 max-w-2xl">
             Все данные открыты <br />
             и <span className="text-cyan italic text-glow">проверяемы.</span>
