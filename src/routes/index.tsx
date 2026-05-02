@@ -94,8 +94,8 @@ function Hero() {
 
           {/* Logo with floating animation */}
           <div className="reveal reveal-delay-1 mt-10 flex justify-center">
-            <div className="relative animate-float">
-              <Logo size={140} className="md:!h-44 md:!w-44" />
+            <div className="relative">
+              <Logo size={200} className="md:!h-64 md:!w-64" />
               <div
                 aria-hidden
                 className="absolute inset-0 -z-10 animate-pulse-glow"
