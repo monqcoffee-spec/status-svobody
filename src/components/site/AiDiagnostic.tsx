@@ -157,7 +157,7 @@ export function AiDiagnostic() {
       {
         role: "user",
         content:
-          "Здравствуйте. Хочу понять, подходит ли мне процедура банкротства. Задайте первый уточняющий вопрос.",
+          "Здравствуйте. Хочу разобраться со своей кредитной историей и понять следующий шаг. Задайте первый уточняющий вопрос.",
       },
     ];
     setMessages(history);
@@ -200,7 +200,7 @@ export function AiDiagnostic() {
             <div className="font-display text-[11px] tabular tracking-[0.3em] text-cyan">
               AI-ДИАГНОСТИКА
             </div>
-            <div className="text-sm text-silver">Юрист задаёт уточняющие вопросы</div>
+            <div className="text-sm text-silver">Финансовый консультант задаёт уточняющие вопросы</div>
           </div>
         </div>
         {stage.kind !== "intro" && (
@@ -265,10 +265,10 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
           <span className="text-cyan italic text-glow">что вам подходит</span>
         </h3>
         <p className="mt-4 max-w-md text-silver-dim">
-          AI-юрист задаст уточняющие вопросы и сформирует персональный вердикт:
-          судебное банкротство, внесудебная процедура через МФЦ или
-          реструктуризация. Анонимно. Контакты — только если ситуация требует
-          юриста.
+          AI-консультант задаст уточняющие вопросы и сформулирует персональную
+          рекомендацию: с чего начать работу с кредитной историей, какие шаги
+          дадут максимальный рост рейтинга. Анонимно. Контакты — только
+          если нужен живой разбор.
         </p>
         <button
           onClick={onStart}
@@ -283,9 +283,9 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
       </div>
       <ul className="grid gap-3 text-sm text-silver-dim">
         {[
-          "Учитываем сумму долга, доход и имущество",
-          "Учитываем давление приставов и сделки за 3 года",
-          "Подсказываем стратегию под вашу цель",
+          "Учитываем текущий рейтинг и записи в БКИ",
+          "Учитываем доход, цели и горизонт планирования",
+          "Подсказываем стратегию под вашу цель — карта, кредит, ипотека",
         ].map((t) => (
           <li
             key={t}
@@ -318,7 +318,7 @@ function Transcript({ messages }: { messages: ChatMsg[] }) {
         >
           {m.role === "assistant" && (
             <div className="mb-1 text-[10px] uppercase tracking-[0.25em] text-cyan/80">
-              AI-юрист
+              Консультант
             </div>
           )}
           {m.content}
@@ -332,7 +332,7 @@ function LoadingBubble() {
   return (
     <div className="flex items-center gap-3 rounded-sm border border-white/10 bg-white/[0.02] px-4 py-3 text-sm text-silver-dim">
       <Loader2 className="h-4 w-4 animate-spin text-cyan" />
-      AI-юрист формулирует следующий вопрос…
+      Консультант формулирует следующий вопрос…
     </div>
   );
 }
@@ -385,7 +385,7 @@ function VerdictPanel({
           {verdict.hot ? (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan/40 bg-cyan/10 px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-cyan">
               <Flame className="h-3 w-3" />
-              Требует юриста
+              Требует разбора
             </span>
           ) : (
             <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.04] px-3 py-1 text-[10px] uppercase tracking-[0.25em] text-silver-dim">
@@ -411,7 +411,7 @@ function VerdictPanel({
               className="btn-cyan group inline-flex rounded-sm"
             >
               <MessageSquare className="h-4 w-4" />
-              <span>Уточнить у юриста</span>
+              <span>Уточнить у консультанта</span>
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
             </button>
             <button onClick={onReset} className="btn-ghost rounded-sm">
@@ -505,7 +505,7 @@ function HotLeadForm({
         </div>
         <div className="mt-4 font-display text-lg text-silver">Заявка принята</div>
         <p className="mt-2 text-sm text-silver-dim">
-          Юрист свяжется с вами в течение часа в рабочее время. Транскрипт
+          Консультант свяжется с вами в течение часа в рабочее время. Транскрипт
           диагностики уже у нас — повторно ничего рассказывать не нужно.
         </p>
       </div>
@@ -518,10 +518,10 @@ function HotLeadForm({
       className="rounded-sm border border-cyan/30 bg-gradient-to-br from-cyan/[0.05] to-transparent p-5"
     >
       <div className="font-display text-[11px] tabular tracking-[0.3em] text-cyan">
-        ГОРЯЧИЙ КЕЙС
+        НУЖЕН ЖИВОЙ РАЗБОР
       </div>
       <div className="mt-2 font-display text-base text-silver">
-        Передадим контекст юристу
+        Передадим контекст консультанту
       </div>
       <p className="mt-1 text-xs text-silver-dim">
         Мы уже знаем «{verdictTitle.toLowerCase()}». Оставьте контакты — перезвоним в
@@ -582,7 +582,7 @@ function HotLeadForm({
         disabled={loading}
         className="btn-cyan group mt-5 w-full justify-center rounded-sm disabled:opacity-60"
       >
-        <span>{loading ? "Отправляем…" : "Связаться с юристом"}</span>
+        <span>{loading ? "Отправляем…" : "Связаться с консультантом"}</span>
         {!loading && (
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         )}
