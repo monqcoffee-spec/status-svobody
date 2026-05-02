@@ -5,6 +5,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
 
 /*
  * STATUS SVOBODY — futuristic legal-tech.
@@ -68,6 +69,7 @@
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
+  --font-script: "Pinyon Script", "Cormorant Garamond", cursive;
 }
 
 :root {

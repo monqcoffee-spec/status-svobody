@@ -6,8 +6,8 @@ import { Logo } from "./Logo";
 const nav = [
   { to: "/", label: "Главная" },
   { to: "/about", label: "О бренде" },
-  { to: "/services/diagnostic", label: "Финансовая диагностика" },
-  { to: "/services/credit-history", label: "Кредитная история" },
+  { to: "/services/diagnostic", label: "Диагностика" },
+  { to: "/services/credit-history", label: "Сопровождение" },
   { to: "/contacts", label: "Контакты" },
 ] as const;
 
@@ -42,7 +42,7 @@ export function SiteHeader() {
               Статус<span className="text-cyan"> </span>Свободы
             </div>
             <div className="text-[8px] md:text-[9px] tracking-[0.32em] md:tracking-[0.42em] text-silver-dim uppercase mt-0.5 whitespace-nowrap">
-              Кредитная история · Финансы
+              Premium legal consulting
             </div>
           </div>
         </Link>
@@ -76,11 +76,11 @@ export function SiteHeader() {
           href="https://t.me/status_svobody_bot"
           target="_blank"
           rel="noopener"
-          className="hidden lg:inline-flex h-11 items-center gap-2.5 px-5 text-[10px] font-medium tracking-[0.28em] uppercase text-cyan-glow border border-cyan/40 bg-cyan/5 hover:bg-cyan/15 hover:border-cyan transition-all rounded-sm"
+            className="hidden lg:inline-flex h-11 items-center gap-2.5 px-5 text-[10px] font-medium tracking-[0.28em] uppercase text-cyan-glow border border-cyan/40 bg-cyan/5 hover:bg-cyan/15 hover:border-cyan transition-all rounded-sm"
           style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 20%, transparent)" }}
         >
           <span className="relative h-1.5 w-1.5 rounded-full bg-cyan animate-pulse-glow" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
-          Разбор КИ
+            Консультация
         </a>
 
         <button
@@ -122,7 +122,7 @@ export function SiteHeader() {
               rel="noopener"
               className="mt-6 btn-cyan rounded-sm"
             >
-              Записаться на разбор КИ
+              Записаться на консультацию
             </a>
           </nav>
         </div>
