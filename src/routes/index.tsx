@@ -96,10 +96,10 @@ function Hero() {
         style={{ background: "linear-gradient(180deg, transparent 0%, var(--ink, #000) 100%)" }}
       />
 
-      <div className="container-tight relative grid min-h-[80svh] place-items-center pt-8 pb-24 md:pt-12">
+      <div className="container-tight relative grid min-h-[80svh] place-items-center pt-2 pb-10 md:pt-12 md:pb-24">
         <h1 className="sr-only">Статус Свободы — освобождение от долгов с Юлией Арминой</h1>
-        <div className="grid w-full items-center gap-10 md:grid-cols-12 md:gap-12">
-          {/* LEFT — portrait blended into background */}
+        <div className="grid w-full items-center gap-5 md:grid-cols-12 md:gap-12">
+          {/* Portrait — top on mobile, left on desktop */}
           <div className="reveal reveal-delay-1 relative md:col-span-5 lg:col-span-5">
             <div className="relative mx-auto w-fit">
               <div
@@ -116,7 +116,7 @@ function Hero() {
                 alt="Юлия Армина — арбитражный управляющий, основатель «Статус Свободы»"
                 width={1024}
                 height={1536}
-                className="relative z-10 mx-auto h-[46svh] w-auto select-none md:h-[64svh] lg:h-[70svh]"
+                className="relative z-10 mx-auto h-[38svh] w-auto select-none md:h-[64svh] lg:h-[70svh]"
                 style={{
                   maskImage:
                     "radial-gradient(ellipse 72% 82% at 50% 50%, black 58%, transparent 100%)",
@@ -126,35 +126,35 @@ function Hero() {
                 }}
               />
               {/* Signature caption under portrait */}
-              <div className="reveal reveal-delay-2 relative z-10 mt-4 text-center md:text-left md:pl-2">
-                <div className="font-display text-lg text-silver md:text-xl">Юлия Армина</div>
-                <div className="smallcaps mt-1 text-[10px] text-cyan">
+              <div className="reveal reveal-delay-2 relative z-10 mt-2 text-center md:mt-4 md:text-left md:pl-2">
+                <div className="font-display text-base text-silver md:text-xl">Юлия Армина</div>
+                <div className="smallcaps mt-1 text-[9px] text-cyan md:text-[10px]">
                   Арбитражный управляющий · ЕФРСБ № 20068
                 </div>
               </div>
             </div>
           </div>
 
-          {/* RIGHT — short pitch about company & founder */}
+          {/* Pitch — bottom on mobile, right on desktop */}
           <div className="md:col-span-7 lg:col-span-7 text-center md:text-left">
-            <h2 className="display reveal reveal-delay-1 text-4xl leading-[1.05] text-silver md:text-5xl lg:text-6xl">
+            <h2 className="display reveal reveal-delay-1 text-3xl leading-[1.05] text-silver md:text-5xl lg:text-6xl">
               Долг — это <span className="text-cyan italic text-glow">статус</span>.<br />
               Его можно <span className="text-cyan italic text-glow">сменить</span>.
             </h2>
 
-            <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-xl text-base leading-relaxed text-silver/80 md:mx-0 md:text-lg">
+            <p className="reveal reveal-delay-2 mx-auto mt-4 max-w-xl text-sm leading-relaxed text-silver/80 md:mx-0 md:mt-6 md:text-lg">
               «Статус Свободы» — legal-tech бюро банкротства физлиц по 127-ФЗ.
               Прямая работа с арбитражным управляющим, без посредников и колл-центров.
             </p>
 
-            <p className="reveal reveal-delay-3 mx-auto mt-4 max-w-xl text-sm leading-relaxed text-silver-dim md:mx-0">
+            <p className="reveal reveal-delay-3 mx-auto mt-3 max-w-xl text-xs leading-relaxed text-silver-dim md:mx-0 md:mt-4 md:text-sm">
               <span className="text-silver">5 лет в реестре АУ</span>, 323 завершённых дела,
               <span className="text-silver"> 888 млн ₽</span> законно списанных долгов.
               Личное ведение каждого дела — от первой консультации до определения суда.
             </p>
 
             {/* CTA */}
-            <div className="reveal reveal-delay-3 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
+            <div className="reveal reveal-delay-3 mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-9 md:justify-start">
               <a
                 href="https://t.me/status_svobody_bot"
                 target="_blank"
@@ -174,7 +174,7 @@ function Hero() {
       </div>
 
       {/* Stats footer */}
-      <div className="container-tight relative pb-12">
+      <div className="container-tight relative pb-8 md:pb-12">
         <div className="grid grid-cols-2 gap-px overflow-hidden border border-white/5 bg-white/[0.03] backdrop-blur-sm md:grid-cols-4">
           {[
             { v: "888 млн ₽", l: "Списано долгов" },
