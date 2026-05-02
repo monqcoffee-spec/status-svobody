@@ -3,6 +3,7 @@ import { Phone, Send, MessageCircle, MapPin, Building2 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import featherImg from "@/assets/feather-light.jpg";
 
 export const Route = createFileRoute("/contacts")({
@@ -58,6 +59,27 @@ function ContactsPage() {
           <ContactCard icon={<Send className="h-5 w-5" />} label="Telegram-бот" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
           <ContactCard icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Написать" href="https://wa.me/79654457378" />
           <ContactCard icon={<MapPin className="h-5 w-5" />} label="Адрес" value="Москва, Цветной бульвар, 13" />
+        </div>
+
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-white/8 pt-12">
+          <div className="max-w-md">
+            <Eyebrow>Заявка</Eyebrow>
+            <h2 className="mt-4 font-display text-2xl text-silver md:text-3xl">
+              Перезвоним сами — в течение часа
+            </h2>
+            <p className="mt-3 text-sm text-silver-dim">
+              Если удобнее, чтобы связались первыми — оставьте контакты.
+              Только по указанному номеру, без сторонних колл-центров.
+            </p>
+          </div>
+          <LeadFormDialog
+            source="contacts"
+            trigger={
+              <button type="button" className="btn-cyan rounded-sm">
+                Оставить заявку
+              </button>
+            }
+          />
         </div>
       </Section>
 
