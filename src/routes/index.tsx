@@ -354,18 +354,18 @@ function CalculatorSection() {
     <Section variant="darker" id="calculator">
       <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-5">
-          <SectionLabel n="04" title="Диагностика" />
+          <SectionLabel n="04" title="AI-диагностика" />
           <H2 className="mt-8">
             Узнайте за <span className="text-cyan italic text-glow">2 минуты</span>
           </H2>
           <p className="mt-6 max-w-md text-silver-dim">
-            Шесть вопросов о вашей ситуации — и персональный вердикт: подходит ли вам
-            процедура, какая стратегия и сколько это стоит.
+            AI-юрист задаст 3–5 уточняющих вопросов и сформулирует персональный
+            вердикт: подходит ли процедура, какая стратегия и что делать дальше.
           </p>
         </div>
         <div className="lg:col-span-7 text-right">
           <span className="smallcaps text-silver-dim">
-            Без email · без звонков · ничего не сохраняем
+            Анонимно · контакты только если кейс требует юриста
           </span>
         </div>
       </div>
