@@ -9,16 +9,21 @@ import featherImg from "@/assets/feather-light.jpg";
 export const Route = createFileRoute("/contacts")({
   head: () => ({
     meta: [
-      { title: "Контакты — Статус Свободы · Москва" },
+      { title: "Контакты — STATUS SVOBODY · Москва, Цветной бульвар" },
       {
         name: "description",
         content:
-          "Москва, Цветной бульвар, 13. Telegram, WhatsApp, телефон. Прямой контакт с финансовым консультантом, без колл-центров.",
+          "Москва, Цветной бульвар, 13. Telegram @u_armina, канал t.me/zakon_127, WhatsApp, телефон. Прямой контакт с Юлией Арминой — без колл-центров.",
       },
-      { property: "og:title", content: "Контакты — Статус Свободы" },
+      { property: "og:title", content: "Контакты — STATUS SVOBODY" },
       {
         property: "og:description",
-        content: "Связаться с консультантом по кредитной истории. Telegram, WhatsApp, телефон.",
+        content: "Прямая связь с Юлией Арминой: Telegram, WhatsApp, телефон. Москва, Цветной бульвар, 13.",
+      },
+      { name: "twitter:title", content: "Контакты — STATUS SVOBODY" },
+      {
+        name: "twitter:description",
+        content: "Прямая связь с Юлией Арминой: Telegram, WhatsApp, телефон.",
       },
     ],
   }),
