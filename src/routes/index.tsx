@@ -114,9 +114,9 @@ function Hero() {
               className="relative z-10 mx-auto h-[46svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
               style={{
                 maskImage:
-                  "radial-gradient(ellipse 60% 78% at 42% 44%, black 28%, rgba(0,0,0,0.55) 62%, transparent 92%)",
+                  "radial-gradient(ellipse 38% 72% at 44% 56%, black 40%, rgba(0,0,0,0.7) 70%, transparent 100%)",
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 60% 78% at 42% 44%, black 28%, rgba(0,0,0,0.55) 62%, transparent 92%)",
+                  "radial-gradient(ellipse 38% 72% at 44% 56%, black 40%, rgba(0,0,0,0.7) 70%, transparent 100%)",
                 filter:
                   "drop-shadow(0 30px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 80px rgba(201,166,107,0.10))",
               }}
