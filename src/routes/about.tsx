@@ -4,6 +4,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
+import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import aboutImg from "@/assets/about-transformation.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -144,7 +145,12 @@ function AboutPage() {
             <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
               Запустить интенсив <ArrowRight className="h-4 w-4" />
             </a>
-            <Link to="/contacts" className="btn-ghost rounded-sm">Связаться лично</Link>
+            <LeadFormDialog
+              source="about"
+              trigger={
+                <button type="button" className="btn-ghost rounded-sm">Оставить заявку</button>
+              }
+            />
           </div>
         </div>
       </Section>
