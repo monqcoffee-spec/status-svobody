@@ -10,17 +10,23 @@ import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "STATUS SVOBODY — Освобождение через открытые формы" },
+      { title: "STATUS SVOBODY — Юридические решения для вашей свободы" },
       {
         name: "description",
         content:
-          "Юридические решения для вашей свободы. Премиальный консалтинг — Юлия Армина, основатель STATUS SVOBODY.",
+          "Премиальный юридический консалтинг Юлии Арминой: финансы, долги, кредитная история. Личное сопровождение основателем бренда — без посредников.",
       },
-      { property: "og:title", content: "STATUS SVOBODY — Юлия Армина" },
+      { property: "og:title", content: "STATUS SVOBODY — Юридические решения для вашей свободы" },
       {
         property: "og:description",
         content:
-          "Юридические решения для вашей свободы. Премиальный консалтинг.",
+          "Премиальный юридический консалтинг. Личное сопровождение основателем бренда — Юлия Армина.",
+      },
+      { name: "twitter:title", content: "STATUS SVOBODY — Юридические решения для вашей свободы" },
+      {
+        name: "twitter:description",
+        content:
+          "Премиальный юридический консалтинг Юлии Арминой.",
       },
     ],
   }),
