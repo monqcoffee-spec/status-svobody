@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, Send, MessageCircle, MapPin } from "lucide-react";
+import { Phone, Send, MessageCircle, MapPin, AtSign, Megaphone } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
@@ -54,9 +54,11 @@ function ContactsPage() {
       </section>
 
       <Section variant="default">
-        <div className="grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-4" style={{ borderRadius: "2px" }}>
+        <div className="grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-3" style={{ borderRadius: "2px" }}>
           <ContactCard icon={<Phone className="h-5 w-5" />} label="Телефон" value="+7 (965) 445-73-78" href="tel:+79654457378" />
-          <ContactCard icon={<Send className="h-5 w-5" />} label="Telegram" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
+          <ContactCard icon={<AtSign className="h-5 w-5" />} label="Telegram (личный)" value="@u_armina" href="https://t.me/u_armina" />
+          <ContactCard icon={<Megaphone className="h-5 w-5" />} label="Telegram-канал" value="ЮЛИЯ АРМИНА · t.me/zakon_127" href="https://t.me/zakon_127" />
+          <ContactCard icon={<Send className="h-5 w-5" />} label="Бесплатный интенсив" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
           <ContactCard icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Написать" href="https://wa.me/79654457378" />
           <ContactCard icon={<MapPin className="h-5 w-5" />} label="Адрес" value="Москва, Цветной бульвар, 13" />
         </div>
