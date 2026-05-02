@@ -48,7 +48,7 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-black md:-mt-20">
+    <section className="relative overflow-hidden bg-ink-deep md:-mt-20">
       <h1 className="sr-only">
         STATUS SVOBODY — Освобождение через открытые формы. Юлия Армина, основатель.
       </h1>
@@ -68,7 +68,8 @@ function Hero() {
           aria-hidden
           className="pointer-events-none absolute -bottom-1 inset-x-0 h-32"
           style={{
-            background: "linear-gradient(180deg, transparent 0%, #000 100%)",
+            background:
+              "linear-gradient(180deg, transparent 0%, var(--ink-deep) 100%)",
           }}
         />
       </div>
@@ -135,7 +136,7 @@ function Hero() {
       </div>
 
       {/* CTA блок для мобильной версии — под полным фото */}
-      <div className="relative md:hidden bg-black px-5 pb-12 pt-2">
+      <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
         <div className="reveal reveal-delay-3 flex flex-col gap-2.5">
           <LeadFormDialog
             source="hero"
