@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/site/Testimonials";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import heroLiberation from "@/assets/hero-liberation.jpg";
 import particlesRise from "@/assets/particles-rise.jpg";
+import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -68,6 +69,28 @@ function Hero() {
         style={{ maskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%)" }}
       />
 
+      {/* Founder portrait — blended into background, no frame */}
+      <img
+        src={yuliaPortrait}
+        alt="Юлия Армина — основатель Статус Свободы"
+        width={1024}
+        height={1536}
+        className="pointer-events-none absolute select-none
+                   right-1/2 translate-x-1/2 bottom-0
+                   h-[78svh] w-auto opacity-90
+                   md:right-[6%] md:translate-x-0 md:bottom-0 md:h-[92svh]
+                   lg:right-[8%] lg:h-[96svh]"
+        style={{
+          maskImage:
+            "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%), radial-gradient(ellipse 70% 80% at 50% 55%, black 55%, transparent 95%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0%, black 18%, black 82%, transparent 100%), radial-gradient(ellipse 70% 80% at 50% 55%, black 55%, transparent 95%)",
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+          filter: "drop-shadow(0 0 60px rgba(201,166,107,0.18))",
+        }}
+      />
+
       {/* Grid pattern */}
       <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-50" />
 
@@ -83,19 +106,19 @@ function Hero() {
         style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--teal) 30%, transparent), transparent)", animationDelay: "-8s" }}
       />
 
-      <div className="container-tight relative grid min-h-[80svh] place-items-center pt-12 pb-24 md:pt-20">
-        <div className="text-center max-w-5xl">
+      <div className="container-tight relative grid min-h-[80svh] place-items-center pt-12 pb-24 md:place-items-start md:pt-20">
+        <div className="text-center max-w-5xl md:text-left md:max-w-[58%]">
           {/* Top eyebrow */}
-          <div className="reveal flex items-center justify-center gap-3 text-silver-dim">
+          <div className="reveal flex items-center justify-center gap-3 text-silver-dim md:justify-start">
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">Legal · Tech · Liberation</span>
             <span className="hairline-tight" />
           </div>
 
-          {/* Logo with floating animation */}
-          <div className="reveal reveal-delay-1 mt-10 flex justify-center">
+          {/* Logo mark — small, integrated */}
+          <div className="reveal reveal-delay-1 mt-8 flex justify-center md:justify-start">
             <div className="relative">
-              <Logo size={200} className="md:!h-64 md:!w-64" />
+              <Logo size={84} className="md:!h-24 md:!w-24" />
               <div
                 aria-hidden
                 className="absolute inset-0 -z-10 animate-pulse-glow"
@@ -108,7 +131,7 @@ function Hero() {
           </div>
 
           {/* Title */}
-          <h1 className="reveal reveal-delay-2 display mt-12 text-[clamp(2.5rem,9vw,7rem)] text-glow">
+          <h1 className="reveal reveal-delay-2 display mt-8 text-[clamp(2.5rem,8vw,6rem)] text-glow">
             <span className="text-gradient-cyan">Статус Свободы</span>
           </h1>
           <div className="reveal reveal-delay-2 mt-3 font-display text-xs tracking-[0.5em] text-cyan uppercase md:text-sm">
@@ -116,13 +139,13 @@ function Hero() {
           </div>
 
           {/* Tagline */}
-          <p className="reveal reveal-delay-3 mx-auto mt-10 max-w-2xl text-base leading-relaxed text-silver/75 md:text-lg">
+          <p className="reveal reveal-delay-3 mx-auto mt-8 max-w-2xl text-base leading-relaxed text-silver/75 md:mx-0 md:text-lg">
             Превращение тяжести долгов в&nbsp;ясность финансовой свободы.
             Арбитражная процедура нового поколения — прямо, технологично, законно.
           </p>
 
           {/* CTA */}
-          <div className="reveal reveal-delay-3 mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
             <a
               href="https://t.me/status_svobody_bot"
               target="_blank"
@@ -139,9 +162,9 @@ function Hero() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="reveal reveal-delay-3 mt-20 inline-flex flex-col items-center gap-3 text-silver-dim">
+          <div className="reveal reveal-delay-3 mt-16 inline-flex flex-col items-center gap-3 text-silver-dim md:items-start">
             <span className="text-[10px] tracking-[0.4em] uppercase">Scroll</span>
-            <div className="h-12 w-px bg-gradient-to-b from-cyan/60 to-transparent" />
+            <div className="h-12 w-px bg-gradient-to-b from-cyan/60 to-transparent md:ml-4" />
           </div>
         </div>
       </div>
