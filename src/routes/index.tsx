@@ -96,7 +96,7 @@ function Hero() {
         style={{ background: "linear-gradient(180deg, transparent 0%, var(--ink, #000) 100%)" }}
       />
 
-      <div className="container-tight relative flex min-h-[80svh] flex-col items-center justify-center pt-4 pb-10 md:pt-10 md:pb-20">
+      <div className="container-tight relative flex min-h-[78svh] flex-col items-center justify-start pt-2 pb-6 md:min-h-[80svh] md:justify-center md:pt-10 md:pb-20">
         <h1 className="sr-only">Статус Свободы — освобождение от долгов с Юлией Арминой</h1>
 
         {/* Portrait — blended into pure black, no frame, no text */}
@@ -127,7 +127,7 @@ function Hero() {
               alt="Юлия Армина — арбитражный управляющий, основатель «Статус Свободы»"
               width={1024}
               height={1536}
-              className="relative z-10 mx-auto h-[62svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
+              className="relative z-10 mx-auto h-[54svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
               style={{
                 maskImage:
                   "radial-gradient(ellipse 78% 88% at 50% 46%, black 38%, rgba(0,0,0,0.6) 70%, transparent 100%)",
@@ -141,7 +141,7 @@ function Hero() {
         </div>
 
         {/* CTA */}
-        <div className="reveal reveal-delay-3 mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row md:mt-10">
+        <div className="reveal reveal-delay-3 mt-3 flex w-full flex-col items-center justify-center gap-2.5 sm:flex-row md:mt-10 md:gap-3">
           <a
             href="https://t.me/status_svobody_bot"
             target="_blank"
