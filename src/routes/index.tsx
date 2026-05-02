@@ -42,89 +42,113 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative -mt-16 md:-mt-20 min-h-[100svh] overflow-hidden bg-black">
+    <section className="relative -mt-16 md:-mt-20 overflow-hidden bg-black">
       <h1 className="sr-only">
         STATUS SVOBODY — Освобождение через открытые формы. Юлия Армина, основатель.
       </h1>
 
-      {/* Hero portrait — full-bleed, key elements (face, logo) preserved */}
-      <img
-        src={yuliaPortrait}
-        alt="Юлия Армина — основатель STATUS SVOBODY"
-        width={1024}
-        height={1536}
-        fetchPriority="high"
-        className="pointer-events-none absolute inset-0 h-full w-full select-none object-cover object-[68%_center] md:object-[60%_center] lg:object-[center_top]"
-      />
+      {/* Mobile-first: фото целиком (object-contain), фон чёрный сливается с фото */}
+      <div className="relative md:hidden">
+        <img
+          src={yuliaPortrait}
+          alt="Юлия Армина — основатель STATUS SVOBODY"
+          width={1024}
+          height={1536}
+          fetchPriority="high"
+          className="block w-full select-none"
+        />
+        {/* CTA под фото — без обрезки */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-1 inset-x-0 h-32"
+          style={{
+            background: "linear-gradient(180deg, transparent 0%, #000 100%)",
+          }}
+        />
+      </div>
 
-      {/* Soft vignette to deepen edges into pure black */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 90% 70% at 60% 45%, transparent 0%, transparent 45%, rgba(0,0,0,0.55) 85%, rgba(0,0,0,0.85) 100%)",
-        }}
-      />
-
-      {/* Bottom gradient for CTA legibility */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%]"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 55%, #000 100%)",
-        }}
-      />
-
-      {/* Warm gold ambient drift */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -left-32 bottom-20 h-[420px] w-[420px] rounded-full opacity-30 animate-drift"
-        style={{
-          background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 22%, transparent), transparent)",
-        }}
-      />
-
-      <ParticleField density={28} />
-
-      {/* Bottom content — subtitle + CTA, mobile-first */}
-      <div className="container-tight relative flex min-h-[100svh] flex-col justify-end pb-10 pt-16 md:pb-16 md:pt-20">
-        <div className="reveal reveal-delay-2 max-w-xl">
-          <div className="inline-flex items-center gap-3">
-            <span className="hairline-tight" />
-            <span className="smallcaps text-cyan">Premium legal consulting</span>
+      {/* Desktop: фото справа, контент слева */}
+      <div className="relative hidden md:grid md:min-h-[100svh] md:grid-cols-12 md:items-center">
+        <ParticleField density={28} />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-40 top-32 h-[600px] w-[600px] rounded-full opacity-25 animate-drift"
+          style={{
+            background:
+              "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 22%, transparent), transparent)",
+          }}
+        />
+        <div className="container-tight md:col-span-12 grid grid-cols-12 items-center gap-8 pt-20">
+          <div className="reveal reveal-delay-2 col-span-6 relative z-10">
+            <div className="inline-flex items-center gap-3">
+              <span className="hairline-tight" />
+              <span className="smallcaps text-cyan">Premium legal consulting</span>
+            </div>
+            <p className="mt-6 font-serif text-4xl italic leading-snug text-silver lg:text-5xl">
+              Юридические решения<br />
+              <span className="text-cyan-glow">для вашей свободы.</span>
+            </p>
+            <p className="mt-5 max-w-md leading-relaxed text-silver/70">
+              Личное сопровождение основателя бренда.
+              Стратегия — не шаблон. Конфиденциальность — не опция.
+            </p>
+            <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
+              <LeadFormDialog
+                source="hero"
+                headline="Запись на консультацию"
+                trigger={
+                  <button type="button" className="btn-cyan group rounded-sm">
+                    <span>Получить консультацию</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </button>
+                }
+              />
+              <a href="#approach" className="btn-ghost group rounded-sm">
+                <span>Как мы работаем</span>
+                <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+            </div>
           </div>
-          <p className="mt-5 font-serif text-2xl italic leading-snug text-silver md:text-3xl lg:text-4xl">
-            Юридические решения<br />
-            <span className="text-cyan-glow">для вашей свободы.</span>
-          </p>
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-silver/70 md:text-base">
-            Личное сопровождение. Стратегия — не шаблон.
-            Каждое дело ведёт основатель бренда.
-          </p>
+          <div className="col-span-6 relative">
+            <img
+              src={yuliaPortrait}
+              alt="Юлия Армина — основатель STATUS SVOBODY"
+              width={1024}
+              height={1536}
+              fetchPriority="high"
+              className="mx-auto block max-h-[92svh] w-auto select-none"
+              style={{
+                maskImage:
+                  "linear-gradient(90deg, transparent 0%, black 12%, black 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(90deg, transparent 0%, black 12%, black 100%)",
+              }}
+            />
+          </div>
         </div>
+      </div>
 
-        <div className="reveal reveal-delay-3 mt-7 flex flex-col items-stretch gap-2.5 sm:flex-row sm:items-center md:mt-9 md:gap-3">
+      {/* CTA блок для мобильной версии — под полным фото */}
+      <div className="relative md:hidden bg-black px-5 pb-12 pt-2">
+        <div className="reveal reveal-delay-3 flex flex-col gap-2.5">
           <LeadFormDialog
             source="hero"
             headline="Запись на консультацию"
             trigger={
-              <button type="button" className="btn-cyan group rounded-sm">
+              <button type="button" className="btn-cyan group rounded-sm w-full">
                 <span>Получить консультацию</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
             }
           />
-          <a
-            href="#approach"
-            className="btn-ghost group rounded-sm"
-          >
+          <a href="#approach" className="btn-ghost group rounded-sm w-full">
             <span>Как мы работаем</span>
             <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
+        <p className="mt-5 text-center text-[10px] uppercase tracking-[0.28em] text-silver-dim">
+          Личное сопровождение · Конфиденциально
+        </p>
       </div>
     </section>
   );
