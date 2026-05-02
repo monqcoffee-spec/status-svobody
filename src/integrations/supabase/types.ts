@@ -64,30 +64,39 @@ export type Database = {
       lead_requests: {
         Row: {
           created_at: string
-          debt_amount: number
+          debt_amount: number | null
+          email: string | null
           id: string
+          message: string | null
           name: string
           phone: string
+          preferred_time: string | null
           source: string
           status: string
           user_agent: string | null
         }
         Insert: {
           created_at?: string
-          debt_amount: number
+          debt_amount?: number | null
+          email?: string | null
           id?: string
+          message?: string | null
           name: string
           phone: string
+          preferred_time?: string | null
           source?: string
           status?: string
           user_agent?: string | null
         }
         Update: {
           created_at?: string
-          debt_amount?: number
+          debt_amount?: number | null
+          email?: string | null
           id?: string
+          message?: string | null
           name?: string
           phone?: string
+          preferred_time?: string | null
           source?: string
           status?: string
           user_agent?: string | null
