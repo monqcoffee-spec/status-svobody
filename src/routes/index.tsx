@@ -49,7 +49,7 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative -mt-20 min-h-[100svh] overflow-hidden bg-black pt-20">
+    <section className="relative -mt-16 md:-mt-20 min-h-[92svh] md:min-h-[100svh] overflow-hidden bg-black pt-16 md:pt-20">
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -83,7 +83,7 @@ function Hero() {
         style={{ background: "linear-gradient(180deg, transparent 0%, var(--ink, #000) 100%)" }}
       />
 
-      <div className="container-tight relative flex min-h-[78svh] flex-col items-center justify-start pt-2 pb-6 md:min-h-[80svh] md:justify-center md:pt-10 md:pb-20">
+      <div className="container-tight relative flex min-h-[70svh] flex-col items-center justify-between pt-1 pb-8 md:min-h-[80svh] md:justify-center md:pt-10 md:pb-20">
         <h1 className="sr-only">Статус Свободы — восстановление кредитной истории с Юлией Арминой</h1>
 
         <div className="reveal reveal-delay-1 relative w-full">
@@ -111,12 +111,12 @@ function Hero() {
               alt="Юлия Армина — финансовый консультант, основатель «Статус Свободы»"
               width={1024}
               height={1536}
-              className="relative z-10 mx-auto h-[54svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
+              className="relative z-10 mx-auto h-[46svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
               style={{
                 maskImage:
-                  "radial-gradient(ellipse 78% 88% at 50% 46%, black 38%, rgba(0,0,0,0.6) 70%, transparent 100%)",
+                  "radial-gradient(ellipse 60% 78% at 42% 44%, black 28%, rgba(0,0,0,0.55) 62%, transparent 92%)",
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 78% 88% at 50% 46%, black 38%, rgba(0,0,0,0.6) 70%, transparent 100%)",
+                  "radial-gradient(ellipse 60% 78% at 42% 44%, black 28%, rgba(0,0,0,0.55) 62%, transparent 92%)",
                 filter:
                   "drop-shadow(0 30px 60px rgba(0,0,0,0.6)) drop-shadow(0 0 80px rgba(201,166,107,0.10))",
               }}
@@ -124,7 +124,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="reveal reveal-delay-3 mt-3 flex w-full flex-col items-center justify-center gap-2.5 sm:flex-row md:mt-10 md:gap-3">
+        <div className="reveal reveal-delay-3 mt-4 flex w-full flex-col items-center justify-center gap-2.5 sm:flex-row md:mt-10 md:gap-3">
           <Link to="/services/credit-history" className="btn-cyan group rounded-sm">
             <span>Восстановить кредитную историю</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
