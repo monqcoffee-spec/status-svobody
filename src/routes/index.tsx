@@ -42,7 +42,7 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative -mt-16 md:-mt-20 overflow-hidden bg-black">
+    <section className="relative overflow-hidden bg-black md:-mt-20">
       <h1 className="sr-only">
         STATUS SVOBODY — Освобождение через открытые формы. Юлия Армина, основатель.
       </h1>
