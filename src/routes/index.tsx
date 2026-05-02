@@ -5,6 +5,7 @@ import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
 import { BankruptcyCalculator } from "@/components/site/BankruptcyCalculator";
+import { Cases } from "@/components/site/Cases";
 import heroLiberation from "@/assets/hero-liberation.jpg";
 import particlesRise from "@/assets/particles-rise.jpg";
 
@@ -37,6 +38,7 @@ function IndexPage() {
       <Services />
       <Technology />
       <CalculatorSection />
+      <CasesSection />
       <BigNumber />
       <Process />
       <Trust />
@@ -372,6 +374,30 @@ function CalculatorSection() {
   );
 }
 
+/* ───────────────────── CASES ───────────────────── */
+function CasesSection() {
+  return (
+    <Section variant="default" id="cases">
+      <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          <SectionLabel n="05" title="Кейсы" />
+          <H2 className="mt-8">
+            Реальные дела. <span className="text-cyan italic text-glow">Реальные цифры.</span>
+          </H2>
+        </div>
+        <p className="max-w-sm text-sm text-silver-dim lg:col-span-5">
+          Анонимизировано: имена, регионы и профессии изменены. Суммы долгов, сроки
+          и решения судов — без изменений, проверяются в ЕФРСБ.
+        </p>
+      </div>
+
+      <div className="mt-14">
+        <Cases />
+      </div>
+    </Section>
+  );
+}
+
 function BigNumber() {
   return (
     <Section variant="default">
@@ -386,7 +412,7 @@ function BigNumber() {
         style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
       />
       <div className="text-center">
-        <SectionLabel n="05" title="Главная метрика" />
+        <SectionLabel n="06" title="Главная метрика" />
 
         <div className="relative mt-14">
           <div
@@ -432,7 +458,7 @@ function Process() {
 
   return (
     <Section variant="darker">
-      <SectionLabel n="06" title="Процесс" />
+      <SectionLabel n="07" title="Процесс" />
       <H2 className="mt-8 max-w-3xl">
         Четыре шага <span className="text-cyan italic">от диагностики до свободы</span>
       </H2>
@@ -465,7 +491,7 @@ function Trust() {
     <Section variant="default">
       <div className="flex items-end justify-between gap-8 flex-wrap">
         <div>
-          <SectionLabel n="07" title="Прозрачность" />
+          <SectionLabel n="08" title="Прозрачность" />
           <H2 className="mt-8 max-w-2xl">
             Все данные открыты <br />
             и <span className="text-cyan italic text-glow">проверяемы.</span>
