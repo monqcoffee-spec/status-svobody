@@ -53,34 +53,47 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative -mt-20 min-h-[100svh] overflow-hidden bg-aurora pt-20">
+    <section className="relative -mt-20 min-h-[100svh] overflow-hidden bg-black pt-20">
+      {/* Pure black base with subtle radial depth */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 60% at 50% 30%, color-mix(in oklab, var(--cyan) 6%, transparent) 0%, transparent 70%), #000",
+        }}
+      />
+
       {/* Particle field background */}
-      <ParticleField density={90} />
+      <ParticleField density={70} />
 
-      {/* Airy liberation imagery */}
-      <img
-        src={heroLiberation}
-        alt=""
-        aria-hidden
-        width={1920}
-        height={1080}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-screen"
-        style={{ maskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 90% 70% at 50% 40%, black 30%, transparent 80%)" }}
-      />
-
-      {/* Grid pattern */}
-      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-50" />
-
-      {/* Soft glow orbs */}
+      {/* Grid pattern — faint, only in upper area */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -right-40 top-32 h-[600px] w-[600px] rounded-full opacity-40 animate-drift"
-        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 25%, transparent), transparent)" }}
+        className="absolute inset-0 bg-grid opacity-[0.18]"
+        style={{
+          maskImage: "linear-gradient(180deg, black 0%, black 40%, transparent 85%)",
+          WebkitMaskImage: "linear-gradient(180deg, black 0%, black 40%, transparent 85%)",
+        }}
+      />
+
+      {/* Soft cyan accent orbs — restrained over black */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-32 h-[600px] w-[600px] rounded-full opacity-30 animate-drift"
+        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 22%, transparent), transparent)" }}
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -left-32 bottom-20 h-[500px] w-[500px] rounded-full opacity-30 animate-drift"
-        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--teal) 30%, transparent), transparent)", animationDelay: "-8s" }}
+        className="pointer-events-none absolute -left-32 bottom-20 h-[500px] w-[500px] rounded-full opacity-20 animate-drift"
+        style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--teal) 28%, transparent), transparent)", animationDelay: "-8s" }}
+      />
+
+      {/* Bottom fade to deep ink for seamless transition into next section */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
+        style={{ background: "linear-gradient(180deg, transparent 0%, var(--ink, #000) 100%)" }}
       />
 
       <div className="container-tight relative grid min-h-[80svh] place-items-center pt-8 pb-24 md:pt-12">
