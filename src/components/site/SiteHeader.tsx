@@ -31,8 +31,16 @@ export function SiteHeader() {
       className={
         "sticky top-0 z-40 transition-all duration-500 " +
         (scrolled
-          ? "border-b border-white/5 bg-[oklch(0.04_0.005_240/0.78)] backdrop-blur-xl"
+          ? "border-b border-cyan/10 backdrop-blur-xl"
           : "border-b border-transparent bg-transparent")
+      }
+      style={
+        scrolled
+          ? {
+              backgroundColor:
+                "color-mix(in oklab, var(--ink-deep) 78%, transparent)",
+            }
+          : undefined
       }
     >
       <div className="container-tight flex h-16 md:h-20 items-center justify-between gap-4 md:gap-6">
@@ -101,7 +109,13 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-white/5 bg-[oklch(0.03_0.005_240/0.96)] backdrop-blur-xl">
+        <div
+          className="lg:hidden border-t border-cyan/10 backdrop-blur-xl"
+          style={{
+            backgroundColor:
+              "color-mix(in oklab, var(--ink-deep) 96%, transparent)",
+          }}
+        >
           <nav className="container-tight flex flex-col py-6">
             {nav.map((n) => (
               <Link
