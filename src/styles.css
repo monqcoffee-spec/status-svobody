@@ -120,10 +120,75 @@
   --sidebar-accent-foreground: var(--silver);
   --sidebar-border: oklch(1 0 0 / 8%);
   --sidebar-ring: var(--cyan);
+
+  /* Surfaces / hairlines used by glass + borders, redefined per theme */
+  --surface-tint: oklch(1 0 0);              /* mixed via color-mix in utilities */
+  --surface-edge: oklch(1 0 0 / 0.08);
+  --hero-bg: var(--ink-deep);                /* hero / mobile photo backdrop */
+}
+
+/* ─────────────────────────  LIGHT THEME  ─────────────────────────
+ * Light mode is a deliberate, premium counterpart to the dark version —
+ * not a color inversion. Background is warm ivory/champagne, text is
+ * deep graphite, gold accent stays the same hue but slightly deeper for
+ * legibility on a light surface. Glass / glow effects automatically
+ * adapt because they reference the same tokens. */
+:root[data-theme="light"] {
+  /* Brand palette — light variant */
+  --ink: oklch(0.96 0.008 75);               /* warm cream surface */
+  --ink-deep: oklch(0.985 0.006 80);         /* pure ivory page bg #F5F2EE-ish */
+  --ink-soft: oklch(0.93 0.012 75);          /* card surface, slightly deeper */
+  --cyan: oklch(0.62 0.10 70);               /* deeper gold for contrast */
+  --cyan-soft: oklch(0.55 0.10 65);          /* bronze-gold */
+  --cyan-glow: oklch(0.70 0.11 75);          /* champagne accent */
+  --teal: oklch(0.50 0.07 60);               /* deep bronze */
+  --silver: oklch(0.18 0.01 250);            /* deep graphite text */
+  --silver-dim: oklch(0.42 0.01 250);        /* muted graphite */
+
+  --background: var(--ink-deep);
+  --foreground: var(--silver);
+  --card: var(--ink-soft);
+  --card-foreground: var(--silver);
+  --popover: var(--ink);
+  --popover-foreground: var(--silver);
+  --primary: var(--cyan);
+  --primary-foreground: oklch(0.985 0.006 80);
+  --secondary: oklch(0.90 0.01 75);
+  --secondary-foreground: var(--silver);
+  --muted: oklch(0.92 0.008 75);
+  --muted-foreground: oklch(0.45 0.012 250);
+  --accent: var(--cyan);
+  --accent-foreground: oklch(0.985 0.006 80);
+  --border: oklch(0.18 0.01 250 / 12%);
+  --input: oklch(0.18 0.01 250 / 16%);
+  --ring: var(--cyan);
+
+  --sidebar: var(--ink);
+  --sidebar-foreground: var(--silver);
+  --sidebar-accent: var(--ink-soft);
+  --sidebar-accent-foreground: var(--silver);
+  --sidebar-border: oklch(0.18 0.01 250 / 12%);
+
+  /* In light mode, "white tint" overlays should darken instead */
+  --surface-tint: oklch(0.18 0.01 250);
+  --surface-edge: oklch(0.18 0.01 250 / 0.10);
+  --hero-bg: var(--ink-deep);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
+
+  /* Smooth theme transitions */
+  html { color-scheme: dark; }
+  html[data-theme="light"] { color-scheme: light; }
+  html, body, header, footer, section, main, aside, nav, article,
+  [class*="bg-"], [class*="text-"], [class*="border-"] {
+    transition:
+      background-color 0.4s ease,
+      color 0.35s ease,
+      border-color 0.35s ease,
+      box-shadow 0.4s ease;
+  }
 
   html, body {
     background-color: var(--ink-deep);
