@@ -8,16 +8,16 @@ function NotFoundComponent() {
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">Страница не найдена</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+          Раздел не существует или был перемещён.
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Go home
+            На главную
           </Link>
         </div>
       </div>
@@ -31,16 +31,14 @@ export const Route = createRootRoute({
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#0a0907" },
-      { title: "STATUS SVOBODY — Освобождение от долгов" },
-      { name: "description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
-      { property: "og:title", content: "STATUS SVOBODY — Освобождение от долгов" },
-      { property: "og:description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
+      { title: "Статус Свободы — восстановление кредитной истории" },
+      { name: "description", content: "Финансовый консультант: восстановление кредитной истории и финансовая диагностика. Чистка БКИ, путь к ипотеке за 1,5–3 года." },
+      { property: "og:title", content: "Статус Свободы — кредитная история и финансовая диагностика" },
+      { property: "og:description", content: "Алгоритм восстановления кредитного рейтинга. Разбор БКИ, стратегия, ипотека через 1,5–3 года." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "STATUS SVOBODY — Освобождение от долгов" },
-      { name: "twitter:description", content: "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5702adcc-0d9a-41de-9841-b8f6ad06a837/id-preview-54f49a2b--f7724e52-3eef-4cf0-af24-f6ad8cddbdf5.lovable.app-1777417904827.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/5702adcc-0d9a-41de-9841-b8f6ad06a837/id-preview-54f49a2b--f7724e52-3eef-4cf0-af24-f6ad8cddbdf5.lovable.app-1777417904827.png" },
+      { name: "twitter:title", content: "Статус Свободы — восстановление кредитной истории" },
+      { name: "twitter:description", content: "Финансовый консультант. Чистка БКИ, рост рейтинга, путь к ипотеке." },
     ],
     links: [
       {

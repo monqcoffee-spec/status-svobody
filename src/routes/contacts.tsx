@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Phone, Send, MessageCircle, MapPin, Building2 } from "lucide-react";
+import { Phone, Send, MessageCircle, MapPin } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
@@ -9,16 +9,16 @@ import featherImg from "@/assets/feather-light.jpg";
 export const Route = createFileRoute("/contacts")({
   head: () => ({
     meta: [
-      { title: "Контакты — STATUS SVOBODY · Москва, Цветной бульвар" },
+      { title: "Контакты — Статус Свободы · Москва" },
       {
         name: "description",
         content:
-          "Москва, Цветной бульвар, 13. Telegram, WhatsApp, телефон. Реквизиты ИП и ссылки на государственные реестры.",
+          "Москва, Цветной бульвар, 13. Telegram, WhatsApp, телефон. Прямой контакт с финансовым консультантом, без колл-центров.",
       },
-      { property: "og:title", content: "Контакты — STATUS SVOBODY" },
+      { property: "og:title", content: "Контакты — Статус Свободы" },
       {
         property: "og:description",
-        content: "Связаться напрямую с арбитражным управляющим. Telegram, WhatsApp, телефон.",
+        content: "Связаться с консультантом по кредитной истории. Telegram, WhatsApp, телефон.",
       },
     ],
   }),
@@ -48,7 +48,7 @@ function ContactsPage() {
           </h1>
           <p className="mt-8 max-w-xl text-lg text-silver/75">
             Никаких колл-центров. Общение веду лично — Telegram, WhatsApp, телефон.
-            Если хотите сначала разобраться — запустите бесплатный интенсив в боте.
+            Для предварительного разбора удобнее всего написать в Telegram.
           </p>
         </div>
       </section>
@@ -56,7 +56,7 @@ function ContactsPage() {
       <Section variant="default">
         <div className="grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-4" style={{ borderRadius: "2px" }}>
           <ContactCard icon={<Phone className="h-5 w-5" />} label="Телефон" value="+7 (965) 445-73-78" href="tel:+79654457378" />
-          <ContactCard icon={<Send className="h-5 w-5" />} label="Telegram-бот" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
+          <ContactCard icon={<Send className="h-5 w-5" />} label="Telegram" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
           <ContactCard icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Написать" href="https://wa.me/79654457378" />
           <ContactCard icon={<MapPin className="h-5 w-5" />} label="Адрес" value="Москва, Цветной бульвар, 13" />
         </div>
@@ -80,48 +80,6 @@ function ContactsPage() {
               </button>
             }
           />
-        </div>
-      </Section>
-
-      <Section variant="darker">
-        <div className="grid gap-12 md:grid-cols-2">
-          <div>
-            <Eyebrow>Реквизиты</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl text-silver">ИП Армина Юлия Юрьевна</h2>
-            <dl className="mt-8 divide-y divide-white/8 border-y border-white/8">
-              {[
-                ["ИНН", "312300900561"],
-                ["ОГРНИП", "324774600450864"],
-                ["Реестр АУ", "№ 20068 от 17.11.2020"],
-                ["СРО", "Союз АУ «Созидание»"],
-              ].map(([k, v]) => (
-                <div key={k} className="flex items-baseline justify-between py-4">
-                  <dt className="smallcaps text-silver-dim">{k}</dt>
-                  <dd className="tabular text-silver">{v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div>
-            <Eyebrow>Подтверждение в реестрах</Eyebrow>
-            <h2 className="mt-6 font-display text-3xl text-silver">Открытые источники</h2>
-            <div className="mt-8 space-y-2">
-              {[
-                ["Профиль на Федресурсе (ЕФРСБ)", "https://fedresurs.ru/"],
-                ["Карточка СРО «Созидание»", "https://sozidanie-sro.ru/"],
-                ["Канал «Закон 127»", "https://t.me/zakon_127"],
-              ].map(([t, h]) => (
-                <a key={t} href={h} target="_blank" rel="noopener" className="group flex items-center justify-between gap-4 border-b border-white/8 py-4 text-silver hover:text-cyan transition-colors">
-                  <span className="flex items-center gap-3">
-                    <Building2 className="h-4 w-4 text-cyan" />
-                    {t}
-                  </span>
-                  <span className="text-cyan transition-transform group-hover:translate-x-1">→</span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </Section>
     </SiteLayout>

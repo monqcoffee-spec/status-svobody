@@ -1,30 +1,29 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowUpRight, Cpu, Shield, Zap, Eye, Layers, GitBranch } from "lucide-react";
+import { ArrowUpRight, Cpu, Shield, Eye, Layers, GitBranch, LineChart, FileSearch } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
-import { BankruptcyCalculator } from "@/components/site/BankruptcyCalculator";
 import { Cases } from "@/components/site/Cases";
 import { Testimonials } from "@/components/site/Testimonials";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
-import heroLiberation from "@/assets/hero-liberation.jpg";
+import { AiDiagnostic } from "@/components/site/AiDiagnostic";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "STATUS SVOBODY — Освобождение от долгов нового поколения" },
+      { title: "Статус Свободы — восстановление кредитной истории" },
       {
         name: "description",
         content:
-          "Legal-tech бренд: банкротство физлиц по 127-ФЗ напрямую с арбитражным управляющим. 888 млн ₽ списанных долгов, 323 дела. Технологичный подход к финансовой свободе.",
+          "Финансовый консультант: разбор БКИ, чистка ошибочных записей, рост кредитного рейтинга, путь к ипотеке за 1,5–3 года.",
       },
-      { property: "og:title", content: "STATUS SVOBODY — Status of Freedom" },
+      { property: "og:title", content: "Статус Свободы — кредитная история" },
       {
         property: "og:description",
         content:
-          "Освобождение от долгов через арбитражную процедуру. Технология. Прозрачность. Результат.",
+          "Алгоритм восстановления рейтинга. Чистка БКИ, выстраивание истории, ипотека.",
       },
     ],
   }),
@@ -35,16 +34,13 @@ function IndexPage() {
   return (
     <SiteLayout>
       <Hero />
-      <Marquee />
       <Manifesto />
       <Services />
-      <Technology />
-      <CalculatorSection />
+      <Approach />
+      <DiagnosticSection />
       <CasesSection />
       <TestimonialsSection />
-      <BigNumber />
       <Process />
-      <Trust />
       <FinalCTA />
     </SiteLayout>
   );
@@ -54,7 +50,6 @@ function IndexPage() {
 function Hero() {
   return (
     <section className="relative -mt-20 min-h-[100svh] overflow-hidden bg-black pt-20">
-      {/* Pure black base with subtle radial depth */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -63,11 +58,7 @@ function Hero() {
             "radial-gradient(ellipse 80% 60% at 50% 30%, color-mix(in oklab, var(--cyan) 6%, transparent) 0%, transparent 70%), #000",
         }}
       />
-
-      {/* Particle field background */}
       <ParticleField density={70} />
-
-      {/* Grid pattern — faint, only in upper area */}
       <div
         aria-hidden
         className="absolute inset-0 bg-grid opacity-[0.18]"
@@ -76,8 +67,6 @@ function Hero() {
           WebkitMaskImage: "linear-gradient(180deg, black 0%, black 40%, transparent 85%)",
         }}
       />
-
-      {/* Soft cyan accent orbs — restrained over black */}
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 top-32 h-[600px] w-[600px] rounded-full opacity-30 animate-drift"
@@ -88,8 +77,6 @@ function Hero() {
         className="pointer-events-none absolute -left-32 bottom-20 h-[500px] w-[500px] rounded-full opacity-20 animate-drift"
         style={{ background: "radial-gradient(closest-side, color-mix(in oklab, var(--teal) 28%, transparent), transparent)", animationDelay: "-8s" }}
       />
-
-      {/* Bottom fade to deep ink for seamless transition into next section */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
@@ -97,12 +84,10 @@ function Hero() {
       />
 
       <div className="container-tight relative flex min-h-[78svh] flex-col items-center justify-start pt-2 pb-6 md:min-h-[80svh] md:justify-center md:pt-10 md:pb-20">
-        <h1 className="sr-only">Статус Свободы — освобождение от долгов с Юлией Арминой</h1>
+        <h1 className="sr-only">Статус Свободы — восстановление кредитной истории с Юлией Арминой</h1>
 
-        {/* Portrait — blended into pure black, no frame, no text */}
         <div className="reveal reveal-delay-1 relative w-full">
           <div className="relative mx-auto w-fit">
-            {/* Soft warm halo behind */}
             <div
               aria-hidden
               className="absolute inset-0 -z-10 animate-pulse-glow"
@@ -112,7 +97,6 @@ function Hero() {
                 filter: "blur(70px)",
               }}
             />
-            {/* Floor shadow — anchors portrait to ground */}
             <div
               aria-hidden
               className="pointer-events-none absolute inset-x-0 bottom-0 -z-10 h-24"
@@ -124,7 +108,7 @@ function Hero() {
             />
             <img
               src={yuliaPortrait}
-              alt="Юлия Армина — арбитражный управляющий, основатель «Статус Свободы»"
+              alt="Юлия Армина — финансовый консультант, основатель «Статус Свободы»"
               width={1024}
               height={1536}
               className="relative z-10 mx-auto h-[54svh] w-auto select-none md:h-[78svh] lg:h-[84svh]"
@@ -140,66 +124,16 @@ function Hero() {
           </div>
         </div>
 
-        {/* CTA */}
         <div className="reveal reveal-delay-3 mt-3 flex w-full flex-col items-center justify-center gap-2.5 sm:flex-row md:mt-10 md:gap-3">
-          <a
-            href="https://t.me/status_svobody_bot"
-            target="_blank"
-            rel="noopener"
-            className="btn-cyan group rounded-sm"
-          >
-            <span>Запустить интенсив</span>
+          <Link to="/services/credit-history" className="btn-cyan group rounded-sm">
+            <span>Восстановить кредитную историю</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
-          <Link to="/services/bankruptcy" className="btn-ghost group rounded-sm">
-            <span>Узнать о процедуре</span>
+          </Link>
+          <Link to="/services/diagnostic" className="btn-ghost group rounded-sm">
+            <span>Финансовая диагностика</span>
             <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </Link>
         </div>
-      </div>
-
-      {/* Stats footer */}
-      <div className="container-tight relative pb-8 md:pb-12">
-        <div className="grid grid-cols-2 gap-px overflow-hidden border border-white/5 bg-white/[0.03] backdrop-blur-sm md:grid-cols-4">
-          {[
-            { v: "888 млн ₽", l: "Списано долгов" },
-            { v: "323", l: "Завершённых дел" },
-            { v: "50", l: "Активных процедур" },
-            { v: "5 лет", l: "В реестре АУ" },
-          ].map((s) => (
-            <div key={s.l} className="bg-ink/40 px-5 py-7 text-center md:text-left">
-              <div className="font-display text-2xl text-cyan tabular md:text-3xl text-glow">{s.v}</div>
-              <div className="smallcaps mt-2 text-[9px] text-silver-dim">{s.l}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ───────────────────── MARQUEE ───────────────────── */
-function Marquee() {
-  const items = [
-    "ЕФРСБ № 20068",
-    "СРО «Созидание»",
-    "127-ФЗ",
-    "ИНН 312300900561",
-    "ОГРНИП 324774600450864",
-    "Москва · Цветной бульвар, 13",
-    "Профиль на Федресурсе",
-    "5 лет в реестре АУ",
-  ];
-  const repeated = [...items, ...items];
-  return (
-    <section className="overflow-hidden border-y border-white/5 bg-ink py-5">
-      <div className="marquee flex w-max items-center gap-12 whitespace-nowrap">
-        {repeated.map((t, i) => (
-          <div key={i} className="flex items-center gap-12">
-            <span className="smallcaps text-silver-dim">{t}</span>
-            <span className="text-cyan">◆</span>
-          </div>
-        ))}
       </div>
     </section>
   );
@@ -213,24 +147,24 @@ function Manifesto() {
         <div className="lg:col-span-4">
           <SectionLabel n="01" title="Манифест" />
           <h2 className="display mt-8 text-4xl text-silver md:text-5xl">
-            От тяжести —<br />
-            <span className="text-cyan text-glow italic">к свету.</span>
+            Из тени БКИ —<br />
+            <span className="text-cyan text-glow italic">в свой рейтинг.</span>
           </h2>
         </div>
         <div className="lg:col-span-8 space-y-6 text-lg leading-relaxed text-silver/75 max-w-2xl">
           <p>
-            Долг — это не приговор. Это статус, который можно изменить.
-            <span className="text-silver"> Закон 127-ФЗ дал право на финансовую свободу каждому. </span>
-            Мы превращаем это право в результат.
+            Кредитная история — это не приговор. Это набор записей,
+            <span className="text-silver"> которые можно проверить, оспорить и переписать. </span>
+            Главное — действовать по алгоритму, а не «по советам с форумов».
           </p>
           <p>
-            Юридическая фирма продаёт услугу. Арбитражный управляющий несёт
-            <span className="text-cyan"> личную имущественную ответственность через СРО</span> —
-            это другой уровень вовлечённости и другая цена ошибки.
+            Я работаю с тем, что у вас уже есть: тремя бюро кредитных историй,
+            фактическими записями, реальной финансовой картиной. <span className="text-cyan">
+            Без обещаний «удалим всё за 1 день» </span> — таких сервисов не существует.
           </p>
           <p className="text-silver-dim">
-            Здесь нет менеджеров, скриптов и колл-центров. Только прямой диалог,
-            прозрачная процедура и измеримый результат.
+            Здесь нет менеджеров, скриптов и колл-центров. Только разбор вашей ситуации,
+            понятный план и сопровождение до результата.
           </p>
         </div>
       </div>
@@ -242,28 +176,20 @@ function Manifesto() {
 function Services() {
   const services = [
     {
-      icon: <Shield className="h-6 w-6" />,
+      icon: <FileSearch className="h-6 w-6" />,
       n: "01",
-      title: "Банкротство 127-ФЗ",
-      desc: "Законное списание долгов через арбитражный суд. От 500 000 ₽ задолженности. Личное ведение дела от первой консультации до решения.",
-      to: "/services/bankruptcy",
-      tag: "Основная процедура",
+      title: "Финансовая диагностика",
+      desc: "Полный разбор вашей ситуации: долги, доходы, имущество, текущая кредитная история. На выходе — стратегия и понимание следующего шага.",
+      to: "/services/diagnostic",
+      tag: "С чего начать",
     },
     {
       icon: <GitBranch className="h-6 w-6" />,
       n: "02",
       title: "Восстановление КИ",
-      desc: "Уникальная услуга после процедуры. Алгоритм возвращения кредитного рейтинга за 1,5–3 года. Реальный путь к ипотеке.",
+      desc: "Алгоритм возвращения кредитного рейтинга за 1,5–3 года: запрос отчётов в трёх БКИ, чистка ошибок, выстраивание истории, путь к ипотеке.",
       to: "/services/credit-history",
-      tag: "После банкротства",
-    },
-    {
-      icon: <Zap className="h-6 w-6" />,
-      n: "03",
-      title: "Интенсив «Status Svobody»",
-      desc: "5 уроков в Telegram. Бесплатно, без звонков и навязывания. Чек-лист «подходит ли вам банкротство» за 3 минуты.",
-      to: "/intensive",
-      tag: "Бесплатно",
+      tag: "Основной продукт",
     },
   ];
 
@@ -273,16 +199,16 @@ function Services() {
         <div>
           <SectionLabel n="02" title="Направления" />
           <H2 className="mt-8 max-w-3xl">
-            Три пути <span className="text-cyan italic">к статусу свободы</span>
+            Два пути <span className="text-cyan italic">к статусу свободы</span>
           </H2>
         </div>
         <p className="max-w-sm text-sm text-silver-dim">
-          Выберите точку входа — каждое направление выстроено как самостоятельный продукт
-          с прозрачной структурой и фиксированным результатом.
+          Начинаем с диагностики и переходим к восстановлению — каждый этап
+          с прозрачным результатом и фиксированным сроком.
         </p>
       </div>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-3">
+      <div className="mt-16 grid gap-6 md:grid-cols-2">
         {services.map((s) => (
           <Link
             key={s.n}
@@ -320,26 +246,26 @@ function Services() {
   );
 }
 
-/* ───────────────────── TECHNOLOGY ───────────────────── */
-function Technology() {
+/* ───────────────────── APPROACH ───────────────────── */
+function Approach() {
   const features = [
-    { icon: <Cpu className="h-5 w-5" />, t: "Telegram-бот", d: "Первичная диагностика и интенсив автоматизированы. 24/7, без ожидания." },
-    { icon: <Eye className="h-5 w-5" />, t: "Прозрачный трекинг", d: "Каждое действие в деле фиксируется. Доступ к статусу в любой момент." },
-    { icon: <Layers className="h-5 w-5" />, t: "Интеграция с реестрами", d: "Прямая работа с ЕФРСБ, БКИ, ФНС, арбитражной системой." },
-    { icon: <Shield className="h-5 w-5" />, t: "Защита данных", d: "Документы хранятся в зашифрованном контуре. NDA по умолчанию." },
+    { icon: <Cpu className="h-5 w-5" />, t: "Telegram-канал", d: "Полезные материалы по работе с БКИ. Без спама и автодозвонов, только суть." },
+    { icon: <Eye className="h-5 w-5" />, t: "Прозрачный план", d: "Каждый шаг описан заранее. Видите, что делается, в какие сроки и зачем." },
+    { icon: <Layers className="h-5 w-5" />, t: "Работа с тремя БКИ", d: "НБКИ, ОКБ, Скоринг Бюро. Запросы, проверка, исправление через официальные каналы." },
+    { icon: <Shield className="h-5 w-5" />, t: "Конфиденциальность", d: "Документы и данные остаются у вас. NDA по умолчанию, доступ только у консультанта." },
   ];
   return (
     <Section variant="glow">
       <div className="grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
-          <SectionLabel n="03" title="Технология" />
+          <SectionLabel n="03" title="Подход" />
           <H2 className="mt-8">
-            Legal-tech, <br />
-            <span className="text-cyan italic text-glow">а не «юристы по старинке»</span>
+            Метод, <br />
+            <span className="text-cyan italic text-glow">а не «магия удаления»</span>
           </H2>
           <p className="mt-6 max-w-md text-silver-dim">
-            Каждый этап процедуры цифровизован. Вы видите процесс, а не ждёте звонка
-            «у нас всё хорошо». Это бренд новой эпохи юридических услуг.
+            Никто не «стирает» кредитную историю — это миф. Но рейтинг можно
+            нарастить грамотными действиями. Это проверяемо, измеримо и работает.
           </p>
         </div>
 
@@ -359,11 +285,10 @@ function Technology() {
   );
 }
 
-/* ───────────────────── BIG NUMBER ───────────────────── */
-/* ───────────────────── CALCULATOR ───────────────────── */
-function CalculatorSection() {
+/* ───────────────────── DIAGNOSTIC ───────────────────── */
+function DiagnosticSection() {
   return (
-    <Section variant="darker" id="calculator">
+    <Section variant="darker" id="diagnostic">
       <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-5">
           <SectionLabel n="04" title="AI-диагностика" />
@@ -371,19 +296,19 @@ function CalculatorSection() {
             Узнайте за <span className="text-cyan italic text-glow">2 минуты</span>
           </H2>
           <p className="mt-6 max-w-md text-silver-dim">
-            AI-юрист задаст 3–5 уточняющих вопросов и сформулирует персональный
-            вердикт: подходит ли процедура, какая стратегия и что делать дальше.
+            AI-консультант задаст 3–5 уточняющих вопросов и сформулирует персональную
+            рекомендацию: с чего начать работу с КИ и какой путь подходит вам.
           </p>
         </div>
         <div className="lg:col-span-7 text-right">
           <span className="smallcaps text-silver-dim">
-            Анонимно · контакты только если кейс требует юриста
+            Анонимно · контакты — только если нужен разбор
           </span>
         </div>
       </div>
 
       <div className="mt-12">
-        <BankruptcyCalculator />
+        <AiDiagnostic />
       </div>
     </Section>
   );
@@ -397,12 +322,12 @@ function CasesSection() {
         <div className="lg:col-span-7">
           <SectionLabel n="05" title="Кейсы" />
           <H2 className="mt-8">
-            Реальные дела. <span className="text-cyan italic text-glow">Реальные цифры.</span>
+            Реальные истории. <span className="text-cyan italic text-glow">Реальный рост.</span>
           </H2>
         </div>
         <p className="max-w-sm text-sm text-silver-dim lg:col-span-5">
-          Анонимизировано: имена, регионы и профессии изменены. Суммы долгов, сроки
-          и решения судов — без изменений, проверяются в ЕФРСБ.
+          Анонимизировано: имена, регионы и профессии изменены. Динамика рейтинга
+          и итоговые результаты — без правок.
         </p>
       </div>
 
@@ -416,17 +341,17 @@ function CasesSection() {
 /* ───────────────────── TESTIMONIALS ───────────────────── */
 function TestimonialsSection() {
   return (
-    <Section variant="darker" id="testimonials">
+    <Section variant="glow" id="testimonials">
       <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
         <div className="lg:col-span-7">
           <SectionLabel n="06" title="Отзывы" />
           <H2 className="mt-8">
-            Истории тех, кто уже <span className="text-cyan italic text-glow">получил статус.</span>
+            Те, кто уже <span className="text-cyan italic text-glow">вернул свой рейтинг.</span>
           </H2>
         </div>
         <p className="max-w-sm text-sm text-silver-dim lg:col-span-5">
-          Видеоистории и развёрнутые отзывы публикуются с письменного согласия клиентов.
-          Имена изменены, факты, суммы и сроки — без правок.
+          Истории публикуются с письменного согласия клиентов. Имена изменены,
+          цифры рейтинга — реальные.
         </p>
       </div>
 
@@ -437,69 +362,20 @@ function TestimonialsSection() {
   );
 }
 
-function BigNumber() {
-  return (
-    <Section variant="default">
-      <img
-        src={particlesRise}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        width={1920}
-        height={1080}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30"
-        style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
-      />
-      <div className="text-center">
-        <SectionLabel n="07" title="Главная метрика" />
-
-        <div className="relative mt-14">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 -z-10 opacity-60"
-            style={{
-              background: "radial-gradient(ellipse 70% 60% at 50% 50%, color-mix(in oklab, var(--cyan) 18%, transparent), transparent 70%)",
-            }}
-          />
-          <div className="display tabular text-[clamp(4rem,18vw,14rem)] text-gradient-cyan text-glow leading-none">
-            888
-          </div>
-          <div className="smallcaps mt-2 text-cyan">миллионов ₽</div>
-        </div>
-
-        <p className="mx-auto mt-10 max-w-2xl font-display text-2xl text-silver md:text-3xl">
-          восемьсот восемьдесят восемь миллионов рублей
-        </p>
-        <p className="mx-auto mt-3 max-w-md text-silver-dim italic">
-          списано с долгов клиентов с 2020 года
-        </p>
-
-        <div className="mx-auto mt-12 flex max-w-md items-center gap-4">
-          <span className="h-px flex-1 bg-white/10" />
-          <a href="https://fedresurs.ru/" target="_blank" rel="noopener" className="smallcaps text-cyan hover:text-cyan-glow">
-            Подтверждено в ЕФРСБ →
-          </a>
-          <span className="h-px flex-1 bg-white/10" />
-        </div>
-      </div>
-    </Section>
-  );
-}
-
 /* ───────────────────── PROCESS ───────────────────── */
 function Process() {
   const steps = [
-    { n: "01", t: "Бесплатная диагностика", d: "Запускаете бота — за 3 минуты понимаете, подходит ли вам процедура." },
-    { n: "02", t: "Личная консультация", d: "Разбираем ситуацию, имущество, риски. Финальное решение — за вами." },
-    { n: "03", t: "Подготовка дела", d: "Сбор документов, заявление в арбитражный суд. Берём на себя." },
-    { n: "04", t: "Процедура и списание", d: "Веду дело до решения суда. Долги списаны, статус свободы получен." },
+    { n: "01", t: "Диагностика", d: "Запрашиваем отчёты во всех трёх БКИ, разбираем вашу ситуацию по фактам, а не догадкам." },
+    { n: "02", t: "Чистка ошибок", d: "Подаём официальные обращения на исправление некорректных записей: проданные долги, незакрытые проценты." },
+    { n: "03", t: "Выстраивание истории", d: "Безопасный финансовый продукт, чистая платёжная дисциплина 6–12 месяцев, регулярный мониторинг." },
+    { n: "04", t: "Большой шаг", d: "Малый кредит → крупный → одобрение ипотеки. Реалистичный горизонт — 1,5–3 года." },
   ];
 
   return (
     <Section variant="darker">
-      <SectionLabel n="08" title="Процесс" />
+      <SectionLabel n="07" title="Процесс" />
       <H2 className="mt-8 max-w-3xl">
-        Четыре шага <span className="text-cyan italic">от диагностики до свободы</span>
+        Четыре шага <span className="text-cyan italic">от разбора до ипотеки</span>
       </H2>
 
       <div className="mt-16 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-4" style={{ borderRadius: "2px" }}>
@@ -518,73 +394,41 @@ function Process() {
   );
 }
 
-/* ───────────────────── TRUST ───────────────────── */
-function Trust() {
-  const items = [
-    { label: "Реестр ЕФРСБ", value: "АУ № 20068", sub: "от 17.11.2020", href: "https://fedresurs.ru/" },
-    { label: "СРО", value: "«Созидание»", sub: "Союз АУ", href: "https://sozidanie-sro.ru/" },
-    { label: "ИНН", value: "312300900561", sub: "ИП Армина Ю. Ю." },
-    { label: "ОГРНИП", value: "324774600450864", sub: "Свидетельство ИП" },
-  ];
-  return (
-    <Section variant="default">
-      <div className="flex items-end justify-between gap-8 flex-wrap">
-        <div>
-          <SectionLabel n="09" title="Прозрачность" />
-          <H2 className="mt-8 max-w-2xl">
-            Все данные открыты <br />
-            и <span className="text-cyan italic text-glow">проверяемы.</span>
-          </H2>
-        </div>
-        <p className="max-w-sm text-sm text-silver-dim">
-          Каждую цифру с этого сайта можно сверить в государственных реестрах.
-          Это не маркетинг — юридический факт.
-        </p>
-      </div>
-
-      <div className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-4" style={{ borderRadius: "2px" }}>
-        {items.map((it) => (
-          <div key={it.label} className="group relative bg-ink-soft p-7 transition-all hover:bg-ink">
-            <div className="absolute inset-x-7 top-0 h-px bg-cyan/0 transition-colors group-hover:bg-cyan" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
-            <div className="smallcaps text-[9px] text-silver-dim">{it.label}</div>
-            <div className="mt-4 font-display text-2xl tabular text-silver md:text-3xl">{it.value}</div>
-            <div className="mt-2 text-xs text-silver-dim">{it.sub}</div>
-            {it.href && (
-              <a href={it.href} target="_blank" rel="noopener" className="mt-6 inline-flex items-center gap-1.5 text-xs text-cyan hover:text-cyan-glow">
-                Открыть реестр <ArrowUpRight className="h-3 w-3" />
-              </a>
-            )}
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 /* ───────────────────── FINAL CTA ───────────────────── */
 function FinalCTA() {
   return (
     <section id="contact" className="relative overflow-hidden bg-aurora py-32 md:py-40 scroll-mt-24">
       <ParticleField density={50} />
+      <img
+        src={particlesRise}
+        alt=""
+        aria-hidden
+        loading="lazy"
+        width={1920}
+        height={1080}
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
+        style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
+      />
       <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
 
       <div className="container-tight relative text-center">
         <Eyebrow>Точка входа</Eyebrow>
         <h2 className="display mt-8 text-[clamp(2.25rem,7vw,5rem)] max-w-4xl mx-auto">
-          <span className="text-gradient-cyan text-glow">Получите свой статус свободы.</span>
+          <span className="text-gradient-cyan text-glow">Запишитесь на разбор кредитной истории.</span>
         </h2>
         <p className="mx-auto mt-8 max-w-xl text-silver/75">
-          Начните с бесплатного интенсива в Telegram. 5 уроков, чек-лист, чёткое
-          понимание — подходит ли вам процедура.
+          Бесплатная консультация: смотрим ваши отчёты в трёх БКИ, формулируем
+          стратегию роста рейтинга и горизонт до ипотеки.
         </p>
 
         <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan group rounded-sm">
-            <span>Запустить бесплатно</span>
+            <span>Написать в Telegram</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <LeadFormDialog
             source="index-final"
+            headline="Запись на разбор кредитной истории"
             trigger={
               <button type="button" className="btn-ghost group rounded-sm">
                 <span>Оставить заявку</span>
@@ -594,8 +438,11 @@ function FinalCTA() {
           />
         </div>
         <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-          Telegram-бот · или оставьте заявку — свяжемся в течение часа
+          Telegram · или оставьте заявку — свяжемся в течение часа
         </p>
+        <div className="mt-10 flex justify-center">
+          <LineChart className="h-6 w-6 text-cyan/40" aria-hidden />
+        </div>
       </div>
     </section>
   );

@@ -9,18 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IntensiveRouteImport } from './routes/intensive'
 import { Route as ContactsRouteImport } from './routes/contacts'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesDiagnosticRouteImport } from './routes/services.diagnostic'
 import { Route as ServicesCreditHistoryRouteImport } from './routes/services.credit-history'
-import { Route as ServicesBankruptcyRouteImport } from './routes/services.bankruptcy'
 
-const IntensiveRoute = IntensiveRouteImport.update({
-  id: '/intensive',
-  path: '/intensive',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ContactsRoute = ContactsRouteImport.update({
   id: '/contacts',
   path: '/contacts',
@@ -36,14 +30,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesDiagnosticRoute = ServicesDiagnosticRouteImport.update({
+  id: '/services/diagnostic',
+  path: '/services/diagnostic',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesCreditHistoryRoute = ServicesCreditHistoryRouteImport.update({
   id: '/services/credit-history',
   path: '/services/credit-history',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesBankruptcyRoute = ServicesBankruptcyRouteImport.update({
-  id: '/services/bankruptcy',
-  path: '/services/bankruptcy',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -51,26 +45,23 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacts': typeof ContactsRoute
-  '/intensive': typeof IntensiveRoute
-  '/services/bankruptcy': typeof ServicesBankruptcyRoute
   '/services/credit-history': typeof ServicesCreditHistoryRoute
+  '/services/diagnostic': typeof ServicesDiagnosticRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacts': typeof ContactsRoute
-  '/intensive': typeof IntensiveRoute
-  '/services/bankruptcy': typeof ServicesBankruptcyRoute
   '/services/credit-history': typeof ServicesCreditHistoryRoute
+  '/services/diagnostic': typeof ServicesDiagnosticRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contacts': typeof ContactsRoute
-  '/intensive': typeof IntensiveRoute
-  '/services/bankruptcy': typeof ServicesBankruptcyRoute
   '/services/credit-history': typeof ServicesCreditHistoryRoute
+  '/services/diagnostic': typeof ServicesDiagnosticRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -78,45 +69,34 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/contacts'
-    | '/intensive'
-    | '/services/bankruptcy'
     | '/services/credit-history'
+    | '/services/diagnostic'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/contacts'
-    | '/intensive'
-    | '/services/bankruptcy'
     | '/services/credit-history'
+    | '/services/diagnostic'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/contacts'
-    | '/intensive'
-    | '/services/bankruptcy'
     | '/services/credit-history'
+    | '/services/diagnostic'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactsRoute: typeof ContactsRoute
-  IntensiveRoute: typeof IntensiveRoute
-  ServicesBankruptcyRoute: typeof ServicesBankruptcyRoute
   ServicesCreditHistoryRoute: typeof ServicesCreditHistoryRoute
+  ServicesDiagnosticRoute: typeof ServicesDiagnosticRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/intensive': {
-      id: '/intensive'
-      path: '/intensive'
-      fullPath: '/intensive'
-      preLoaderRoute: typeof IntensiveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/contacts': {
       id: '/contacts'
       path: '/contacts'
@@ -138,18 +118,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/diagnostic': {
+      id: '/services/diagnostic'
+      path: '/services/diagnostic'
+      fullPath: '/services/diagnostic'
+      preLoaderRoute: typeof ServicesDiagnosticRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/credit-history': {
       id: '/services/credit-history'
       path: '/services/credit-history'
       fullPath: '/services/credit-history'
       preLoaderRoute: typeof ServicesCreditHistoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/bankruptcy': {
-      id: '/services/bankruptcy'
-      path: '/services/bankruptcy'
-      fullPath: '/services/bankruptcy'
-      preLoaderRoute: typeof ServicesBankruptcyRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -159,9 +139,8 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactsRoute: ContactsRoute,
-  IntensiveRoute: IntensiveRoute,
-  ServicesBankruptcyRoute: ServicesBankruptcyRoute,
   ServicesCreditHistoryRoute: ServicesCreditHistoryRoute,
+  ServicesDiagnosticRoute: ServicesDiagnosticRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
