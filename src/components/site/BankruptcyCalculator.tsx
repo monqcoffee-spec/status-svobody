@@ -222,7 +222,7 @@ export function BankruptcyCalculator() {
       style={{ borderRadius: "2px" }}
     >
       {/* Top progress */}
-      <div className="relative h-1 w-full overflow-hidden bg-white/5">
+      <div className="relative h-1.5 w-full bg-white/5">
         {/* base track shimmer */}
         <div
           aria-hidden
@@ -267,31 +267,31 @@ export function BankruptcyCalculator() {
             }}
           />
         </div>
-      </div>
 
-      {/* Step pips */}
-      <div className="pointer-events-none absolute inset-x-0 top-1 z-10 flex justify-between px-[2px]">
-        {Array.from({ length: total }).map((_, i) => {
-          const reached = done || i <= step;
-          return (
-            <span
-              key={i}
-              aria-hidden
-              className="h-2 w-2 -translate-y-1/2 rounded-full border"
-              style={{
-                borderColor: reached
-                  ? "var(--cyan)"
-                  : "color-mix(in oklab, white 12%, transparent)",
-                background: reached ? "var(--cyan)" : "transparent",
-                boxShadow: reached
-                  ? "0 0 10px color-mix(in oklab, var(--cyan) 70%, transparent)"
-                  : "none",
-                transition:
-                  "background-color 400ms ease, box-shadow 400ms ease, border-color 400ms ease",
-              }}
-            />
-          );
-        })}
+        {/* Step pips */}
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-between px-1">
+          {Array.from({ length: total }).map((_, i) => {
+            const reached = done || i <= step;
+            return (
+              <span
+                key={i}
+                aria-hidden
+                className="h-1.5 w-1.5 rounded-full"
+                style={{
+                  background: reached
+                    ? "var(--cyan)"
+                    : "color-mix(in oklab, white 18%, transparent)",
+                  boxShadow: reached
+                    ? "0 0 10px color-mix(in oklab, var(--cyan) 80%, transparent)"
+                    : "none",
+                  transform: reached ? "scale(1.15)" : "scale(0.9)",
+                  transition:
+                    "background-color 400ms ease, box-shadow 400ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+              />
+            );
+          })}
+        </div>
       </div>
 
       <style>{`
