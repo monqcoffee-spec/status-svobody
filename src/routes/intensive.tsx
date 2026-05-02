@@ -57,20 +57,22 @@ function IntensivePage() {
         <div className="container-tight relative">
           <Eyebrow>Бесплатно · 5 уроков · Telegram</Eyebrow>
           <h1 className="display mt-8 max-w-5xl text-[clamp(2.5rem,9vw,7rem)] text-gradient-cyan text-glow">
-            Интенсив <br />
-            <span className="italic">«Status Svobody»</span>
+            Первый шаг <br />
+            <span className="italic">к статусу свободы</span>
           </h1>
           <p className="mt-10 max-w-2xl text-lg text-silver/80">
-            Разберётесь, подходит ли вам банкротство — без звонков и навязывания.
-            Только бот, материалы и чек-лист.
+            Пять уроков. Один чек-лист. Ноль звонков. Бренд начинается с этой точки —
+            и заканчивается решением арбитражного суда о списании ваших долгов.
           </p>
 
           <div className="mt-12 flex flex-wrap items-center gap-4">
             <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan group rounded-sm">
-              <span>Запустить в Telegram</span>
+              <span>Открыть первый урок</span>
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
             </a>
-            <span className="text-sm text-silver-dim">@status_svobody_bot</span>
+            <a href="/about" className="text-sm text-silver-dim hover:text-cyan transition-colors">
+              Узнать больше о бренде →
+            </a>
           </div>
         </div>
       </section>
@@ -118,10 +120,14 @@ function IntensivePage() {
       <Section variant="glow">
         <div className="text-center">
           <h3 className="display text-3xl text-silver md:text-5xl">
-            Готовы пройти <span className="text-cyan italic text-glow">первый урок?</span>
+            От тяжести — <span className="text-cyan italic text-glow">к ясности.</span>
           </h3>
+          <p className="mx-auto mt-6 max-w-xl text-silver/75">
+            Один шаг отделяет вас от понимания процедуры. Бот ответит за секунду —
+            и проведёт по всему пути.
+          </p>
           <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="mt-10 btn-cyan rounded-sm">
-            Запустить интенсив <ArrowRight className="h-4 w-4" />
+            Открыть первый урок <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </Section>
