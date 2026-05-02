@@ -401,6 +401,30 @@ function CasesSection() {
   );
 }
 
+/* ───────────────────── TESTIMONIALS ───────────────────── */
+function TestimonialsSection() {
+  return (
+    <Section variant="darker" id="testimonials">
+      <div className="grid gap-12 lg:grid-cols-12 lg:items-end">
+        <div className="lg:col-span-7">
+          <SectionLabel n="06" title="Отзывы" />
+          <H2 className="mt-8">
+            Истории тех, кто уже <span className="text-cyan italic text-glow">получил статус.</span>
+          </H2>
+        </div>
+        <p className="max-w-sm text-sm text-silver-dim lg:col-span-5">
+          Видеоистории и развёрнутые отзывы публикуются с письменного согласия клиентов.
+          Имена изменены, факты, суммы и сроки — без правок.
+        </p>
+      </div>
+
+      <div className="mt-14">
+        <Testimonials />
+      </div>
+    </Section>
+  );
+}
+
 function BigNumber() {
   return (
     <Section variant="default">
