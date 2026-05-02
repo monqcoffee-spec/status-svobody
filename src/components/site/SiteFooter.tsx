@@ -17,13 +17,12 @@ export function SiteFooter() {
             <Logo size={56} />
             <div>
               <div className="font-display text-lg tracking-[0.28em] text-silver uppercase">Статус Свободы</div>
-              <div className="text-[10px] tracking-[0.4em] text-cyan uppercase mt-1">Кредитная история · Финансы</div>
+              <div className="text-[10px] tracking-[0.4em] text-cyan uppercase mt-1">Premium legal consulting</div>
             </div>
           </div>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-silver-dim">
-            Финансовое консультирование и восстановление кредитной истории.
-            Прямая работа без посредников и колл-центров. От разбора БКИ
-            до одобрения ипотеки.
+            Юридические решения для вашей свободы. Личное сопровождение
+            основателем бренда — без посредников, менеджеров и колл-центров.
           </p>
         </div>
 
@@ -32,8 +31,8 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-2.5 text-sm">
             {[
               ["/about", "О бренде"],
-              ["/services/diagnostic", "Финансовая диагностика"],
-              ["/services/credit-history", "Восстановление КИ"],
+              ["/services/diagnostic", "Диагностика"],
+              ["/services/credit-history", "Сопровождение"],
               ["/contacts", "Контакты"],
             ].map(([to, label]) => (
               <li key={to}>
@@ -55,7 +54,7 @@ export function SiteFooter() {
 
       <div className="border-t border-white/5">
         <div className="container-tight flex flex-col gap-2 py-6 text-[11px] tracking-wider text-silver-dim md:flex-row md:items-center md:justify-between">
-          <div>© {new Date().getFullYear()} Статус Свободы · Финансовый консультант</div>
+          <div>© {new Date().getFullYear()} STATUS SVOBODY · Юлия Армина</div>
           <div>Сайт носит информационный характер</div>
         </div>
       </div>
