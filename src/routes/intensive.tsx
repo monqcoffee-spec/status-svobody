@@ -3,6 +3,7 @@ import { ArrowRight, Check } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import featherImg from "@/assets/feather-light.jpg";
 
 export const Route = createFileRoute("/intensive")({
@@ -143,6 +144,15 @@ function IntensivePage() {
             <span className="text-[11px] tracking-[0.2em] uppercase text-silver-dim">
               Старт за 3 секунды · без звонков
             </span>
+            <LeadFormDialog
+              source="intensive-final"
+              headline="Свяжемся и подберём формат"
+              trigger={
+                <button type="button" className="text-sm text-silver/70 hover:text-cyan transition-colors underline-offset-4 hover:underline">
+                  или оставить заявку — перезвоним
+                </button>
+              }
+            />
           </div>
         </div>
       </Section>

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
+import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import particlesRise from "@/assets/particles-rise.jpg";
 
 export const Route = createFileRoute("/services/credit-history")({
@@ -109,9 +110,18 @@ function CreditPage() {
             У клиентов это работает. Главное — начать сразу после завершения процедуры
             и не делать ошибок «по советам с форумов».
           </p>
-          <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="mt-10 btn-cyan rounded-sm">
-            Разбор моей КИ — записаться <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
+              Разбор моей КИ — записаться <ArrowRight className="h-4 w-4" />
+            </a>
+            <LeadFormDialog
+              source="credit-history"
+              headline="Запись на разбор кредитной истории"
+              trigger={
+                <button type="button" className="btn-ghost rounded-sm">Оставить заявку</button>
+              }
+            />
+          </div>
         </div>
       </Section>
     </SiteLayout>

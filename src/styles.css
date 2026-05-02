@@ -365,4 +365,22 @@
     50% { opacity: 0.8; }
     100% { transform: translateY(-120px); opacity: 0; }
   }
+
+  .lead-input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid color-mix(in oklab, white 14%, transparent);
+    padding: 0.5rem 0;
+    color: var(--silver);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 200ms ease;
+  }
+  .lead-input::placeholder { color: color-mix(in oklab, var(--silver) 40%, transparent); }
+  .lead-input:focus {
+    border-bottom-color: var(--cyan);
+    box-shadow: 0 1px 0 0 var(--cyan);
+  }
 }

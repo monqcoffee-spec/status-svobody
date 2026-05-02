@@ -6,6 +6,7 @@ import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
 import { BankruptcyCalculator } from "@/components/site/BankruptcyCalculator";
 import { Cases } from "@/components/site/Cases";
+import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import heroLiberation from "@/assets/hero-liberation.jpg";
 import particlesRise from "@/assets/particles-rise.jpg";
 
@@ -544,11 +545,19 @@ function FinalCTA() {
             <span>Запустить бесплатно</span>
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
-          <Link to="/contacts" className="btn-ghost group rounded-sm">
-            <span>Связаться лично</span>
-            <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
+          <LeadFormDialog
+            source="index-final"
+            trigger={
+              <button type="button" className="btn-ghost group rounded-sm">
+                <span>Оставить заявку</span>
+                <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </button>
+            }
+          />
         </div>
+        <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-silver-dim">
+          Telegram-бот · или оставьте заявку — свяжемся в течение часа
+        </p>
       </div>
     </section>
   );
