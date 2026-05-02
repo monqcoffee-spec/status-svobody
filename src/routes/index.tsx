@@ -137,12 +137,7 @@ function Hero() {
 
           {/* RIGHT — short pitch about company & founder */}
           <div className="md:col-span-7 lg:col-span-7 text-center md:text-left">
-            <div className="reveal flex items-center justify-center gap-3 text-silver-dim md:justify-start">
-              <span className="hairline-tight" />
-              <span className="smallcaps text-cyan">Legal · Tech · Liberation</span>
-            </div>
-
-            <h2 className="display reveal reveal-delay-1 mt-6 text-4xl leading-[1.05] text-silver md:text-5xl lg:text-6xl">
+            <h2 className="display reveal reveal-delay-1 text-4xl leading-[1.05] text-silver md:text-5xl lg:text-6xl">
               Долг — это <span className="text-cyan italic text-glow">статус</span>.<br />
               Его можно <span className="text-cyan italic text-glow">сменить</span>.
             </h2>
