@@ -14,7 +14,7 @@ export function SiteFooter() {
       <div className="container-tight relative grid gap-12 py-20 md:grid-cols-12">
         <div className="md:col-span-5">
           <div className="flex items-center gap-3">
-            <Logo size={56} />
+            <Logo size={48} className="h-12" />
             <div>
               <div className="font-display text-lg tracking-[0.28em] text-silver uppercase">Статус Свободы</div>
               <div className="text-[10px] tracking-[0.4em] text-cyan uppercase mt-1">Premium legal consulting</div>

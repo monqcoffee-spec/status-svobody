@@ -36,7 +36,10 @@ export function SiteHeader() {
     >
       <div className="container-tight flex h-16 md:h-20 items-center justify-between gap-4 md:gap-6">
         <Link to="/" className="group flex items-center gap-2.5 md:gap-3 min-w-0">
-          <Logo size={36} className="md:!w-[42px] md:!h-[42px] shrink-0 transition-transform duration-700 group-hover:rotate-[40deg]" />
+          <Logo
+            size={32}
+            className="h-8 md:h-10 transition-transform duration-700 group-hover:rotate-[6deg]"
+          />
           <div className="leading-tight min-w-0">
             <div className="font-display text-[12px] md:text-[15px] tracking-[0.22em] md:tracking-[0.32em] text-silver uppercase whitespace-nowrap">
               Статус<span className="text-cyan"> </span>Свободы
