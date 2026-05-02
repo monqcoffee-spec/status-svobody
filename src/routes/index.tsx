@@ -84,64 +84,83 @@ function Hero() {
       />
 
       <div className="container-tight relative grid min-h-[80svh] place-items-center pt-8 pb-24 md:pt-12">
-        <div className="text-center max-w-3xl">
-          {/* Top eyebrow */}
-          <div className="reveal flex items-center justify-center gap-3 text-silver-dim">
-            <span className="hairline-tight" />
-            <span className="smallcaps text-cyan">Legal · Tech · Liberation</span>
-            <span className="hairline-tight" />
-          </div>
-
-          {/* Founder portrait replaces the glowing logo+title */}
-          <h1 className="sr-only">Статус Свободы — освобождение от долгов с Юлией Арминой</h1>
-          <div className="reveal reveal-delay-1 mt-6 flex justify-center">
-            <div className="relative">
-              <img
-                src={yuliaPortrait}
-                alt="Юлия Армина — основатель Статус Свободы"
-                width={1024}
-                height={1536}
-                className="relative z-10 mx-auto h-[58svh] w-auto select-none md:h-[68svh] lg:h-[72svh]"
-                style={{
-                  maskImage:
-                    "radial-gradient(ellipse 75% 85% at 50% 50%, black 60%, transparent 100%)",
-                  WebkitMaskImage:
-                    "radial-gradient(ellipse 75% 85% at 50% 50%, black 60%, transparent 100%)",
-                  filter: "drop-shadow(0 24px 60px rgba(201,166,107,0.18))",
-                }}
-              />
+        <h1 className="sr-only">Статус Свободы — освобождение от долгов с Юлией Арминой</h1>
+        <div className="grid w-full items-center gap-10 md:grid-cols-12 md:gap-12">
+          {/* LEFT — portrait blended into background */}
+          <div className="reveal reveal-delay-1 relative md:col-span-5 lg:col-span-5">
+            <div className="relative mx-auto w-fit">
               <div
                 aria-hidden
                 className="absolute inset-0 -z-10 animate-pulse-glow"
                 style={{
                   background:
-                    "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--cyan) 28%, transparent) 0%, transparent 65%)",
-                  filter: "blur(40px)",
+                    "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--cyan) 26%, transparent) 0%, transparent 65%)",
+                  filter: "blur(48px)",
                 }}
               />
+              <img
+                src={yuliaPortrait}
+                alt="Юлия Армина — арбитражный управляющий, основатель «Статус Свободы»"
+                width={1024}
+                height={1536}
+                className="relative z-10 mx-auto h-[46svh] w-auto select-none md:h-[64svh] lg:h-[70svh]"
+                style={{
+                  maskImage:
+                    "radial-gradient(ellipse 72% 82% at 50% 50%, black 58%, transparent 100%)",
+                  WebkitMaskImage:
+                    "radial-gradient(ellipse 72% 82% at 50% 50%, black 58%, transparent 100%)",
+                  filter: "drop-shadow(0 24px 60px rgba(201,166,107,0.18))",
+                }}
+              />
+              {/* Signature caption under portrait */}
+              <div className="reveal reveal-delay-2 relative z-10 mt-4 text-center md:text-left md:pl-2">
+                <div className="font-display text-lg text-silver md:text-xl">Юлия Армина</div>
+                <div className="smallcaps mt-1 text-[10px] text-cyan">
+                  Арбитражный управляющий · ЕФРСБ № 20068
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Tagline */}
-          <p className="reveal reveal-delay-3 mx-auto mt-10 max-w-xl text-base leading-relaxed text-silver/75 md:text-lg">
-            Освобождение от долгов по 127-ФЗ — прямо, технологично, законно.
-          </p>
+          {/* RIGHT — short pitch about company & founder */}
+          <div className="md:col-span-7 lg:col-span-7 text-center md:text-left">
+            <div className="reveal flex items-center justify-center gap-3 text-silver-dim md:justify-start">
+              <span className="hairline-tight" />
+              <span className="smallcaps text-cyan">Legal · Tech · Liberation</span>
+            </div>
 
-          {/* CTA */}
-          <div className="reveal reveal-delay-3 mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <a
-              href="https://t.me/status_svobody_bot"
-              target="_blank"
-              rel="noopener"
-              className="btn-cyan group rounded-sm"
-            >
-              <span>Запустить интенсив</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-            <Link to="/services/bankruptcy" className="btn-ghost group rounded-sm">
-              <span>Узнать о процедуре</span>
-              <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
+            <h2 className="display reveal reveal-delay-1 mt-6 text-4xl leading-[1.05] text-silver md:text-5xl lg:text-6xl">
+              Долг — это <span className="text-cyan italic text-glow">статус</span>.<br />
+              Его можно <span className="text-cyan italic text-glow">сменить</span>.
+            </h2>
+
+            <p className="reveal reveal-delay-2 mx-auto mt-6 max-w-xl text-base leading-relaxed text-silver/80 md:mx-0 md:text-lg">
+              «Статус Свободы» — legal-tech бюро банкротства физлиц по 127-ФЗ.
+              Прямая работа с арбитражным управляющим, без посредников и колл-центров.
+            </p>
+
+            <p className="reveal reveal-delay-3 mx-auto mt-4 max-w-xl text-sm leading-relaxed text-silver-dim md:mx-0">
+              <span className="text-silver">5 лет в реестре АУ</span>, 323 завершённых дела,
+              <span className="text-silver"> 888 млн ₽</span> законно списанных долгов.
+              Личное ведение каждого дела — от первой консультации до определения суда.
+            </p>
+
+            {/* CTA */}
+            <div className="reveal reveal-delay-3 mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
+              <a
+                href="https://t.me/status_svobody_bot"
+                target="_blank"
+                rel="noopener"
+                className="btn-cyan group rounded-sm"
+              >
+                <span>Запустить интенсив</span>
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+              <Link to="/services/bankruptcy" className="btn-ghost group rounded-sm">
+                <span>Узнать о процедуре</span>
+                <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
