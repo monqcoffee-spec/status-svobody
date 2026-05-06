@@ -1,4 +1,3 @@
-import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 export function SiteFooter() {
@@ -30,13 +29,14 @@ export function SiteFooter() {
           <div className="smallcaps text-cyan">Навигация</div>
           <ul className="mt-5 space-y-2.5 text-sm">
             {[
-              ["/about", "О бренде"],
-              ["/services/diagnostic", "Диагностика"],
-              ["/services/credit-history", "Сопровождение"],
-              ["/contacts", "Контакты"],
-            ].map(([to, label]) => (
-              <li key={to}>
-                <Link to={to} className="text-silver/70 hover:text-cyan transition-colors">{label}</Link>
+              ["/#about", "О бренде"],
+              ["/#services", "Услуги"],
+              ["/#pricing", "Тарифы"],
+              ["/#team", "Команда"],
+              ["/#contacts", "Контакты"],
+            ].map(([href, label]) => (
+              <li key={href}>
+                <a href={href} className="text-silver/70 hover:text-cyan transition-colors">{label}</a>
               </li>
             ))}
           </ul>
