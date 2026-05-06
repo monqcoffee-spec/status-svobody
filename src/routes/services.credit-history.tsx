@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, FileSearch, FileText, Handshake, Sparkles, ShieldCheck, Scale, Database } from "lucide-react";
+import { ArrowRight, FileSearch, FileText, Handshake, Sparkles, ShieldCheck, Scale, Database, Gavel, Shield, Banknote, HeartHandshake, Check } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
