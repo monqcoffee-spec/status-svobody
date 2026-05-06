@@ -199,6 +199,11 @@ function AboutPage() {
           <H2 className="max-w-3xl mx-auto">
             Готовы вернуть <span className="text-cyan italic text-glow">свой рейтинг?</span>
           </H2>
+          <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-silver/75">
+            Не ждите, пока проблема усугубится. Оставьте заявку — юрист
+            свяжется с вами в течение 15 минут. Первичная консультация
+            бесплатно. Работаем по всей России.
+          </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
               Написать в Telegram <ArrowRight className="h-4 w-4" />
