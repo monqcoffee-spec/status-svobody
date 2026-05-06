@@ -9,108 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ContactsRouteImport } from './routes/contacts'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesDiagnosticRouteImport } from './routes/services.diagnostic'
-import { Route as ServicesCreditHistoryRouteImport } from './routes/services.credit-history'
 
-const ContactsRoute = ContactsRouteImport.update({
-  id: '/contacts',
-  path: '/contacts',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AboutRoute = AboutRouteImport.update({
-  id: '/about',
-  path: '/about',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesDiagnosticRoute = ServicesDiagnosticRouteImport.update({
-  id: '/services/diagnostic',
-  path: '/services/diagnostic',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesCreditHistoryRoute = ServicesCreditHistoryRouteImport.update({
-  id: '/services/credit-history',
-  path: '/services/credit-history',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contacts': typeof ContactsRoute
-  '/services/credit-history': typeof ServicesCreditHistoryRoute
-  '/services/diagnostic': typeof ServicesDiagnosticRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contacts': typeof ContactsRoute
-  '/services/credit-history': typeof ServicesCreditHistoryRoute
-  '/services/diagnostic': typeof ServicesDiagnosticRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/about': typeof AboutRoute
-  '/contacts': typeof ContactsRoute
-  '/services/credit-history': typeof ServicesCreditHistoryRoute
-  '/services/diagnostic': typeof ServicesDiagnosticRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/about'
-    | '/contacts'
-    | '/services/credit-history'
-    | '/services/diagnostic'
+  fullPaths: '/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/about'
-    | '/contacts'
-    | '/services/credit-history'
-    | '/services/diagnostic'
-  id:
-    | '__root__'
-    | '/'
-    | '/about'
-    | '/contacts'
-    | '/services/credit-history'
-    | '/services/diagnostic'
+  to: '/'
+  id: '__root__' | '/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AboutRoute: typeof AboutRoute
-  ContactsRoute: typeof ContactsRoute
-  ServicesCreditHistoryRoute: typeof ServicesCreditHistoryRoute
-  ServicesDiagnosticRoute: typeof ServicesDiagnosticRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/contacts': {
-      id: '/contacts'
-      path: '/contacts'
-      fullPath: '/contacts'
-      preLoaderRoute: typeof ContactsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/about': {
-      id: '/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof AboutRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/': {
       id: '/'
       path: '/'
@@ -118,29 +48,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/diagnostic': {
-      id: '/services/diagnostic'
-      path: '/services/diagnostic'
-      fullPath: '/services/diagnostic'
-      preLoaderRoute: typeof ServicesDiagnosticRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services/credit-history': {
-      id: '/services/credit-history'
-      path: '/services/credit-history'
-      fullPath: '/services/credit-history'
-      preLoaderRoute: typeof ServicesCreditHistoryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AboutRoute: AboutRoute,
-  ContactsRoute: ContactsRoute,
-  ServicesCreditHistoryRoute: ServicesCreditHistoryRoute,
-  ServicesDiagnosticRoute: ServicesDiagnosticRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
