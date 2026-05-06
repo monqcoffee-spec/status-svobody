@@ -5,11 +5,11 @@ import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
 const nav = [
-  { to: "/", label: "Главная" },
-  { to: "/about", label: "О бренде" },
-  { to: "/services/diagnostic", label: "Диагностика" },
-  { to: "/services/credit-history", label: "Сопровождение" },
-  { to: "/contacts", label: "Контакты" },
+  { href: "/#about", label: "О бренде" },
+  { href: "/#services", label: "Услуги" },
+  { href: "/#pricing", label: "Тарифы" },
+  { href: "/#team", label: "Команда" },
+  { href: "/#contacts", label: "Контакты" },
 ] as const;
 
 export function SiteHeader() {
@@ -24,7 +24,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [location.pathname]);
+  useEffect(() => setOpen(false), [location.pathname, location.hash]);
 
   return (
     <header
@@ -60,27 +60,18 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7 text-[13px]">
-          {nav.slice(1).map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
+          {nav.map((n) => (
+            <a
+              key={n.href}
+              href={n.href}
               className="group relative text-silver/65 hover:text-cyan transition-colors duration-300"
-              activeProps={{ className: "!text-cyan" }}
-              activeOptions={{ exact: false }}
             >
-              {({ isActive }) => (
-                <>
-                  {n.label}
-                  <span
-                    className={
-                      "absolute -bottom-1.5 left-0 h-px bg-cyan transition-all duration-300 " +
-                      (isActive ? "w-full" : "w-0 group-hover:w-full")
-                    }
-                    style={{ boxShadow: "0 0 8px var(--cyan)" }}
-                  />
-                </>
-              )}
-            </Link>
+              {n.label}
+              <span
+                className="absolute -bottom-1.5 left-0 h-px w-0 bg-cyan transition-all duration-300 group-hover:w-full"
+                style={{ boxShadow: "0 0 8px var(--cyan)" }}
+              />
+            </a>
           ))}
         </nav>
 
@@ -117,26 +108,22 @@ export function SiteHeader() {
           }}
         >
           <nav className="container-tight flex flex-col py-6">
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="flex items-center justify-between border-b border-white/5 py-4 font-display text-lg text-silver/80 hover:text-cyan tracking-wide"
+            >
+              Главная
+            </Link>
             {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
+              <a
+                key={n.href}
+                href={n.href}
+                onClick={() => setOpen(false)}
                 className="flex items-center justify-between border-b border-white/5 py-4 font-display text-lg text-silver/80 hover:text-cyan tracking-wide"
-                activeProps={{ className: "!text-cyan" }}
-                activeOptions={{ exact: n.to === "/" }}
               >
-                {({ isActive }) => (
-                  <>
-                    <span>{n.label}</span>
-                    {isActive && (
-                      <span
-                        className="h-1.5 w-1.5 rounded-full bg-cyan"
-                        style={{ boxShadow: "0 0 8px var(--cyan)" }}
-                      />
-                    )}
-                  </>
-                )}
-              </Link>
+                <span>{n.label}</span>
+              </a>
             ))}
             <a
               href="https://t.me/status_svobody_bot"
