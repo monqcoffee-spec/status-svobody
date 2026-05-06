@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, Sparkles, ShieldCheck, Workflow } from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck, Workflow, Award, Scale, GraduationCap, BadgeCheck } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
@@ -53,10 +53,10 @@ function AboutPage() {
           <h1 className="display mt-8 text-[clamp(2.5rem,8vw,6rem)] text-gradient-cyan text-glow">
             Статус Свободы
           </h1>
-          <p className="mx-auto mt-8 max-w-2xl text-lg text-silver/75">
-            Финансовый консультант, специализация — кредитная история и работа
-            с долгами. Превращаем тяжесть финансовых записей в&nbsp;ясный план
-            действий — прозрачно, законно, без обещаний «волшебных удалений».
+          <p className="mx-auto mt-8 max-w-2xl text-xl md:text-2xl leading-relaxed text-silver/85">
+            <span className="text-cyan">Финансовый поверенный</span> Юлия Армина
+            и команда юристов: Цифровой профиль, кредитная история и
+            финансовая репутация — приводим в безупречный порядок.
           </p>
         </div>
       </section>
@@ -76,34 +76,90 @@ function AboutPage() {
               />
             </div>
             <div className="mt-8 text-center lg:text-left">
-              <div className="smallcaps text-cyan">Основатель и финансовый консультант</div>
-              <div className="mt-3 font-display text-2xl text-silver">Юлия Армина</div>
-              <div className="mt-1 text-sm text-silver-dim">Опыт работы с БКИ и сложными финансовыми ситуациями с 2020 года</div>
+              <div className="smallcaps text-cyan">Основатель · финансовый поверенный</div>
+              <div className="mt-3 font-display text-3xl text-silver">Юлия Армина</div>
+              <div className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">
+                Финансовый юрист. Сопровождает клиентов в делах
+                о долгах, кредитной истории и Цифровом профиле с 2020 года.
+              </div>
             </div>
           </div>
 
-          <div className="lg:col-span-8 space-y-6 text-lg leading-relaxed text-silver/80">
+          <div className="lg:col-span-8 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
             <p>
-              <span className="text-cyan italic">Статус Свободы</span> — это не «юридическая
-              контора с конвейером». Это персональное консультирование: одна точка ответственности,
-              цифровой контур и измеримый результат по вашей кредитной истории.
+              <span className="text-cyan italic">Статус Свободы</span> — премиальный
+              финансово-юридический консалтинг. Стратегия личного финансового
+              поверенного и команда юристов: Цифровой профиль, кредитная
+              история, ФССП, банкротство — всё под одной точкой ответственности.
             </p>
             <p>
-              За пять лет я помогла сотням людей привести в порядок отчёты в БКИ,
-              убрать ошибки и вернуть нормальный кредитный рейтинг. Сегодня клиенты
-              получают одобрение по ипотеке через 1,5–3 года после старта работы.
+              За пять лет — сотни клиентов с восстановленной кредитной историей,
+              исправленными записями в БКИ и одобренной ипотекой через
+              1,5–3 года после старта работы. Поддержка на каждом шагу — от
+              первой консультации до закрытия дела.
             </p>
-            <p className="text-silver-dim">
-              Здесь нет менеджеров и колл-центров. Один консультант, прямой контакт,
-              честный диалог. Если ваша задача решается без меня — я скажу об этом
-              на первой встрече, бесплатно.
+            <p className="text-silver/75">
+              Прямой контакт с поверенным, честный диалог и прозрачный план.
+              Если ваша задача решается проще — скажу об этом на первой
+              встрече, бесплатно.
             </p>
           </div>
         </div>
       </Section>
 
+      {/* ───── Регалии финансового юриста ───── */}
       <Section variant="default">
-        <SectionLabel n="01" title="Принципы" />
+        <SectionLabel n="01" title="Регалии" />
+        <H2 className="mt-8 max-w-3xl">
+          Регалии <span className="text-cyan italic">финансового юриста</span>
+        </H2>
+        <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Профессиональный фундамент, на котором строится каждое решение
+          и каждое сопровождение клиента.
+        </p>
+
+        <div className="mt-14 grid gap-5 md:grid-cols-2">
+          {[
+            {
+              icon: <Award className="h-6 w-6" />,
+              t: "Финансовый поверенный",
+              d: "Профессиональный статус: личное представительство интересов клиента в финансово-правовых вопросах.",
+            },
+            {
+              icon: <GraduationCap className="h-6 w-6" />,
+              t: "Высшее юридическое образование",
+              d: "Профильная специализация по финансовому и гражданскому праву.",
+            },
+            {
+              icon: <Scale className="h-6 w-6" />,
+              t: "Практика по 218-ФЗ",
+              d: "Системная работа с кредитными бюро НБКИ, ОКБ и Скоринг Бюро. Оспаривание ошибок, дублей, проданных долгов.",
+            },
+            {
+              icon: <BadgeCheck className="h-6 w-6" />,
+              t: "Сотни закрытых дел",
+              d: "Кредитная история, ФССП, банкротство, ипотека после восстановления — измеримый результат у каждого клиента.",
+            },
+          ].map((r) => (
+            <div
+              key={r.t}
+              className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
+              style={{ borderRadius: "2px" }}
+            >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
+                {r.icon}
+              </div>
+              <div>
+                <h3 className="font-display text-xl md:text-2xl text-silver leading-snug">{r.t}</h3>
+                <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{r.d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <Section variant="default">
+        <SectionLabel n="02" title="Принципы" />
         <H2 className="mt-8 max-w-3xl">
           Что отличает <span className="text-cyan italic">Статус Свободы</span>
         </H2>
@@ -112,26 +168,26 @@ function AboutPage() {
           {[
             {
               icon: <ShieldCheck className="h-6 w-6" />,
-              t: "Личная работа",
-              d: "Никаких передач между менеджерами. С вами от первой консультации до результата — один человек.",
+              t: "Личное участие",
+              d: "Стратегия — лично от финансового поверенного. Команда юристов выполняет работу под её прямым руководством.",
             },
             {
               icon: <Workflow className="h-6 w-6" />,
               t: "Цифровой контур",
-              d: "Telegram-связь, прозрачный план действий, регулярный мониторинг отчётов в трёх БКИ.",
+              d: "Защищённая связь, прозрачный план действий, регулярный мониторинг Цифрового профиля и отчётов в трёх БКИ.",
             },
             {
               icon: <Sparkles className="h-6 w-6" />,
               t: "Честность на входе",
-              d: "Никаких «100% удалим всё за день». Объясняю, как работают БКИ на самом деле и какой реалистичный горизонт.",
+              d: "Никаких «100% удалим всё за день». Объясняем, как работает Цифровой профиль и каков реалистичный горизонт.",
             },
           ].map((p) => (
             <div key={p.t} className="group border border-white/8 bg-ink-soft/60 p-8 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
               <div className="inline-flex h-12 w-12 items-center justify-center border border-cyan/30 text-cyan transition-all group-hover:border-cyan group-hover:shadow-[0_0_20px_color-mix(in_oklab,var(--cyan)_40%,transparent)]" style={{ borderRadius: "2px" }}>
                 {p.icon}
               </div>
-              <h3 className="mt-6 font-display text-xl text-silver">{p.t}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-silver-dim">{p.d}</p>
+              <h3 className="mt-6 font-display text-xl md:text-2xl text-silver">{p.t}</h3>
+              <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.d}</p>
             </div>
           ))}
         </div>
