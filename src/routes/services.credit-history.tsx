@@ -205,6 +205,238 @@ function CreditPage() {
         </ol>
       </Section>
 
+      {/* ───── Услуги ───── */}
+      <Section variant="darker">
+        <SectionLabel n="04" title="Наши услуги" />
+        <H2 className="mt-8 max-w-3xl">
+          Полный спектр решений для{" "}
+          <span className="text-cyan italic">восстановления кредитной истории</span>
+        </H2>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Не просто подаём заявления — ведём дела до конца: анализ КИ,
+          переговоры с банками и коллекторами, жалобы в БКИ, контроль
+          исполнения решений суда. Каждый этап — под пристальным вниманием
+          юриста.
+        </p>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-2">
+          {[
+            {
+              icon: <FileText className="h-6 w-6" />,
+              t: "Оспаривание данных в БКИ",
+              d: "Оспариваем ошибки, ложные записи и незаконные долги в кредитной истории. Срок — до 30 дней. Повышаем кредитный рейтинг.",
+            },
+            {
+              icon: <Sparkles className="h-6 w-6" />,
+              t: "Восстановление КИ после банкротства",
+              d: "Исправляем ошибки и не закрытые после банкротства кредитные договоры. Полностью восстанавливаем кредитную историю.",
+            },
+            {
+              icon: <HeartHandshake className="h-6 w-6" />,
+              t: "Помощь в списании долгов участникам СВО",
+              d: "Закон № 377-ФЗ допускает списание долгов участников СВО при гибели или инвалидности I группы. Аналогичное право — у членов семьи.",
+            },
+            {
+              icon: <Gavel className="h-6 w-6" />,
+              t: "Снятие арестов ФССП",
+              d: "Снимаем аресты на счета и имущество, закрываем исполнительные производства, удаляем недостоверную информацию.",
+            },
+            {
+              icon: <Banknote className="h-6 w-6" />,
+              t: "Выкуп долгов у коллекторов",
+              d: "Помогаем выкупить долги у коллекторов с дисконтом до 90% и прекращаем преследование.",
+            },
+            {
+              icon: <Shield className="h-6 w-6" />,
+              t: "Полный спектр сопровождения",
+              d: "От первой консультации до закрытия дела — единая точка ответственности и прозрачный план.",
+            },
+          ].map((s) => (
+            <div
+              key={s.t}
+              className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
+              style={{ borderRadius: "2px" }}
+            >
+              <div
+                className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan"
+                style={{ borderRadius: "2px" }}
+              >
+                {s.icon}
+              </div>
+              <div>
+                <h3 className="font-display text-lg md:text-xl text-silver leading-snug">
+                  {s.t}
+                </h3>
+                <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">
+                  {s.d}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* ───── Практика ───── */}
+      <Section variant="default">
+        <SectionLabel n="05" title="Из практики" />
+        <H2 className="mt-8 max-w-3xl">
+          Свежие дела команды{" "}
+          <span className="text-cyan italic">STATUS SVOBODY</span>
+        </H2>
+
+        <div className="mt-12 grid gap-5 md:grid-cols-3">
+          {[
+            {
+              date: "15.03.2026",
+              t: "Оспаривание данных в БКИ",
+              d: "Подаём заявления и жалобы в БКИ на недостоверные данные, ошибочные записи о просрочках и незаконные кредитные договоры. В 99% случаев данные удаляются или исправляются.",
+              author: "Александр Волков",
+            },
+            {
+              date: "22.03.2026",
+              t: "Восстановление КИ после банкротства",
+              d: "Банки часто игнорируют решение суда и оставляют долги открытыми. Добиваемся полного обнуления данных в БКИ и восстанавливаем кредитную историю.",
+              author: "Елена Морозова",
+            },
+            {
+              date: "08.04.2026",
+              t: "Снятие арестов по ФССП",
+              d: "Аресты остаются даже после окончания исполнительного производства. Подаём заявления в ФССП, снимаем аресты и удаляем недостоверную информацию.",
+              author: "Дмитрий Сидоров",
+            },
+          ].map((n) => (
+            <article
+              key={n.t}
+              className="flex flex-col border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
+              style={{ borderRadius: "2px" }}
+            >
+              <time className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
+                {n.date}
+              </time>
+              <h3 className="mt-3 font-display text-xl md:text-2xl text-silver leading-snug">
+                {n.t}
+              </h3>
+              <p className="mt-3 flex-1 text-base md:text-lg leading-relaxed text-silver-dim">
+                {n.d}
+              </p>
+              <div className="mt-6 pt-4 border-t border-white/8 smallcaps text-cyan">
+                {n.author}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* ───── Тарифы ───── */}
+      <Section variant="darker">
+        <SectionLabel n="06" title="Тарифы" />
+        <H2 className="mt-8 max-w-3xl">
+          Прозрачные тарифы{" "}
+          <span className="text-cyan italic">без скрытых платежей</span>
+        </H2>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Три чётких пакета — от быстрого оспаривания одной записи до
+          полного восстановления кредитной истории. В договоре все цены
+          фиксированы, никаких дополнительных сборов.
+        </p>
+
+        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+          {[
+            {
+              t: "Анализ кредитной истории",
+              sub: "Пошаговый план для самостоятельного исправления КИ",
+              price: "5 000 ₽",
+              meta: "Включает 1 консультацию",
+              features: [
+                "Аудит отчётов в трёх БКИ",
+                "Письменное заключение",
+                "План действий",
+              ],
+              highlight: false,
+            },
+            {
+              t: "Премиум",
+              sub: "Оспаривание до 5 записей + работа с коллекторами и банками",
+              price: "от 35 000 ₽",
+              meta: "Включает 3 консультации",
+              features: [
+                "До 5 оспариваний в БКИ",
+                "Переговоры с банками и коллекторами",
+                "Сопровождение юриста",
+              ],
+              highlight: true,
+            },
+            {
+              t: "Платинум — комплексный подход",
+              sub: "Полное восстановление: БКИ, ФССП, банкротство, выкуп долгов",
+              price: "от 65 000 ₽",
+              meta: "5 консультаций · сопровождение 6 месяцев",
+              features: [
+                "Все направления под одним юристом",
+                "Снятие арестов ФССП",
+                "Выкуп долгов с дисконтом",
+                "Контроль исполнения решений",
+              ],
+              highlight: false,
+            },
+          ].map((p) => (
+            <div
+              key={p.t}
+              className={`relative flex flex-col border bg-ink-soft/60 p-8 transition-all ${
+                p.highlight
+                  ? "border-cyan/60"
+                  : "border-white/8 hover:border-cyan/40"
+              }`}
+              style={{
+                borderRadius: "2px",
+                boxShadow: p.highlight
+                  ? "0 0 32px color-mix(in oklab, var(--cyan) 22%, transparent)"
+                  : undefined,
+              }}
+            >
+              {p.highlight && (
+                <div className="absolute -top-3 left-8 bg-cyan text-ink-deep px-3 py-1 smallcaps text-xs">
+                  Популярный
+                </div>
+              )}
+              <h3 className="font-display text-2xl md:text-3xl text-silver leading-snug">
+                {p.t}
+              </h3>
+              <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">
+                {p.sub}
+              </p>
+              <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">
+                {p.price}
+              </div>
+              <div className="mt-2 smallcaps text-cyan">{p.meta}</div>
+              <ul className="mt-6 space-y-3 flex-1">
+                {p.features.map((f) => (
+                  <li
+                    key={f}
+                    className="flex gap-3 text-base md:text-lg text-silver/85"
+                  >
+                    <Check className="h-5 w-5 shrink-0 text-cyan mt-0.5" />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <LeadFormDialog
+                source={`pricing-${p.t}`}
+                headline={`Тариф · ${p.t}`}
+                trigger={
+                  <button
+                    type="button"
+                    className={`mt-8 ${p.highlight ? "btn-cyan" : "btn-ghost"} rounded-sm`}
+                  >
+                    Оставить заявку
+                  </button>
+                }
+              />
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section variant="glow">
         <div className="text-center">
           <H2 className="max-w-3xl mx-auto">
