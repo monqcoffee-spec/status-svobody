@@ -194,6 +194,23 @@ function AboutPage() {
         </div>
       </Section>
 
+      {/* ───── Команда ───── */}
+      <Section variant="darker">
+        <SectionLabel n="03" title="Наши эксперты" />
+        <H2 className="mt-8 max-w-3xl">
+          Команда, которая знает, как вернуть{" "}
+          <span className="text-cyan italic">доверие к финансовой системе</span>
+        </H2>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Юристы с опытом работы в банках, БКИ, у судебных приставов и
+          в делах о банкротстве. Сотни закрытых аналогичных дел —
+          практика, а не только теория.
+        </p>
+        <div className="mt-16">
+          <Team />
+        </div>
+      </Section>
+
       <Section variant="glow">
         <div className="text-center">
           <H2 className="max-w-3xl mx-auto">
