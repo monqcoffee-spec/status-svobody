@@ -5,6 +5,7 @@ import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
+import { Team } from "@/components/site/Team";
 import aboutImg from "@/assets/about-transformation.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -193,11 +194,33 @@ function AboutPage() {
         </div>
       </Section>
 
+      {/* ───── Команда ───── */}
+      <Section variant="darker">
+        <SectionLabel n="03" title="Наши эксперты" />
+        <H2 className="mt-8 max-w-3xl">
+          Команда, которая знает, как вернуть{" "}
+          <span className="text-cyan italic">доверие к финансовой системе</span>
+        </H2>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Юристы с опытом работы в банках, БКИ, у судебных приставов и
+          в делах о банкротстве. Сотни закрытых аналогичных дел —
+          практика, а не только теория.
+        </p>
+        <div className="mt-16">
+          <Team />
+        </div>
+      </Section>
+
       <Section variant="glow">
         <div className="text-center">
           <H2 className="max-w-3xl mx-auto">
             Готовы вернуть <span className="text-cyan italic text-glow">свой рейтинг?</span>
           </H2>
+          <p className="mx-auto mt-6 max-w-2xl text-base md:text-lg leading-relaxed text-silver/75">
+            Не ждите, пока проблема усугубится. Оставьте заявку — юрист
+            свяжется с вами в течение 15 минут. Первичная консультация
+            бесплатно. Работаем по всей России.
+          </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-cyan rounded-sm">
               Написать в Telegram <ArrowRight className="h-4 w-4" />
