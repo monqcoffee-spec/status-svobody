@@ -5,6 +5,7 @@ import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { Logo } from "@/components/site/Logo";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
+import { Team } from "@/components/site/Team";
 import aboutImg from "@/assets/about-transformation.jpg";
 
 export const Route = createFileRoute("/about")({
