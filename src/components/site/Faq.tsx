@@ -31,7 +31,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <Section variant="darker" id="faq">
-      <SectionLabel n="08" title="Вопросы и ответы" />
+      <SectionLabel n="07" title="Вопросы и ответы" />
       <H2 className="mt-8 max-w-3xl">
         Часто задаваемые <span className="text-cyan italic">вопросы</span>
       </H2>
