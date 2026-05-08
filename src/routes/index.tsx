@@ -7,13 +7,11 @@ import {
   FileText,
   Handshake,
   Sparkles,
-  ShieldCheck,
   Database,
   Gavel,
   Shield,
   Banknote,
   HeartHandshake,
-  Workflow,
   Phone,
   AtSign,
   Megaphone,
@@ -126,7 +124,7 @@ function Hero() {
           <div className="reveal reveal-delay-2 col-span-6 relative z-10">
             <div className="inline-flex items-center gap-3">
               <span className="hairline-tight" />
-              <span className="smallcaps text-cyan">Premium legal consulting</span>
+              <span className="smallcaps text-cyan">Legal consulting</span>
             </div>
             <p className="mt-6 font-display text-5xl leading-[1.05] tracking-[-0.03em] text-silver lg:text-6xl">
               СТАТУС СВОБОДЫ <br />
@@ -145,13 +143,13 @@ function Hero() {
                 headline="Запись на консультацию"
                 trigger={
                   <button type="button" className="btn-cyan group rounded-sm">
-                    <span>Получить консультацию</span>
+                    <span>Оставить заявку</span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </button>
                 }
               />
               <a href="#services" className="btn-ghost group rounded-sm">
-                <span>Узнать решение</span>
+                <span>Узнать подробнее</span>
                 <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
@@ -195,7 +193,7 @@ function Hero() {
             headline="Запись на консультацию"
             trigger={
               <button type="button" className="btn-cyan group rounded-sm w-full">
-                <span>Получить консультацию</span>
+                <span>Оставить заявку</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
             }
