@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { createElement } from "react";
+import type { ElementType } from "react";
 
 /**
  * Splits text into per-letter spans for a cinematic letter-by-letter
@@ -9,23 +10,24 @@ import type { ReactNode } from "react";
  */
 export function ShimmerText({
   children,
-  as: Tag = "span",
+  as = "span",
   className = "",
   delayStart = 0,
   delayStep = 60,
 }: {
   children: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: ElementType;
   className?: string;
   delayStart?: number;
   delayStep?: number;
 }) {
   const chars = Array.from(children);
-  return (
-    <Tag className={`shimmer-letters ${className}`} aria-label={children}>
-      {chars.map((ch, i) => {
+  return createElement(
+    as,
+    { className: `shimmer-letters ${className}`, "aria-label": children },
+    chars.map((ch, i) => {
         const isSpace = ch === " " || ch === "\u00A0";
-        return (
+      return (
           <span
             key={i}
             aria-hidden
@@ -39,8 +41,7 @@ export function ShimmerText({
           >
             {isSpace ? "\u00A0" : ch}
           </span>
-        );
-      })}
-    </Tag>
+      );
+    })
   );
 }
