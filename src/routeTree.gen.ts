@@ -9,8 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as BankruptcyRouteImport } from './routes/bankruptcy'
 import { Route as IndexRouteImport } from './routes/index'
 
+const BankruptcyRoute = BankruptcyRouteImport.update({
+  id: '/bankruptcy',
+  path: '/bankruptcy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +25,39 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bankruptcy': typeof BankruptcyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bankruptcy': typeof BankruptcyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bankruptcy': typeof BankruptcyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/bankruptcy'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/bankruptcy'
+  id: '__root__' | '/' | '/bankruptcy'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BankruptcyRoute: typeof BankruptcyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/bankruptcy': {
+      id: '/bankruptcy'
+      path: '/bankruptcy'
+      fullPath: '/bankruptcy'
+      preLoaderRoute: typeof BankruptcyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BankruptcyRoute: BankruptcyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
