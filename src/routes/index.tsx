@@ -126,6 +126,29 @@ function IndexPage() {
 
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
+  const portraitMobile = useRef<HTMLImageElement>(null);
+  const portraitDesktop = useRef<HTMLImageElement>(null);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        // soft parallax: 8–12px max range
+        const offset = Math.max(-12, Math.min(12, -y * 0.04));
+        const apply = (el: HTMLImageElement | null) => {
+          if (el) el.style.transform = `translate3d(0, ${offset}px, 0)`;
+        };
+        apply(portraitMobile.current);
+        apply(portraitDesktop.current);
+        raf = 0;
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   return (
     <section className="relative overflow-hidden bg-ink-deep md:-mt-20">
       <h1 className="sr-only">
@@ -134,12 +157,13 @@ function Hero() {
 
       <div className="relative md:hidden">
         <img
+          ref={portraitMobile}
           src={yuliaPortrait}
           alt="Юлия Армина — STATUS SVOBODY"
           width={1024}
           height={1536}
           fetchPriority="high"
-          className="block w-full select-none"
+          className="block w-full select-none will-change-transform transition-transform duration-200 ease-out"
           style={{
             maskImage:
               "linear-gradient(180deg, transparent 0%, black 6%, black 92%, transparent 100%)",
@@ -217,12 +241,13 @@ function Hero() {
           </div>
           <div className="col-span-6 relative">
             <img
+              ref={portraitDesktop}
               src={yuliaPortrait}
               alt="Юлия Армина — STATUS SVOBODY"
               width={1024}
               height={1536}
               fetchPriority="high"
-              className="mx-auto block max-h-[92svh] w-auto select-none"
+              className="mx-auto block max-h-[92svh] w-auto select-none will-change-transform transition-transform duration-200 ease-out"
               style={{
                 maskImage:
                   "radial-gradient(ellipse 75% 80% at 60% 50%, black 55%, transparent 100%)",
