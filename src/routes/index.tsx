@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
   ArrowUpRight,
   Check,
@@ -23,8 +23,9 @@ import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
 import { IconBadge } from "@/components/site/IconBadge";
+import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import particlesRise from "@/assets/particles-rise.jpg";
-import yuliaPortrait from "@/assets/yulia-armina-hero.png";
+import yuliaPortrait from "@/assets/yulia-armina-hero.webp";
 import featherImg from "@/assets/feather-light.jpg";
 
 export const Route = createFileRoute("/")({
@@ -46,6 +47,45 @@ export const Route = createFileRoute("/")({
       {
         name: "twitter:description",
         content: "Финансовый поверенный Юлия Армина и команда юристов.",
+      },
+    ],
+    links: [
+      { rel: "preload", as: "image", href: yuliaPortrait, type: "image/webp", fetchpriority: "high" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "LegalService",
+              name: "STATUS SVOBODY",
+              description:
+                "Премиальный финансово-юридический консалтинг: восстановление кредитной истории, БКИ, ФССП, банкротство.",
+              areaServed: "RU",
+              priceRange: "₽₽₽",
+              telephone: "+7 (965) 445-73-78",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Москва",
+                addressCountry: "RU",
+              },
+              url: "https://status-svobody.lovable.app",
+            },
+            {
+              "@type": "Person",
+              name: "Юлия Армина",
+              jobTitle: "Финансовый поверенный",
+              worksFor: { "@type": "Organization", name: "STATUS SVOBODY" },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Москва",
+                addressCountry: "RU",
+              },
+            },
+          ],
+        }),
       },
     ],
   }),
