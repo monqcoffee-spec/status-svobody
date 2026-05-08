@@ -31,7 +31,7 @@ import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
-import { Team } from "@/components/site/Team";
+import { Faq } from "@/components/site/Faq";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 import featherImg from "@/assets/feather-light.jpg";
@@ -81,15 +81,13 @@ function IndexPage() {
   return (
     <SiteLayout>
       <Hero />
-      <Advantages />
       <About />
       <Regalia />
-      <Process />
       <DigitalProfile />
       <Services />
-      <Practice />
-      <Team2 />
+      <Process />
       <Pricing />
+      <Faq />
       <Contacts />
       <FinalCTA />
     </SiteLayout>
