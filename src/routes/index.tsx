@@ -196,7 +196,7 @@ function Hero() {
               </button>
             }
           />
-          <a href="#process" className="btn-ghost group rounded-sm w-full">
+          <a href="#services" className="btn-ghost group rounded-sm w-full">
             <span>Как мы работаем</span>
             <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
@@ -213,7 +213,7 @@ function Hero() {
 function About() {
   return (
     <Section variant="default" id="about">
-      <SectionLabel n="02" title="О бренде" />
+      <SectionLabel n="01" title="О бренде" />
       <H2 className="mt-8 max-w-3xl">
         Статус <span className="text-cyan italic">Свободы</span>
       </H2>
@@ -275,7 +275,7 @@ function Regalia() {
   ];
   return (
     <Section variant="darker" id="regalia">
-      <SectionLabel n="03" title="Регалии" />
+      <SectionLabel n="02" title="Регалии" />
       <H2 className="mt-8 max-w-3xl">
         Регалии <span className="text-cyan italic">финансового юриста</span>
       </H2>
@@ -306,7 +306,7 @@ function Process() {
   ];
   return (
     <Section variant="default" id="process">
-      <SectionLabel n="04" title="Как мы работаем" />
+      <SectionLabel n="05" title="Как мы работаем" />
       <H2 className="mt-8 max-w-3xl">
         Путь к <span className="text-cyan italic">безупречной репутации</span>
       </H2>
@@ -345,7 +345,7 @@ function DigitalProfile() {
   ];
   return (
     <Section variant="darker" id="digital-profile">
-      <SectionLabel n="05" title="Цифровой профиль" />
+      <SectionLabel n="03" title="Цифровой профиль" />
       <H2 className="mt-8 max-w-3xl">
         Что входит в ваш <span className="text-cyan italic">Цифровой профиль</span>
       </H2>
@@ -402,7 +402,7 @@ function Services() {
   ];
   return (
     <Section variant="default" id="services">
-      <SectionLabel n="06" title="Наши услуги" />
+      <SectionLabel n="04" title="Наши услуги" />
       <H2 className="mt-8 max-w-3xl">
         Полный спектр решений для{" "}
         <span className="text-cyan italic">восстановления кредитной истории</span>
@@ -460,7 +460,7 @@ function Pricing() {
   ];
   return (
     <Section variant="darker" id="pricing">
-      <SectionLabel n="09" title="Тарифы" />
+      <SectionLabel n="06" title="Тарифы" />
       <H2 className="mt-8 max-w-3xl">
         Прозрачные тарифы{" "}
         <span className="text-cyan italic">без скрытых платежей</span>
@@ -517,7 +517,7 @@ function Pricing() {
 function Contacts() {
   return (
     <Section variant="default" id="contacts">
-      <SectionLabel n="10" title="Контакты" />
+      <SectionLabel n="08" title="Контакты" />
       <H2 className="mt-8 max-w-3xl">
         Свяжитесь <span className="text-cyan italic">напрямую</span>
       </H2>
