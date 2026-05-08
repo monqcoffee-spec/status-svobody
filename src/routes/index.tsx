@@ -32,6 +32,7 @@ import { ParticleField } from "@/components/site/ParticleField";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
+import { IconBadge } from "@/components/site/IconBadge";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 import featherImg from "@/assets/feather-light.jpg";
