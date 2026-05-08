@@ -90,6 +90,13 @@
   --silver: oklch(0.95 0.012 20);            /* warm ivory text */
   --silver-dim: oklch(0.72 0.030 18);        /* dusty rose muted text */
 
+  /* Premium accent — champagne (default) + rose accent (hover/active) */
+  --champagne: #E8D4A8;                      /* warm champagne gold */
+  --champagne-soft: #C9B488;                 /* muted champagne */
+  --champagne-glow: #F5E6C2;                 /* light champagne highlight */
+  --rose-accent: #E8A7B0;                    /* warm rose accent */
+  --rose-accent-soft: #C97987;               /* muted rose */
+
   /* Semantic — dark by default */
   --background: var(--ink-deep);
   --foreground: var(--silver);
@@ -187,19 +194,61 @@
     line-height: 0.95;
   }
 
-  /* Glow text — subtle cyan halo on key headings */
+  /* Glow text — softened halo on key headings */
   .text-glow {
     text-shadow:
-      0 0 24px color-mix(in oklab, var(--cyan) 40%, transparent),
-      0 0 60px color-mix(in oklab, var(--cyan) 20%, transparent);
+      0 0 18px color-mix(in oklab, var(--cyan-glow) 28%, transparent),
+      0 0 48px color-mix(in oklab, var(--cyan-glow) 14%, transparent);
   }
 
-  /* Cyan gradient text */
+  /* Cyan gradient text — softer ivory→pale-rose blend */
   .text-gradient-cyan {
-    background: linear-gradient(135deg, var(--silver) 0%, var(--cyan-glow) 50%, var(--silver) 100%);
+    background: linear-gradient(135deg,
+      color-mix(in oklab, var(--silver) 92%, transparent) 0%,
+      color-mix(in oklab, var(--cyan-glow) 78%, var(--silver)) 50%,
+      color-mix(in oklab, var(--silver) 92%, transparent) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* ─────────── Letter-by-letter shimmer reveal ───────────
+   * Used by <ShimmerText>: each <span> gets --i index and animates
+   * from blurred + dim to crisp + bright with a champagne sheen. */
+  @keyframes letter-shimmer-in {
+    0% {
+      opacity: 0;
+      filter: blur(8px) brightness(0.6);
+      transform: translateY(0.4em);
+      color: color-mix(in oklab, var(--champagne-glow) 40%, transparent);
+    }
+    60% {
+      opacity: 1;
+      filter: blur(0) brightness(1.4);
+      color: var(--champagne-glow);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0) brightness(1);
+      transform: none;
+      color: inherit;
+    }
+  }
+  .shimmer-letters > span {
+    display: inline-block;
+    opacity: 0;
+    animation: letter-shimmer-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--i, 0) * 60ms + 0.2s);
+    will-change: opacity, filter, transform;
+  }
+  .shimmer-letters > span.space { width: 0.28em; }
+  @media (prefers-reduced-motion: reduce) {
+    .shimmer-letters > span {
+      animation: none;
+      opacity: 1;
+      filter: none;
+      transform: none;
+    }
   }
 
   /* Radial deep background — used on hero / sections */

@@ -23,6 +23,7 @@ import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
 import { IconBadge } from "@/components/site/IconBadge";
+import { ShimmerText } from "@/components/site/ShimmerText";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 import featherImg from "@/assets/feather-light.jpg";
@@ -141,11 +142,18 @@ function Hero() {
               <span className="hairline-tight" />
               <span className="smallcaps text-cyan">Статус Свободы</span>
             </div>
-            <p className="mt-6 font-display text-5xl leading-[1.05] tracking-[-0.03em] text-silver lg:text-6xl">
-              СТАТУС СВОБОДЫ <br />
-              <span className="text-gradient-cyan text-glow italic font-serif">Юлии Арминой</span>
+            <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] text-silver lg:text-7xl">
+              <ShimmerText as="span">СТАТУС СВОБОДЫ</ShimmerText>
+              <br />
+              <ShimmerText
+                as="span"
+                className="text-gradient-cyan text-glow italic font-serif"
+                delayStart={700}
+              >
+                Юлии Арминой
+              </ShimmerText>
             </p>
-            <p className="mt-7 max-w-lg text-lg leading-relaxed text-silver/80">
+            <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed text-silver/85">
               Испорченная кредитная история — не клеймо. Это запись,
               которую закон разрешает оспорить.
             </p>
@@ -189,12 +197,19 @@ function Hero() {
       </div>
 
       <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
-        <div className="reveal mb-5 text-center">
-          <p className="font-display text-3xl leading-[1.1] tracking-[-0.02em] text-silver">
-            СТАТУС СВОБОДЫ <br />
-            <span className="text-gradient-cyan italic font-serif">Юлии Арминой</span>
+        <div className="mb-5 text-center">
+          <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em] text-silver">
+            <ShimmerText as="span">СТАТУС СВОБОДЫ</ShimmerText>
+            <br />
+            <ShimmerText
+              as="span"
+              className="text-gradient-cyan italic font-serif"
+              delayStart={600}
+            >
+              Юлии Арминой
+            </ShimmerText>
           </p>
-          <p className="mt-4 text-base leading-relaxed text-silver/80">
+          <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed text-silver/85">
             Испорченная кредитная история — не клеймо. Это запись,
             которую закон разрешает оспорить.
           </p>

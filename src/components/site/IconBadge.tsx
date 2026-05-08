@@ -27,20 +27,20 @@ export function IconBadge({
   const { box, corner } = sizes[size];
   return (
     <div
-      className={`relative shrink-0 ${box} ${className}`}
-      style={{ filter: "drop-shadow(0 6px 18px color-mix(in oklab, var(--cyan-soft) 35%, transparent))" }}
+      className={`group/badge relative shrink-0 ${box} ${className}`}
+      style={{ filter: "drop-shadow(0 6px 18px color-mix(in oklab, var(--champagne-soft) 30%, transparent))" }}
     >
       {/* Outer rotated frame */}
       <div
         aria-hidden
-        className="absolute inset-0"
+        className="absolute inset-0 transition-all duration-500 group-hover/badge:[border-color:color-mix(in_oklab,var(--rose-accent)_60%,transparent)]"
         style={{
           transform: "rotate(45deg)",
           background:
-            "linear-gradient(135deg, color-mix(in oklab, var(--cyan-glow) 18%, transparent) 0%, color-mix(in oklab, var(--cyan-soft) 28%, transparent) 100%)",
-          border: "1px solid color-mix(in oklab, var(--cyan-glow) 45%, transparent)",
+            "linear-gradient(135deg, color-mix(in oklab, var(--champagne-glow) 22%, transparent) 0%, color-mix(in oklab, var(--champagne-soft) 28%, transparent) 100%)",
+          border: "1px solid color-mix(in oklab, var(--champagne) 50%, transparent)",
           boxShadow:
-            "inset 0 0 14px color-mix(in oklab, var(--cyan-glow) 18%, transparent), 0 0 24px color-mix(in oklab, var(--cyan) 28%, transparent)",
+            "inset 0 0 14px color-mix(in oklab, var(--champagne-glow) 22%, transparent), 0 0 24px color-mix(in oklab, var(--champagne) 25%, transparent)",
         }}
       />
       {/* Inner rotated highlight */}
@@ -50,9 +50,9 @@ export function IconBadge({
         style={{
           inset: "5px",
           transform: "rotate(45deg)",
-          border: "1px solid color-mix(in oklab, var(--cyan-glow) 30%, transparent)",
+          border: "1px solid color-mix(in oklab, var(--champagne-glow) 35%, transparent)",
           background:
-            "linear-gradient(135deg, color-mix(in oklab, var(--cyan-glow) 8%, transparent), transparent 70%)",
+            "linear-gradient(135deg, color-mix(in oklab, var(--champagne-glow) 10%, transparent), transparent 70%)",
         }}
       />
       {/* Corner ticks */}
@@ -65,24 +65,24 @@ export function IconBadge({
         <span
           key={i}
           aria-hidden
-          className="absolute h-1.5 w-1.5"
+          className="absolute h-1.5 w-1.5 transition-colors duration-500"
           style={{
             top: p.top,
             left: p.left,
             right: p.right,
             bottom: p.bottom,
-            borderTop: p.top === 0 ? "1px solid var(--cyan-glow)" : undefined,
-            borderBottom: p.bottom === 0 ? "1px solid var(--cyan-glow)" : undefined,
-            borderLeft: p.left === 0 ? "1px solid var(--cyan-glow)" : undefined,
-            borderRight: p.right === 0 ? "1px solid var(--cyan-glow)" : undefined,
-            boxShadow: "0 0 6px color-mix(in oklab, var(--cyan-glow) 60%, transparent)",
+            borderTop: p.top === 0 ? "1px solid var(--champagne-glow)" : undefined,
+            borderBottom: p.bottom === 0 ? "1px solid var(--champagne-glow)" : undefined,
+            borderLeft: p.left === 0 ? "1px solid var(--champagne-glow)" : undefined,
+            borderRight: p.right === 0 ? "1px solid var(--champagne-glow)" : undefined,
+            boxShadow: "0 0 6px color-mix(in oklab, var(--champagne-glow) 65%, transparent)",
           }}
         />
       ))}
       {/* Icon */}
       <div
-        className="relative flex h-full w-full items-center justify-center"
-        style={{ color: "var(--cyan-glow)" }}
+        className="relative flex h-full w-full items-center justify-center transition-colors duration-500 group-hover/badge:text-[color:var(--rose-accent)]"
+        style={{ color: "var(--champagne-glow)" }}
       >
         {children}
       </div>
