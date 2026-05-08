@@ -59,7 +59,7 @@ export function ParticleField({
           const d2 = dx * dx + dy * dy;
           if (d2 < 9000) {
             const alpha = (1 - d2 / 9000) * 0.14;
-            ctx.strokeStyle = `rgba(212, 175, 115, ${alpha})`;
+            ctx.strokeStyle = `rgba(216, 166, 170, ${alpha})`;
             ctx.lineWidth = 0.5;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -73,8 +73,8 @@ export function ParticleField({
       for (const p of particles) {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(228, 198, 144, ${p.o})`;
-        ctx.shadowColor = "rgba(212, 175, 115, 0.8)";
+        ctx.fillStyle = `rgba(216, 166, 170, ${p.o})`;
+        ctx.shadowColor = "rgba(176, 83, 95, 0.8)";
         ctx.shadowBlur = 6;
         ctx.fill();
 

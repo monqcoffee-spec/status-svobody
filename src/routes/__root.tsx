@@ -31,7 +31,7 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#0a0907" },
+      { name: "theme-color", content: "#2A0C12" },
       { title: "STATUS SVOBODY — премиальные юридические решения · Юлия Армина" },
       { name: "description", content: "Юридические решения для вашей свободы: личное сопровождение в делах о финансах, долгах и кредитной истории. Юлия Армина — основатель бренда STATUS SVOBODY, Москва." },
       { property: "og:site_name", content: "STATUS SVOBODY" },
