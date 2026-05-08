@@ -204,51 +204,72 @@ function Hero() {
 function About() {
   return (
     <Section variant="default" id="about">
-      <SectionLabel n="01" title="О бренде" />
+      <SectionLabel n="02" title="О компании" />
       <H2 className="mt-8 max-w-3xl">
-        Статус <span className="text-cyan italic">Свободы</span>
+        О <span className="text-cyan italic">нас</span>
       </H2>
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
-          <div className="relative animate-float">
-            <Logo size={160} />
+      <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-5 order-1">
+          <div
+            className="group relative aspect-[4/5] w-full overflow-hidden border border-cyan/15"
+            style={{
+              borderRadius: "2px",
+              background:
+                "linear-gradient(135deg, color-mix(in oklab, var(--cyan-soft) 40%, var(--ink-soft)) 0%, var(--ink-deep) 100%)",
+              boxShadow:
+                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent)",
+            }}
+          >
             <div
               aria-hidden
-              className="absolute inset-0 -z-10 animate-pulse-glow"
+              className="absolute inset-0 opacity-60 mix-blend-screen"
               style={{
-                background: "radial-gradient(circle, color-mix(in oklab, var(--cyan) 30%, transparent), transparent 65%)",
+                background:
+                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--cyan-glow) 35%, transparent), transparent 70%)",
                 filter: "blur(24px)",
               }}
             />
-          </div>
-          <div className="mt-8 text-center lg:text-left">
-            <div className="smallcaps text-cyan">Основатель · финансовый поверенный</div>
-            <div className="mt-3 font-display text-3xl text-silver">Юлия Армина</div>
-            <div className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">
-              Финансовый юрист. Сопровождает клиентов в делах
-              о долгах, кредитной истории и Цифровом профиле с 2020 года.
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative animate-float">
+                <Logo size={140} />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 -z-10 animate-pulse-glow"
+                  style={{
+                    background:
+                      "radial-gradient(circle, color-mix(in oklab, var(--cyan) 35%, transparent), transparent 65%)",
+                    filter: "blur(28px)",
+                  }}
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--ink-deep) 75%, transparent))",
+              }}
+            />
+            <div className="absolute inset-x-0 bottom-0 px-6 pb-5 text-center">
+              <div className="smallcaps text-cyan-glow text-[10px]">Основатель</div>
+              <div className="mt-1 font-display text-xl text-silver">Юлия Армина</div>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-8 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
+        <div className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
           <p>
             <span className="text-cyan italic">Статус Свободы</span> — премиальный
-            финансово-юридический консалтинг. Стратегия личного финансового
-            поверенного и команда юристов: Цифровой профиль, кредитная
-            история, ФССП, банкротство — всё под одной точкой ответственности.
-          </p>
-          <p>
-            За пять лет — сотни клиентов с восстановленной кредитной историей,
-            исправленными записями в БКИ и одобренной ипотекой через
-            1,5–3 года после старта работы. Поддержка на каждом шагу — от
-            первой консультации до закрытия дела.
+            финансово-юридический консалтинг. Поддержка на каждом шагу:
+            от первой консультации до закрытия дела.
           </p>
           <p className="text-silver/75">
-            Прямой контакт с поверенным, честный диалог и прозрачный план.
-            Если ваша задача решается проще — скажу об этом на первой
-            встрече, бесплатно.
+            Личный финансовый поверенный сопровождает дело лично, без передачи
+            на конвейер. Прямой контакт, честный диалог и прозрачный план —
+            если задача решается проще, скажу об этом на первой встрече,
+            бесплатно.
           </p>
         </div>
       </div>
@@ -256,34 +277,6 @@ function About() {
   );
 }
 
-/* ───────────────────── REGALIA ───────────────────── */
-function Regalia() {
-  const items = [
-    { icon: <Award className="h-6 w-6" />, t: "Финансовый поверенный", d: "Профессиональный статус: личное представительство интересов клиента в финансово-правовых вопросах." },
-    { icon: <GraduationCap className="h-6 w-6" />, t: "Высшее юридическое образование", d: "Профильная специализация по финансовому и гражданскому праву." },
-    { icon: <Scale className="h-6 w-6" />, t: "Практика по 218-ФЗ", d: "Системная работа с НБКИ, ОКБ и Скоринг Бюро. Оспаривание ошибок, дублей, проданных долгов." },
-    { icon: <BadgeCheck className="h-6 w-6" />, t: "Сотни закрытых дел", d: "Кредитная история, ФССП, банкротство, ипотека после восстановления — измеримый результат у каждого клиента." },
-  ];
-  return (
-    <Section variant="darker" id="regalia">
-      <SectionLabel n="02" title="Регалии" />
-      <H2 className="mt-8 max-w-3xl">
-        Регалии <span className="text-cyan italic">финансового юриста</span>
-      </H2>
-      <div className="mt-14 grid gap-5 md:grid-cols-2">
-        {items.map((r) => (
-          <div key={r.t} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <IconBadge size="sm">{r.icon}</IconBadge>
-            <div>
-              <h3 className="font-display text-xl md:text-2xl text-silver leading-snug">{r.t}</h3>
-              <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{r.d}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
 
 /* ───────────────────── PROCESS ───────────────────── */
 function Process() {
