@@ -206,50 +206,6 @@ function Hero() {
   );
 }
 
-/* ───────────────────── ADVANTAGES ───────────────────── */
-function Advantages() {
-  const items = [
-    { title: "Освобождение", desc: "Снятие груза правовой неопределённости. Чистый юридический статус без скрытых рисков.", icon: <IconLiberation /> },
-    { title: "Контроль", desc: "Каждый документ под управлением. Прозрачный план, фиксированные сроки, отчётность.", icon: <IconControl /> },
-    { title: "Защита", desc: "Конфиденциальность по умолчанию. NDA, защищённые каналы, доступ только у юриста.", icon: <IconShield /> },
-    { title: "Результат", desc: "Не процесс ради процесса — измеримый итог. Каждый кейс закрывается определённым решением.", icon: <IconResult /> },
-  ];
-
-  return (
-    <Section variant="darker" id="advantages">
-      <SectionLabel n="01" title="Преимущества" />
-      <H2 className="mt-8 max-w-3xl">
-        Четыре опоры <span className="text-cyan italic">премиального подхода</span>
-      </H2>
-      <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {items.map((it) => (
-          <div
-            key={it.title}
-            className="group relative overflow-hidden border border-white/8 bg-white/[0.02] p-7 transition-all duration-500 hover:border-cyan/40 hover:bg-white/[0.04]"
-            style={{ borderRadius: "2px" }}
-          >
-            <div
-              aria-hidden
-              className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-              style={{
-                background:
-                  "radial-gradient(ellipse at top, color-mix(in oklab, var(--cyan) 14%, transparent), transparent 70%)",
-              }}
-            />
-            <div className="relative">
-              <div className="text-cyan transition-all duration-500 group-hover:text-cyan-glow group-hover:[filter:drop-shadow(0_0_12px_color-mix(in_oklab,var(--cyan)_50%,transparent))]">
-                {it.icon}
-              </div>
-              <h3 className="mt-6 font-display text-lg tracking-[0.04em] text-silver">{it.title}</h3>
-              <p className="mt-3 text-[13px] leading-relaxed text-silver-dim">{it.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 /* ───────────────────── ABOUT ───────────────────── */
 function About() {
   return (
@@ -471,55 +427,6 @@ function Services() {
   );
 }
 
-/* ───────────────────── PRACTICE ───────────────────── */
-function Practice() {
-  const news = [
-    { date: "15.03.2026", t: "Оспаривание данных в БКИ", d: "Подаём заявления и жалобы в БКИ на недостоверные данные, ошибочные записи о просрочках и незаконные кредитные договоры. В 99% случаев данные удаляются или исправляются.", author: "Александр Волков" },
-    { date: "22.03.2026", t: "Восстановление КИ после банкротства", d: "Банки часто игнорируют решение суда и оставляют долги открытыми. Добиваемся полного обнуления данных в БКИ и восстанавливаем кредитную историю.", author: "Елена Морозова" },
-    { date: "08.04.2026", t: "Снятие арестов по ФССП", d: "Аресты остаются даже после окончания исполнительного производства. Подаём заявления в ФССП, снимаем аресты и удаляем недостоверную информацию.", author: "Дмитрий Сидоров" },
-  ];
-  return (
-    <Section variant="darker" id="practice">
-      <SectionLabel n="07" title="Из практики" />
-      <H2 className="mt-8 max-w-3xl">
-        Свежие дела команды{" "}
-        <span className="text-cyan italic">STATUS SVOBODY</span>
-      </H2>
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {news.map((n) => (
-          <article key={n.t} className="flex flex-col border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <time className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">{n.date}</time>
-            <h3 className="mt-3 font-display text-xl md:text-2xl text-silver leading-snug">{n.t}</h3>
-            <p className="mt-3 flex-1 text-base md:text-lg leading-relaxed text-silver-dim">{n.d}</p>
-            <div className="mt-6 pt-4 border-t border-white/8 smallcaps text-cyan">{n.author}</div>
-          </article>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-/* ───────────────────── TEAM ───────────────────── */
-function Team2() {
-  return (
-    <Section variant="default" id="team">
-      <SectionLabel n="08" title="Наши эксперты" />
-      <H2 className="mt-8 max-w-3xl">
-        Команда, которая знает, как вернуть{" "}
-        <span className="text-cyan italic">доверие к финансовой системе</span>
-      </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Юристы с опытом работы в банках, БКИ, у судебных приставов и
-        в делах о банкротстве. Сотни закрытых аналогичных дел —
-        практика, а не только теория.
-      </p>
-      <div className="mt-16">
-        <Team />
-      </div>
-    </Section>
-  );
-}
-
 /* ───────────────────── PRICING ───────────────────── */
 function Pricing() {
   const tiers = [
@@ -698,39 +605,3 @@ function FinalCTA() {
   );
 }
 
-/* ───────────────────── ICONS ───────────────────── */
-function IconLiberation() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" aria-hidden>
-      <path d="M20 4 A16 16 0 1 0 32 32" />
-      <path d="M28 4 L36 4 L36 12" />
-      <path d="M36 4 L20 20" strokeOpacity="0.6" />
-    </svg>
-  );
-}
-function IconControl() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" aria-hidden>
-      <rect x="6" y="6" width="28" height="28" />
-      <path d="M6 14 H34 M14 6 V34" strokeOpacity="0.5" />
-      <circle cx="20" cy="20" r="3" />
-    </svg>
-  );
-}
-function IconShield() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M20 4 L34 10 V20 C34 28 28 34 20 36 C12 34 6 28 6 20 V10 Z" />
-      <path d="M14 20 L18 24 L26 16" />
-    </svg>
-  );
-}
-function IconResult() {
-  return (
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <circle cx="20" cy="20" r="14" />
-      <circle cx="20" cy="20" r="8" strokeOpacity="0.6" />
-      <circle cx="20" cy="20" r="2" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
