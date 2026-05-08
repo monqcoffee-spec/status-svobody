@@ -329,11 +329,6 @@ function DigitalProfile() {
     "Сведения о банкротстве и арбитражных процедурах",
     "Иные финансовые индикаторы и скоринговые маркеры",
   ];
-  const pillars = [
-    { icon: <ShieldCheck className="h-6 w-6" />, t: "Защита", d: "Конфиденциальность по умолчанию. Защищённые каналы связи, NDA, ограниченный круг доступа к вашим данным." },
-    { icon: <Sparkles className="h-6 w-6" />, t: "Результат", d: "Не процесс ради процесса — измеримый итог. Каждый кейс закрывается определённым решением." },
-    { icon: <Workflow className="h-6 w-6" />, t: "Команда", d: "Юлия Армина и юристы под её руководством. Личное участие основателя в стратегии — без передачи дела на конвейер." },
-  ];
   return (
     <Section variant="darker" id="digital-profile">
       <SectionLabel n="03" title="Цифровой профиль" />
@@ -364,16 +359,6 @@ function DigitalProfile() {
           Записи продолжают влиять на скоринг и решения банков. Управлять
           этим можно — и нужно — целенаправленно.
         </p>
-      </div>
-
-      <div className="mt-16 grid gap-5 md:grid-cols-3">
-        {pillars.map((p) => (
-          <div key={p.t} className="group border border-white/8 bg-ink-soft/60 p-8 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <IconBadge size="sm">{p.icon}</IconBadge>
-            <h3 className="mt-6 font-display text-xl md:text-2xl text-silver">{p.t}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.d}</p>
-          </div>
-        ))}
       </div>
     </Section>
   );
