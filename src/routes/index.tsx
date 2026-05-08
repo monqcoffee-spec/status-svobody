@@ -9,7 +9,6 @@ import {
   Handshake,
   Sparkles,
   ShieldCheck,
-  Scale,
   Database,
   Gavel,
   Shield,
@@ -17,6 +16,7 @@ import {
   HeartHandshake,
   Award,
   GraduationCap,
+  Scale,
   BadgeCheck,
   Workflow,
   Phone,
@@ -99,7 +99,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink-deep md:-mt-20">
       <h1 className="sr-only">
-        STATUS SVOBODY — юридические решения для вашей свободы. Юлия Армина, основатель.
+        Статус Свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
 
       <div className="relative md:hidden">
@@ -137,13 +137,16 @@ function Hero() {
               <span className="hairline-tight" />
               <span className="smallcaps text-cyan">Premium legal consulting</span>
             </div>
-            <p className="mt-6 font-serif text-4xl italic leading-snug text-silver lg:text-5xl">
-              Юридические решения<br />
-              <span className="text-cyan-glow">для вашей свободы.</span>
+            <p className="mt-6 font-display text-5xl leading-[1.05] tracking-[-0.03em] text-silver lg:text-6xl">
+              СТАТУС СВОБОДЫ <br />
+              <span className="text-gradient-cyan text-glow italic font-serif">Юлии Арминой</span>
             </p>
-            <p className="mt-5 max-w-md leading-relaxed text-silver/70">
-              Финансовый поверенный Юлия Армина и команда юристов.
-              Стратегия — не шаблон. Конфиденциальность — не опция.
+            <p className="mt-7 max-w-lg text-lg leading-relaxed text-silver/80">
+              Испорченная кредитная история — не клеймо. Это запись,
+              которую закон разрешает оспорить.
+            </p>
+            <p className="mt-3 smallcaps text-cyan-glow">
+              Конфиденциальность · Решение · Поддержка
             </p>
             <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
               <LeadFormDialog
@@ -156,8 +159,8 @@ function Hero() {
                   </button>
                 }
               />
-              <a href="#process" className="btn-ghost group rounded-sm">
-                <span>Как мы работаем</span>
+              <a href="#services" className="btn-ghost group rounded-sm">
+                <span>Узнать решение</span>
                 <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
