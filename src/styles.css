@@ -125,8 +125,8 @@
   --sidebar-ring: var(--cyan);
 
   /* Surfaces / hairlines used by glass + borders, redefined per theme */
-  --surface-tint: oklch(1 0 0);              /* mixed via color-mix in utilities */
-  --surface-edge: oklch(1 0 0 / 0.08);
+  --surface-tint: #D8A6AA;                   /* pale rose — mixed via color-mix in utilities */
+  --surface-edge: color-mix(in oklab, var(--cyan-glow) 22%, transparent);
   --hero-bg: var(--ink-deep);                /* hero / mobile photo backdrop */
 }
 
@@ -172,9 +172,9 @@
   --sidebar-accent-foreground: var(--silver);
   --sidebar-border: oklch(0.18 0.01 250 / 12%);
 
-  /* In light mode, "white tint" overlays should darken instead */
-  --surface-tint: oklch(0.18 0.01 250);
-  --surface-edge: oklch(0.18 0.01 250 / 0.10);
+  /* In light mode, "white tint" overlays darken with a wine undertone */
+  --surface-tint: #5A2229;
+  --surface-edge: color-mix(in oklab, var(--cyan-soft) 22%, transparent);
   --hero-bg: var(--ink-deep);
 }
 
@@ -304,17 +304,29 @@
 
   /* Glass panel */
   .glass {
-    background: color-mix(in oklab, var(--surface-tint) 4%, transparent);
+    background:
+      linear-gradient(135deg,
+        color-mix(in oklab, var(--cyan-glow) 6%, transparent) 0%,
+        color-mix(in oklab, var(--cyan-soft) 4%, transparent) 100%);
     backdrop-filter: blur(14px) saturate(140%);
     -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid color-mix(in oklab, var(--surface-tint) 8%, transparent);
+    border: 1px solid color-mix(in oklab, var(--cyan-glow) 14%, transparent);
+    box-shadow:
+      inset 0 1px 0 0 color-mix(in oklab, var(--cyan-glow) 12%, transparent),
+      0 8px 32px -12px color-mix(in oklab, var(--cyan-soft) 35%, transparent);
   }
 
   .glass-strong {
-    background: color-mix(in oklab, var(--surface-tint) 6%, transparent);
+    background:
+      linear-gradient(135deg,
+        color-mix(in oklab, var(--cyan-glow) 9%, transparent) 0%,
+        color-mix(in oklab, var(--cyan-soft) 6%, transparent) 100%);
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border: 1px solid color-mix(in oklab, var(--cyan) 18%, transparent);
+    border: 1px solid color-mix(in oklab, var(--cyan) 28%, transparent);
+    box-shadow:
+      inset 0 1px 0 0 color-mix(in oklab, var(--cyan-glow) 18%, transparent),
+      0 12px 40px -10px color-mix(in oklab, var(--cyan) 30%, transparent);
   }
 
   /* Hairline divider with cyan tint */
