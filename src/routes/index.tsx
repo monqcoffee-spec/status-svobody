@@ -355,9 +355,6 @@ function About() {
                   "linear-gradient(180deg, transparent, color-mix(in oklab, var(--ink-deep) 75%, transparent))",
               }}
             />
-            <div className="absolute inset-x-0 bottom-0 px-6 pb-5 text-center">
-              <div className="font-display text-xl text-silver">Юлия Армина</div>
-            </div>
           </div>
         </div>
 
