@@ -48,10 +48,8 @@ export function SiteFooter() {
           <ul className="mt-5 space-y-2.5 text-sm">
             <li className="text-silver/80">Москва · Цветной бульвар, 13</li>
             <li><a href="tel:+79654457378" className="tabular text-silver hover:text-cyan transition-colors">+7 (965) 445-73-78</a></li>
-            <li><a href="https://t.me/u_armina" target="_blank" rel="noopener" className="text-silver/80 hover:text-cyan transition-colors">Telegram · @u_armina</a></li>
             <li><a href="https://t.me/zakon_127" target="_blank" rel="noopener" className="text-silver/80 hover:text-cyan transition-colors">Канал · t.me/zakon_127</a></li>
             <li><a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="text-silver/80 hover:text-cyan transition-colors">Интенсив · @status_svobody_bot</a></li>
-            <li><a href="https://wa.me/79654457378" target="_blank" rel="noopener" className="text-silver/80 hover:text-cyan transition-colors">WhatsApp</a></li>
           </ul>
         </div>
       </div>
