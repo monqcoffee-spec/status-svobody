@@ -395,6 +395,48 @@
     opacity: 1;
   }
 
+  /* ─────────── Adaptive performance mode ───────────
+   * Reduce GPU cost on low-end devices, narrow viewports,
+   * coarse pointers (touch) and users who prefer reduced
+   * motion or transparency. Drops backdrop-filter blur,
+   * trims box-shadow layers, and disables the sheen sweep. */
+  @media (max-width: 768px),
+         (prefers-reduced-motion: reduce),
+         (prefers-reduced-transparency: reduce),
+         (pointer: coarse) and (hover: none),
+         (update: slow) {
+    .glass,
+    .glass-strong {
+      backdrop-filter: blur(6px) saturate(120%);
+      -webkit-backdrop-filter: blur(6px) saturate(120%);
+      box-shadow:
+        inset 0 1px 0 0 color-mix(in oklab, var(--cyan-glow) 12%, transparent),
+        0 4px 14px -8px color-mix(in oklab, var(--cyan-soft) 30%, transparent);
+      transition: border-color 0.3s ease;
+    }
+    .glass::before,
+    .glass-strong::before,
+    .glass::after,
+    .glass-strong::after {
+      display: none;
+    }
+    .glass:hover,
+    .glass-strong:hover {
+      transform: none;
+      box-shadow:
+        inset 0 1px 0 0 color-mix(in oklab, var(--cyan-glow) 18%, transparent),
+        0 6px 18px -8px color-mix(in oklab, var(--cyan) 30%, transparent);
+    }
+  }
+
+  /* Hard fallback when backdrop-filter is unsupported (older mobile WebViews) */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .glass,
+    .glass-strong {
+      background: color-mix(in oklab, var(--ink-soft) 92%, var(--cyan-soft) 8%);
+    }
+  }
+
   /* Hairline divider with cyan tint */
   .hairline {
     height: 1px;
