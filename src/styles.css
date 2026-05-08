@@ -212,43 +212,43 @@
     color: transparent;
   }
 
-  /* ─────────── Letter-by-letter shimmer reveal ───────────
-   * Used by <ShimmerText>: each <span> gets --i index and animates
-   * from blurred + dim to crisp + bright with a champagne sheen. */
-  @keyframes letter-shimmer-in {
-    0% {
-      opacity: 0;
-      filter: blur(8px) brightness(0.6);
-      transform: translateY(0.4em);
-      color: color-mix(in oklab, var(--champagne-glow) 40%, transparent);
-    }
-    60% {
-      opacity: 1;
-      filter: blur(0) brightness(1.4);
-      color: var(--champagne-glow);
-    }
-    100% {
-      opacity: 1;
-      filter: blur(0) brightness(1);
-      transform: none;
-      color: inherit;
-    }
+  /* ─────────── Block reveal ───────────
+   * Cinematic block-by-block entrance: a soft champagne curtain
+   * slides up over each block, then the content fades + lifts in. */
+  @keyframes block-curtain {
+    0%   { transform: scaleY(1); transform-origin: bottom; }
+    100% { transform: scaleY(0); transform-origin: top; }
   }
-  .shimmer-letters > span {
+  @keyframes block-rise {
+    0%   { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+    100% { opacity: 1; transform: none; filter: blur(0); }
+  }
+  .block-reveal {
+    position: relative;
     display: inline-block;
     opacity: 0;
-    animation: letter-shimmer-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    animation-delay: calc(var(--i, 0) * 60ms + 0.2s);
-    will-change: opacity, filter, transform;
+    animation: block-rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation-delay: calc(var(--bi, 0) * 180ms + 0.15s);
+    will-change: opacity, transform, filter;
   }
-  .shimmer-letters > span.space { width: 0.28em; }
+  .block-reveal::after {
+    content: "";
+    position: absolute;
+    inset: -0.05em -0.15em;
+    background: linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--champagne) 65%, transparent),
+      color-mix(in oklab, var(--champagne-glow) 80%, transparent),
+      color-mix(in oklab, var(--rose-accent) 55%, transparent)
+    );
+    transform-origin: bottom;
+    animation: block-curtain 0.85s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+    animation-delay: calc(var(--bi, 0) * 180ms + 0.05s);
+    pointer-events: none;
+  }
   @media (prefers-reduced-motion: reduce) {
-    .shimmer-letters > span {
-      animation: none;
-      opacity: 1;
-      filter: none;
-      transform: none;
-    }
+    .block-reveal { animation: none; opacity: 1; filter: none; transform: none; }
+    .block-reveal::after { display: none; }
   }
 
   /* Radial deep background — used on hero / sections */
