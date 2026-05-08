@@ -532,7 +532,15 @@ function EntryPoint() {
 
       <div className="container-tight relative">
         <div className="text-center">
-          <Eyebrow>Точка входа</Eyebrow>
+          <Eyebrow>
+            Точка
+            <span
+              aria-hidden
+              className="mx-1.5 inline-block h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-cyan align-middle"
+              style={{ boxShadow: "0 0 10px var(--cyan), 0 0 20px var(--cyan-glow)" }}
+            />
+            входа
+          </Eyebrow>
           <h2 className="display mt-8 text-[clamp(2.25rem,7vw,4.5rem)] max-w-4xl mx-auto leading-[1.05]">
             <span className="text-gradient-cyan text-glow">
               Начните восстановление сегодня
