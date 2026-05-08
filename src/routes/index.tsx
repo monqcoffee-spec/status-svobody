@@ -283,9 +283,7 @@ function Regalia() {
       <div className="mt-14 grid gap-5 md:grid-cols-2">
         {items.map((r) => (
           <div key={r.t} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
-              {r.icon}
-            </div>
+            <IconBadge size="sm">{r.icon}</IconBadge>
             <div>
               <h3 className="font-display text-xl md:text-2xl text-silver leading-snug">{r.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{r.d}</p>
@@ -314,9 +312,7 @@ function Process() {
       <ol className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2" style={{ borderRadius: "2px" }}>
         {steps.map((s, i) => (
           <li key={i} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px", boxShadow: "0 0 14px color-mix(in oklab, var(--cyan) 22%, transparent)" }}>
-              {s.icon}
-            </div>
+            <IconBadge size="md">{s.icon}</IconBadge>
             <div className="flex-1">
               <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
                 Шаг {String(i + 1).padStart(2, "0")}
@@ -379,9 +375,7 @@ function DigitalProfile() {
       <div className="mt-16 grid gap-5 md:grid-cols-3">
         {pillars.map((p) => (
           <div key={p.t} className="group border border-white/8 bg-ink-soft/60 p-8 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <div className="inline-flex h-12 w-12 items-center justify-center border border-cyan/30 text-cyan transition-all group-hover:border-cyan group-hover:shadow-[0_0_20px_color-mix(in_oklab,var(--cyan)_40%,transparent)]" style={{ borderRadius: "2px" }}>
-              {p.icon}
-            </div>
+            <IconBadge size="sm">{p.icon}</IconBadge>
             <h3 className="mt-6 font-display text-xl md:text-2xl text-silver">{p.t}</h3>
             <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.d}</p>
           </div>
@@ -417,9 +411,7 @@ function Services() {
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {services.map((s) => (
           <div key={s.t} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
-              {s.icon}
-            </div>
+            <IconBadge size="sm">{s.icon}</IconBadge>
             <div>
               <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
