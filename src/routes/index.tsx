@@ -489,53 +489,14 @@ function Pricing() {
   );
 }
 
-/* ───────────────────── CONTACTS ───────────────────── */
-function Contacts() {
+/* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
+function EntryPoint() {
   return (
-    <Section variant="default" id="contacts">
-      <SectionLabel n="08" title="Контакты" />
-      <H2 className="mt-8 max-w-3xl">
-        Свяжитесь <span className="text-cyan italic">напрямую</span>
-      </H2>
-      <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Никаких колл-центров. Общение веду лично — Telegram, WhatsApp, телефон.
-        Для предварительного разбора удобнее всего написать в Telegram.
-      </p>
-
-      <div className="mt-12 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-3" style={{ borderRadius: "2px" }}>
-        <ContactCard icon={<Phone className="h-5 w-5" />} label="Телефон" value="+7 (965) 445-73-78" href="tel:+79654457378" />
-        <ContactCard icon={<AtSign className="h-5 w-5" />} label="Telegram (личный)" value="@u_armina" href="https://t.me/u_armina" />
-        <ContactCard icon={<Megaphone className="h-5 w-5" />} label="Telegram-канал" value="ЮЛИЯ АРМИНА · t.me/zakon_127" href="https://t.me/zakon_127" />
-        <ContactCard icon={<Send className="h-5 w-5" />} label="Бесплатный интенсив" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
-        <ContactCard icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Написать" href="https://wa.me/79654457378" />
-        <ContactCard icon={<MapPin className="h-5 w-5" />} label="Адрес" value="Москва, Цветной бульвар, 13" />
-      </div>
-    </Section>
-  );
-}
-
-function ContactCard({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
-  const content = (
-    <div className="group flex h-full flex-col gap-5 bg-ink-soft p-7 transition-all hover:bg-ink">
-      <div className="inline-flex h-10 w-10 items-center justify-center border border-cyan/30 text-cyan transition-all group-hover:border-cyan group-hover:shadow-[0_0_18px_color-mix(in_oklab,var(--cyan)_40%,transparent)]" style={{ borderRadius: "2px" }}>
-        {icon}
-      </div>
-      <div>
-        <div className="smallcaps text-[9px] text-silver-dim">{label}</div>
-        <div className="mt-2 font-display text-base text-silver">{value}</div>
-      </div>
-    </div>
-  );
-  return href ? (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener">{content}</a>
-  ) : content;
-}
-
-/* ───────────────────── FINAL CTA ───────────────────── */
-function FinalCTA() {
-  return (
-    <section id="cta" className="relative overflow-hidden bg-aurora py-32 md:py-40 scroll-mt-24">
-      <ParticleField density={50} />
+    <section
+      id="contacts"
+      className="relative overflow-hidden bg-aurora py-28 md:py-36 scroll-mt-24"
+    >
+      <ParticleField density={42} />
       <img
         src={particlesRise}
         alt=""
@@ -544,41 +505,134 @@ function FinalCTA() {
         width={1920}
         height={1080}
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
-        style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)",
+        }}
       />
       <img src={featherImg} alt="" aria-hidden className="hidden" />
-      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
+      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-25" />
 
-      <div className="container-tight relative text-center">
-        <Eyebrow>Точка входа</Eyebrow>
-        <h2 className="display mt-8 text-[clamp(2.25rem,7vw,5rem)] max-w-4xl mx-auto">
-          <span className="text-gradient-cyan text-glow">Начните восстановление сегодня.</span>
-        </h2>
-        <p className="mx-auto mt-8 max-w-xl text-silver/75">
-          Не ждите, пока проблема усугубится. Оставьте заявку — юрист
-          свяжется с вами в течение 15 минут. Первичная консультация бесплатно.
-          Работаем по всей России.
-        </p>
-
-        <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <LeadFormDialog
-            source="index-final"
-            headline="Запись на консультацию"
-            trigger={
-              <button type="button" className="btn-cyan group rounded-sm">
-                <span>Получить консультацию</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </button>
-            }
-          />
-          <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-ghost group rounded-sm">
-            <span>Написать в Telegram</span>
-            <ArrowRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+      <div className="container-tight relative">
+        <div className="text-center">
+          <Eyebrow>Точка входа</Eyebrow>
+          <h2 className="display mt-8 text-[clamp(2.25rem,7vw,4.5rem)] max-w-4xl mx-auto leading-[1.05]">
+            <span className="text-gradient-cyan text-glow">
+              Начните восстановление сегодня
+            </span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-silver/80">
+            Не ждите, пока проблема усугубится. Оставьте заявку — юрист
+            свяжется с вами в течение 15 минут.
+          </p>
         </div>
-        <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-          Свяжемся лично в течение 15 минут · конфиденциально
-        </p>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <LeadFormDialog
+                source="entry-point"
+                headline="Запись на консультацию"
+                trigger={
+                  <button
+                    type="button"
+                    className="btn-cyan group rounded-sm relative overflow-hidden"
+                    style={{
+                      boxShadow:
+                        "0 0 32px color-mix(in oklab, var(--cyan) 35%, transparent), 0 0 80px -10px color-mix(in oklab, var(--cyan-glow) 40%, transparent)",
+                    }}
+                  >
+                    <span>Оставить заявку</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </button>
+                }
+              />
+            </div>
+
+            <div className="glass relative inline-flex w-full items-center gap-4 px-6 py-4" style={{ borderRadius: "2px" }}>
+              <div className="inline-flex h-10 w-10 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
+                <Phone className="h-5 w-5" />
+              </div>
+              <div className="text-left">
+                <div className="smallcaps text-[9px] text-silver-dim">Телефон</div>
+                <a href="tel:+79654457378" className="font-display text-lg text-silver hover:text-cyan transition-colors tabular">
+                  +7 (965) 445-73-78
+                </a>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a
+                href="https://t.me/zakon_127"
+                target="_blank"
+                rel="noopener"
+                className="glass group flex items-center gap-3 px-5 py-3.5 transition-all hover:border-cyan/40"
+                style={{ borderRadius: "2px" }}
+              >
+                <Megaphone className="h-4 w-4 text-cyan shrink-0" />
+                <div className="text-left">
+                  <div className="smallcaps text-[9px] text-silver-dim">Telegram-канал</div>
+                  <div className="text-sm text-silver group-hover:text-cyan transition-colors">t.me/zakon_127</div>
+                </div>
+              </a>
+              <a
+                href="https://t.me/status_svobody_bot"
+                target="_blank"
+                rel="noopener"
+                className="glass group flex items-center gap-3 px-5 py-3.5 transition-all hover:border-cyan/40"
+                style={{ borderRadius: "2px" }}
+              >
+                <AtSign className="h-4 w-4 text-cyan shrink-0" />
+                <div className="text-left">
+                  <div className="smallcaps text-[9px] text-silver-dim">Бесплатный интенсив</div>
+                  <div className="text-sm text-silver group-hover:text-cyan transition-colors">@status_svobody_bot</div>
+                </div>
+              </a>
+            </div>
+
+            <p className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
+              Свяжемся лично в течение 15 минут · конфиденциально
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div
+              className="glass-strong relative p-8 md:p-10"
+              style={{
+                borderRadius: "2px",
+                boxShadow:
+                  "0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)",
+              }}
+            >
+              <div className="smallcaps text-cyan-glow">Заявка</div>
+              <h3 className="mt-3 font-display text-2xl md:text-3xl text-silver leading-snug">
+                Узнайте перспективы вашего дела
+              </h3>
+              <p className="mt-3 text-sm md:text-base text-silver-dim">
+                Заполните форму — юрист подготовит экспресс-оценку и
+                свяжется с вами лично.
+              </p>
+              <LeadFormDialog
+                source="entry-form"
+                headline="Заявка на консультацию"
+                trigger={
+                  <button
+                    type="button"
+                    className="btn-cyan group mt-6 w-full justify-center rounded-sm"
+                  >
+                    <span>Узнать подробнее</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </button>
+                }
+              />
+              <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em] text-silver-dim">
+                Имя · Телефон · E-mail · Описание (опционально)
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
