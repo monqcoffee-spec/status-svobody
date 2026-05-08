@@ -392,6 +392,26 @@ function About() {
               финансовую свободу через закон.
             </p>
           </div>
+          <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/8 pt-8">
+            <div>
+              <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
+                <AnimatedCounter to={500} suffix="+" />
+              </div>
+              <div className="mt-2 smallcaps text-[10px] text-silver-dim">клиентов</div>
+            </div>
+            <div>
+              <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
+                <AnimatedCounter to={8} />
+              </div>
+              <div className="mt-2 smallcaps text-[10px] text-silver-dim">лет практики</div>
+            </div>
+            <div>
+              <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
+                <AnimatedCounter to={98} suffix="%" />
+              </div>
+              <div className="mt-2 smallcaps text-[10px] text-silver-dim">успех</div>
+            </div>
+          </div>
         </div>
       </div>
     </Section>
