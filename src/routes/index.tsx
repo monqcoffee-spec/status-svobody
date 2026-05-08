@@ -23,7 +23,6 @@ import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
 import { IconBadge } from "@/components/site/IconBadge";
-import { ShimmerText } from "@/components/site/ShimmerText";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 import featherImg from "@/assets/feather-light.jpg";
@@ -143,15 +142,14 @@ function Hero() {
               <span className="smallcaps text-cyan">Статус Свободы</span>
             </div>
             <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] text-silver lg:text-7xl">
-              <ShimmerText as="span">СТАТУС СВОБОДЫ</ShimmerText>
+              <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
               <br />
-              <ShimmerText
-                as="span"
-                className="text-gradient-cyan text-glow italic font-serif"
-                delayStart={700}
+              <span
+                className="block-reveal text-gradient-cyan text-glow italic font-serif"
+                style={{ ["--bi" as never]: 1 }}
               >
                 Юлии Арминой
-              </ShimmerText>
+              </span>
             </p>
             <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed text-silver/85">
               Испорченная кредитная история — не клеймо. Это запись,
@@ -199,15 +197,14 @@ function Hero() {
       <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
         <div className="mb-5 text-center">
           <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em] text-silver">
-            <ShimmerText as="span">СТАТУС СВОБОДЫ</ShimmerText>
+            <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
             <br />
-            <ShimmerText
-              as="span"
-              className="text-gradient-cyan italic font-serif"
-              delayStart={600}
+            <span
+              className="block-reveal text-gradient-cyan italic font-serif"
+              style={{ ["--bi" as never]: 1 }}
             >
               Юлии Арминой
-            </ShimmerText>
+            </span>
           </p>
           <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed text-silver/85">
             Испорченная кредитная история — не клеймо. Это запись,
