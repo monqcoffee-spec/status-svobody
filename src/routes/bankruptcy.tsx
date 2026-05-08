@@ -15,6 +15,7 @@ import { Section, SectionLabel, H2 } from "@/components/site/Section";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { ParticleField } from "@/components/site/ParticleField";
 import { BotIntensive } from "@/components/site/BotIntensive";
+import { IconBadge } from "@/components/site/IconBadge";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -119,12 +120,7 @@ function BankruptcyAdvantages() {
             className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
             style={{ borderRadius: "2px" }}
           >
-            <div
-              className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan"
-              style={{ borderRadius: "2px" }}
-            >
-              {it.icon}
-            </div>
+            <IconBadge size="sm">{it.icon}</IconBadge>
             <div>
               <h3 className="font-display text-xl md:text-2xl text-silver leading-snug">{it.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{it.d}</p>
@@ -155,12 +151,7 @@ function BankruptcyStages() {
       >
         {steps.map((s, i) => (
           <li key={s.t} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
-            <div
-              className="flex h-14 w-14 shrink-0 items-center justify-center border border-cyan/30 text-cyan"
-              style={{ borderRadius: "2px", boxShadow: "0 0 14px color-mix(in oklab, var(--cyan) 22%, transparent)" }}
-            >
-              {s.icon}
-            </div>
+            <IconBadge size="md">{s.icon}</IconBadge>
             <div>
               <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
                 Шаг {String(i + 1).padStart(2, "0")}
