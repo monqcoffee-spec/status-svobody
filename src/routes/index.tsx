@@ -176,6 +176,19 @@ function Hero() {
       </div>
 
       <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
+        <div className="reveal mb-5 text-center">
+          <p className="font-display text-3xl leading-[1.1] tracking-[-0.02em] text-silver">
+            СТАТУС СВОБОДЫ <br />
+            <span className="text-gradient-cyan italic font-serif">Юлии Арминой</span>
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-silver/80">
+            Испорченная кредитная история — не клеймо. Это запись,
+            которую закон разрешает оспорить.
+          </p>
+          <p className="mt-3 smallcaps text-cyan-glow text-[10px]">
+            Конфиденциальность · Решение · Поддержка
+          </p>
+        </div>
         <div className="reveal reveal-delay-3 flex flex-col gap-2.5">
           <LeadFormDialog
             source="hero"
