@@ -430,14 +430,18 @@ function Process() {
     { icon: <Sparkles className="h-7 w-7" />, t: "Идеальная финансовая репутация", d: "Чистая кредитная история, одобрение ипотеки, кредитов и выгодных условий — фундамент будущего без ограничений." },
   ];
   return (
-    <Section variant="default" id="process">
-      <SectionLabel n="05" title="Как мы работаем" />
-      <H2 className="mt-8 max-w-3xl">
-        Путь к <span className="text-cyan italic">безупречной репутации</span>
-      </H2>
+    <Section variant="tint" id="process">
+      <ScrollReveal>
+        <SectionLabel n="05" title="Как мы работаем" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Путь к <span className="text-cyan italic">безупречной репутации</span>
+        </H2>
+      </ScrollReveal>
       <ol className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2" style={{ borderRadius: "2px" }}>
         {steps.map((s, i) => (
-          <li key={i} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div className="flex-1">
               <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
@@ -446,7 +450,7 @@ function Process() {
               <h3 className="mt-2 font-display text-xl md:text-2xl text-silver leading-snug">{s.t}</h3>
               <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
             </div>
-          </li>
+          </ScrollReveal>
         ))}
       </ol>
     </Section>
