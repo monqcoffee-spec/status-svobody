@@ -8,7 +8,8 @@ const nav = [
   { href: "/#about", label: "О бренде" },
   { href: "/#services", label: "Услуги" },
   { href: "/#pricing", label: "Тарифы" },
-  { href: "/#team", label: "Команда" },
+  { href: "/bankruptcy", label: "Банкротство" },
+  { href: "/#faq", label: "FAQ" },
   { href: "/#contacts", label: "Контакты" },
 ] as const;
 

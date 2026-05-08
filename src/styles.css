@@ -6,6 +6,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap");
 
 /*
  * STATUS SVOBODY — futuristic legal-tech.
@@ -66,8 +67,8 @@
   --color-silver: var(--silver);
   --color-silver-dim: var(--silver-dim);
 
-  --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Manrope", "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-sans: "Manrope", "Inter", system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
   --font-script: "Pinyon Script", "Cormorant Garamond", cursive;
 }
@@ -75,17 +76,17 @@
 :root {
   --radius: 0.25rem;
 
-  /* Brand palette */
-  --ink: oklch(0.06 0.005 250);              /* near-black #050608 */
-  --ink-deep: oklch(0.02 0.003 250);         /* pure black */
-  --ink-soft: oklch(0.14 0.01 240);          /* card surface */
-  /* Warm gold / champagne — extracted from logo */
-  --cyan: oklch(0.78 0.09 75);               /* warm gold (token name kept for compat) */
-  --cyan-soft: oklch(0.68 0.08 70);          /* deep gold */
-  --cyan-glow: oklch(0.88 0.08 80);          /* champagne glow */
-  --teal: oklch(0.55 0.06 65);               /* bronze */
-  --silver: oklch(0.92 0.012 75);            /* warm ivory */
-  --silver-dim: oklch(0.62 0.015 70);        /* warm taupe */
+  /* Brand palette — Wine luxury (token names "cyan/teal" kept for class-compat) */
+  /* Hex anchors: #9A0D1B carmine · #6A040F rosewood · #550816 cosmos · #350616 bean · #1D0515 purple */
+  --ink: #1D0515;                            /* ultra dark wine-purple page surface */
+  --ink-deep: #0A0308;                       /* near-black with wine undertone */
+  --ink-soft: #2A0A18;                       /* card surface — slight wine tint */
+  --cyan: #9A0D1B;                           /* Carmine — primary accent */
+  --cyan-soft: #6A040F;                      /* Rosewood — secondary */
+  --cyan-glow: #C8243A;                      /* Bright wine glow for highlights */
+  --teal: #550816;                           /* Chocolate cosmos — deep wine */
+  --silver: oklch(0.94 0.008 25);            /* warm ivory */
+  --silver-dim: oklch(0.66 0.012 20);        /* warm rose-taupe */
 
   /* Semantic — dark by default */
   --background: var(--ink-deep);
@@ -134,16 +135,16 @@
  * legibility on a light surface. Glass / glow effects automatically
  * adapt because they reference the same tokens. */
 :root[data-theme="light"] {
-  /* Brand palette — light variant */
-  --ink: oklch(0.96 0.008 75);               /* warm cream surface */
-  --ink-deep: oklch(0.985 0.006 80);         /* pure ivory page bg #F5F2EE-ish */
-  --ink-soft: oklch(0.93 0.012 75);          /* card surface, slightly deeper */
-  --cyan: oklch(0.62 0.10 70);               /* deeper gold for contrast */
-  --cyan-soft: oklch(0.55 0.10 65);          /* bronze-gold */
-  --cyan-glow: oklch(0.70 0.11 75);          /* champagne accent */
-  --teal: oklch(0.50 0.07 60);               /* deep bronze */
-  --silver: oklch(0.18 0.01 250);            /* deep graphite text */
-  --silver-dim: oklch(0.42 0.01 250);        /* muted graphite */
+  /* Light variant — soft cream with wine accent */
+  --ink: oklch(0.96 0.008 25);
+  --ink-deep: oklch(0.985 0.006 25);
+  --ink-soft: oklch(0.93 0.012 25);
+  --cyan: #6A040F;                           /* deeper wine for contrast on cream */
+  --cyan-soft: #550816;
+  --cyan-glow: #9A0D1B;
+  --teal: #350616;
+  --silver: oklch(0.18 0.01 25);
+  --silver-dim: oklch(0.42 0.01 25);
 
   --background: var(--ink-deep);
   --foreground: var(--silver);
