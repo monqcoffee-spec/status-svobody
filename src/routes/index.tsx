@@ -282,6 +282,25 @@ function About() {
             если задача решается проще, скажу об этом на первой встрече,
             бесплатно.
           </p>
+          <div
+            className="glass relative mt-2 px-7 py-6"
+            style={{
+              borderRadius: "2px",
+              boxShadow:
+                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 20px 60px -30px color-mix(in oklab, var(--cyan) 50%, transparent)",
+            }}
+          >
+            <div className="smallcaps text-cyan-glow text-[10px]">Почему «Статус Свободы»</div>
+            <p className="mt-3 font-display text-xl md:text-2xl leading-snug text-silver">
+              Статус свободы человека закреплён во{" "}
+              <span className="text-cyan italic">второй главе Конституции РФ</span>.
+            </p>
+            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">
+              Бренд назван в честь основополагающего права —
+              и зарегистрирован как товарный знак. Возвращаем
+              финансовую свободу через закон.
+            </p>
+          </div>
         </div>
       </div>
     </Section>
