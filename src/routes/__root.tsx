@@ -1,6 +1,5 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts, ScriptOnce } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
-import { ThemeProvider, themeBootstrapScript } from "@/components/site/ThemeProvider";
 
 import appCss from "../styles.css?url";
 
@@ -61,9 +60,8 @@ export const Route = createRootRoute({
 
 function RootShell({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="ru" data-theme="dark" suppressHydrationWarning>
+    <html lang="ru" data-theme="dark">
       <head>
-        <ScriptOnce>{themeBootstrapScript}</ScriptOnce>
         <HeadContent />
       </head>
       <body>
@@ -76,9 +74,9 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <ThemeProvider>
+    <>
       <Outlet />
       <Toaster />
-    </ThemeProvider>
+    </>
   );
 }
