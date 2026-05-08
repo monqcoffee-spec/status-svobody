@@ -100,13 +100,27 @@ function Hero() {
           height={1536}
           fetchPriority="high"
           className="block w-full select-none"
+          style={{
+            maskImage:
+              "linear-gradient(180deg, transparent 0%, black 14%, black 78%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(180deg, transparent 0%, black 14%, black 78%, transparent 100%)",
+          }}
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-1 inset-x-0 h-32"
+          className="pointer-events-none absolute -bottom-1 inset-x-0 h-48"
           style={{
             background:
               "linear-gradient(180deg, transparent 0%, var(--ink-deep) 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-1 inset-x-0 h-32"
+          style={{
+            background:
+              "linear-gradient(0deg, transparent 0%, var(--ink-deep) 100%)",
           }}
         />
       </div>
@@ -165,9 +179,9 @@ function Hero() {
               className="mx-auto block max-h-[92svh] w-auto select-none"
               style={{
                 maskImage:
-                  "linear-gradient(90deg, transparent 0%, black 12%, black 100%)",
+                  "radial-gradient(ellipse 75% 80% at 60% 50%, black 55%, transparent 100%)",
                 WebkitMaskImage:
-                  "linear-gradient(90deg, transparent 0%, black 12%, black 100%)",
+                  "radial-gradient(ellipse 75% 80% at 60% 50%, black 55%, transparent 100%)",
               }}
             />
           </div>
