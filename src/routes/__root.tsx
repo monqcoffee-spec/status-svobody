@@ -75,6 +75,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 function RootComponent() {
   return (
     <>
+      <div aria-hidden className="film-grain" />
       <Outlet />
       <Toaster />
     </>
