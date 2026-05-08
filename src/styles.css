@@ -137,16 +137,16 @@
  * legibility on a light surface. Glass / glow effects automatically
  * adapt because they reference the same tokens. */
 :root[data-theme="light"] {
-  /* Light variant — soft cream with wine accent */
-  --ink: oklch(0.96 0.008 25);
-  --ink-deep: oklch(0.985 0.006 25);
-  --ink-soft: oklch(0.93 0.012 25);
-  --cyan: #6A040F;                           /* deeper wine for contrast on cream */
-  --cyan-soft: #550816;
-  --cyan-glow: #9A0D1B;
-  --teal: #350616;
-  --silver: oklch(0.18 0.01 25);
-  --silver-dim: oklch(0.42 0.01 25);
+  /* Light variant — warm rose-cream with burgundy accent */
+  --ink: oklch(0.96 0.012 20);
+  --ink-deep: oklch(0.985 0.008 20);
+  --ink-soft: oklch(0.93 0.018 18);
+  --cyan: #7A3038;                           /* mid burgundy — readable on cream */
+  --cyan-soft: #5A2229;
+  --cyan-glow: #B0535F;
+  --teal: #3A1218;
+  --silver: oklch(0.20 0.020 18);
+  --silver-dim: oklch(0.45 0.025 18);
 
   --background: var(--ink-deep);
   --foreground: var(--silver);
