@@ -76,17 +76,19 @@
 :root {
   --radius: 0.25rem;
 
-  /* Brand palette — Wine luxury (token names "cyan/teal" kept for class-compat) */
-  /* Hex anchors: #9A0D1B carmine · #6A040F rosewood · #550816 cosmos · #350616 bean · #1D0515 purple */
-  --ink: #1D0515;                            /* ultra dark wine-purple page surface */
-  --ink-deep: #0A0308;                       /* near-black with wine undertone */
-  --ink-soft: #2A0A18;                       /* card surface — slight wine tint */
-  --cyan: #9A0D1B;                           /* Carmine — primary accent */
-  --cyan-soft: #6A040F;                      /* Rosewood — secondary */
-  --cyan-glow: #C8243A;                      /* Bright wine glow for highlights */
-  --teal: #550816;                           /* Chocolate cosmos — deep wine */
-  --silver: oklch(0.94 0.008 25);            /* warm ivory */
-  --silver-dim: oklch(0.66 0.012 20);        /* warm rose-taupe */
+  /* Brand palette — muted rose-burgundy (matched to backdrop photo).
+   * Tone anchors: #5A2229 deep curtain · #7A3038 mid burgundy ·
+   * #A65963 dusty rose · #D8A6AA pale rose highlight.
+   * Token names "cyan/teal" are kept for class-compat. */
+  --ink: #3A1218;                            /* deep curtain burgundy — page surface */
+  --ink-deep: #2A0C12;                       /* darker curtain shadow */
+  --ink-soft: #4A1A22;                       /* card / panel — lifted burgundy */
+  --cyan: #B0535F;                           /* dusty rose — primary accent */
+  --cyan-soft: #7A3038;                      /* mid burgundy — secondary */
+  --cyan-glow: #D8A6AA;                      /* pale rose — highlight glow */
+  --teal: #5A2229;                           /* deep wine — accent shadow */
+  --silver: oklch(0.95 0.012 20);            /* warm ivory text */
+  --silver-dim: oklch(0.72 0.030 18);        /* dusty rose muted text */
 
   /* Semantic — dark by default */
   --background: var(--ink-deep);
@@ -135,16 +137,16 @@
  * legibility on a light surface. Glass / glow effects automatically
  * adapt because they reference the same tokens. */
 :root[data-theme="light"] {
-  /* Light variant — soft cream with wine accent */
-  --ink: oklch(0.96 0.008 25);
-  --ink-deep: oklch(0.985 0.006 25);
-  --ink-soft: oklch(0.93 0.012 25);
-  --cyan: #6A040F;                           /* deeper wine for contrast on cream */
-  --cyan-soft: #550816;
-  --cyan-glow: #9A0D1B;
-  --teal: #350616;
-  --silver: oklch(0.18 0.01 25);
-  --silver-dim: oklch(0.42 0.01 25);
+  /* Light variant — warm rose-cream with burgundy accent */
+  --ink: oklch(0.96 0.012 20);
+  --ink-deep: oklch(0.985 0.008 20);
+  --ink-soft: oklch(0.93 0.018 18);
+  --cyan: #7A3038;                           /* mid burgundy — readable on cream */
+  --cyan-soft: #5A2229;
+  --cyan-glow: #B0535F;
+  --teal: #3A1218;
+  --silver: oklch(0.20 0.020 18);
+  --silver-dim: oklch(0.45 0.025 18);
 
   --background: var(--ink-deep);
   --foreground: var(--silver);
