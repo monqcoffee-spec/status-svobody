@@ -95,7 +95,7 @@ function Hero() {
       <div className="relative md:hidden">
         <img
           src={yuliaPortrait}
-          alt="Юлия Армина — основатель STATUS SVOBODY"
+          alt="Юлия Армина — STATUS SVOBODY"
           width={1024}
           height={1536}
           fetchPriority="high"
@@ -139,7 +139,7 @@ function Hero() {
           <div className="reveal reveal-delay-2 col-span-6 relative z-10">
             <div className="inline-flex items-center gap-3">
               <span className="hairline-tight" />
-              <span className="smallcaps text-cyan">Legal consulting</span>
+              <span className="smallcaps text-cyan">Статус Свободы</span>
             </div>
             <p className="mt-6 font-display text-5xl leading-[1.05] tracking-[-0.03em] text-silver lg:text-6xl">
               СТАТУС СВОБОДЫ <br />
@@ -172,7 +172,7 @@ function Hero() {
           <div className="col-span-6 relative">
             <img
               src={yuliaPortrait}
-              alt="Юлия Армина — основатель STATUS SVOBODY"
+              alt="Юлия Армина — STATUS SVOBODY"
               width={1024}
               height={1536}
               fetchPriority="high"
@@ -279,8 +279,7 @@ function About() {
               }}
             />
             <div className="absolute inset-x-0 bottom-0 px-6 pb-5 text-center">
-              <div className="smallcaps text-cyan-glow text-[10px]">Основатель</div>
-              <div className="mt-1 font-display text-xl text-silver">Юлия Армина</div>
+              <div className="font-display text-xl text-silver">Юлия Армина</div>
             </div>
           </div>
         </div>
