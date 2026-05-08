@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
 type Props = {
-  variant?: "default" | "glow" | "darker";
+  variant?: "default" | "glow" | "darker" | "wine" | "tint";
   className?: string;
   children: React.ReactNode;
   id?: string;
@@ -12,14 +12,18 @@ export function Section({ variant = "default", className, children, id }: Props)
     <section
       id={id}
       className={cn(
-        "relative py-24 md:py-32",
+        "relative py-24 md:py-32 overflow-hidden",
         variant === "default" && "bg-ink-deep",
         variant === "glow" && "bg-aurora-soft",
         variant === "darker" && "bg-ink",
+        variant === "wine" && "section-wine",
+        variant === "tint" && "section-tint",
         className,
       )}
     >
+      <div aria-hidden className="section-divider section-divider-top" />
       <div className="container-tight relative">{children}</div>
+      <div aria-hidden className="section-divider section-divider-bottom" />
     </section>
   );
 }

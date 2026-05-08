@@ -24,6 +24,7 @@ import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
 import { IconBadge } from "@/components/site/IconBadge";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
+import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.webp";
 import featherImg from "@/assets/feather-light.jpg";
@@ -306,14 +307,18 @@ function Hero() {
 /* ───────────────────── ABOUT ───────────────────── */
 function About() {
   return (
-    <Section variant="default" id="about">
-      <SectionLabel n="02" title="О компании" />
-      <H2 className="mt-8 max-w-3xl">
-        О <span className="text-cyan italic">нас</span>
-      </H2>
+    <Section variant="wine" id="about">
+      <ScrollReveal>
+        <SectionLabel n="02" title="О компании" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          О <span className="text-cyan italic">нас</span>
+        </H2>
+      </ScrollReveal>
 
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-5 order-1">
+        <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
           <div
             className="group relative aspect-[4/5] w-full overflow-hidden border border-cyan/15"
             style={{
@@ -356,9 +361,9 @@ function About() {
               }}
             />
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
+        <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
           <p>
             <span className="text-cyan italic">Статус Свободы</span> — премиальный
             финансово-юридический консалтинг. Поддержка на каждом шагу:
@@ -409,7 +414,7 @@ function About() {
               <div className="mt-2 smallcaps text-[10px] text-silver-dim">успех</div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </Section>
   );
@@ -425,14 +430,18 @@ function Process() {
     { icon: <Sparkles className="h-7 w-7" />, t: "Идеальная финансовая репутация", d: "Чистая кредитная история, одобрение ипотеки, кредитов и выгодных условий — фундамент будущего без ограничений." },
   ];
   return (
-    <Section variant="default" id="process">
-      <SectionLabel n="05" title="Как мы работаем" />
-      <H2 className="mt-8 max-w-3xl">
-        Путь к <span className="text-cyan italic">безупречной репутации</span>
-      </H2>
+    <Section variant="tint" id="process">
+      <ScrollReveal>
+        <SectionLabel n="05" title="Как мы работаем" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Путь к <span className="text-cyan italic">безупречной репутации</span>
+        </H2>
+      </ScrollReveal>
       <ol className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2" style={{ borderRadius: "2px" }}>
         {steps.map((s, i) => (
-          <li key={i} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div className="flex-1">
               <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
@@ -441,7 +450,7 @@ function Process() {
               <h3 className="mt-2 font-display text-xl md:text-2xl text-silver leading-snug">{s.t}</h3>
               <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
             </div>
-          </li>
+          </ScrollReveal>
         ))}
       </ol>
     </Section>
@@ -458,22 +467,28 @@ function DigitalProfile() {
   ];
   return (
     <Section variant="darker" id="digital-profile">
-      <SectionLabel n="03" title="Цифровой профиль" />
-      <H2 className="mt-8 max-w-3xl">
-        Что входит в ваш <span className="text-cyan italic">Цифровой профиль</span>
-      </H2>
-      <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Цифровой профиль — совокупность всех финансовых следов, по которым
-        о вас судят банки, работодатели и партнёры.
-      </p>
+      <ScrollReveal>
+        <SectionLabel n="03" title="Цифровой профиль" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Что входит в ваш <span className="text-cyan italic">Цифровой профиль</span>
+        </H2>
+      </ScrollReveal>
+      <ScrollReveal delay={2}>
+        <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Цифровой профиль — совокупность всех финансовых следов, по которым
+          о вас судят банки, работодатели и партнёры.
+        </p>
+      </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {profile.map((p, i) => (
-          <div key={i} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
+          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
+            <IconBadge size="sm">
               <Database className="h-5 w-5" />
-            </div>
+            </IconBadge>
             <p className="text-base md:text-lg leading-relaxed text-silver/85 pt-1.5">{p}</p>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
       <div className="mt-12 border-l-2 border-cyan/60 bg-cyan/5 px-7 py-6" style={{ borderRadius: "2px" }}>
@@ -503,32 +518,33 @@ function Services() {
   ];
   return (
     <Section variant="default" id="services">
-      <SectionLabel n="04" title="Наши услуги" />
-      <H2 className="mt-8 max-w-3xl">
-        Полный спектр решений для{" "}
-        <span className="text-cyan italic">восстановления кредитной истории</span>
-      </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Не просто подаём заявления — ведём дела до конца: анализ КИ,
-        переговоры с банками и коллекторами, жалобы в БКИ, контроль
-        исполнения решений суда. Каждый этап — под пристальным вниманием
-        юриста.
-      </p>
+      <ScrollReveal>
+        <SectionLabel n="04" title="Наши услуги" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Полный спектр решений для{" "}
+          <span className="text-cyan italic">восстановления кредитной истории</span>
+        </H2>
+      </ScrollReveal>
+      <ScrollReveal delay={2}>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Не просто подаём заявления — ведём дела до конца: анализ КИ,
+          переговоры с банками и коллекторами, жалобы в БКИ, контроль
+          исполнения решений суда. Каждый этап — под пристальным вниманием
+          юриста.
+        </p>
+      </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
-        {services.map((s) => (
-          <div
+        {services.map((s, i) => (
+          <ScrollReveal
             key={s.t}
+            variant="zoom"
+            delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
             className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--champagne)]/60"
             style={{
               borderRadius: "2px",
               boxShadow: "0 0 0 0 transparent",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow =
-                "0 18px 40px -20px color-mix(in oklab, var(--champagne) 45%, transparent), inset 0 1px 0 0 color-mix(in oklab, var(--champagne-glow) 18%, transparent)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 0 0 0 transparent";
             }}
           >
             <IconBadge size="sm">{s.icon}</IconBadge>
@@ -536,7 +552,7 @@ function Services() {
               <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </Section>
@@ -572,21 +588,29 @@ function Pricing() {
     },
   ];
   return (
-    <Section variant="darker" id="pricing">
-      <SectionLabel n="06" title="Тарифы" />
-      <H2 className="mt-8 max-w-3xl">
-        Прозрачные тарифы{" "}
-        <span className="text-cyan italic">без скрытых платежей</span>
-      </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Три чётких пакета — от быстрого оспаривания одной записи до
-        полного восстановления кредитной истории. В договоре все цены
-        фиксированы, никаких дополнительных сборов.
-      </p>
+    <Section variant="wine" id="pricing">
+      <ScrollReveal>
+        <SectionLabel n="06" title="Тарифы" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Прозрачные тарифы{" "}
+          <span className="text-cyan italic">без скрытых платежей</span>
+        </H2>
+      </ScrollReveal>
+      <ScrollReveal delay={2}>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Три чётких пакета — от быстрого оспаривания одной записи до
+          полного восстановления кредитной истории. В договоре все цены
+          фиксированы, никаких дополнительных сборов.
+        </p>
+      </ScrollReveal>
       <div className="mt-14 grid gap-5 lg:grid-cols-3">
-        {tiers.map((p) => (
-          <div
+        {tiers.map((p, i) => (
+          <ScrollReveal
             key={p.t}
+            variant="zoom"
+            delay={((i + 1) as 1 | 2 | 3)}
             className={`relative flex flex-col border bg-ink-soft/60 p-8 transition-all ${
               p.highlight ? "border-cyan/60" : "border-white/8 hover:border-cyan/40"
             }`}
@@ -619,7 +643,7 @@ function Pricing() {
                 </button>
               }
             />
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </Section>

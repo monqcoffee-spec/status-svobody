@@ -605,3 +605,98 @@
   .film-grain::before { animation: none; }
 }
 
+/* ─────────── Section variants & dividers ───────────
+ * Alternating backdrops give each block its own identity.
+ * Hairline ornaments separate them softly. */
+.section-wine {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 0%, color-mix(in oklab, var(--cyan) 14%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--champagne) 8%, transparent), transparent 65%),
+    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 50%, var(--ink-deep) 100%);
+}
+.section-wine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--champagne) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--champagne) 4%, transparent) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black, transparent 80%);
+  opacity: 0.5;
+}
+
+.section-tint {
+  background:
+    radial-gradient(ellipse 50% 40% at 80% 10%, color-mix(in oklab, var(--champagne) 10%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in oklab, var(--cyan) 12%, transparent), transparent 60%),
+    var(--ink-soft);
+}
+
+/* Ornamental hairline divider between sections */
+.section-divider {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(680px, 80%);
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklab, var(--champagne) 35%, transparent) 30%,
+    color-mix(in oklab, var(--champagne-glow) 60%, transparent) 50%,
+    color-mix(in oklab, var(--champagne) 35%, transparent) 70%,
+    transparent 100%
+  );
+  opacity: 0.55;
+}
+.section-divider-top { top: 0; }
+.section-divider-bottom { bottom: 0; }
+.section-divider::before,
+.section-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  background: linear-gradient(135deg, var(--champagne-glow), var(--champagne) 60%, var(--champagne-soft));
+  box-shadow: 0 0 10px color-mix(in oklab, var(--champagne-glow) 70%, transparent);
+}
+.section-divider::before { left: calc(50% - 4px); border-radius: 0; width: 5px; height: 5px; }
+.section-divider::after  { display: none; }
+
+/* ─────────── Scroll reveal (IntersectionObserver) ───────────
+ * Apply class .sr to a wrapper; it stays hidden until
+ * .sr-in is toggled by the ScrollReveal hook. */
+.sr {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(4px);
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+.sr-left  { transform: translateX(-32px); }
+.sr-right { transform: translateX(32px); }
+.sr-zoom  { transform: scale(0.96); }
+.sr.sr-in {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+.sr-d1 { transition-delay: 0.08s; }
+.sr-d2 { transition-delay: 0.16s; }
+.sr-d3 { transition-delay: 0.24s; }
+.sr-d4 { transition-delay: 0.32s; }
+.sr-d5 { transition-delay: 0.40s; }
+@media (prefers-reduced-motion: reduce) {
+  .sr { opacity: 1; transform: none; filter: none; transition: none; }
+}
+
