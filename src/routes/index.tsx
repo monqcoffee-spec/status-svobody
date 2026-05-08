@@ -499,7 +499,21 @@ function Services() {
       </p>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {services.map((s) => (
-          <div key={s.t} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
+          <div
+            key={s.t}
+            className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--champagne)]/60"
+            style={{
+              borderRadius: "2px",
+              boxShadow: "0 0 0 0 transparent",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow =
+                "0 18px 40px -20px color-mix(in oklab, var(--champagne) 45%, transparent), inset 0 1px 0 0 color-mix(in oklab, var(--champagne-glow) 18%, transparent)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = "0 0 0 0 transparent";
+            }}
+          >
             <IconBadge size="sm">{s.icon}</IconBadge>
             <div>
               <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{s.t}</h3>
