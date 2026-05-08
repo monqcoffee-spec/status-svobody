@@ -18,10 +18,15 @@ export function Logo({
     <img
       src={logo}
       alt="Статус Свободы"
-      style={{ filter: "drop-shadow(0 0 14px rgba(176, 83, 95, 0.55)) drop-shadow(0 0 28px rgba(216, 166, 170, 0.35))" }}
-      className={cn("block w-auto object-contain shrink-0", className)}
-      // size prop drives the default height via inline width/height attributes,
-      // which Tailwind h-* utilities can override responsively.
+      decoding="async"
+      loading="eager"
+      style={{
+        mixBlendMode: "screen",
+        filter:
+          "drop-shadow(0 0 10px rgba(212, 175, 110, 0.65)) drop-shadow(0 0 22px rgba(216, 166, 170, 0.45)) drop-shadow(0 0 40px rgba(176, 83, 95, 0.35))",
+        imageRendering: "auto",
+      }}
+      className={cn("block w-auto object-contain shrink-0 select-none", className)}
       height={size}
     />
   );
