@@ -24,6 +24,7 @@ import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
 import { IconBadge } from "@/components/site/IconBadge";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
+import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.webp";
 import featherImg from "@/assets/feather-light.jpg";
@@ -306,14 +307,18 @@ function Hero() {
 /* ───────────────────── ABOUT ───────────────────── */
 function About() {
   return (
-    <Section variant="default" id="about">
-      <SectionLabel n="02" title="О компании" />
-      <H2 className="mt-8 max-w-3xl">
-        О <span className="text-cyan italic">нас</span>
-      </H2>
+    <Section variant="wine" id="about">
+      <ScrollReveal>
+        <SectionLabel n="02" title="О компании" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          О <span className="text-cyan italic">нас</span>
+        </H2>
+      </ScrollReveal>
 
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
-        <div className="lg:col-span-5 order-1">
+        <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
           <div
             className="group relative aspect-[4/5] w-full overflow-hidden border border-cyan/15"
             style={{
@@ -356,9 +361,9 @@ function About() {
               }}
             />
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
+        <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
           <p>
             <span className="text-cyan italic">Статус Свободы</span> — премиальный
             финансово-юридический консалтинг. Поддержка на каждом шагу:
@@ -409,7 +414,7 @@ function About() {
               <div className="mt-2 smallcaps text-[10px] text-silver-dim">успех</div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </Section>
   );
