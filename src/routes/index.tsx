@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import {
   ArrowUpRight,
-  ArrowRight,
   Check,
   FileSearch,
   FileText,
@@ -14,15 +13,8 @@ import {
   Shield,
   Banknote,
   HeartHandshake,
-  Award,
-  GraduationCap,
-  Scale,
-  BadgeCheck,
   Workflow,
   Phone,
-  Send,
-  MessageCircle,
-  MapPin,
   AtSign,
   Megaphone,
 } from "lucide-react";
@@ -82,15 +74,13 @@ function IndexPage() {
   return (
     <SiteLayout>
       <Hero />
-      <About />
-      <Regalia />
-      <DigitalProfile />
       <Services />
+      <About />
+      <DigitalProfile />
       <Process />
       <Pricing />
       <Faq />
-      <Contacts />
-      <FinalCTA />
+      <EntryPoint />
     </SiteLayout>
   );
 }
