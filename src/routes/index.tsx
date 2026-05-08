@@ -78,6 +78,7 @@ function IndexPage() {
       <Process />
       <Pricing />
       <Faq />
+      <BankruptcyCTA />
       <EntryPoint />
     </SiteLayout>
   );
