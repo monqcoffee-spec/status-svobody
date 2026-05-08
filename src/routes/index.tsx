@@ -269,15 +269,15 @@ function About() {
               }}
             />
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative animate-float">
+              <div className="relative">
                 <Logo size={140} />
                 <div
                   aria-hidden
                   className="absolute inset-0 -z-10 animate-pulse-glow"
                   style={{
                     background:
-                      "radial-gradient(circle, color-mix(in oklab, var(--cyan) 35%, transparent), transparent 65%)",
-                    filter: "blur(28px)",
+                      "radial-gradient(circle, color-mix(in oklab, var(--champagne) 55%, transparent), color-mix(in oklab, var(--champagne-glow) 25%, transparent) 40%, transparent 70%)",
+                    filter: "blur(32px)",
                   }}
                 />
               </div>
