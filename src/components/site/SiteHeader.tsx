@@ -54,7 +54,7 @@ export function SiteHeader() {
               Статус<span className="text-cyan"> </span>Свободы
             </div>
             <div className="text-[8px] md:text-[9px] tracking-[0.32em] md:tracking-[0.42em] text-silver-dim uppercase mt-0.5 whitespace-nowrap">
-              Premium legal consulting
+              Legal consulting
             </div>
           </div>
         </Link>

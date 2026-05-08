@@ -7,13 +7,11 @@ import {
   FileText,
   Handshake,
   Sparkles,
-  ShieldCheck,
   Database,
   Gavel,
   Shield,
   Banknote,
   HeartHandshake,
-  Workflow,
   Phone,
   AtSign,
   Megaphone,
@@ -80,6 +78,7 @@ function IndexPage() {
       <Process />
       <Pricing />
       <Faq />
+      <BankruptcyCTA />
       <EntryPoint />
     </SiteLayout>
   );
@@ -126,7 +125,7 @@ function Hero() {
           <div className="reveal reveal-delay-2 col-span-6 relative z-10">
             <div className="inline-flex items-center gap-3">
               <span className="hairline-tight" />
-              <span className="smallcaps text-cyan">Premium legal consulting</span>
+              <span className="smallcaps text-cyan">Legal consulting</span>
             </div>
             <p className="mt-6 font-display text-5xl leading-[1.05] tracking-[-0.03em] text-silver lg:text-6xl">
               СТАТУС СВОБОДЫ <br />
@@ -145,13 +144,13 @@ function Hero() {
                 headline="Запись на консультацию"
                 trigger={
                   <button type="button" className="btn-cyan group rounded-sm">
-                    <span>Получить консультацию</span>
+                    <span>Оставить заявку</span>
                     <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </button>
                 }
               />
               <a href="#services" className="btn-ghost group rounded-sm">
-                <span>Узнать решение</span>
+                <span>Узнать подробнее</span>
                 <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
@@ -195,7 +194,7 @@ function Hero() {
             headline="Запись на консультацию"
             trigger={
               <button type="button" className="btn-cyan group rounded-sm w-full">
-                <span>Получить консультацию</span>
+                <span>Оставить заявку</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
             }
@@ -284,6 +283,25 @@ function About() {
             если задача решается проще, скажу об этом на первой встрече,
             бесплатно.
           </p>
+          <div
+            className="glass relative mt-2 px-7 py-6"
+            style={{
+              borderRadius: "2px",
+              boxShadow:
+                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 20px 60px -30px color-mix(in oklab, var(--cyan) 50%, transparent)",
+            }}
+          >
+            <div className="smallcaps text-cyan-glow text-[10px]">Почему «Статус Свободы»</div>
+            <p className="mt-3 font-display text-xl md:text-2xl leading-snug text-silver">
+              Статус свободы человека закреплён во{" "}
+              <span className="text-cyan italic">второй главе Конституции РФ</span>.
+            </p>
+            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">
+              Бренд назван в честь основополагающего права —
+              и зарегистрирован как товарный знак. Возвращаем
+              финансовую свободу через закон.
+            </p>
+          </div>
         </div>
       </div>
     </Section>
@@ -331,11 +349,6 @@ function DigitalProfile() {
     "Сведения о банкротстве и арбитражных процедурах",
     "Иные финансовые индикаторы и скоринговые маркеры",
   ];
-  const pillars = [
-    { icon: <ShieldCheck className="h-6 w-6" />, t: "Защита", d: "Конфиденциальность по умолчанию. Защищённые каналы связи, NDA, ограниченный круг доступа к вашим данным." },
-    { icon: <Sparkles className="h-6 w-6" />, t: "Результат", d: "Не процесс ради процесса — измеримый итог. Каждый кейс закрывается определённым решением." },
-    { icon: <Workflow className="h-6 w-6" />, t: "Команда", d: "Юлия Армина и юристы под её руководством. Личное участие основателя в стратегии — без передачи дела на конвейер." },
-  ];
   return (
     <Section variant="darker" id="digital-profile">
       <SectionLabel n="03" title="Цифровой профиль" />
@@ -366,16 +379,6 @@ function DigitalProfile() {
           Записи продолжают влиять на скоринг и решения банков. Управлять
           этим можно — и нужно — целенаправленно.
         </p>
-      </div>
-
-      <div className="mt-16 grid gap-5 md:grid-cols-3">
-        {pillars.map((p) => (
-          <div key={p.t} className="group border border-white/8 bg-ink-soft/60 p-8 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <IconBadge size="sm">{p.icon}</IconBadge>
-            <h3 className="mt-6 font-display text-xl md:text-2xl text-silver">{p.t}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.d}</p>
-          </div>
-        ))}
       </div>
     </Section>
   );
@@ -503,6 +506,68 @@ function Pricing() {
 }
 
 /* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
+function BankruptcyCTA() {
+  return (
+    <Section variant="default" id="bankruptcy-cta">
+      <div
+        className="glass-strong relative overflow-hidden p-8 md:p-12"
+        style={{
+          borderRadius: "2px",
+          boxShadow:
+            "0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)",
+        }}
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-50"
+          style={{
+            background:
+              "radial-gradient(circle, color-mix(in oklab, var(--cyan-glow) 40%, transparent), transparent 65%)",
+            filter: "blur(40px)",
+          }}
+        />
+        <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-7">
+            <div className="smallcaps text-cyan-glow">Списать долги · Банкротство</div>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em] text-silver">
+              Не уверены, спишут ли{" "}
+              <span className="text-gradient-cyan italic">ваши долги</span>?
+            </h2>
+            <p className="mt-5 text-base md:text-lg leading-relaxed text-silver/80">
+              Пройдите бесплатный интенсив — за 20 минут поймёте, подходит ли
+              вам банкротство, какие долги списываются и что делать дальше.
+              Без воды и без обязательств.
+            </p>
+          </div>
+          <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
+            <a
+              href="https://t.me/status_svobody_bot"
+              target="_blank"
+              rel="noopener"
+              className="btn-cyan group w-full justify-center rounded-sm lg:w-auto"
+              style={{
+                boxShadow:
+                  "0 0 32px color-mix(in oklab, var(--cyan) 35%, transparent), 0 0 80px -10px color-mix(in oklab, var(--cyan-glow) 40%, transparent)",
+              }}
+            >
+              <span>Пройти бесплатный интенсив</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a
+              href="/bankruptcy"
+              className="btn-ghost group w-full justify-center rounded-sm lg:w-auto"
+            >
+              <span>Подробнее о банкротстве</span>
+              <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </Section>
+  );
+}
+
+/* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
 function EntryPoint() {
   return (
     <section
@@ -530,7 +595,15 @@ function EntryPoint() {
 
       <div className="container-tight relative">
         <div className="text-center">
-          <Eyebrow>Точка входа</Eyebrow>
+          <Eyebrow>
+            Точка
+            <span
+              aria-hidden
+              className="mx-1.5 inline-block h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-cyan align-middle"
+              style={{ boxShadow: "0 0 10px var(--cyan), 0 0 20px var(--cyan-glow)" }}
+            />
+            входа
+          </Eyebrow>
           <h2 className="display mt-8 text-[clamp(2.25rem,7vw,4.5rem)] max-w-4xl mx-auto leading-[1.05]">
             <span className="text-gradient-cyan text-glow">
               Начните восстановление сегодня
