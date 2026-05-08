@@ -1,6 +1,7 @@
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { FloatingContacts } from "./FloatingContacts";
+import { ScrollTopButton } from "./ScrollTopButton";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -18,6 +19,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <main className="flex-1">{children}</main>
       <SiteFooter />
       <FloatingContacts />
+      <ScrollTopButton />
     </div>
   );
 }

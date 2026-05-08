@@ -32,7 +32,8 @@ export function SiteFooter() {
               ["/#about", "О бренде"],
               ["/#services", "Услуги"],
               ["/#pricing", "Тарифы"],
-              ["/#team", "Команда"],
+              ["/bankruptcy", "Банкротство"],
+              ["/#faq", "FAQ"],
               ["/#contacts", "Контакты"],
             ].map(([href, label]) => (
               <li key={href}>
