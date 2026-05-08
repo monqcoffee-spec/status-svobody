@@ -125,8 +125,8 @@
   --sidebar-ring: var(--cyan);
 
   /* Surfaces / hairlines used by glass + borders, redefined per theme */
-  --surface-tint: oklch(1 0 0);              /* mixed via color-mix in utilities */
-  --surface-edge: oklch(1 0 0 / 0.08);
+  --surface-tint: #D8A6AA;                   /* pale rose — mixed via color-mix in utilities */
+  --surface-edge: color-mix(in oklab, var(--cyan-glow) 22%, transparent);
   --hero-bg: var(--ink-deep);                /* hero / mobile photo backdrop */
 }
 
@@ -172,9 +172,9 @@
   --sidebar-accent-foreground: var(--silver);
   --sidebar-border: oklch(0.18 0.01 250 / 12%);
 
-  /* In light mode, "white tint" overlays should darken instead */
-  --surface-tint: oklch(0.18 0.01 250);
-  --surface-edge: oklch(0.18 0.01 250 / 0.10);
+  /* In light mode, "white tint" overlays darken with a wine undertone */
+  --surface-tint: #5A2229;
+  --surface-edge: color-mix(in oklab, var(--cyan-soft) 22%, transparent);
   --hero-bg: var(--ink-deep);
 }
 
