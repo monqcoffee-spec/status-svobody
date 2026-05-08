@@ -41,29 +41,55 @@ export function Faq() {
           return (
             <li
               key={it.q}
-              className="border border-white/8 bg-ink-soft/60 transition-all hover:border-cyan/40"
-              style={{ borderRadius: "2px" }}
+              className="glass relative overflow-hidden border border-white/10 transition-all duration-500 hover:border-cyan/40"
+              style={{
+                borderRadius: "2px",
+                boxShadow: isOpen
+                  ? "0 0 32px color-mix(in oklab, var(--cyan) 22%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)"
+                  : undefined,
+              }}
             >
+              {isOpen && (
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 top-0 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, transparent, color-mix(in oklab, var(--cyan) 70%, transparent), transparent)",
+                  }}
+                />
+              )}
               <button
                 type="button"
                 onClick={() => setOpen(isOpen ? null : i)}
                 className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left"
               >
-                <span className="font-display text-lg md:text-xl text-silver leading-snug">
+                <span
+                  className={`font-display text-lg md:text-xl leading-snug transition-colors duration-500 ${
+                    isOpen ? "text-cyan-glow" : "text-silver"
+                  }`}
+                >
                   {it.q}
                 </span>
                 <Plus
-                  className={`h-5 w-5 shrink-0 text-cyan transition-transform duration-500 ${
-                    isOpen ? "rotate-45" : ""
+                  className={`h-5 w-5 shrink-0 text-cyan transition-all duration-500 ${
+                    isOpen ? "rotate-[135deg] scale-110" : ""
                   }`}
+                  style={isOpen ? { filter: "drop-shadow(0 0 8px var(--cyan))" } : undefined}
                 />
               </button>
               <div
-                className="grid overflow-hidden transition-[grid-template-rows] duration-500 ease-out"
+                className="grid overflow-hidden transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
                 style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
               >
                 <div className="min-h-0">
-                  <p className="px-7 pb-6 text-base md:text-lg leading-relaxed text-silver-dim">
+                  <p
+                    className={`px-7 pb-6 text-base md:text-lg leading-relaxed text-silver-dim transition-all duration-700 ${
+                      isOpen
+                        ? "translate-y-0 opacity-100 blur-0"
+                        : "-translate-y-2 opacity-0 blur-sm"
+                    }`}
+                  >
                     {it.a}
                   </p>
                 </div>

@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import {
   ArrowUpRight,
-  ArrowRight,
   Check,
   FileSearch,
   FileText,
@@ -14,15 +13,8 @@ import {
   Shield,
   Banknote,
   HeartHandshake,
-  Award,
-  GraduationCap,
-  Scale,
-  BadgeCheck,
   Workflow,
   Phone,
-  Send,
-  MessageCircle,
-  MapPin,
   AtSign,
   Megaphone,
 } from "lucide-react";
@@ -82,15 +74,13 @@ function IndexPage() {
   return (
     <SiteLayout>
       <Hero />
-      <About />
-      <Regalia />
-      <DigitalProfile />
       <Services />
+      <About />
+      <DigitalProfile />
       <Process />
       <Pricing />
       <Faq />
-      <Contacts />
-      <FinalCTA />
+      <EntryPoint />
     </SiteLayout>
   );
 }
@@ -186,6 +176,19 @@ function Hero() {
       </div>
 
       <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
+        <div className="reveal mb-5 text-center">
+          <p className="font-display text-3xl leading-[1.1] tracking-[-0.02em] text-silver">
+            СТАТУС СВОБОДЫ <br />
+            <span className="text-gradient-cyan italic font-serif">Юлии Арминой</span>
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-silver/80">
+            Испорченная кредитная история — не клеймо. Это запись,
+            которую закон разрешает оспорить.
+          </p>
+          <p className="mt-3 smallcaps text-cyan-glow text-[10px]">
+            Конфиденциальность · Решение · Поддержка
+          </p>
+        </div>
         <div className="reveal reveal-delay-3 flex flex-col gap-2.5">
           <LeadFormDialog
             source="hero"
@@ -214,51 +217,72 @@ function Hero() {
 function About() {
   return (
     <Section variant="default" id="about">
-      <SectionLabel n="01" title="О бренде" />
+      <SectionLabel n="02" title="О компании" />
       <H2 className="mt-8 max-w-3xl">
-        Статус <span className="text-cyan italic">Свободы</span>
+        О <span className="text-cyan italic">нас</span>
       </H2>
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-12">
-        <div className="lg:col-span-4 flex flex-col items-center lg:items-start">
-          <div className="relative animate-float">
-            <Logo size={160} />
+      <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
+        <div className="lg:col-span-5 order-1">
+          <div
+            className="group relative aspect-[4/5] w-full overflow-hidden border border-cyan/15"
+            style={{
+              borderRadius: "2px",
+              background:
+                "linear-gradient(135deg, color-mix(in oklab, var(--cyan-soft) 40%, var(--ink-soft)) 0%, var(--ink-deep) 100%)",
+              boxShadow:
+                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent)",
+            }}
+          >
             <div
               aria-hidden
-              className="absolute inset-0 -z-10 animate-pulse-glow"
+              className="absolute inset-0 opacity-60 mix-blend-screen"
               style={{
-                background: "radial-gradient(circle, color-mix(in oklab, var(--cyan) 30%, transparent), transparent 65%)",
+                background:
+                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--cyan-glow) 35%, transparent), transparent 70%)",
                 filter: "blur(24px)",
               }}
             />
-          </div>
-          <div className="mt-8 text-center lg:text-left">
-            <div className="smallcaps text-cyan">Основатель · финансовый поверенный</div>
-            <div className="mt-3 font-display text-3xl text-silver">Юлия Армина</div>
-            <div className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">
-              Финансовый юрист. Сопровождает клиентов в делах
-              о долгах, кредитной истории и Цифровом профиле с 2020 года.
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative animate-float">
+                <Logo size={140} />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 -z-10 animate-pulse-glow"
+                  style={{
+                    background:
+                      "radial-gradient(circle, color-mix(in oklab, var(--cyan) 35%, transparent), transparent 65%)",
+                    filter: "blur(28px)",
+                  }}
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
+              style={{
+                background:
+                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--ink-deep) 75%, transparent))",
+              }}
+            />
+            <div className="absolute inset-x-0 bottom-0 px-6 pb-5 text-center">
+              <div className="smallcaps text-cyan-glow text-[10px]">Основатель</div>
+              <div className="mt-1 font-display text-xl text-silver">Юлия Армина</div>
             </div>
           </div>
         </div>
 
-        <div className="lg:col-span-8 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
+        <div className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
           <p>
             <span className="text-cyan italic">Статус Свободы</span> — премиальный
-            финансово-юридический консалтинг. Стратегия личного финансового
-            поверенного и команда юристов: Цифровой профиль, кредитная
-            история, ФССП, банкротство — всё под одной точкой ответственности.
-          </p>
-          <p>
-            За пять лет — сотни клиентов с восстановленной кредитной историей,
-            исправленными записями в БКИ и одобренной ипотекой через
-            1,5–3 года после старта работы. Поддержка на каждом шагу — от
-            первой консультации до закрытия дела.
+            финансово-юридический консалтинг. Поддержка на каждом шагу:
+            от первой консультации до закрытия дела.
           </p>
           <p className="text-silver/75">
-            Прямой контакт с поверенным, честный диалог и прозрачный план.
-            Если ваша задача решается проще — скажу об этом на первой
-            встрече, бесплатно.
+            Личный финансовый поверенный сопровождает дело лично, без передачи
+            на конвейер. Прямой контакт, честный диалог и прозрачный план —
+            если задача решается проще, скажу об этом на первой встрече,
+            бесплатно.
           </p>
         </div>
       </div>
@@ -266,34 +290,6 @@ function About() {
   );
 }
 
-/* ───────────────────── REGALIA ───────────────────── */
-function Regalia() {
-  const items = [
-    { icon: <Award className="h-6 w-6" />, t: "Финансовый поверенный", d: "Профессиональный статус: личное представительство интересов клиента в финансово-правовых вопросах." },
-    { icon: <GraduationCap className="h-6 w-6" />, t: "Высшее юридическое образование", d: "Профильная специализация по финансовому и гражданскому праву." },
-    { icon: <Scale className="h-6 w-6" />, t: "Практика по 218-ФЗ", d: "Системная работа с НБКИ, ОКБ и Скоринг Бюро. Оспаривание ошибок, дублей, проданных долгов." },
-    { icon: <BadgeCheck className="h-6 w-6" />, t: "Сотни закрытых дел", d: "Кредитная история, ФССП, банкротство, ипотека после восстановления — измеримый результат у каждого клиента." },
-  ];
-  return (
-    <Section variant="darker" id="regalia">
-      <SectionLabel n="02" title="Регалии" />
-      <H2 className="mt-8 max-w-3xl">
-        Регалии <span className="text-cyan italic">финансового юриста</span>
-      </H2>
-      <div className="mt-14 grid gap-5 md:grid-cols-2">
-        {items.map((r) => (
-          <div key={r.t} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <IconBadge size="sm">{r.icon}</IconBadge>
-            <div>
-              <h3 className="font-display text-xl md:text-2xl text-silver leading-snug">{r.t}</h3>
-              <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{r.d}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
 
 /* ───────────────────── PROCESS ───────────────────── */
 function Process() {
@@ -506,53 +502,14 @@ function Pricing() {
   );
 }
 
-/* ───────────────────── CONTACTS ───────────────────── */
-function Contacts() {
+/* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
+function EntryPoint() {
   return (
-    <Section variant="default" id="contacts">
-      <SectionLabel n="08" title="Контакты" />
-      <H2 className="mt-8 max-w-3xl">
-        Свяжитесь <span className="text-cyan italic">напрямую</span>
-      </H2>
-      <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Никаких колл-центров. Общение веду лично — Telegram, WhatsApp, телефон.
-        Для предварительного разбора удобнее всего написать в Telegram.
-      </p>
-
-      <div className="mt-12 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2 lg:grid-cols-3" style={{ borderRadius: "2px" }}>
-        <ContactCard icon={<Phone className="h-5 w-5" />} label="Телефон" value="+7 (965) 445-73-78" href="tel:+79654457378" />
-        <ContactCard icon={<AtSign className="h-5 w-5" />} label="Telegram (личный)" value="@u_armina" href="https://t.me/u_armina" />
-        <ContactCard icon={<Megaphone className="h-5 w-5" />} label="Telegram-канал" value="ЮЛИЯ АРМИНА · t.me/zakon_127" href="https://t.me/zakon_127" />
-        <ContactCard icon={<Send className="h-5 w-5" />} label="Бесплатный интенсив" value="@status_svobody_bot" href="https://t.me/status_svobody_bot" />
-        <ContactCard icon={<MessageCircle className="h-5 w-5" />} label="WhatsApp" value="Написать" href="https://wa.me/79654457378" />
-        <ContactCard icon={<MapPin className="h-5 w-5" />} label="Адрес" value="Москва, Цветной бульвар, 13" />
-      </div>
-    </Section>
-  );
-}
-
-function ContactCard({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
-  const content = (
-    <div className="group flex h-full flex-col gap-5 bg-ink-soft p-7 transition-all hover:bg-ink">
-      <div className="inline-flex h-10 w-10 items-center justify-center border border-cyan/30 text-cyan transition-all group-hover:border-cyan group-hover:shadow-[0_0_18px_color-mix(in_oklab,var(--cyan)_40%,transparent)]" style={{ borderRadius: "2px" }}>
-        {icon}
-      </div>
-      <div>
-        <div className="smallcaps text-[9px] text-silver-dim">{label}</div>
-        <div className="mt-2 font-display text-base text-silver">{value}</div>
-      </div>
-    </div>
-  );
-  return href ? (
-    <a href={href} target={href.startsWith("http") ? "_blank" : undefined} rel="noopener">{content}</a>
-  ) : content;
-}
-
-/* ───────────────────── FINAL CTA ───────────────────── */
-function FinalCTA() {
-  return (
-    <section id="cta" className="relative overflow-hidden bg-aurora py-32 md:py-40 scroll-mt-24">
-      <ParticleField density={50} />
+    <section
+      id="contacts"
+      className="relative overflow-hidden bg-aurora py-28 md:py-36 scroll-mt-24"
+    >
+      <ParticleField density={42} />
       <img
         src={particlesRise}
         alt=""
@@ -561,41 +518,134 @@ function FinalCTA() {
         width={1920}
         height={1080}
         className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
-        style={{ maskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)", WebkitMaskImage: "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)" }}
+        style={{
+          maskImage:
+            "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)",
+        }}
       />
       <img src={featherImg} alt="" aria-hidden className="hidden" />
-      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-30" />
+      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-25" />
 
-      <div className="container-tight relative text-center">
-        <Eyebrow>Точка входа</Eyebrow>
-        <h2 className="display mt-8 text-[clamp(2.25rem,7vw,5rem)] max-w-4xl mx-auto">
-          <span className="text-gradient-cyan text-glow">Начните восстановление сегодня.</span>
-        </h2>
-        <p className="mx-auto mt-8 max-w-xl text-silver/75">
-          Не ждите, пока проблема усугубится. Оставьте заявку — юрист
-          свяжется с вами в течение 15 минут. Первичная консультация бесплатно.
-          Работаем по всей России.
-        </p>
-
-        <div className="mt-12 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <LeadFormDialog
-            source="index-final"
-            headline="Запись на консультацию"
-            trigger={
-              <button type="button" className="btn-cyan group rounded-sm">
-                <span>Получить консультацию</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </button>
-            }
-          />
-          <a href="https://t.me/status_svobody_bot" target="_blank" rel="noopener" className="btn-ghost group rounded-sm">
-            <span>Написать в Telegram</span>
-            <ArrowRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+      <div className="container-tight relative">
+        <div className="text-center">
+          <Eyebrow>Точка входа</Eyebrow>
+          <h2 className="display mt-8 text-[clamp(2.25rem,7vw,4.5rem)] max-w-4xl mx-auto leading-[1.05]">
+            <span className="text-gradient-cyan text-glow">
+              Начните восстановление сегодня
+            </span>
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-silver/80">
+            Не ждите, пока проблема усугубится. Оставьте заявку — юрист
+            свяжется с вами в течение 15 минут.
+          </p>
         </div>
-        <p className="mt-4 text-[11px] uppercase tracking-[0.2em] text-silver-dim">
-          Свяжемся лично в течение 15 минут · конфиденциально
-        </p>
+
+        <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-center">
+          <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
+            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+              <LeadFormDialog
+                source="entry-point"
+                headline="Запись на консультацию"
+                trigger={
+                  <button
+                    type="button"
+                    className="btn-cyan group rounded-sm relative overflow-hidden"
+                    style={{
+                      boxShadow:
+                        "0 0 32px color-mix(in oklab, var(--cyan) 35%, transparent), 0 0 80px -10px color-mix(in oklab, var(--cyan-glow) 40%, transparent)",
+                    }}
+                  >
+                    <span>Оставить заявку</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </button>
+                }
+              />
+            </div>
+
+            <div className="glass relative inline-flex w-full items-center gap-4 px-6 py-4" style={{ borderRadius: "2px" }}>
+              <div className="inline-flex h-10 w-10 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
+                <Phone className="h-5 w-5" />
+              </div>
+              <div className="text-left">
+                <div className="smallcaps text-[9px] text-silver-dim">Телефон</div>
+                <a href="tel:+79654457378" className="font-display text-lg text-silver hover:text-cyan transition-colors tabular">
+                  +7 (965) 445-73-78
+                </a>
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              <a
+                href="https://t.me/zakon_127"
+                target="_blank"
+                rel="noopener"
+                className="glass group flex items-center gap-3 px-5 py-3.5 transition-all hover:border-cyan/40"
+                style={{ borderRadius: "2px" }}
+              >
+                <Megaphone className="h-4 w-4 text-cyan shrink-0" />
+                <div className="text-left">
+                  <div className="smallcaps text-[9px] text-silver-dim">Telegram-канал</div>
+                  <div className="text-sm text-silver group-hover:text-cyan transition-colors">t.me/zakon_127</div>
+                </div>
+              </a>
+              <a
+                href="https://t.me/status_svobody_bot"
+                target="_blank"
+                rel="noopener"
+                className="glass group flex items-center gap-3 px-5 py-3.5 transition-all hover:border-cyan/40"
+                style={{ borderRadius: "2px" }}
+              >
+                <AtSign className="h-4 w-4 text-cyan shrink-0" />
+                <div className="text-left">
+                  <div className="smallcaps text-[9px] text-silver-dim">Бесплатный интенсив</div>
+                  <div className="text-sm text-silver group-hover:text-cyan transition-colors">@status_svobody_bot</div>
+                </div>
+              </a>
+            </div>
+
+            <p className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
+              Свяжемся лично в течение 15 минут · конфиденциально
+            </p>
+          </div>
+
+          <div className="lg:col-span-7">
+            <div
+              className="glass-strong relative p-8 md:p-10"
+              style={{
+                borderRadius: "2px",
+                boxShadow:
+                  "0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)",
+              }}
+            >
+              <div className="smallcaps text-cyan-glow">Заявка</div>
+              <h3 className="mt-3 font-display text-2xl md:text-3xl text-silver leading-snug">
+                Узнайте перспективы вашего дела
+              </h3>
+              <p className="mt-3 text-sm md:text-base text-silver-dim">
+                Заполните форму — юрист подготовит экспресс-оценку и
+                свяжется с вами лично.
+              </p>
+              <LeadFormDialog
+                source="entry-form"
+                headline="Заявка на консультацию"
+                trigger={
+                  <button
+                    type="button"
+                    className="btn-cyan group mt-6 w-full justify-center rounded-sm"
+                  >
+                    <span>Узнать подробнее</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </button>
+                }
+              />
+              <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em] text-silver-dim">
+                Имя · Телефон · E-mail · Описание (опционально)
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

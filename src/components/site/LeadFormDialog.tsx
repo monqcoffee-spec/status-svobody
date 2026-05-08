@@ -20,7 +20,7 @@ type Props = {
 };
 
 type Errors = Partial<
-  Record<"name" | "phone" | "email" | "contact" | "preferredTime" | "message", string>
+  Record<"name" | "phone" | "email" | "contact" | "message" | "consent", string>
 >;
 
 export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
@@ -28,8 +28,8 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [preferredTime, setPreferredTime] = useState("");
   const [message, setMessage] = useState("");
+  const [consent, setConsent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
@@ -40,8 +40,8 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
     setName("");
     setPhone("");
     setEmail("");
-    setPreferredTime("");
     setMessage("");
+    setConsent(false);
     setErrors({});
     setDone(false);
   }
@@ -51,7 +51,6 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
     const trimmedName = name.trim();
     const trimmedPhone = phone.trim();
     const trimmedEmail = email.trim();
-    const trimmedTime = preferredTime.trim();
     const trimmedMessage = message.trim();
 
     if (trimmedName.length < 2) next.name = "Введите имя";
@@ -74,8 +73,8 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
       else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail))
         next.email = "Некорректный e-mail";
     }
-    if (trimmedTime.length > 120) next.preferredTime = "Слишком длинный текст";
     if (trimmedMessage.length > 1000) next.message = "Не более 1000 символов";
+    if (!consent) next.consent = "Необходимо согласие на обработку данных";
 
     setErrors(next);
     return Object.keys(next).length === 0;
@@ -92,7 +91,7 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
           name: name.trim(),
           phone: phone.trim(),
           email: email.trim(),
-          preferredTime: preferredTime.trim(),
+          preferredTime: "",
           message: message.trim(),
           source,
         },
@@ -215,20 +214,6 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
                   }
                 />
                 <Field
-                  label="Удобное время"
-                  error={errors.preferredTime}
-                  input={
-                    <input
-                      type="text"
-                      maxLength={120}
-                      value={preferredTime}
-                      onChange={(e) => setPreferredTime(e.target.value)}
-                      className="lead-input"
-                      placeholder="Например, будни до 12:00 (МСК)"
-                    />
-                  }
-                />
-                <Field
                   label="Кратко о вопросе (опционально)"
                   error={errors.message}
                   input={
@@ -243,6 +228,24 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
                   }
                 />
               </div>
+
+              <label className="mt-6 flex items-start gap-3 text-[11px] leading-relaxed text-silver-dim">
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-cyan cursor-pointer"
+                />
+                <span>
+                  Я согласен(на) на обработку персональных данных и принимаю{" "}
+                  <a href="/privacy" className="text-cyan hover:underline">Политику конфиденциальности</a>{" "}
+                  и{" "}
+                  <a href="/offer" className="text-cyan hover:underline">Публичную оферту</a>.
+                </span>
+              </label>
+              {errors.consent ? (
+                <span className="mt-2 block text-xs text-red-400">{errors.consent}</span>
+              ) : null}
 
               <button
                 type="submit"
