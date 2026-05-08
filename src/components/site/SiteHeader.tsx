@@ -2,7 +2,6 @@ import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
-import { ThemeToggle } from "./ThemeToggle";
 
 const nav = [
   { href: "/#about", label: "О бренде" },
@@ -77,8 +76,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <ThemeToggle className="h-10 w-10 md:h-11 md:w-11" />
-
           <a
             href="https://t.me/status_svobody_bot"
             target="_blank"
