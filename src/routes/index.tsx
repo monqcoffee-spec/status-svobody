@@ -518,32 +518,33 @@ function Services() {
   ];
   return (
     <Section variant="default" id="services">
-      <SectionLabel n="04" title="Наши услуги" />
-      <H2 className="mt-8 max-w-3xl">
-        Полный спектр решений для{" "}
-        <span className="text-cyan italic">восстановления кредитной истории</span>
-      </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Не просто подаём заявления — ведём дела до конца: анализ КИ,
-        переговоры с банками и коллекторами, жалобы в БКИ, контроль
-        исполнения решений суда. Каждый этап — под пристальным вниманием
-        юриста.
-      </p>
+      <ScrollReveal>
+        <SectionLabel n="04" title="Наши услуги" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Полный спектр решений для{" "}
+          <span className="text-cyan italic">восстановления кредитной истории</span>
+        </H2>
+      </ScrollReveal>
+      <ScrollReveal delay={2}>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Не просто подаём заявления — ведём дела до конца: анализ КИ,
+          переговоры с банками и коллекторами, жалобы в БКИ, контроль
+          исполнения решений суда. Каждый этап — под пристальным вниманием
+          юриста.
+        </p>
+      </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
-        {services.map((s) => (
-          <div
+        {services.map((s, i) => (
+          <ScrollReveal
             key={s.t}
+            variant="zoom"
+            delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
             className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--champagne)]/60"
             style={{
               borderRadius: "2px",
               boxShadow: "0 0 0 0 transparent",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.boxShadow =
-                "0 18px 40px -20px color-mix(in oklab, var(--champagne) 45%, transparent), inset 0 1px 0 0 color-mix(in oklab, var(--champagne-glow) 18%, transparent)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.boxShadow = "0 0 0 0 transparent";
             }}
           >
             <IconBadge size="sm">{s.icon}</IconBadge>
@@ -551,7 +552,7 @@ function Services() {
               <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
             </div>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </Section>
