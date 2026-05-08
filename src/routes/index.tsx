@@ -102,14 +102,14 @@ function Hero() {
           className="block w-full select-none"
           style={{
             maskImage:
-              "linear-gradient(180deg, transparent 0%, black 14%, black 78%, transparent 100%)",
+              "linear-gradient(180deg, transparent 0%, black 6%, black 92%, transparent 100%)",
             WebkitMaskImage:
-              "linear-gradient(180deg, transparent 0%, black 14%, black 78%, transparent 100%)",
+              "linear-gradient(180deg, transparent 0%, black 6%, black 92%, transparent 100%)",
           }}
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -bottom-1 inset-x-0 h-48"
+          className="pointer-events-none absolute -bottom-1 inset-x-0 h-20"
           style={{
             background:
               "linear-gradient(180deg, transparent 0%, var(--ink-deep) 100%)",
@@ -117,7 +117,7 @@ function Hero() {
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute -top-1 inset-x-0 h-32"
+          className="pointer-events-none absolute -top-1 inset-x-0 h-14"
           style={{
             background:
               "linear-gradient(0deg, transparent 0%, var(--ink-deep) 100%)",
