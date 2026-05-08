@@ -588,21 +588,29 @@ function Pricing() {
     },
   ];
   return (
-    <Section variant="darker" id="pricing">
-      <SectionLabel n="06" title="Тарифы" />
-      <H2 className="mt-8 max-w-3xl">
-        Прозрачные тарифы{" "}
-        <span className="text-cyan italic">без скрытых платежей</span>
-      </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Три чётких пакета — от быстрого оспаривания одной записи до
-        полного восстановления кредитной истории. В договоре все цены
-        фиксированы, никаких дополнительных сборов.
-      </p>
+    <Section variant="wine" id="pricing">
+      <ScrollReveal>
+        <SectionLabel n="06" title="Тарифы" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Прозрачные тарифы{" "}
+          <span className="text-cyan italic">без скрытых платежей</span>
+        </H2>
+      </ScrollReveal>
+      <ScrollReveal delay={2}>
+        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Три чётких пакета — от быстрого оспаривания одной записи до
+          полного восстановления кредитной истории. В договоре все цены
+          фиксированы, никаких дополнительных сборов.
+        </p>
+      </ScrollReveal>
       <div className="mt-14 grid gap-5 lg:grid-cols-3">
-        {tiers.map((p) => (
-          <div
+        {tiers.map((p, i) => (
+          <ScrollReveal
             key={p.t}
+            variant="zoom"
+            delay={((i + 1) as 1 | 2 | 3)}
             className={`relative flex flex-col border bg-ink-soft/60 p-8 transition-all ${
               p.highlight ? "border-cyan/60" : "border-white/8 hover:border-cyan/40"
             }`}
@@ -635,7 +643,7 @@ function Pricing() {
                 </button>
               }
             />
-          </div>
+          </ScrollReveal>
         ))}
       </div>
     </Section>
