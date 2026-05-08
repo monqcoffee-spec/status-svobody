@@ -467,22 +467,28 @@ function DigitalProfile() {
   ];
   return (
     <Section variant="darker" id="digital-profile">
-      <SectionLabel n="03" title="Цифровой профиль" />
-      <H2 className="mt-8 max-w-3xl">
-        Что входит в ваш <span className="text-cyan italic">Цифровой профиль</span>
-      </H2>
-      <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Цифровой профиль — совокупность всех финансовых следов, по которым
-        о вас судят банки, работодатели и партнёры.
-      </p>
+      <ScrollReveal>
+        <SectionLabel n="03" title="Цифровой профиль" />
+      </ScrollReveal>
+      <ScrollReveal delay={1}>
+        <H2 className="mt-8 max-w-3xl">
+          Что входит в ваш <span className="text-cyan italic">Цифровой профиль</span>
+        </H2>
+      </ScrollReveal>
+      <ScrollReveal delay={2}>
+        <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Цифровой профиль — совокупность всех финансовых следов, по которым
+          о вас судят банки, работодатели и партнёры.
+        </p>
+      </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {profile.map((p, i) => (
-          <div key={i} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
+          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
+            <IconBadge size="sm">
               <Database className="h-5 w-5" />
-            </div>
+            </IconBadge>
             <p className="text-base md:text-lg leading-relaxed text-silver/85 pt-1.5">{p}</p>
-          </div>
+          </ScrollReveal>
         ))}
       </div>
       <div className="mt-12 border-l-2 border-cyan/60 bg-cyan/5 px-7 py-6" style={{ borderRadius: "2px" }}>
