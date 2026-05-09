@@ -193,15 +193,34 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 400;
   }
+
+  @media (min-width: 768px) {
+    body { font-size: 1.125rem; }
+  }
+  @media (min-width: 1280px) {
+    body { font-size: 1.1875rem; }
+  }
+
+  p { line-height: 1.7; }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.025em;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
     color: var(--text);
     text-shadow: none;
   }
+
+  h1 { font-weight: 700; line-height: 1.1; letter-spacing: -0.03em; }
+
+  small, .text-xs { opacity: 0.7; }
+
+  button, a.btn, .btn-cyan { letter-spacing: 0.02em; }
 
   /* Selection */
   ::selection {
@@ -231,9 +250,9 @@
 
   .display {
     font-family: var(--font-display);
-    font-weight: 350;
-    letter-spacing: -0.035em;
-    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
   }
 
   /* Glow text — disabled on light theme to keep gold/wine crisp (100% clarity) */
