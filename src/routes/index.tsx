@@ -607,25 +607,30 @@ function Pricing() {
             key={p.t}
             variant="zoom"
             delay={((i + 1) as 1 | 2 | 3)}
-            className={`relative flex flex-col border bg-ink-soft/60 p-8 transition-all ${
-              p.highlight ? "border-cyan/60" : "border-white/8 hover:border-cyan/40"
-            }`}
-            style={{
-              borderRadius: "2px",
-              boxShadow: p.highlight ? "0 0 32px color-mix(in oklab, var(--cyan) 22%, transparent)" : undefined,
-            }}
+            className={`card-lux relative flex flex-col p-8 ${p.highlight ? "ring-2" : ""}`}
+            style={p.highlight ? {
+              boxShadow:
+                "0 0 0 1px var(--gold-heading), 0 26px 60px -28px color-mix(in oklab, #6a2735 65%, transparent), 0 0 32px color-mix(in oklab, var(--gold-heading) 30%, transparent)",
+            } : undefined}
           >
             {p.highlight && (
-              <div className="absolute -top-3 left-8 bg-cyan text-ink-deep px-3 py-1 smallcaps text-xs">Популярный</div>
+              <div
+                className="absolute -top-3 left-8 px-3 py-1 smallcaps text-xs"
+                style={{
+                  background: "var(--gold-heading)",
+                  color: "#2A1118",
+                  borderRadius: "2px",
+                }}
+              >Популярный</div>
             )}
-            <h3 className="font-display text-2xl md:text-3xl text-silver leading-snug">{p.t}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.sub}</p>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug">{p.t}</h3>
+            <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
             <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">{p.price}</div>
-            <div className="mt-2 smallcaps text-cyan">{p.meta}</div>
+            <div className="mt-2 smallcaps">{p.meta}</div>
             <ul className="mt-6 space-y-3 flex-1">
               {p.features.map((f) => (
-                <li key={f} className="flex gap-3 text-base md:text-lg text-silver/85">
-                  <Check className="h-5 w-5 shrink-0 text-cyan mt-0.5" />
+                <li key={f} className="flex gap-3 text-base md:text-lg">
+                  <Check className="h-5 w-5 shrink-0 mt-0.5" style={{ color: "var(--gold-heading-deep)" }} />
                   <span>{f}</span>
                 </li>
               ))}
