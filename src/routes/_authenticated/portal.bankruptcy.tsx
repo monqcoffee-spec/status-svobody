@@ -93,13 +93,17 @@ function BankruptcyModule() {
   async function uploadDoc(doc: Doc, file: File) {
     if (!user || !kase) return;
     const path = `${user.id}/bankruptcy/${kase.id}/${doc.doc_key}-${Date.now()}-${file.name}`;
-    const up = await supabase.storage.from("portal-docs").upload(path, file, { upsert: true });
+    const up = await supabase.storage.from("portal-docs").upload(path, file, { upsert: false });
     if (up.error) return toast.error(up.error.message);
+    // clean up previous file for this checklist item, if any
+    if (doc.file_path && doc.file_path !== path) {
+      await supabase.storage.from("portal-docs").remove([doc.file_path]);
+    }
     const { data } = await supabase.from("bankruptcy_documents").update({
       file_path: path, file_name: file.name, uploaded_at: new Date().toISOString(),
     }).eq("id", doc.id).select().single();
     if (data) setDocs(prev => prev.map(d => d.id === doc.id ? data as Doc : d));
-    toast.success("Файл загружен");
+    toast.success(doc.file_path ? "Файл заменён" : "Файл загружен");
   }
 
   if (loading) return <div className="text-muted-foreground">Загрузка…</div>;
