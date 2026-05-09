@@ -31,6 +31,13 @@ import iconSvo from "@/assets/icons-3d/svo.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
 import iconBuyout from "@/assets/icons-3d/buyout.png";
 import iconSupport from "@/assets/icons-3d/support.png";
+import iconTierBasic from "@/assets/icons-3d/tier-basic.png";
+import iconTierPremium from "@/assets/icons-3d/tier-premium.png";
+import iconTierPlatinum from "@/assets/icons-3d/tier-platinum.png";
+import iconFaq from "@/assets/icons-3d/faq.png";
+import iconPhone from "@/assets/icons-3d/phone.png";
+import iconTelegram from "@/assets/icons-3d/telegram.png";
+import iconBot from "@/assets/icons-3d/bot.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
