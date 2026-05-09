@@ -594,6 +594,17 @@
       0 24px 50px -18px color-mix(in oklab, var(--wine) 90%, transparent),
       0 0 60px -10px color-mix(in oklab, var(--gold) 55%, transparent);
   }
+  /* Ensure all text and icons inside the wine button stay white */
+  .btn-cyan,
+  .btn-cyan *,
+  .btn-cyan:hover,
+  .btn-cyan:hover * {
+    color: #FFFFFF !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    background-clip: border-box;
+    -webkit-background-clip: border-box;
+  }
+  .btn-cyan svg { color: #FFFFFF !important; stroke: #FFFFFF !important; }
 
   .btn-ghost {
     display: inline-flex;
