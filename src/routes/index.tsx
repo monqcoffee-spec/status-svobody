@@ -247,9 +247,9 @@ function About() {
         </H2>
       </ScrollReveal>
 
-      <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
+      <div className="mt-8 grid gap-6 md:gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
-          <div className="relative flex aspect-square sm:aspect-[4/5] w-full items-center justify-center py-6 sm:py-10">
+          <div className="relative flex w-full items-center justify-center py-2 sm:py-3 md:py-4">
             <div
               aria-hidden
               className="absolute inset-1/4 -z-10 animate-pulse-glow pointer-events-none"
