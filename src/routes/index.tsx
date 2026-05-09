@@ -255,36 +255,65 @@ function About() {
 
       <div className="mt-8 grid gap-6 md:gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
-          <div className="relative flex w-full items-center justify-center py-2 sm:py-3 md:py-4">
+          <figure className="relative">
             <div
               aria-hidden
-              className="absolute inset-1/4 -z-10 animate-pulse-glow pointer-events-none"
+              className="absolute -inset-4 -z-10 animate-pulse-glow pointer-events-none rounded-[2rem]"
               style={{
                 background:
-                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--champagne) 35%, transparent), color-mix(in oklab, var(--champagne-glow) 18%, transparent) 40%, transparent 70%)",
-                filter: "blur(28px)",
+                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--champagne) 30%, transparent), color-mix(in oklab, var(--champagne-glow) 15%, transparent) 45%, transparent 70%)",
+                filter: "blur(32px)",
               }}
             />
-            <Logo
-              size={240}
-              onDark
-              className="h-48 sm:h-44 md:h-52 lg:h-56 xl:h-64"
-            />
-          </div>
+            <div
+              className="overflow-hidden rounded-[1.5rem] border"
+              style={{
+                borderColor: "color-mix(in oklab, var(--gold-heading) 35%, transparent)",
+                boxShadow: "0 30px 80px -30px color-mix(in oklab, var(--wine-deep) 60%, transparent)",
+              }}
+            >
+              <img
+                src={yuliaPortrait}
+                alt="Юлия Армина — основатель Статус Свободы"
+                className="block w-full h-auto object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption
+              className="mt-5 text-center font-display text-lg md:text-xl"
+              style={{ color: "#2A1118" }}
+            >
+              <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Юлия Армина</span>
+              <span className="block mt-1 smallcaps text-[11px] tracking-[0.18em]" style={{ color: "#3a1a22" }}>
+                Основатель · Финансовый поверенный
+              </span>
+              <span className="block mt-3 text-base md:text-lg leading-relaxed font-sans not-italic" style={{ color: "#2A1118" }}>
+                10 лет сопровождает клиентов в вопросах кредитной истории,
+                БКИ, ФССП и банкротства. Ведёт дела лично, без передачи на конвейер.
+              </span>
+            </figcaption>
+          </figure>
         </ScrollReveal>
 
         <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
             <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Статус Свободы</span> — премиальный
-            финансово-юридический консалтинг. Поддержка на каждом шагу:
-            от первой консультации до закрытия дела.
+            финансово-юридический консалтинг. Личный финансовый поверенный
+            сопровождает дело от первой консультации до закрытия — прямой
+            контакт, честный диалог и прозрачный план без посредников и колл-центров.
           </p>
-          <p style={{ color: "#3a1a22" }}>
-            Личный финансовый поверенный сопровождает дело лично, без передачи
-            на конвейер. Прямой контакт, честный диалог и прозрачный план —
-            если задача решается проще, скажу об этом на первой встрече,
-            бесплатно.
-          </p>
+          <div
+            className="card-lux relative px-7 py-6"
+            style={{
+              borderColor: "color-mix(in oklab, var(--gold-heading) 55%, transparent)",
+            }}
+          >
+            <p className="font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
+              Если ваша задача решается проще —{" "}
+              <span className="italic" style={{ color: "#874255" }}>скажем об этом на первой встрече бесплатно</span>.
+            </p>
+          </div>
           <div
             className="card-lux relative mt-2 px-7 py-6"
           >
@@ -308,7 +337,7 @@ function About() {
             </div>
             <div>
               <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
-                <AnimatedCounter to={8} />
+                <AnimatedCounter to={10} />
               </div>
               <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>лет практики</div>
             </div>
