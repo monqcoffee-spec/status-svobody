@@ -46,7 +46,10 @@ export function Logo({
         imageRendering: "auto",
       }}
       className={cn("block w-auto object-contain shrink-0 select-none", className)}
+      // Hint native aspect ratio (~3:2) so the browser reserves space before
+      // load and avoids layout shift; actual size is driven by className/CSS.
       height={size}
+      width={Math.round(size * 1.5)}
     />
   );
 }
