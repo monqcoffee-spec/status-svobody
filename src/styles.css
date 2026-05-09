@@ -615,6 +615,74 @@
     border-bottom-color: var(--cyan);
     box-shadow: 0 1px 0 0 var(--cyan);
   }
+
+  /* ─────────── Light luxe card ───────────
+   * Cream-glass surface with dark wine text — used on the light
+   * rose/cream gradient pages so content stays highly readable. */
+  .card-lux {
+    position: relative;
+    background: color-mix(in oklab, white 72%, var(--silver) 28%);
+    backdrop-filter: blur(10px) saturate(120%);
+    -webkit-backdrop-filter: blur(10px) saturate(120%);
+    border: 1px solid color-mix(in oklab, var(--gold-heading) 32%, transparent);
+    border-radius: 4px;
+    color: #2A1118;
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, white 70%, transparent) inset,
+      0 18px 40px -24px color-mix(in oklab, #6a2735 55%, transparent),
+      0 4px 14px -10px color-mix(in oklab, var(--gold-heading) 30%, transparent);
+    transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.4s ease;
+  }
+  .card-lux:hover {
+    border-color: color-mix(in oklab, var(--gold-heading) 70%, transparent);
+    transform: translateY(-2px);
+    box-shadow:
+      0 1px 0 0 color-mix(in oklab, white 80%, transparent) inset,
+      0 26px 60px -28px color-mix(in oklab, #6a2735 65%, transparent),
+      0 0 0 1px color-mix(in oklab, var(--gold-heading) 35%, transparent),
+      0 6px 22px -10px color-mix(in oklab, var(--gold-heading) 45%, transparent);
+  }
+  .card-lux h3 {
+    color: var(--gold-heading-deep);
+    text-shadow: 0 1px 0 color-mix(in oklab, white 60%, transparent);
+  }
+  .card-lux p,
+  .card-lux li,
+  .card-lux span {
+    color: #3a1a22;
+  }
+  .card-lux .smallcaps,
+  .card-lux .text-cyan,
+  .card-lux .text-cyan-glow {
+    color: var(--gold-heading-deep);
+    text-shadow: none;
+  }
+  .card-lux .text-silver,
+  .card-lux .text-silver\/85,
+  .card-lux .text-silver\/80,
+  .card-lux .text-silver\/75 {
+    color: #2A1118;
+  }
+  .card-lux .text-silver-dim {
+    color: #5a3540;
+  }
+  .card-lux .text-gradient-cyan {
+    background: linear-gradient(135deg, var(--gold-heading) 0%, var(--gold-heading-deep) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: none;
+  }
+  .card-lux .btn-ghost {
+    color: var(--gold-heading-deep);
+    border-color: color-mix(in oklab, var(--gold-heading) 55%, transparent);
+    background: transparent;
+  }
+  .card-lux .btn-ghost:hover {
+    color: #2A1118;
+    border-color: var(--gold-heading);
+    background: color-mix(in oklab, var(--gold-heading) 14%, transparent);
+  }
 }
 
 /* Highlight pulse for the contact section when scrolled to from CTAs */
@@ -769,6 +837,18 @@
 .group\/card:hover .text-cyan-glow {
   color: var(--champagne-glow);
   text-shadow: 0 0 12px color-mix(in oklab, var(--champagne) 55%, transparent);
+}
+/* On light luxe cards keep heading dark gold on hover for readability */
+.card-lux.group\/card:hover h3 {
+  color: var(--gold-heading);
+  text-shadow:
+    0 1px 0 color-mix(in oklab, white 60%, transparent),
+    0 0 18px color-mix(in oklab, var(--gold-heading) 35%, transparent);
+}
+.card-lux.group\/card:hover .smallcaps,
+.card-lux.group\/card:hover .text-cyan-glow {
+  color: var(--gold-heading);
+  text-shadow: none;
 }
 /* Make the icon medallion react to card hover as well as direct hover */
 .group\/card:hover .icon-medallion {

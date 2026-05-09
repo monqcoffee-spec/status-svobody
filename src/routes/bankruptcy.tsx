@@ -117,13 +117,12 @@ function BankruptcyAdvantages() {
         {items.map((it) => (
           <div
             key={it.t}
-            className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
-            style={{ borderRadius: "2px" }}
+            className="card-lux group/card flex gap-5 p-7"
           >
             <IconBadge size="sm">{it.icon}</IconBadge>
             <div>
-              <h3 className="font-display text-xl md:text-2xl text-silver leading-snug">{it.t}</h3>
-              <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{it.d}</p>
+              <h3 className="font-display text-xl md:text-2xl leading-snug">{it.t}</h3>
+              <p className="mt-2 text-base md:text-lg leading-relaxed">{it.d}</p>
             </div>
           </div>
         ))}
@@ -145,19 +144,16 @@ function BankruptcyStages() {
       <H2 className="mt-8 max-w-3xl">
         Прозрачный путь к <span className="text-cyan italic">финансовой свободе</span>
       </H2>
-      <ol
-        className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2"
-        style={{ borderRadius: "2px" }}
-      >
+      <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
-          <li key={s.t} className="group/card flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <li key={s.t} className="card-lux group/card flex gap-5 p-7">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div>
-              <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
+              <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-xl md:text-2xl text-silver leading-snug">{s.t}</h3>
-              <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
+              <h3 className="mt-2 font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
+              <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </li>
         ))}
@@ -173,7 +169,7 @@ function BankruptcySupport() {
       <H2 className="mt-8 max-w-3xl">
         Полное сопровождение <span className="text-cyan italic">под ключ</span>
       </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/80">
+      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed" style={{ color: "#3a1a22" }}>
         Прямой контакт с финансовым поверенным на всех этапах. Защищённый канал
         связи, единая точка ответственности, ежемесячные отчёты по делу.
       </p>
@@ -185,11 +181,10 @@ function BankruptcySupport() {
         ].map((p) => (
           <div
             key={p.t}
-            className="border border-white/8 bg-ink-soft/60 p-8 transition-all hover:border-cyan/40"
-            style={{ borderRadius: "2px" }}
+            className="card-lux p-8"
           >
-            <h3 className="font-display text-2xl text-silver">{p.t}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.d}</p>
+            <h3 className="font-display text-2xl">{p.t}</h3>
+            <p className="mt-3 text-base md:text-lg leading-relaxed">{p.d}</p>
           </div>
         ))}
       </div>
@@ -210,11 +205,11 @@ function BankruptcyResults() {
       <H2 className="mt-8 max-w-3xl">
         Цифры, которые <span className="text-cyan italic">говорят за нас</span>
       </H2>
-      <div className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-4" style={{ borderRadius: "2px" }}>
+      <div className="mt-14 grid gap-5 md:grid-cols-4">
         {stats.map((s) => (
-          <div key={s.l} className="bg-ink-soft p-8 text-center">
+          <div key={s.l} className="card-lux p-8 text-center">
             <div className="font-display text-4xl md:text-5xl text-gradient-cyan text-glow">{s.v}</div>
-            <div className="mt-4 smallcaps text-silver-dim">{s.l}</div>
+            <div className="mt-4 smallcaps">{s.l}</div>
           </div>
         ))}
       </div>
@@ -240,11 +235,10 @@ function BankruptcyFaq() {
         {items.map((it) => (
           <li
             key={it.q}
-            className="border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
-            style={{ borderRadius: "2px" }}
+            className="card-lux p-7"
           >
-            <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{it.q}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{it.a}</p>
+            <h3 className="font-display text-lg md:text-xl leading-snug">{it.q}</h3>
+            <p className="mt-3 text-base md:text-lg leading-relaxed">{it.a}</p>
           </li>
         ))}
       </ul>

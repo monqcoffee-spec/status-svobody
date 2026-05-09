@@ -16,8 +16,8 @@ export function Section({ variant = "default", className, children, id }: Props)
         variant === "default" && "bg-transparent",
         variant === "glow" && "bg-aurora-soft",
         variant === "darker" && "bg-transparent",
-        variant === "wine" && "section-wine",
-        variant === "tint" && "section-tint",
+        variant === "wine" && "bg-transparent",
+        variant === "tint" && "bg-transparent",
         className,
       )}
     >
@@ -39,7 +39,14 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
 
 export function H2({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <h2 className={cn("display text-4xl md:text-6xl", className)} style={{ color: "var(--gold-heading)" }}>
+    <h2
+      className={cn("display text-4xl md:text-6xl", className)}
+      style={{
+        color: "var(--gold-heading-deep)",
+        textShadow:
+          "0 1px 0 color-mix(in oklab, white 50%, transparent), 0 0 24px color-mix(in oklab, var(--gold-heading) 25%, transparent)",
+      }}
+    >
       {children}
     </h2>
   );
@@ -48,9 +55,9 @@ export function H2({ children, className }: { children: React.ReactNode; classNa
 export function SectionLabel({ n, title }: { n: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-display text-xs tabular text-cyan tracking-[0.3em]">{n}</span>
-      <span className="hairline-tight" />
-      <span className="smallcaps text-silver-dim">{title}</span>
+      <span className="font-display text-xs tabular tracking-[0.3em]" style={{ color: "var(--gold-heading-deep)" }}>{n}</span>
+      <span className="hairline-tight" style={{ background: "var(--gold-heading)", boxShadow: "0 0 12px color-mix(in oklab, var(--gold-heading) 60%, transparent)" }} />
+      <span className="smallcaps" style={{ color: "#5a3540" }}>{title}</span>
     </div>
   );
 }

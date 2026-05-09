@@ -363,55 +363,50 @@ function About() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed text-silver/85">
+        <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
-            <span className="text-cyan italic">Статус Свободы</span> — премиальный
+            <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Статус Свободы</span> — премиальный
             финансово-юридический консалтинг. Поддержка на каждом шагу:
             от первой консультации до закрытия дела.
           </p>
-          <p className="text-silver/75">
+          <p style={{ color: "#3a1a22" }}>
             Личный финансовый поверенный сопровождает дело лично, без передачи
             на конвейер. Прямой контакт, честный диалог и прозрачный план —
             если задача решается проще, скажу об этом на первой встрече,
             бесплатно.
           </p>
           <div
-            className="glass relative mt-2 px-7 py-6"
-            style={{
-              borderRadius: "2px",
-              boxShadow:
-                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 20px 60px -30px color-mix(in oklab, var(--cyan) 50%, transparent)",
-            }}
+            className="card-lux relative mt-2 px-7 py-6"
           >
-            <div className="smallcaps text-cyan-glow text-[10px]">Почему «Статус Свободы»</div>
-            <p className="mt-3 font-display text-xl md:text-2xl leading-snug text-silver">
+            <div className="smallcaps text-[10px]" style={{ color: "var(--gold-heading-deep)" }}>Почему «Статус Свободы»</div>
+            <p className="mt-3 font-display text-xl md:text-2xl leading-snug">
               Статус свободы человека закреплён во{" "}
-              <span className="text-cyan italic">второй главе Конституции РФ</span>.
+              <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>второй главе Конституции РФ</span>.
             </p>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">
+            <p className="mt-3 text-base md:text-lg leading-relaxed">
               Бренд назван в честь основополагающего права —
               и зарегистрирован как товарный знак. Возвращаем
               финансовую свободу через закон.
             </p>
           </div>
-          <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/8 pt-8">
+          <div className="mt-8 grid grid-cols-3 gap-4 pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
             <div>
               <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
                 <AnimatedCounter to={500} suffix="+" />
               </div>
-              <div className="mt-2 smallcaps text-[10px] text-silver-dim">клиентов</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#5a3540" }}>клиентов</div>
             </div>
             <div>
               <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
                 <AnimatedCounter to={8} />
               </div>
-              <div className="mt-2 smallcaps text-[10px] text-silver-dim">лет практики</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#5a3540" }}>лет практики</div>
             </div>
             <div>
               <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
                 <AnimatedCounter to={98} suffix="%" />
               </div>
-              <div className="mt-2 smallcaps text-[10px] text-silver-dim">успех</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#5a3540" }}>успех</div>
             </div>
           </div>
         </ScrollReveal>
@@ -439,16 +434,16 @@ function Process() {
           Путь к <span className="text-cyan italic">безупречной репутации</span>
         </H2>
       </ScrollReveal>
-      <ol className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2" style={{ borderRadius: "2px" }}>
+      <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
-          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="group/card flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7 transition-all">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div className="flex-1">
-              <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
+              <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-xl md:text-2xl text-silver leading-snug">{s.t}</h3>
-              <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
+              <h3 className="mt-2 font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
+              <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
         ))}
@@ -483,21 +478,21 @@ function DigitalProfile() {
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {profile.map((p, i) => (
-          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
+          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7">
             <IconBadge size="sm">
               <Database className="h-5 w-5" />
             </IconBadge>
-            <p className="text-base md:text-lg leading-relaxed text-silver/85 pt-1.5">{p}</p>
+            <p className="text-base md:text-lg leading-relaxed pt-1.5">{p}</p>
           </ScrollReveal>
         ))}
       </div>
-      <div className="mt-12 border-l-2 border-cyan/60 bg-cyan/5 px-7 py-6" style={{ borderRadius: "2px" }}>
-        <p className="font-display text-xl md:text-2xl leading-snug text-silver">
+      <div className="card-lux mt-12 px-7 py-6" style={{ borderLeftWidth: "3px", borderLeftColor: "var(--gold-heading)" }}>
+        <p className="font-display text-xl md:text-2xl leading-snug">
           Срок исковой давности
-          <span className="text-cyan-glow"> не обнуляет </span>
+          <span style={{ color: "var(--gold-heading-deep)", fontStyle: "italic" }}> не обнуляет </span>
           ваши долги.
         </p>
-        <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">
+        <p className="mt-3 text-base md:text-lg leading-relaxed">
           Записи продолжают влиять на скоринг и решения банков. Управлять
           этим можно — и нужно — целенаправленно.
         </p>
@@ -541,16 +536,12 @@ function Services() {
             key={s.t}
             variant="zoom"
             delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
-            className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--champagne)]/60"
-            style={{
-              borderRadius: "2px",
-              boxShadow: "0 0 0 0 transparent",
-            }}
+            className="card-lux group/card flex gap-5 p-7"
           >
             <IconBadge size="sm">{s.icon}</IconBadge>
             <div>
-              <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{s.t}</h3>
-              <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
+              <h3 className="font-display text-lg md:text-xl leading-snug">{s.t}</h3>
+              <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
         ))}
@@ -611,25 +602,30 @@ function Pricing() {
             key={p.t}
             variant="zoom"
             delay={((i + 1) as 1 | 2 | 3)}
-            className={`relative flex flex-col border bg-ink-soft/60 p-8 transition-all ${
-              p.highlight ? "border-cyan/60" : "border-white/8 hover:border-cyan/40"
-            }`}
-            style={{
-              borderRadius: "2px",
-              boxShadow: p.highlight ? "0 0 32px color-mix(in oklab, var(--cyan) 22%, transparent)" : undefined,
-            }}
+            className={`card-lux relative flex flex-col p-8 ${p.highlight ? "ring-2" : ""}`}
+            style={p.highlight ? {
+              boxShadow:
+                "0 0 0 1px var(--gold-heading), 0 26px 60px -28px color-mix(in oklab, #6a2735 65%, transparent), 0 0 32px color-mix(in oklab, var(--gold-heading) 30%, transparent)",
+            } : undefined}
           >
             {p.highlight && (
-              <div className="absolute -top-3 left-8 bg-cyan text-ink-deep px-3 py-1 smallcaps text-xs">Популярный</div>
+              <div
+                className="absolute -top-3 left-8 px-3 py-1 smallcaps text-xs"
+                style={{
+                  background: "var(--gold-heading)",
+                  color: "#2A1118",
+                  borderRadius: "2px",
+                }}
+              >Популярный</div>
             )}
-            <h3 className="font-display text-2xl md:text-3xl text-silver leading-snug">{p.t}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{p.sub}</p>
+            <h3 className="font-display text-2xl md:text-3xl leading-snug">{p.t}</h3>
+            <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
             <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">{p.price}</div>
-            <div className="mt-2 smallcaps text-cyan">{p.meta}</div>
+            <div className="mt-2 smallcaps">{p.meta}</div>
             <ul className="mt-6 space-y-3 flex-1">
               {p.features.map((f) => (
-                <li key={f} className="flex gap-3 text-base md:text-lg text-silver/85">
-                  <Check className="h-5 w-5 shrink-0 text-cyan mt-0.5" />
+                <li key={f} className="flex gap-3 text-base md:text-lg">
+                  <Check className="h-5 w-5 shrink-0 mt-0.5" style={{ color: "var(--gold-heading-deep)" }} />
                   <span>{f}</span>
                 </li>
               ))}
@@ -655,30 +651,25 @@ function BankruptcyCTA() {
   return (
     <Section variant="default" id="bankruptcy-cta">
       <div
-        className="glass-strong relative overflow-hidden p-8 md:p-12"
-        style={{
-          borderRadius: "2px",
-          boxShadow:
-            "0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)",
-        }}
+        className="card-lux relative overflow-hidden p-8 md:p-12"
       >
         <div
           aria-hidden
           className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-50"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--cyan-glow) 40%, transparent), transparent 65%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--gold-heading) 35%, transparent), transparent 65%)",
             filter: "blur(40px)",
           }}
         />
         <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
-            <div className="smallcaps text-cyan-glow">Списать долги · Банкротство</div>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em] text-silver">
+            <div className="smallcaps" style={{ color: "var(--gold-heading-deep)" }}>Списать долги · Банкротство</div>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
               Не уверены, спишут ли{" "}
               <span className="text-gradient-cyan italic">ваши долги</span>?
             </h2>
-            <p className="mt-5 text-base md:text-lg leading-relaxed text-silver/80">
+            <p className="mt-5 text-base md:text-lg leading-relaxed">
               Пройдите бесплатный интенсив — за 20 минут поймёте, подходит ли
               вам банкротство, какие долги списываются и что делать дальше.
               Без воды и без обязательств.
