@@ -2,6 +2,7 @@ import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { FloatingContacts } from "./FloatingContacts";
 import { ScrollTopButton } from "./ScrollTopButton";
+import { GoldParticles } from "./GoldParticles";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -50,6 +51,35 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             animationDelay: "4s",
           }}
         />
+        {/* Rotating gold light rays */}
+        <div
+          className="absolute left-1/2 top-[-20%] h-[140vh] w-[140vh] opacity-[0.18] mix-blend-screen"
+          style={{
+            background:
+              "conic-gradient(from 0deg, transparent 0deg, color-mix(in oklab, var(--champagne-glow) 65%, transparent) 6deg, transparent 14deg, transparent 60deg, color-mix(in oklab, var(--champagne) 55%, transparent) 66deg, transparent 74deg, transparent 130deg, color-mix(in oklab, var(--champagne-glow) 50%, transparent) 138deg, transparent 146deg, transparent 210deg, color-mix(in oklab, var(--champagne) 50%, transparent) 218deg, transparent 226deg, transparent 290deg, color-mix(in oklab, var(--champagne-glow) 60%, transparent) 298deg, transparent 306deg, transparent 360deg)",
+            transform: "translate(-50%, -50%)",
+            transformOrigin: "center",
+            animation: "ray-spin 90s linear infinite",
+            filter: "blur(40px)",
+            maskImage: "radial-gradient(circle, black 0%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(circle, black 0%, transparent 70%)",
+          }}
+        />
+        {/* Counter-rotating second ray layer */}
+        <div
+          className="absolute left-[30%] bottom-[-30%] h-[120vh] w-[120vh] opacity-[0.12] mix-blend-screen"
+          style={{
+            background:
+              "conic-gradient(from 45deg, transparent 0deg, color-mix(in oklab, var(--champagne) 60%, transparent) 8deg, transparent 18deg, transparent 90deg, color-mix(in oklab, var(--champagne-glow) 50%, transparent) 98deg, transparent 108deg, transparent 200deg, color-mix(in oklab, var(--champagne) 55%, transparent) 208deg, transparent 218deg, transparent 360deg)",
+            transform: "translate(-50%, -50%)",
+            animation: "ray-spin 140s linear infinite reverse",
+            filter: "blur(50px)",
+            maskImage: "radial-gradient(circle, black 0%, transparent 70%)",
+            WebkitMaskImage: "radial-gradient(circle, black 0%, transparent 70%)",
+          }}
+        />
+        {/* Floating gold sparks */}
+        <GoldParticles />
         {/* Subtle film grain overlay */}
         <div
           className="absolute inset-0 opacity-[0.04]"
