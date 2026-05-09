@@ -35,7 +35,7 @@ export function Faq() {
     <Section variant="darker" id="faq">
       <SectionLabel n="07" title="Вопросы и ответы" />
       <div className="mt-8 flex flex-col items-start gap-4 max-w-3xl sm:flex-row sm:items-center sm:gap-5">
-        <IconArt src={iconFaq} alt="FAQ" size="md" className="sm:!h-24 sm:!w-24 md:!h-28 md:!w-28" />
+        <IconArt src={iconFaq} alt="" size="md" className="sm:!h-24 sm:!w-24 md:!h-28 md:!w-28" />
         <H2 className="!mt-0">
           Часто задаваемые <span className="text-cyan italic">вопросы</span>
         </H2>
