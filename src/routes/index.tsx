@@ -274,8 +274,9 @@ function About() {
                 Основатель · Финансовый поверенный
               </span>
               <span className="block mt-3 text-base md:text-lg leading-relaxed font-sans not-italic" style={{ color: "#2A1118" }}>
-                10 лет сопровождает клиентов в вопросах кредитной истории,
-                БКИ, ФССП и банкротства. Ведёт дела лично, без передачи на конвейер.
+                Основатель «Финансовой поверенности». 15 лет практики.
+                Сопровождение клиентов в вопросах долгов, кредитных историй,
+                БКИ, ФССП и банкротства.
               </span>
             </figcaption>
           </figure>
@@ -283,10 +284,9 @@ function About() {
 
         <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
-            <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Статус Свободы</span> — премиальный
-            финансово-юридический консалтинг. Личный финансовый поверенный
-            сопровождает дело от первой консультации до закрытия — прямой
-            контакт, честный диалог и прозрачный план без посредников и колл-центров.
+            <span className="italic font-display" style={{ color: "#6A040F", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
+            «Финансовой поверенности». 15 лет практики в вопросах долгов,
+            кредитных историй, БКИ, ФССП и банкротства.
           </p>
           <div
             className="card-lux relative px-7 py-6"
@@ -295,22 +295,15 @@ function About() {
             }}
           >
             <p className="font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
-              Если ваша задача решается проще —{" "}
-              <span className="italic" style={{ color: "#874255" }}>скажем об этом на первой встрече бесплатно</span>.
+              <span className="italic" style={{ color: "#6A040F" }}>Ведём дела индивидуально</span>, без передачи на конвейер.
             </p>
           </div>
-          <div
-            className="card-lux relative mt-2 px-7 py-6"
-          >
-            <div className="smallcaps text-[11px]" style={{ color: "#000000" }}>Почему «Статус Свободы»</div>
+          <div className="card-lux relative mt-2 px-7 py-6">
+            <div className="smallcaps text-[11px]" style={{ color: "#000000" }}>Статус Свободы · Глава 2 Конституции РФ</div>
             <p className="mt-3 font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
-              Статус свободы человека закреплён во{" "}
-              <span className="italic" style={{ color: "#874255" }}>второй главе Конституции РФ</span>.
-            </p>
-            <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "#000000" }}>
-              Бренд назван в честь основополагающего права —
-              и зарегистрирован как товарный знак. Возвращаем
-              финансовую свободу через закон.
+              Право на жизнь, достоинство, безопасность,
+              свободу слова, совести и&nbsp;вероисповедания, неприкосновенность
+              частной жизни, личную и&nbsp;семейную тайну, защиту чести и&nbsp;доброго имени.
             </p>
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
