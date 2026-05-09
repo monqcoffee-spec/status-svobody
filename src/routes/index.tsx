@@ -23,11 +23,22 @@ import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
 import { IconBadge } from "@/components/site/IconBadge";
+import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 import featherImg from "@/assets/feather-light.jpg";
+import iconAudit from "@/assets/icons-3d/audit.png";
+import iconConclusion from "@/assets/icons-3d/conclusion.png";
+import iconHandshake from "@/assets/icons-3d/handshake.png";
+import iconReputation from "@/assets/icons-3d/reputation.png";
+import iconDispute from "@/assets/icons-3d/dispute.png";
+import iconRestore from "@/assets/icons-3d/restore.png";
+import iconSvo from "@/assets/icons-3d/svo.png";
+import iconUnlock from "@/assets/icons-3d/unlock.png";
+import iconBuyout from "@/assets/icons-3d/buyout.png";
+import iconSupport from "@/assets/icons-3d/support.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -341,10 +352,10 @@ function About() {
 /* ───────────────────── PROCESS ───────────────────── */
 function Process() {
   const steps = [
-    { icon: <FileSearch className="h-7 w-7" />, t: "Аудит кредитной истории", d: "Запрашиваем отчёты во всех трёх БКИ, выявляем неточности, ошибки и некорректные данные в вашем Цифровом профиле." },
-    { icon: <FileText className="h-7 w-7" />, t: "Заключение", d: "Готовим пошаговый план-рекомендации по исправлению: что оспаривать, какие документы собрать, в каком порядке действовать." },
-    { icon: <Handshake className="h-7 w-7" />, t: "Сопровождение", d: "Подготовка документов, переговоры с кредиторами и БКИ, представительство в судебных и досудебных процедурах." },
-    { icon: <Sparkles className="h-7 w-7" />, t: "Идеальная финансовая репутация", d: "Чистая кредитная история, одобрение ипотеки, кредитов и выгодных условий — фундамент будущего без ограничений." },
+    { art: iconAudit, t: "Аудит кредитной истории", d: "Запрашиваем отчёты во всех трёх БКИ, выявляем неточности, ошибки и некорректные данные в вашем Цифровом профиле." },
+    { art: iconConclusion, t: "Заключение", d: "Готовим пошаговый план-рекомендации по исправлению: что оспаривать, какие документы собрать, в каком порядке действовать." },
+    { art: iconHandshake, t: "Сопровождение", d: "Подготовка документов, переговоры с кредиторами и БКИ, представительство в судебных и досудебных процедурах." },
+    { art: iconReputation, t: "Идеальная финансовая репутация", d: "Чистая кредитная история, одобрение ипотеки, кредитов и выгодных условий — фундамент будущего без ограничений." },
   ];
   return (
     <Section variant="tint" id="process">
@@ -359,7 +370,7 @@ function Process() {
       <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
           <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7 transition-all">
-            <IconBadge size="md">{s.icon}</IconBadge>
+            <IconArt src={s.art} alt={s.t} size="lg" />
             <div className="flex-1">
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
