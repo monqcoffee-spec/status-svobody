@@ -63,8 +63,6 @@ export function H2({ children, className }: { children: React.ReactNode; classNa
 export function SectionLabel({ n, title }: { n: string; title: string }) {
   return (
     <div className="flex items-center gap-4">
-      <span className="font-display text-xs tabular tracking-[0.3em]" style={{ color: "var(--gold-soft)" }}>{n}</span>
-      <span className="hairline-tight" />
       <span className="smallcaps" style={{ color: "var(--wine-deep)" }}>{title}</span>
     </div>
   );
