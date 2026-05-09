@@ -9,7 +9,6 @@ type Props = {
 
 export function Section({ variant = "default", className, children, id }: Props) {
   const isDim = variant === "wine" || variant === "darker";
-  const isLight = variant === "default" || variant === "glow" || variant === "tint";
   return (
     <section
       id={id}
