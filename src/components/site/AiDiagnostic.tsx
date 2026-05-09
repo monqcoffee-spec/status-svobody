@@ -180,13 +180,13 @@ export function AiDiagnostic() {
   }
 
   return (
-    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-ink-deep">
+    <div className="card-lux relative overflow-hidden">
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 opacity-60"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-50"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 100% 0%, color-mix(in oklab, var(--cyan) 12%, transparent), transparent 70%), radial-gradient(ellipse 60% 60% at 0% 100%, color-mix(in oklab, var(--cyan) 8%, transparent), transparent 70%)",
+            "radial-gradient(ellipse 80% 60% at 100% 0%, color-mix(in oklab, var(--gold) 14%, transparent), transparent 70%), radial-gradient(ellipse 60% 60% at 0% 100%, color-mix(in oklab, var(--rose-quartz) 18%, transparent), transparent 70%)",
         }}
       />
 

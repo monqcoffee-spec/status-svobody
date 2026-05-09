@@ -83,11 +83,15 @@
 
   /* Surfaces */
   --paper: #FFFFFF;                          /* clean white */
-  --paper-soft: #FAF8F7;                     /* warm white */
-  --paper-tint: #F4ECEE;                     /* whisper-rose */
-  --ink: #0F0B0D;                            /* near-black panel */
-  --ink-deep: #0B0808;                       /* deepest black */
-  --ink-soft: #161113;                       /* lifted black */
+  --paper-soft: #F8F5F7;                     /* warm white */
+  --paper-tint: #F4EEF2;                     /* whisper-rose */
+  --paper-mist: #EFE7EC;                     /* deeper rose veil */
+  --paper-deep: #D9C8D5;                     /* mauve mist */
+  /* "ink" tokens kept as light surfaces — historical aliases used by
+   * dialogs/cards that previously rendered dark. Now luxe light. */
+  --ink: var(--paper-soft);
+  --ink-deep: var(--paper-tint);
+  --ink-soft: var(--paper-mist);
 
   /* Wine spectrum (primary accent) */
   --wine: #874255;                           /* signature wine */
@@ -132,29 +136,29 @@
   --popover-foreground: var(--text);
   --primary: var(--wine);
   --primary-foreground: #FFFFFF;
-  --secondary: oklch(0.18 0.012 240);
-  --secondary-foreground: var(--silver);
-  --muted: oklch(0.16 0.01 240);
-  --muted-foreground: oklch(0.60 0.008 240);
+  --secondary: var(--paper-tint);
+  --secondary-foreground: var(--text);
+  --muted: var(--paper-mist);
+  --muted-foreground: var(--text-muted);
   --accent: var(--cyan);
-  --accent-foreground: var(--ink-deep);
+  --accent-foreground: #FFFFFF;
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
+  --border: color-mix(in oklab, var(--gold) 20%, var(--paper-tint));
+  --input: color-mix(in oklab, var(--gold) 18%, var(--paper-tint));
   --ring: var(--cyan);
   --chart-1: var(--cyan);
   --chart-2: var(--teal);
   --chart-3: var(--silver);
   --chart-4: oklch(0.5 0.1 220);
   --chart-5: oklch(0.4 0.05 200);
-  --sidebar: var(--ink);
-  --sidebar-foreground: var(--silver);
-  --sidebar-primary: var(--cyan);
-  --sidebar-primary-foreground: var(--ink);
-  --sidebar-accent: var(--ink-soft);
-  --sidebar-accent-foreground: var(--silver);
-  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--text);
+  --sidebar-primary: var(--wine);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--paper-tint);
+  --sidebar-accent-foreground: var(--text);
+  --sidebar-border: color-mix(in oklab, var(--gold) 22%, transparent);
   --sidebar-ring: var(--cyan);
 
   /* Surfaces / hairlines used by glass + borders, redefined per theme */
@@ -294,9 +298,9 @@
   /* Radial deep background — used on hero / sections */
   .bg-aurora {
     background:
-      radial-gradient(ellipse 70% 45% at 20% 0%, color-mix(in oklab, var(--wine) 18%, transparent), transparent 60%),
-      radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 12%, transparent), transparent 65%),
-      linear-gradient(180deg, var(--ink-deep) 0%, #0F0A0C 50%, var(--ink-deep) 100%);
+      radial-gradient(ellipse 70% 45% at 20% 0%, color-mix(in oklab, var(--wine) 12%, transparent), transparent 60%),
+      radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 10%, transparent), transparent 65%),
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 50%, var(--paper) 100%);
   }
 
   .bg-aurora-soft {
@@ -643,20 +647,26 @@
 
   .lead-input {
     width: 100%;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid color-mix(in oklab, var(--wine) 22%, transparent);
-    padding: 0.6rem 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), color-mix(in oklab, var(--paper-tint) 55%, white));
+    border: 1px solid color-mix(in oklab, var(--gold) 25%, var(--rose-mist));
+    border-radius: 16px;
+    padding: 0.95rem 1.15rem;
     color: var(--text);
     font-family: inherit;
     font-size: 1rem;
     outline: none;
-    transition: border-color 200ms ease;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.9),
+      0 1px 2px color-mix(in oklab, var(--wine) 8%, transparent);
+    transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
   }
   .lead-input::placeholder { color: var(--text-faint); }
   .lead-input:focus {
-    border-bottom-color: var(--wine);
-    box-shadow: 0 1px 0 0 var(--wine);
+    border-color: color-mix(in oklab, var(--gold) 60%, var(--wine));
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.95),
+      0 0 0 4px color-mix(in oklab, var(--wine) 12%, transparent),
+      0 6px 22px -10px color-mix(in oklab, var(--gold) 45%, transparent);
   }
 
   /* ─────────── Light luxe card ───────────
@@ -665,28 +675,76 @@
   /* Luxury card — clean white with whisper-rose tint and gold hairline */
   .card-lux {
     position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background:
-      linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(252,248,250,0.92) 100%);
-    backdrop-filter: blur(14px) saturate(120%);
-    -webkit-backdrop-filter: blur(14px) saturate(120%);
-    border: 1px solid color-mix(in oklab, var(--gold) 22%, var(--rose-mist));
-    border-radius: 24px;
+      linear-gradient(180deg, rgba(255,255,255,0.96) 0%, color-mix(in oklab, var(--paper-tint) 60%, white) 100%);
+    backdrop-filter: blur(18px) saturate(135%);
+    -webkit-backdrop-filter: blur(18px) saturate(135%);
+    border: 1px solid color-mix(in oklab, var(--gold) 26%, var(--rose-mist));
+    border-radius: 28px;
     color: var(--text);
     box-shadow:
       inset 0 1px 0 0 rgba(255,255,255,0.95),
-      0 22px 48px -28px color-mix(in oklab, var(--wine) 28%, transparent),
-      0 4px 14px -10px color-mix(in oklab, var(--gold) 22%, transparent);
+      inset 0 0 60px -20px color-mix(in oklab, var(--rose-mist) 60%, transparent),
+      0 30px 60px -36px color-mix(in oklab, var(--wine) 35%, transparent),
+      0 8px 24px -14px color-mix(in oklab, var(--gold) 22%, transparent);
     transition: border-color 0.5s ease, box-shadow 0.6s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  /* Gold gradient hairline glow on hover */
+  .card-lux::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+      color-mix(in oklab, var(--gold) 60%, transparent) 0%,
+      transparent 35%,
+      color-mix(in oklab, var(--wine-soft) 40%, transparent) 70%,
+      color-mix(in oklab, var(--gold-light) 55%, transparent) 100%);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  /* Subtle top gold sheen sweep */
+  .card-lux::after {
+    content: "";
+    position: absolute;
+    inset: -40% -10% auto -10%;
+    height: 120%;
+    background: linear-gradient(115deg,
+      transparent 35%,
+      color-mix(in oklab, var(--gold-light) 40%, transparent) 48%,
+      color-mix(in oklab, white 70%, transparent) 50%,
+      color-mix(in oklab, var(--gold-light) 40%, transparent) 52%,
+      transparent 70%);
+    transform: translateX(-130%);
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 0;
   }
   .card-lux:hover {
     border-color: color-mix(in oklab, var(--gold) 55%, transparent);
-    transform: translateY(-3px) scale(1.01);
+    transform: translateY(-4px) scale(1.012);
     box-shadow:
       inset 0 1px 0 0 rgba(255,255,255,1),
-      0 32px 70px -28px color-mix(in oklab, var(--wine) 38%, transparent),
+      inset 0 0 80px -20px color-mix(in oklab, var(--rose-mist) 80%, transparent),
+      0 40px 80px -32px color-mix(in oklab, var(--wine) 45%, transparent),
       0 0 0 1px color-mix(in oklab, var(--gold) 30%, transparent),
-      0 8px 28px -12px color-mix(in oklab, var(--gold) 40%, transparent);
+      0 14px 36px -14px color-mix(in oklab, var(--gold) 50%, transparent);
   }
+  .card-lux:hover::before { opacity: 1; }
+  .card-lux:hover::after { transform: translateX(130%); }
+  /* Make sure card content stacks above sheen layers */
+  .card-lux > * { position: relative; z-index: 2; }
   .card-lux h3 { color: var(--text); text-shadow: none; }
   .card-lux p,
   .card-lux li,
