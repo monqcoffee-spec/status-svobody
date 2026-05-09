@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
 
 const nav = [
-  { href: "/#about", label: "О бренде" },
+  { href: "/#about", label: "О компании" },
   { href: "/#services", label: "Услуги" },
   { href: "/#pricing", label: "Тарифы" },
   { href: "/bankruptcy", label: "Банкротство" },
