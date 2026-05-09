@@ -663,6 +663,16 @@
     .sunrays, .sun-glow { animation: none !important; }
   }
 
+  @keyframes bg-shift {
+    0%   { background-position: 50% 50%, 0% 50%, 100% 50%, 15% 0%, 0% 0%; }
+    50%  { background-position: 52% 48%, 5% 55%, 95% 45%, 18% 3%, 0% 0%; }
+    100% { background-position: 50% 50%, 0% 50%, 100% 50%, 15% 0%, 0% 0%; }
+  }
+  .animate-bg-shift { animation: bg-shift 40s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-bg-shift { animation: none !important; }
+  }
+
   @keyframes reveal {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: none; }
