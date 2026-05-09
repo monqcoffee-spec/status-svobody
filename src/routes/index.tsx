@@ -154,50 +154,18 @@ function Hero() {
         <ParticleField density={20} />
       </div>
 
-      <div className="relative container-tight pt-32 pb-24 md:pt-44 md:pb-36 lg:pt-52 lg:pb-40">
-        {/* Portrait */}
-        <div className="reveal reveal-delay-1 mx-auto flex justify-center">
-          <figure className="relative">
-            <div
-              aria-hidden
-              className="absolute -inset-6 -z-10 rounded-[40px] opacity-70"
-              style={{
-                background:
-                  "radial-gradient(ellipse 70% 60% at 50% 40%, color-mix(in oklab, var(--gold) 30%, transparent), color-mix(in oklab, var(--rose-quartz) 22%, transparent) 45%, transparent 75%)",
-                filter: "blur(40px)",
-              }}
-            />
-            <div
-              className="relative overflow-hidden"
-              style={{
-                width: "min(92vw, 1100px)",
-                aspectRatio: "16 / 9",
-                borderRadius: "32px",
-                border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
-                boxShadow:
-                  "0 40px 90px -40px color-mix(in oklab, var(--wine) 55%, transparent), 0 10px 30px -15px color-mix(in oklab, var(--gold) 35%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.85)",
-                background:
-                  "linear-gradient(135deg, color-mix(in oklab, var(--rose-mist) 50%, white), color-mix(in oklab, var(--paper-tint) 70%, white))",
-              }}
-            >
-              <img
-                src={yuliaPortrait}
-                alt="Юлия Армина — основатель Статус Свободы"
-                className="h-full w-full object-cover object-center"
-                loading="eager"
-                fetchPriority="high"
-              />
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
-                style={{
-                  background:
-                    "linear-gradient(180deg, transparent, color-mix(in oklab, var(--wine) 10%, transparent))",
-                }}
-              />
-            </div>
-          </figure>
-        </div>
+      {/* Full-width hero image */}
+      <div className="relative reveal reveal-delay-1 w-full">
+        <img
+          src={yuliaPortrait}
+          alt="Юлия Армина — основатель Статус Свободы"
+          className="block w-full h-auto"
+          loading="eager"
+          fetchPriority="high"
+        />
+      </div>
+
+      <div className="relative container-tight pt-10 pb-24 md:pt-16 md:pb-36 lg:pt-20 lg:pb-40">
 
         <h2 className="mx-auto mt-12 max-w-5xl text-center font-display tracking-[-0.04em] leading-[0.98]"
             style={{ color: "var(--text)" }}>
