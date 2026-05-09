@@ -39,10 +39,9 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             backgroundImage: `url(${bgSunriseVeil})`,
             opacity: 0.3,
             mixBlendMode: "soft-light",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%)",
-            maskImage:
-              "radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%)",
+            WebkitMaskImage: "var(--mask-radial-fade)",
+            maskImage: "var(--mask-radial-fade)",
+            contain: "paint style",
           }}
         />
         {/* Animated sun glow + rotating rays */}

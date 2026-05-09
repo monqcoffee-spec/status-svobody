@@ -14,7 +14,7 @@ export function Section({ variant = "default", className, children, id }: Props)
     <section
       id={id}
       className={cn(
-        "relative py-24 md:py-32 overflow-hidden",
+        "relative py-24 md:py-32 overflow-hidden [contain:paint]",
         variant === "default" && "bg-transparent",
         variant === "glow" && "bg-aurora-soft",
         variant === "darker" && "bg-transparent",
@@ -29,10 +29,11 @@ export function Section({ variant = "default", className, children, id }: Props)
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           background: isDim
-            ? "linear-gradient(180deg, color-mix(in oklab, var(--wine-deep) 88%, transparent) 0%, color-mix(in oklab, var(--wine) 84%, transparent) 100%)"
+            ? "var(--grad-section-dim)"
             : isLight
-              ? "linear-gradient(180deg, color-mix(in oklab, var(--paper) 82%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 88%, transparent) 100%)"
+              ? "var(--grad-section-light)"
               : "transparent",
+          contain: "paint style",
         }}
       />
       <div aria-hidden className="section-divider section-divider-top" />

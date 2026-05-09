@@ -127,6 +127,13 @@
   --gold-heading: var(--gold);
   --gold-heading-deep: var(--gold-soft);
 
+  /* Reusable mask & gradient tokens — keep paint cheap and centralised */
+  --mask-radial-fade: radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%);
+  --mask-sunray: radial-gradient(circle at center, black 5%, rgba(0,0,0,0.5) 35%, transparent 70%);
+  --grad-section-dim: linear-gradient(180deg, color-mix(in oklab, var(--wine-deep) 88%, transparent) 0%, color-mix(in oklab, var(--wine) 84%, transparent) 100%);
+  --grad-section-light: linear-gradient(180deg, color-mix(in oklab, var(--paper) 82%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 88%, transparent) 100%);
+  --grad-sun-glow: radial-gradient(circle, color-mix(in oklab, var(--gold) 28%, transparent) 0%, color-mix(in oklab, var(--gold-mist) 16%, transparent) 28%, transparent 60%);
+
   /* Semantic — dark by default */
   --background: var(--paper);
   --foreground: var(--text);
@@ -639,12 +646,13 @@
       transparent 114deg,
       transparent 360deg
     );
-    -webkit-mask-image: radial-gradient(circle at center, black 5%, rgba(0,0,0,0.5) 35%, transparent 70%);
-            mask-image: radial-gradient(circle at center, black 5%, rgba(0,0,0,0.5) 35%, transparent 70%);
+    -webkit-mask-image: var(--mask-sunray);
+            mask-image: var(--mask-sunray);
     animation: sunray-sweep 120s linear infinite;
     will-change: transform;
     transform: translate(-50%, -50%) translateZ(0);
     backface-visibility: hidden;
+    contain: paint style;
   }
   .sun-glow {
     position: absolute;
@@ -653,12 +661,10 @@
     width: 70vmax;
     height: 70vmax;
     transform: translate(-50%, -50%);
-    background: radial-gradient(circle,
-      color-mix(in oklab, var(--gold) 28%, transparent) 0%,
-      color-mix(in oklab, var(--gold-mist) 16%, transparent) 28%,
-      transparent 60%);
+    background: var(--grad-sun-glow);
     animation: sunray-pulse 12s ease-in-out infinite;
     will-change: opacity;
+    contain: paint style;
   }
   /* Disable expensive animations on touch / small / low-power devices */
   @media (prefers-reduced-motion: reduce),
