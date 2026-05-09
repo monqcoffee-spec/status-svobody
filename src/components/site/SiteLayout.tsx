@@ -59,14 +59,6 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             backgroundSize: "180px 180px, 220px 220px, 160px 160px",
           }}
         />
-        {/* Top vignette for header legibility */}
-        <div
-          className="absolute inset-x-0 top-0 h-40"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--ink-deep) 70%, transparent), transparent)",
-          }}
-        />
       </div>
       <SiteHeader />
       <main className="flex-1">{children}</main>
