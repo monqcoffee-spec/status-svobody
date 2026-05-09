@@ -170,8 +170,8 @@ function Hero() {
             <div
               className="relative overflow-hidden"
               style={{
-                width: "min(78vw, 360px)",
-                aspectRatio: "3 / 4",
+                width: "min(92vw, 1100px)",
+                aspectRatio: "16 / 9",
                 borderRadius: "32px",
                 border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
                 boxShadow:
@@ -183,7 +183,7 @@ function Hero() {
               <img
                 src={yuliaPortrait}
                 alt="Юлия Армина — основатель Статус Свободы"
-                className="h-full w-full object-cover object-top"
+                className="h-full w-full object-cover object-center"
                 loading="eager"
                 fetchPriority="high"
               />
@@ -192,18 +192,10 @@ function Hero() {
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3"
                 style={{
                   background:
-                    "linear-gradient(180deg, transparent, color-mix(in oklab, var(--wine) 22%, transparent))",
+                    "linear-gradient(180deg, transparent, color-mix(in oklab, var(--wine) 10%, transparent))",
                 }}
               />
             </div>
-            <figcaption className="mt-5 text-center">
-              <div className="font-display tracking-[0.32em] uppercase text-[11px] md:text-xs" style={{ color: "var(--gold-soft)" }}>
-                Статус Свободы
-              </div>
-              <div className="mt-2 font-serif italic text-lg md:text-xl" style={{ color: "var(--wine-deep)" }}>
-                Юлии Арминой
-              </div>
-            </figcaption>
           </figure>
         </div>
 
