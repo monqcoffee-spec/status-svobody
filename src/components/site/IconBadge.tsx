@@ -47,7 +47,7 @@ export function IconBadge({
       {/* Outer disc — sphere with rose-burgundy gradient + gold rim */}
       <div
         aria-hidden
-        className="absolute inset-0 rounded-full transition-transform duration-700 group-hover/badge:rotate-12 group-hover/badge:scale-[1.04]"
+        className="icon-medallion absolute inset-0 rounded-full transition-transform duration-700 group-hover/badge:rotate-12 group-hover/badge:scale-[1.04]"
         style={{
           background:
             "radial-gradient(circle at 30% 25%, var(--cyan-glow) 0%, var(--cyan) 40%, var(--cyan-soft) 75%, var(--teal) 100%)",
@@ -58,7 +58,7 @@ export function IconBadge({
       {/* Breathing gold halo — activates when scrolled into view */}
       <div
         aria-hidden
-        className="absolute inset-0 rounded-full pointer-events-none transition-opacity duration-700"
+        className="icon-gold-halo absolute inset-0 rounded-full pointer-events-none transition-opacity duration-700"
         style={{
           opacity: inView ? 1 : 0,
           animation: inView ? "gold-breathe 3.4s ease-in-out infinite" : "none",
@@ -93,7 +93,7 @@ export function IconBadge({
       {/* Gold accent ring — appears on hover */}
       <div
         aria-hidden
-        className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover/badge:opacity-100 pointer-events-none"
+        className="icon-gold-ring absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover/badge:opacity-100 pointer-events-none"
         style={{
           boxShadow:
             "0 0 0 1px color-mix(in oklab, var(--champagne-glow) 90%, transparent), 0 0 32px color-mix(in oklab, var(--champagne) 75%, transparent), 0 0 64px color-mix(in oklab, var(--champagne-glow) 50%, transparent)",
