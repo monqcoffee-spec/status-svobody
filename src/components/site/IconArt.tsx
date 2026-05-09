@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 
-type Size = "sm" | "md" | "lg";
+type Size = "xs" | "sm" | "md" | "lg";
 
 const sizes: Record<Size, string> = {
+  xs: "h-10 w-10",
   sm: "h-16 w-16",
   md: "h-20 w-20",
   lg: "h-24 w-24 md:h-28 md:w-28",
