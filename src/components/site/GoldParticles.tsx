@@ -78,20 +78,30 @@ export function GoldParticles({ count = 22 }: { count?: number }) {
         <span
           key={s.key}
           ref={(el) => { sparkRefs.current[i] = el; }}
-          className="absolute bottom-[-10vh] rounded-full spark-cursor"
+          className="absolute bottom-[-10vh] spark-cursor"
           style={{
             left: `${s.left}%`,
-            width: `${s.size}px`,
-            height: `${s.size}px`,
-            background: s.isStar
-              ? "radial-gradient(circle, color-mix(in oklab, white 90%, transparent) 0%, color-mix(in oklab, var(--champagne-glow) 80%, transparent) 35%, transparent 70%)"
-              : "radial-gradient(circle, color-mix(in oklab, var(--champagne-glow) 95%, transparent) 0%, color-mix(in oklab, var(--champagne) 70%, transparent) 50%, transparent 75%)",
-            boxShadow:
-              "0 0 6px color-mix(in oklab, var(--champagne-glow) 80%, transparent), 0 0 14px color-mix(in oklab, var(--champagne) 50%, transparent)",
-            animation: `spark-float ${s.duration}s linear ${s.delay}s infinite${s.drift ? ", twinkle 2.6s ease-in-out infinite" : ""}`,
-            mixBlendMode: "screen",
+            transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+            transform: "translate3d(var(--mx, 0px), var(--my, 0px), 0)",
+            willChange: "transform",
           }}
-        />
+        >
+          <span
+            className="block rounded-full"
+            style={{
+              width: `${s.size}px`,
+              height: `${s.size}px`,
+              background: s.isStar
+                ? "radial-gradient(circle, color-mix(in oklab, white 90%, transparent) 0%, color-mix(in oklab, var(--champagne-glow) 80%, transparent) 35%, transparent 70%)"
+                : "radial-gradient(circle, color-mix(in oklab, var(--champagne-glow) 95%, transparent) 0%, color-mix(in oklab, var(--champagne) 70%, transparent) 50%, transparent 75%)",
+              boxShadow:
+                "0 0 6px color-mix(in oklab, var(--champagne-glow) 80%, transparent), 0 0 14px color-mix(in oklab, var(--champagne) 50%, transparent)",
+              animation: `spark-float ${s.duration}s linear ${s.delay}s infinite${s.drift ? ", twinkle 2.6s ease-in-out infinite" : ""}`,
+              mixBlendMode: "screen",
+              willChange: "transform, opacity",
+            }}
+          />
+        </span>
       ))}
     </div>
   );
