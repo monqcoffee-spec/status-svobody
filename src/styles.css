@@ -146,7 +146,7 @@
   html { color-scheme: dark; }
 
   html, body {
-    background-color: var(--ink-deep);
+    background-color: #f3dcc7;
     color: #2A1118;
   }
 

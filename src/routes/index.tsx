@@ -151,7 +151,7 @@ function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <section className="relative overflow-hidden bg-ink-deep md:-mt-20">
+    <section className="relative overflow-hidden bg-transparent md:-mt-20">
       <h1 className="sr-only">
         Статус Свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
@@ -177,7 +177,7 @@ function Hero() {
           className="pointer-events-none absolute -bottom-1 inset-x-0 h-20"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, var(--ink-deep) 100%)",
+              "linear-gradient(180deg, transparent 0%, #f3dcc7 100%)",
           }}
         />
         <div
@@ -185,7 +185,7 @@ function Hero() {
           className="pointer-events-none absolute -top-1 inset-x-0 h-14"
           style={{
             background:
-              "linear-gradient(0deg, transparent 0%, var(--ink-deep) 100%)",
+              "linear-gradient(0deg, transparent 0%, #c89aa1 100%)",
           }}
         />
       </div>
@@ -206,7 +206,7 @@ function Hero() {
               <span className="hairline-tight" />
               <span className="smallcaps text-cyan">Статус Свободы</span>
             </div>
-            <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] text-silver lg:text-7xl">
+            <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] lg:text-7xl" style={{ color: "var(--gold-heading-deep)" }}>
               <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
               <br />
               <span
@@ -216,11 +216,11 @@ function Hero() {
                 Юлии Арминой
               </span>
             </p>
-            <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed text-silver/85">
+            <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed" style={{ color: "#2A1118" }}>
               Испорченная кредитная история — не клеймо. Это запись,
               которую закон разрешает оспорить.
             </p>
-            <p className="mt-3 smallcaps text-cyan-glow">
+            <p className="mt-3 smallcaps" style={{ color: "var(--gold-heading-deep)" }}>
               Конфиденциальность · Решение · Поддержка
             </p>
             <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
@@ -260,9 +260,9 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
+      <div className="relative md:hidden bg-transparent px-5 pb-12 pt-2">
         <div className="mb-5 text-center">
-          <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em] text-silver">
+          <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
             <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
             <br />
             <span
@@ -272,11 +272,11 @@ function Hero() {
               Юлии Арминой
             </span>
           </p>
-          <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed text-silver/85">
+          <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed" style={{ color: "#2A1118" }}>
             Испорченная кредитная история — не клеймо. Это запись,
             которую закон разрешает оспорить.
           </p>
-          <p className="mt-3 smallcaps text-cyan-glow text-[10px]">
+          <p className="mt-3 smallcaps text-[10px]" style={{ color: "var(--gold-heading-deep)" }}>
             Конфиденциальность · Решение · Поддержка
           </p>
         </div>
@@ -296,7 +296,7 @@ function Hero() {
             <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
-        <p className="mt-5 text-center text-[10px] uppercase tracking-[0.28em] text-silver-dim">
+        <p className="mt-5 text-center text-[10px] uppercase tracking-[0.28em]" style={{ color: "#5a3540" }}>
           Личное сопровождение · Конфиденциально
         </p>
       </div>
