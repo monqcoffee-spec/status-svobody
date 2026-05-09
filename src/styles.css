@@ -1068,6 +1068,19 @@
 .section-dim [class*="text-gold"] {
   color: var(--gold-light) !important;
 }
+/* Cyan accent (legacy alias for wine) collapses into the wine background
+ * on dim sections, making italic accent words invisible. Re-map to the
+ * gold accent so highlighted phrases stay readable on wine. */
+.section-dim .text-cyan,
+.section-dim .text-cyan-soft,
+.section-dim .text-cyan-glow,
+.section-dim .text-gradient-cyan {
+  color: var(--gold-light) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+          background-clip: unset !important;
+  -webkit-text-fill-color: var(--gold-light) !important;
+}
 .section-dim .hairline-tight {
   background: color-mix(in oklab, var(--gold-light) 70%, transparent);
 }
