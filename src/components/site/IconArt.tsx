@@ -25,8 +25,10 @@ export function IconArt({
   size?: Size;
   className?: string;
 }) {
+  const decorative = alt.trim() === "";
   return (
     <div
+      aria-hidden={decorative ? true : undefined}
       className={cn(
         "icon-art group/icon relative shrink-0 select-none",
         "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
@@ -55,6 +57,7 @@ export function IconArt({
       <img
         src={src}
         alt={alt}
+        role={decorative ? "presentation" : undefined}
         loading="lazy"
         decoding="async"
         width={256}
