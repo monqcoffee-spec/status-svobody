@@ -89,7 +89,7 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 md:gap-3">
           <Link
             to="/login"
-            className="hidden sm:inline-flex items-center rounded-full px-4 py-2 text-[11px] md:text-[12px] tracking-[0.2em] uppercase transition-colors"
+            className="inline-flex items-center rounded-full px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-[12px] tracking-[0.18em] md:tracking-[0.2em] uppercase transition-colors whitespace-nowrap"
             style={{
               border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
               color: "var(--text)",
@@ -99,7 +99,7 @@ export function SiteHeader() {
           </Link>
           <Link
             to="/signup"
-            className="hidden md:inline-flex items-center rounded-full px-4 py-2 text-[11px] md:text-[12px] tracking-[0.2em] uppercase transition-colors"
+            className="hidden sm:inline-flex items-center rounded-full px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-[12px] tracking-[0.18em] md:tracking-[0.2em] uppercase transition-colors whitespace-nowrap"
             style={{
               background: "var(--wine-deep)",
               color: "var(--paper)",
