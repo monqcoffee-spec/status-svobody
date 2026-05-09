@@ -43,15 +43,33 @@ export function SiteHeader() {
           : undefined
       }
     >
-      <div className="container-tight flex h-16 md:h-20 items-center justify-between gap-4 md:gap-6">
-        <Link to="/" className="group flex items-center gap-2.5 md:gap-3 min-w-0">
+      <div className="container-tight flex h-20 md:h-24 items-center justify-between gap-4 md:gap-6">
+        <Link
+          to="/"
+          aria-label="Статус Свободы — на главную"
+          className="group flex items-center gap-3 md:gap-4 min-w-0"
+        >
           <Logo
-            size={32}
-            className="h-8 md:h-10 transition-transform duration-700 group-hover:rotate-[6deg]"
+            size={56}
+            onDark={scrolled}
+            className="h-12 md:h-14 transition-transform duration-700 group-hover:rotate-[4deg]"
           />
-          <div className="leading-tight min-w-0">
-            <div className="font-display text-[12px] md:text-[15px] tracking-[0.22em] md:tracking-[0.32em] text-silver uppercase whitespace-nowrap">
-              Статус<span className="text-cyan"> </span>Свободы
+          <div className="leading-tight min-w-0 hidden sm:block">
+            <div
+              className={
+                "font-display text-[12px] md:text-[14px] tracking-[0.28em] md:tracking-[0.34em] uppercase whitespace-nowrap transition-colors " +
+                (scrolled ? "text-silver" : "text-[color:var(--gold-heading-deep)]")
+              }
+            >
+              Статус Свободы
+            </div>
+            <div
+              className={
+                "text-[9px] md:text-[10px] tracking-[0.4em] uppercase mt-1 transition-colors " +
+                (scrolled ? "text-cyan/80" : "text-[color:var(--wine-deep)]/70")
+              }
+            >
+              Premium legal consulting
             </div>
           </div>
         </Link>
