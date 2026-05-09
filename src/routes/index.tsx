@@ -247,27 +247,6 @@ function Hero() {
           </a>
         </div>
 
-        {/* Trust strip */}
-        <div className="reveal reveal-delay-3 mt-16 md:mt-20 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto">
-          {[
-            { v: "500+", l: "клиентов" },
-            { v: "8 лет", l: "практики" },
-            { v: "98%", l: "успешных дел" },
-          ].map((s) => (
-            <div key={s.l} className="text-center">
-              <div
-                className="font-display text-2xl md:text-4xl tracking-[-0.02em]"
-                style={{ color: "var(--wine-deep)" }}
-              >
-                {s.v}
-              </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-soft)" }}>
-                {s.l}
-              </div>
-            </div>
-          ))}
-        </div>
-
       </div>
     </section>
   );
