@@ -15,6 +15,7 @@ import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/hero-yulia.png";
+import yuliaAbout from "@/assets/yulia-about.png";
 import featherImg from "@/assets/feather-light.jpg";
 import iconAudit from "@/assets/icons-3d/audit.png";
 import iconConclusion from "@/assets/icons-3d/conclusion.png";
@@ -249,7 +250,7 @@ function About() {
               }}
             >
               <img
-                src={yuliaPortrait}
+                src={yuliaAbout}
                 alt="Юлия Армина — основатель Статус Свободы"
                 className="block w-full h-auto object-cover"
                 loading="lazy"
