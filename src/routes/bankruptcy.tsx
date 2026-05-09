@@ -2,14 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
-  Scale,
-  ShieldCheck,
-  HeartHandshake,
-  Sparkles,
-  FileSearch,
-  FileText,
-  Gavel,
-  Trophy,
   Plus,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
@@ -17,8 +9,16 @@ import { Section, SectionLabel, H2 } from "@/components/site/Section";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { ParticleField } from "@/components/site/ParticleField";
 import { BotIntensive } from "@/components/site/BotIntensive";
-import { IconBadge } from "@/components/site/IconBadge";
+import { IconArt } from "@/components/site/IconArt";
 import { Testimonials } from "@/components/site/Testimonials";
+import iconSvo from "@/assets/icons-3d/svo.png";
+import iconSupport from "@/assets/icons-3d/support.png";
+import iconHandshake from "@/assets/icons-3d/handshake.png";
+import iconRestore from "@/assets/icons-3d/restore.png";
+import iconAudit from "@/assets/icons-3d/audit.png";
+import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
+import iconDataCourt from "@/assets/icons-3d/data-court.png";
+import iconUnlock from "@/assets/icons-3d/unlock.png";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -123,10 +123,10 @@ function BankruptcyHero() {
 
 function BankruptcyAdvantages() {
   const items = [
-    { icon: <Scale className="h-6 w-6" />, t: "Закон на вашей стороне", d: "127-ФЗ — рабочий механизм. Списываем кредиты, микрозаймы, налоговые задолженности и долги перед физлицами." },
-    { icon: <ShieldCheck className="h-6 w-6" />, t: "Защита имущества", d: "Сохраняем единственное жильё, технику и ценные активы в рамках закона. Стратегия — до подачи заявления." },
-    { icon: <HeartHandshake className="h-6 w-6" />, t: "Защита от коллекторов", d: "После принятия заявления — стоп звонки, аресты, исполнительные производства." },
-    { icon: <Sparkles className="h-6 w-6" />, t: "Новый старт", d: "Чистый юридический статус. Возможность строить финансовую репутацию без груза прошлого." },
+    { art: iconSvo, t: "Закон на вашей стороне", d: "127-ФЗ — рабочий механизм. Списываем кредиты, микрозаймы, налоговые задолженности и долги перед физлицами." },
+    { art: iconSupport, t: "Защита имущества", d: "Сохраняем единственное жильё, технику и ценные активы в рамках закона. Стратегия — до подачи заявления." },
+    { art: iconHandshake, t: "Защита от коллекторов", d: "После принятия заявления — стоп звонки, аресты, исполнительные производства." },
+    { art: iconRestore, t: "Новый старт", d: "Чистый юридический статус. Возможность строить финансовую репутацию без груза прошлого." },
   ];
   return (
     <Section variant="darker" id="advantages">
@@ -140,7 +140,7 @@ function BankruptcyAdvantages() {
             key={it.t}
             className="card-lux group/card flex gap-5 p-7"
           >
-            <IconBadge size="sm">{it.icon}</IconBadge>
+            <IconArt src={it.art} alt="" size="sm" />
             <div>
               <h3 className="font-display text-xl md:text-2xl leading-snug">{it.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed">{it.d}</p>
@@ -154,10 +154,10 @@ function BankruptcyAdvantages() {
 
 function BankruptcyStages() {
   const steps = [
-    { icon: <FileSearch className="h-7 w-7" />, t: "Аудит ситуации", d: "Анализируем долги, имущество, доходы. Определяем стратегию: банкротство, реструктуризация или альтернативный путь." },
-    { icon: <FileText className="h-7 w-7" />, t: "Подготовка документов", d: "Собираем доказательную базу, выписки БКИ, ФССП, справки. Готовим заявление в арбитражный суд." },
-    { icon: <Gavel className="h-7 w-7" />, t: "Судебная процедура", d: "Сопровождение арбитражного процесса, взаимодействие с финансовым управляющим, защита интересов клиента." },
-    { icon: <Trophy className="h-7 w-7" />, t: "Освобождение от долгов", d: "Получение определения суда. Полное юридическое освобождение от обязательств." },
+    { art: iconAudit, t: "Аудит ситуации", d: "Анализируем долги, имущество, доходы. Определяем стратегию: банкротство, реструктуризация или альтернативный путь." },
+    { art: iconDataBureau, t: "Подготовка документов", d: "Собираем доказательную базу, выписки БКИ, ФССП, справки. Готовим заявление в арбитражный суд." },
+    { art: iconDataCourt, t: "Судебная процедура", d: "Сопровождение арбитражного процесса, взаимодействие с финансовым управляющим, защита интересов клиента." },
+    { art: iconUnlock, t: "Освобождение от долгов", d: "Получение определения суда. Полное юридическое освобождение от обязательств." },
   ];
   return (
     <Section variant="default" id="stages">
@@ -168,7 +168,7 @@ function BankruptcyStages() {
       <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
           <li key={s.t} className="card-lux group/card flex gap-5 p-7">
-            <IconBadge size="md">{s.icon}</IconBadge>
+            <IconArt src={s.art} alt="" size="md" />
             <div>
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
