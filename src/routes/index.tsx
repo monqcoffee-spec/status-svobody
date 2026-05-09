@@ -249,20 +249,20 @@ function About() {
 
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
-          <div className="relative flex aspect-[4/5] w-full items-center justify-center">
+          <div className="relative flex aspect-square sm:aspect-[4/5] w-full items-center justify-center py-6 sm:py-10">
             <div
               aria-hidden
-              className="absolute inset-0 -z-10 animate-pulse-glow pointer-events-none"
+              className="absolute inset-1/4 -z-10 animate-pulse-glow pointer-events-none"
               style={{
                 background:
                   "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--champagne) 35%, transparent), color-mix(in oklab, var(--champagne-glow) 18%, transparent) 40%, transparent 70%)",
-                filter: "blur(36px)",
+                filter: "blur(28px)",
               }}
             />
             <Logo
-              size={180}
+              size={240}
               onDark
-              className="h-28 sm:h-36 md:h-44 lg:h-52 xl:h-56"
+              className="h-48 sm:h-44 md:h-52 lg:h-56 xl:h-64"
             />
           </div>
         </ScrollReveal>
