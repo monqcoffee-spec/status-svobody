@@ -18,6 +18,7 @@ import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { ParticleField } from "@/components/site/ParticleField";
 import { BotIntensive } from "@/components/site/BotIntensive";
 import { IconBadge } from "@/components/site/IconBadge";
+import { Testimonials } from "@/components/site/Testimonials";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -64,6 +65,7 @@ function BankruptcyPage() {
       <BankruptcySupport />
       <BankruptcyResults />
       <BotIntensive />
+      <Testimonials compact />
       <BankruptcyFaq />
       <BankruptcyCTA />
     </SiteLayout>
