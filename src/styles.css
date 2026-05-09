@@ -518,6 +518,33 @@
   }
   .animate-pulse-glow { animation: pulse-glow 3.5s ease-in-out infinite; }
 
+  /* Gold shimmer sweep — diagonal highlight pass */
+  @keyframes gold-shimmer {
+    0%   { transform: translateX(-130%) rotate(12deg); opacity: 0; }
+    20%  { opacity: 0.9; }
+    60%  { opacity: 0.9; }
+    100% { transform: translateX(130%) rotate(12deg); opacity: 0; }
+  }
+  /* Soft gold breathing glow for icon medallions */
+  @keyframes gold-breathe {
+    0%, 100% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--champagne) 30%, transparent),
+        0 0 14px color-mix(in oklab, var(--champagne) 25%, transparent),
+        0 0 28px color-mix(in oklab, var(--cyan) 18%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--champagne-glow) 55%, transparent),
+        0 0 24px color-mix(in oklab, var(--champagne-glow) 45%, transparent),
+        0 0 48px color-mix(in oklab, var(--cyan) 30%, transparent);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .icon-shimmer::after,
+    .icon-breathe { animation: none !important; }
+  }
+
   @keyframes drift {
     0% { transform: translate(0, 0); }
     50% { transform: translate(20px, -30px); }
