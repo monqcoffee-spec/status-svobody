@@ -23,26 +23,16 @@ export function Section({ variant = "default", className, children, id }: Props)
         className,
       )}
     >
-      {/* Auto backdrop wash — dims bg under dark blocks, lifts readability under light blocks */}
+      {/* Auto wash — solid translucent layer (no backdrop-filter, GPU-cheap) */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
           background: isDim
-            ? "linear-gradient(180deg, color-mix(in oklab, var(--wine-deep) 78%, transparent) 0%, color-mix(in oklab, var(--wine) 70%, transparent) 100%)"
+            ? "linear-gradient(180deg, color-mix(in oklab, var(--wine-deep) 88%, transparent) 0%, color-mix(in oklab, var(--wine) 84%, transparent) 100%)"
             : isLight
-              ? "linear-gradient(180deg, color-mix(in oklab, var(--paper) 70%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 78%, transparent) 100%)"
+              ? "linear-gradient(180deg, color-mix(in oklab, var(--paper) 82%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 88%, transparent) 100%)"
               : "transparent",
-          backdropFilter: isDim
-            ? "brightness(0.55) saturate(0.85) blur(2px)"
-            : isLight
-              ? "brightness(1.04) saturate(1.02) blur(0.5px)"
-              : "none",
-          WebkitBackdropFilter: isDim
-            ? "brightness(0.55) saturate(0.85) blur(2px)"
-            : isLight
-              ? "brightness(1.04) saturate(1.02) blur(0.5px)"
-              : "none",
         }}
       />
       <div aria-hidden className="section-divider section-divider-top" />
