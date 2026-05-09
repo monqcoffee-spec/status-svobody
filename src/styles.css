@@ -762,9 +762,9 @@
  * Hairline ornaments separate them softly. */
 .section-wine {
   background:
-    radial-gradient(ellipse 70% 50% at 20% 0%, color-mix(in oklab, var(--cyan) 14%, transparent), transparent 60%),
-    radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--champagne) 8%, transparent), transparent 65%),
-    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 50%, var(--ink-deep) 100%);
+    radial-gradient(ellipse 70% 50% at 20% 0%, color-mix(in oklab, var(--wine) 8%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 7%, transparent), transparent 65%),
+    var(--paper);
 }
 .section-wine::before {
   content: "";
@@ -782,9 +782,9 @@
 
 .section-tint {
   background:
-    radial-gradient(ellipse 50% 40% at 80% 10%, color-mix(in oklab, var(--champagne) 10%, transparent), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in oklab, var(--cyan) 12%, transparent), transparent 60%),
-    var(--ink-soft);
+    radial-gradient(ellipse 50% 40% at 80% 10%, color-mix(in oklab, var(--gold) 7%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in oklab, var(--wine) 6%, transparent), transparent 60%),
+    var(--paper-soft);
 }
 
 /* Ornamental hairline divider between sections */
@@ -792,18 +792,18 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: min(680px, 80%);
+  width: min(720px, 80%);
   height: 1px;
   pointer-events: none;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    color-mix(in oklab, var(--champagne) 35%, transparent) 30%,
-    color-mix(in oklab, var(--champagne-glow) 60%, transparent) 50%,
-    color-mix(in oklab, var(--champagne) 35%, transparent) 70%,
+    color-mix(in oklab, var(--gold) 45%, transparent) 30%,
+    var(--gold) 50%,
+    color-mix(in oklab, var(--gold) 45%, transparent) 70%,
     transparent 100%
   );
-  opacity: 0.55;
+  opacity: 0.6;
 }
 .section-divider-top { top: 0; }
 .section-divider-bottom { bottom: 0; }
