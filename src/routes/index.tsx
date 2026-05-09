@@ -15,6 +15,7 @@ import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/yulia-armina-hero.png";
+import intensiveBanner from "@/assets/intensive-banner.png";
 import featherImg from "@/assets/feather-light.jpg";
 import iconAudit from "@/assets/icons-3d/audit.png";
 import iconConclusion from "@/assets/icons-3d/conclusion.png";
@@ -60,7 +61,7 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [
-      { rel: "preload", as: "image", href: yuliaPortrait, type: "image/webp", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: intensiveBanner, type: "image/png", fetchpriority: "high" },
     ],
     scripts: [
       {
@@ -176,8 +177,8 @@ function Hero() {
           }}
         >
           <img
-            src={yuliaPortrait}
-            alt="Юлия Армина — основатель Статус Свободы"
+            src={intensiveBanner}
+            alt="Бесплатный интенсив «Статус Свободы» — Юлия Армина"
             className="block w-full h-auto max-h-[58vh] sm:max-h-[62vh] md:max-h-[68vh] object-contain mx-auto"
             style={{ filter: "contrast(1.08) saturate(1.12)" }}
             loading="eager"
