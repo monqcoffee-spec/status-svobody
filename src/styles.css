@@ -1045,24 +1045,36 @@
   background: color-mix(in oklab, var(--gold-light) 70%, transparent);
 }
 
-/* Light luxe cards inside dim sections must keep their dark text —
- * the .section-dim rules above would otherwise force light text onto
- * the white card background and make it unreadable. */
-.section-dim .card-lux h1,
-.section-dim .card-lux h2,
-.section-dim .card-lux h3,
-.section-dim .card-lux h4,
-.section-dim .card-lux p,
-.section-dim .card-lux li {
+/* Light luxe cards must keep their dark text in ANY container —
+ * dim sections, dialogs, popovers, sheets, drawers, tooltips, etc.
+ * Ancestors there may set light/silver text colors that would otherwise
+ * bleed onto the white card background and make it unreadable. */
+.card-lux h1,
+.card-lux h2,
+.card-lux h3,
+.card-lux h4,
+.card-lux p,
+.card-lux li,
+.card-lux .text-silver,
+.card-lux .text-silver\/85,
+.card-lux .text-silver\/80,
+.card-lux .text-silver\/75 {
   color: var(--card-text) !important;
 }
-.section-dim .card-lux .smallcaps,
-.section-dim .card-lux .text-wine,
-.section-dim .card-lux .text-wine-deep {
+.card-lux .text-silver-dim,
+.card-lux p.muted,
+.card-lux .text-faint {
+  color: var(--card-text-muted) !important;
+}
+.card-lux .smallcaps,
+.card-lux .text-wine,
+.card-lux .text-wine-deep,
+.card-lux .text-cyan,
+.card-lux .text-cyan-glow {
   color: var(--wine-deep) !important;
 }
-.section-dim .card-lux .text-gold,
-.section-dim .card-lux [class*="text-gold"] {
+.card-lux .text-gold,
+.card-lux [class*="text-gold"] {
   color: var(--gold-heading) !important;
 }
 
