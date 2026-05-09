@@ -61,6 +61,184 @@ export type Database = {
           },
         ]
       }
+      bankruptcy_cases: {
+        Row: {
+          children_count: number
+          created_at: string
+          debt_amount: number | null
+          has_business: boolean
+          has_deposits: boolean
+          has_real_estate: boolean
+          has_vehicle: boolean
+          id: string
+          marital_status: string | null
+          questionnaire_done: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          children_count?: number
+          created_at?: string
+          debt_amount?: number | null
+          has_business?: boolean
+          has_deposits?: boolean
+          has_real_estate?: boolean
+          has_vehicle?: boolean
+          id?: string
+          marital_status?: string | null
+          questionnaire_done?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          children_count?: number
+          created_at?: string
+          debt_amount?: number | null
+          has_business?: boolean
+          has_deposits?: boolean
+          has_real_estate?: boolean
+          has_vehicle?: boolean
+          id?: string
+          marital_status?: string | null
+          questionnaire_done?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      bankruptcy_documents: {
+        Row: {
+          case_id: string
+          created_at: string
+          doc_key: string
+          doc_label: string
+          file_name: string | null
+          file_path: string | null
+          id: string
+          required: boolean
+          uploaded_at: string | null
+          user_id: string
+        }
+        Insert: {
+          case_id: string
+          created_at?: string
+          doc_key: string
+          doc_label: string
+          file_name?: string | null
+          file_path?: string | null
+          id?: string
+          required?: boolean
+          uploaded_at?: string | null
+          user_id: string
+        }
+        Update: {
+          case_id?: string
+          created_at?: string
+          doc_key?: string
+          doc_label?: string
+          file_name?: string | null
+          file_path?: string | null
+          id?: string
+          required?: boolean
+          uploaded_at?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "bankruptcy_documents_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "bankruptcy_cases"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      credit_cases: {
+        Row: {
+          analysis_ready: boolean
+          analysis_text: string | null
+          consent_uploaded_path: string | null
+          created_at: string
+          id: string
+          paid: boolean
+          paid_at: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          analysis_ready?: boolean
+          analysis_text?: string | null
+          consent_uploaded_path?: string | null
+          created_at?: string
+          id?: string
+          paid?: boolean
+          paid_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          analysis_ready?: boolean
+          analysis_text?: string | null
+          consent_uploaded_path?: string | null
+          created_at?: string
+          id?: string
+          paid?: boolean
+          paid_at?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      credit_reports: {
+        Row: {
+          bureau: string
+          case_id: string
+          created_at: string
+          file_name: string
+          file_path: string
+          id: string
+          user_id: string
+          verification_notes: string | null
+          verification_status: string
+          verified: boolean
+        }
+        Insert: {
+          bureau: string
+          case_id: string
+          created_at?: string
+          file_name: string
+          file_path: string
+          id?: string
+          user_id: string
+          verification_notes?: string | null
+          verification_status?: string
+          verified?: boolean
+        }
+        Update: {
+          bureau?: string
+          case_id?: string
+          created_at?: string
+          file_name?: string
+          file_path?: string
+          id?: string
+          user_id?: string
+          verification_notes?: string | null
+          verification_status?: string
+          verified?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "credit_reports_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "credit_cases"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       lead_requests: {
         Row: {
           created_at: string
@@ -100,6 +278,42 @@ export type Database = {
           source?: string
           status?: string
           user_agent?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          consent_at: string | null
+          consent_given: boolean
+          created_at: string
+          email: string | null
+          full_name: string
+          id: string
+          iin_snils: string | null
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          consent_at?: string | null
+          consent_given?: boolean
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id: string
+          iin_snils?: string | null
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          consent_at?: string | null
+          consent_given?: boolean
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+          iin_snils?: string | null
+          phone?: string | null
+          updated_at?: string
         }
         Relationships: []
       }

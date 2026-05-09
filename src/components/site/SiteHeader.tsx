@@ -87,6 +87,16 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
+          <Link
+            to="/login"
+            className="hidden lg:inline-flex items-center rounded-full px-4 py-2 text-[12px] tracking-[0.2em] uppercase transition-colors"
+            style={{
+              border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
+              color: "var(--text)",
+            }}
+          >
+            Кабинет
+          </Link>
           <button
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}

@@ -9,12 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as BankruptcyRouteImport } from './routes/bankruptcy'
+import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedPortalRouteImport } from './routes/_authenticated/portal'
+import { Route as AuthenticatedPortalCreditRouteImport } from './routes/_authenticated/portal.credit'
+import { Route as AuthenticatedPortalBankruptcyRouteImport } from './routes/_authenticated/portal.bankruptcy'
 
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BankruptcyRoute = BankruptcyRouteImport.update({
   id: '/bankruptcy',
   path: '/bankruptcy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRoute = AuthenticatedRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +42,120 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedPortalRoute = AuthenticatedPortalRouteImport.update({
+  id: '/portal',
+  path: '/portal',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedPortalCreditRoute =
+  AuthenticatedPortalCreditRouteImport.update({
+    id: '/credit',
+    path: '/credit',
+    getParentRoute: () => AuthenticatedPortalRoute,
+  } as any)
+const AuthenticatedPortalBankruptcyRoute =
+  AuthenticatedPortalBankruptcyRouteImport.update({
+    id: '/bankruptcy',
+    path: '/bankruptcy',
+    getParentRoute: () => AuthenticatedPortalRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bankruptcy': typeof BankruptcyRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
+  '/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bankruptcy': typeof BankruptcyRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
+  '/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteWithChildren
   '/bankruptcy': typeof BankruptcyRoute
+  '/login': typeof LoginRoute
+  '/signup': typeof SignupRoute
+  '/_authenticated/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/_authenticated/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
+  '/_authenticated/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bankruptcy'
+  fullPaths:
+    | '/'
+    | '/bankruptcy'
+    | '/login'
+    | '/signup'
+    | '/portal'
+    | '/portal/bankruptcy'
+    | '/portal/credit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bankruptcy'
-  id: '__root__' | '/' | '/bankruptcy'
+  to:
+    | '/'
+    | '/bankruptcy'
+    | '/login'
+    | '/signup'
+    | '/portal'
+    | '/portal/bankruptcy'
+    | '/portal/credit'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/bankruptcy'
+    | '/login'
+    | '/signup'
+    | '/_authenticated/portal'
+    | '/_authenticated/portal/bankruptcy'
+    | '/_authenticated/portal/credit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRoute: typeof AuthenticatedRouteWithChildren
   BankruptcyRoute: typeof BankruptcyRoute
+  LoginRoute: typeof LoginRoute
+  SignupRoute: typeof SignupRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/bankruptcy': {
       id: '/bankruptcy'
       path: '/bankruptcy'
       fullPath: '/bankruptcy'
       preLoaderRoute: typeof BankruptcyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,22 +165,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/portal': {
+      id: '/_authenticated/portal'
+      path: '/portal'
+      fullPath: '/portal'
+      preLoaderRoute: typeof AuthenticatedPortalRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/portal/credit': {
+      id: '/_authenticated/portal/credit'
+      path: '/credit'
+      fullPath: '/portal/credit'
+      preLoaderRoute: typeof AuthenticatedPortalCreditRouteImport
+      parentRoute: typeof AuthenticatedPortalRoute
+    }
+    '/_authenticated/portal/bankruptcy': {
+      id: '/_authenticated/portal/bankruptcy'
+      path: '/bankruptcy'
+      fullPath: '/portal/bankruptcy'
+      preLoaderRoute: typeof AuthenticatedPortalBankruptcyRouteImport
+      parentRoute: typeof AuthenticatedPortalRoute
+    }
   }
 }
 
+interface AuthenticatedPortalRouteChildren {
+  AuthenticatedPortalBankruptcyRoute: typeof AuthenticatedPortalBankruptcyRoute
+  AuthenticatedPortalCreditRoute: typeof AuthenticatedPortalCreditRoute
+}
+
+const AuthenticatedPortalRouteChildren: AuthenticatedPortalRouteChildren = {
+  AuthenticatedPortalBankruptcyRoute: AuthenticatedPortalBankruptcyRoute,
+  AuthenticatedPortalCreditRoute: AuthenticatedPortalCreditRoute,
+}
+
+const AuthenticatedPortalRouteWithChildren =
+  AuthenticatedPortalRoute._addFileChildren(AuthenticatedPortalRouteChildren)
+
+interface AuthenticatedRouteChildren {
+  AuthenticatedPortalRoute: typeof AuthenticatedPortalRouteWithChildren
+}
+
+const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
+  AuthenticatedPortalRoute: AuthenticatedPortalRouteWithChildren,
+}
+
+const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
+  AuthenticatedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRoute: AuthenticatedRouteWithChildren,
   BankruptcyRoute: BankruptcyRoute,
+  LoginRoute: LoginRoute,
+  SignupRoute: SignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { createStart } from '@tanstack/react-start'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-  }
-}
