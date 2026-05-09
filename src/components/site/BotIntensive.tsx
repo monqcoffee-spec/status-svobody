@@ -1,7 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Section, SectionLabel, H2 } from "./Section";
-import { IconArt } from "./IconArt";
-import iconBot from "@/assets/icons-3d/bot.png";
+import intensiveBanner from "@/assets/intensive-banner.png";
 
 export function BotIntensive() {
   return (
@@ -56,21 +55,22 @@ export function BotIntensive() {
           </div>
           <div className="md:col-span-5 relative">
             <div
-              className="relative mx-auto aspect-square w-full max-w-sm backdrop-blur-md"
+              className="relative mx-auto w-full max-w-sm overflow-hidden aspect-[2/3]"
               style={{
                 borderRadius: "32px",
                 border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
-                background:
-                  "linear-gradient(160deg, rgba(255,255,255,0.85) 0%, color-mix(in oklab, var(--paper-tint) 65%, white) 100%)",
                 boxShadow:
-                  "inset 0 1px 0 0 rgba(255,255,255,0.95), 0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), 0 0 0 1px color-mix(in oklab, var(--gold) 18%, transparent)",
+                  "0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), 0 0 0 1px color-mix(in oklab, var(--gold) 18%, transparent)",
               }}
             >
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                <IconArt src={iconBot} alt="" size="lg" />
-                <div className="font-display text-2xl" style={{ color: "var(--text)" }}>@status_svobody_bot</div>
-                <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Открытый чат-бот</div>
-              </div>
+              <img
+                src={intensiveBanner}
+                alt="Бесплатный интенсив «Статус Свободы» — Юлия Армина"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 h-full w-full object-cover object-top select-none"
+                style={{ borderRadius: "inherit" }}
+              />
             </div>
           </div>
         </div>
