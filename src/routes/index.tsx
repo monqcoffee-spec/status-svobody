@@ -159,7 +159,7 @@ function Hero() {
         <img
           src={yuliaPortrait}
           alt="Юлия Армина — основатель Статус Свободы"
-          className="block w-full h-auto"
+          className="block w-full h-[70vh] sm:h-[75vh] md:h-auto object-cover object-[78%_center] sm:object-[72%_center] md:object-center"
           loading="eager"
           fetchPriority="high"
         />
