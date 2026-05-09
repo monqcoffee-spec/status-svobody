@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 type Size = "xs" | "sm" | "md" | "lg";
 
 const sizes: Record<Size, string> = {
-  xs: "h-10 w-10",
-  sm: "h-16 w-16",
-  md: "h-20 w-20",
-  lg: "h-24 w-24 md:h-28 md:w-28",
+  xs: "h-[3.25rem] w-[3.25rem]",                          /* 40 → 52 (+30%) */
+  sm: "h-[5.25rem] w-[5.25rem]",                          /* 64 → 84 (+30%) */
+  md: "h-[6.5rem] w-[6.5rem]",                            /* 80 → 104 (+30%) */
+  lg: "h-[7.75rem] w-[7.75rem] md:h-[9.125rem] md:w-[9.125rem]", /* 96/112 → 124/146 (+30%) */
 };
 
 /**
