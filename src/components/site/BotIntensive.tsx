@@ -14,35 +14,33 @@ export function BotIntensive() {
         работает в 2026 году.
       </p>
 
-      <div
-        className="relative mt-14 overflow-hidden border border-cyan/40 p-10 md:p-14"
-        style={{
-          borderRadius: "2px",
-          background:
-            "linear-gradient(135deg, color-mix(in oklab, var(--cyan) 10%, var(--ink-soft)) 0%, var(--ink-soft) 60%)",
-          boxShadow:
-            "0 0 80px color-mix(in oklab, var(--cyan) 25%, transparent), inset 0 0 60px color-mix(in oklab, var(--cyan) 8%, transparent)",
-        }}
-      >
+      <div className="card-lux relative mt-14 overflow-hidden p-8 md:p-14">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full opacity-30 animate-drift"
+          className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full opacity-40 animate-drift"
           style={{
             background:
-              "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 50%, transparent), transparent)",
+              "radial-gradient(closest-side, color-mix(in oklab, var(--gold) 35%, transparent), transparent)",
           }}
         />
         <div className="relative grid gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
-            <div className="inline-flex items-center gap-2 border border-cyan/40 bg-cyan/10 px-3 py-1.5 smallcaps text-cyan-glow" style={{ borderRadius: "2px" }}>
+            <div
+              className="inline-flex items-center gap-2 px-4 py-1.5 smallcaps rounded-full"
+              style={{
+                border: "1px solid color-mix(in oklab, var(--gold) 45%, transparent)",
+                background: "color-mix(in oklab, white 80%, var(--paper-tint))",
+                color: "var(--wine-deep)",
+              }}
+            >
               <Sparkles className="h-3.5 w-3.5" />
               Premium digital product
             </div>
-            <h3 className="mt-6 font-display text-3xl md:text-5xl text-silver leading-tight">
+            <h3 className="mt-6 font-display text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
               Получите доступ <br />
               к закрытому интенсиву
             </h3>
-            <ul className="mt-8 space-y-3 text-base md:text-lg text-silver/85">
+            <ul className="mt-8 space-y-3 text-base md:text-lg" style={{ color: "var(--text-muted)" }}>
               {[
                 "Пошаговая дорожная карта банкротства",
                 "Шаблоны заявлений и расчётов",
@@ -50,7 +48,7 @@ export function BotIntensive() {
                 "Прямые ответы поверенного в боте",
               ].map((b) => (
                 <li key={b} className="flex gap-3">
-                  <span className="mt-2 h-1 w-3 bg-cyan shrink-0" />
+                  <span className="mt-2 h-1 w-3 shrink-0 rounded-full" style={{ background: "linear-gradient(90deg, var(--gold), var(--wine))" }} />
                   <span>{b}</span>
                 </li>
               ))}
@@ -60,7 +58,7 @@ export function BotIntensive() {
                 href="https://t.me/status_svobody_bot"
                 target="_blank"
                 rel="noopener"
-                className="btn-cyan group rounded-sm"
+                className="btn-cyan group"
               >
                 <Send className="h-4 w-4" />
                 <span>Перейти в бот</span>
@@ -70,7 +68,7 @@ export function BotIntensive() {
                 href="https://t.me/status_svobody_bot"
                 target="_blank"
                 rel="noopener"
-                className="btn-ghost group rounded-sm"
+                className="btn-ghost group"
               >
                 <span>Получить интенсив</span>
               </a>
@@ -78,22 +76,33 @@ export function BotIntensive() {
           </div>
           <div className="md:col-span-5 relative">
             <div
-              className="relative mx-auto aspect-square w-full max-w-sm border border-cyan/30 bg-ink-deep/60 backdrop-blur-md"
+              className="relative mx-auto aspect-square w-full max-w-sm backdrop-blur-md"
               style={{
-                borderRadius: "2px",
-                boxShadow: "0 0 60px color-mix(in oklab, var(--cyan) 30%, transparent)",
+                borderRadius: "32px",
+                border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
+                background:
+                  "linear-gradient(160deg, rgba(255,255,255,0.85) 0%, color-mix(in oklab, var(--paper-tint) 65%, white) 100%)",
+                boxShadow:
+                  "inset 0 1px 0 0 rgba(255,255,255,0.95), 0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), 0 0 0 1px color-mix(in oklab, var(--gold) 18%, transparent)",
               }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
                 <div
-                  className="flex h-20 w-20 items-center justify-center border border-cyan/50 bg-cyan/10 text-cyan-glow animate-pulse-glow"
-                  style={{ borderRadius: "2px", boxShadow: "0 0 30px color-mix(in oklab, var(--cyan) 60%, transparent)" }}
+                  className="flex h-20 w-20 items-center justify-center animate-pulse-glow"
+                  style={{
+                    borderRadius: "20px",
+                    border: "1px solid color-mix(in oklab, var(--gold) 50%, transparent)",
+                    background: "linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%)",
+                    color: "#fff",
+                    boxShadow:
+                      "0 0 30px color-mix(in oklab, var(--gold) 50%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.25)",
+                  }}
                 >
                   <Send className="h-9 w-9" />
                 </div>
-                <div className="font-display text-2xl text-silver">@status_svobody_bot</div>
-                <div className="smallcaps text-cyan">Закрытый канал</div>
-                <div className="text-sm text-silver-dim">
+                <div className="font-display text-2xl" style={{ color: "var(--text)" }}>@status_svobody_bot</div>
+                <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Закрытый канал</div>
+                <div className="text-sm" style={{ color: "var(--text-muted)" }}>
                   Доступ открывается лично — после короткого диалога с поверенным.
                 </div>
               </div>
