@@ -117,7 +117,7 @@ function BankruptcyAdvantages() {
         {items.map((it) => (
           <div
             key={it.t}
-            className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
+            className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all hover:border-cyan/40"
             style={{ borderRadius: "2px" }}
           >
             <IconBadge size="sm">{it.icon}</IconBadge>
@@ -150,7 +150,7 @@ function BankruptcyStages() {
         style={{ borderRadius: "2px" }}
       >
         {steps.map((s, i) => (
-          <li key={s.t} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <li key={s.t} className="group/card flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div>
               <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
