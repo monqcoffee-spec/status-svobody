@@ -664,9 +664,7 @@ function EntryPoint() {
             </div>
 
             <div className="card-lux relative inline-flex w-full items-center gap-4 px-6 py-4">
-              <div className="inline-flex h-10 w-10 items-center justify-center border" style={{ borderRadius: "2px", borderColor: "color-mix(in oklab, var(--gold-heading) 55%, transparent)", color: "var(--gold-heading-deep)" }}>
-                <Phone className="h-5 w-5" />
-              </div>
+              <IconArt src={iconPhone} alt="Телефон" size="sm" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Телефон</div>
                 <a href="tel:+79654457378" className="font-display text-lg tabular transition-colors" style={{ color: "#2A1118" }}>
@@ -682,7 +680,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <Megaphone className="h-4 w-4 shrink-0" style={{ color: "var(--gold-heading-deep)" }} />
+                <IconArt src={iconTelegram} alt="Telegram-канал" size="sm" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram-канал</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
@@ -694,7 +692,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <AtSign className="h-4 w-4 shrink-0" style={{ color: "var(--gold-heading-deep)" }} />
+                <IconArt src={iconBot} alt="Бесплатный интенсив" size="sm" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Бесплатный интенсив</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>@status_svobody_bot</div>
