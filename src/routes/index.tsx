@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import {
   ArrowUpRight,
   Check,
@@ -127,178 +127,117 @@ function IndexPage() {
 
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
-  const portraitMobile = useRef<HTMLImageElement>(null);
-  const portraitDesktop = useRef<HTMLImageElement>(null);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let raf = 0;
-    const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        const y = window.scrollY;
-        // soft parallax: 8–12px max range
-        const offset = Math.max(-12, Math.min(12, -y * 0.04));
-        const apply = (el: HTMLImageElement | null) => {
-          if (el) el.style.transform = `translate3d(0, ${offset}px, 0)`;
-        };
-        apply(portraitMobile.current);
-        apply(portraitDesktop.current);
-        raf = 0;
-      });
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
   return (
-    <section className="relative overflow-hidden bg-transparent md:-mt-20">
+    <section className="relative overflow-hidden md:-mt-24">
       <h1 className="sr-only">
         Статус Свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
 
-      <div className="relative md:hidden">
-        <img
-          ref={portraitMobile}
-          src={yuliaPortrait}
-          alt="Юлия Армина — STATUS SVOBODY"
-          width={1024}
-          height={1536}
-          fetchPriority="high"
-          className="block w-full select-none will-change-transform transition-transform duration-200 ease-out"
+      {/* Cinematic ambient lights */}
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
+        <div
+          className="absolute -top-40 left-1/2 h-[700px] w-[1100px] -translate-x-1/2 rounded-full opacity-60 animate-drift"
           style={{
-            maskImage:
-              "linear-gradient(180deg, transparent 0%, black 6%, black 92%, transparent 100%)",
-            WebkitMaskImage:
-              "linear-gradient(180deg, transparent 0%, black 6%, black 92%, transparent 100%)",
+            background:
+              "radial-gradient(closest-side, color-mix(in oklab, var(--wine) 28%, transparent), color-mix(in oklab, var(--wine-soft) 15%, transparent) 45%, transparent 75%)",
+            filter: "blur(80px)",
           }}
         />
         <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-1 inset-x-0 h-20"
+          className="absolute top-1/4 -right-24 h-[460px] w-[460px] rounded-full opacity-50 animate-float"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, #f3dcc7 100%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--gold) 28%, transparent), transparent 70%)",
+            filter: "blur(70px)",
           }}
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-1 inset-x-0 h-14"
-          style={{
-            background:
-              "linear-gradient(0deg, transparent 0%, #c89aa1 100%)",
-          }}
-        />
+        <ParticleField density={20} />
       </div>
 
-      <div className="relative hidden md:grid md:min-h-[100svh] md:grid-cols-12 md:items-center">
-        <ParticleField density={28} />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-40 top-32 h-[600px] w-[600px] rounded-full opacity-25 animate-drift"
-          style={{
-            background:
-              "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 22%, transparent), transparent)",
-          }}
-        />
-        <div className="container-tight md:col-span-12 grid grid-cols-12 items-center gap-8 pt-20">
-          <div className="reveal reveal-delay-2 col-span-6 relative z-10">
-            <div className="inline-flex items-center gap-3">
-              <span className="hairline-tight" />
-              <span className="smallcaps text-cyan">Статус Свободы</span>
-            </div>
-            <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] lg:text-7xl" style={{ color: "var(--gold-heading-deep)" }}>
-              <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
-              <br />
-              <span
-                className="block-reveal text-gradient-cyan text-glow italic font-serif"
-                style={{ ["--bi" as never]: 1 }}
-              >
-                Юлии Арминой
-              </span>
-            </p>
-            <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed" style={{ color: "#2A1118" }}>
-              Испорченная кредитная история — не клеймо. Это запись,
-              которую закон разрешает оспорить.
-            </p>
-            <p className="mt-3 smallcaps" style={{ color: "var(--gold-heading-deep)" }}>
-              Конфиденциальность · Решение · Поддержка
-            </p>
-            <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
-              <LeadFormDialog
-                source="hero"
-                headline="Запись на консультацию"
-                trigger={
-                  <button type="button" className="btn-cyan group rounded-sm">
-                    <span>Оставить заявку</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </button>
-                }
-              />
-              <a href="#services" className="btn-ghost group rounded-sm">
-                <span>Узнать подробнее</span>
-                <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-            </div>
-          </div>
-          <div className="col-span-6 relative">
-            <img
-              ref={portraitDesktop}
-              src={yuliaPortrait}
-              alt="Юлия Армина — STATUS SVOBODY"
-              width={1024}
-              height={1536}
-              fetchPriority="high"
-              className="mx-auto block max-h-[92svh] w-auto select-none will-change-transform transition-transform duration-200 ease-out"
-              style={{
-                maskImage:
-                  "radial-gradient(ellipse 75% 80% at 60% 50%, black 55%, transparent 100%)",
-                WebkitMaskImage:
-                  "radial-gradient(ellipse 75% 80% at 60% 50%, black 55%, transparent 100%)",
-              }}
-            />
-          </div>
-        </div>
-      </div>
-
-      <div className="relative md:hidden bg-transparent px-5 pb-12 pt-2">
-        <div className="mb-5 text-center">
-          <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
-            <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
-            <br />
+      <div className="relative container-tight pt-32 pb-24 md:pt-44 md:pb-36 lg:pt-52 lg:pb-40">
+        <div className="reveal reveal-delay-1 flex justify-center">
+          <div
+            className="inline-flex items-center gap-3 px-5 py-2 rounded-full"
+            style={{
+              border: "1px solid color-mix(in oklab, var(--gold) 35%, transparent)",
+              background: "rgba(255,255,255,0.6)",
+              backdropFilter: "blur(10px)",
+              boxShadow: "0 6px 22px -10px color-mix(in oklab, var(--wine) 30%, transparent)",
+            }}
+          >
             <span
-              className="block-reveal text-gradient-cyan italic font-serif"
-              style={{ ["--bi" as never]: 1 }}
-            >
-              Юлии Арминой
+              className="h-1.5 w-1.5 rounded-full"
+              style={{ background: "var(--gold)", boxShadow: "0 0 10px var(--gold)" }}
+            />
+            <span className="smallcaps" style={{ color: "var(--wine-deep)" }}>
+              Premium legal consulting · Москва
             </span>
-          </p>
-          <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed" style={{ color: "#2A1118" }}>
-            Испорченная кредитная история — не клеймо. Это запись,
-            которую закон разрешает оспорить.
-          </p>
-          <p className="mt-3 smallcaps text-[10px]" style={{ color: "var(--gold-heading-deep)" }}>
-            Конфиденциальность · Решение · Поддержка
-          </p>
+          </div>
         </div>
-        <div className="reveal reveal-delay-3 flex flex-col gap-2.5">
+
+        <h2 className="mx-auto mt-10 max-w-5xl text-center font-display tracking-[-0.04em] leading-[0.98]"
+            style={{ color: "var(--text)" }}>
+          <span
+            className="reveal reveal-delay-2 block text-[2.6rem] sm:text-[3.4rem] md:text-[5rem] lg:text-[6.4rem]"
+          >
+            Свобода начинается
+          </span>
+          <span
+            className="reveal reveal-delay-3 block text-[2.6rem] sm:text-[3.4rem] md:text-[5rem] lg:text-[6.4rem] italic font-serif text-gradient-cyan text-glow"
+            style={{ fontWeight: 400 }}
+          >
+            с правильного решения
+          </span>
+        </h2>
+
+        <p
+          className="reveal reveal-delay-3 mx-auto mt-8 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Личное сопровождение основателем бренда. Восстановление кредитной
+          истории, банкротство, ФССП, БКИ — без посредников и колл-центров.
+        </p>
+
+        <div className="reveal reveal-delay-3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <LeadFormDialog
             source="hero"
             headline="Запись на консультацию"
             trigger={
-              <button type="button" className="btn-cyan group rounded-sm w-full">
+              <button type="button" className="btn-cyan group w-full sm:w-auto">
                 <span>Оставить заявку</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
             }
           />
-          <a href="#services" className="btn-ghost group rounded-sm w-full">
-            <span>Как мы работаем</span>
-            <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <a href="#services" className="btn-ghost group w-full sm:w-auto">
+            <span>Узнать подробнее</span>
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
-        <p className="mt-5 text-center text-[10px] uppercase tracking-[0.28em]" style={{ color: "#5a3540" }}>
-          Личное сопровождение · Конфиденциально
-        </p>
+
+        {/* Trust strip */}
+        <div className="reveal reveal-delay-3 mt-16 md:mt-20 grid grid-cols-3 gap-4 md:gap-8 max-w-3xl mx-auto">
+          {[
+            { v: "500+", l: "клиентов" },
+            { v: "8 лет", l: "практики" },
+            { v: "98%", l: "успешных дел" },
+          ].map((s) => (
+            <div key={s.l} className="text-center">
+              <div
+                className="font-display text-2xl md:text-4xl tracking-[-0.02em]"
+                style={{ color: "var(--wine-deep)" }}
+              >
+                {s.v}
+              </div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-soft)" }}>
+                {s.l}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Hidden parallax portrait kept available for SEO/preload */}
+        <img src={yuliaPortrait} alt="" aria-hidden className="hidden" />
       </div>
     </section>
   );
@@ -320,13 +259,14 @@ function About() {
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
           <div
-            className="group relative aspect-[4/5] w-full overflow-hidden border border-cyan/15"
+            className="group relative aspect-[4/5] w-full overflow-hidden"
             style={{
-              borderRadius: "2px",
+              borderRadius: "28px",
+              border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
               background:
-                "linear-gradient(135deg, color-mix(in oklab, var(--cyan-soft) 40%, var(--ink-soft)) 0%, var(--ink-deep) 100%)",
+                "linear-gradient(135deg, color-mix(in oklab, var(--rose-mist) 40%, white) 0%, color-mix(in oklab, var(--paper-tint) 70%, white) 100%)",
               boxShadow:
-                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent)",
+                "inset 0 1px 0 0 rgba(255,255,255,0.95), 0 40px 90px -50px color-mix(in oklab, var(--wine) 55%, transparent), 0 8px 28px -16px color-mix(in oklab, var(--gold) 35%, transparent)",
             }}
           >
             <div
@@ -334,7 +274,7 @@ function About() {
               className="absolute inset-0 opacity-60 mix-blend-screen"
               style={{
                 background:
-                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--cyan-glow) 35%, transparent), transparent 70%)",
+                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--gold) 30%, transparent), transparent 70%)",
                 filter: "blur(24px)",
               }}
             />
@@ -357,7 +297,7 @@ function About() {
               className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
               style={{
                 background:
-                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--ink-deep) 75%, transparent))",
+                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--wine) 18%, transparent))",
               }}
             />
           </div>

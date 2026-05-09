@@ -76,39 +76,62 @@
 :root {
   --radius: 0.25rem;
 
-  /* Brand palette — neutral black base with rose-burgundy + gold trail.
-   * Tone anchors (from reference): #D9C8D5 · #BD93AD · #A26… · #874255 ·
-   * #6C2A2D · #501410 · #350E03. Token names "cyan/teal" kept for compat. */
-  --ink: #0A0708;                            /* page surface — near-black */
-  --ink-deep: #050304;                       /* deepest black */
-  --ink-soft: #140E10;                       /* card / panel — lifted black with rose tint */
-  --cyan: #874255;                           /* primary rose accent */
-  --cyan-soft: #6C2A2D;                      /* mid burgundy — secondary */
-  --cyan-glow: #BD93AD;                      /* pale rose — highlight glow */
-  --teal: #501410;                           /* deep wine — accent shadow */
-  --silver: #D9C8D5;                         /* pale rose ivory text */
-  --silver-dim: oklch(0.68 0.030 350);       /* dusty rose muted text */
+  /* ─── STATUS SVOBODY · Luxury Minimalism ─────────────────────────────
+   * White / deep-black base with wine accent (#874255) and refined gold.
+   * Kept legacy token names (cyan/teal/champagne) as aliases so the rest
+   * of the codebase keeps working without touching every component.    */
 
-  /* Premium accent — champagne (default) + rose accent (hover/active) */
-  --champagne: #E8D4A8;                      /* warm champagne gold */
-  --champagne-soft: #C9B488;                 /* muted champagne */
-  --champagne-glow: #F5E6C2;                 /* light champagne highlight */
-  --rose-accent: #E8A7B0;                    /* warm rose accent */
-  --rose-accent-soft: #C97987;               /* muted rose */
+  /* Surfaces */
+  --paper: #FFFFFF;                          /* clean white */
+  --paper-soft: #FAF8F7;                     /* warm white */
+  --paper-tint: #F4ECEE;                     /* whisper-rose */
+  --ink: #0F0B0D;                            /* near-black panel */
+  --ink-deep: #0B0808;                       /* deepest black */
+  --ink-soft: #161113;                       /* lifted black */
 
-  /* Logo gold — used for headings + brand accents */
-  --gold-heading: #D4B26A;                   /* logo gold */
-  --gold-heading-deep: #A8884A;              /* darker gold for light backgrounds */
+  /* Wine spectrum (primary accent) */
+  --wine: #874255;                           /* signature wine */
+  --wine-deep: #6C2A3D;                      /* deeper wine */
+  --wine-rich: #4F1A2A;                      /* almost-black wine */
+  --wine-soft: #A26F86;                      /* dusty rose-mauve */
+  --rose-quartz: #BD93AD;                    /* pale rose */
+  --rose-mist: #D9C8D5;                      /* whisper rose */
+
+  /* Gold spectrum (premium accent) */
+  --gold: #C9A86A;                           /* refined gold */
+  --gold-soft: #B6915A;                      /* deeper gold */
+  --gold-light: #E4C77A;                     /* highlight gold */
+  --gold-mist: #F1E2C0;                      /* champagne mist */
+
+  /* Text */
+  --text: #14080C;                           /* near-black w/ wine undertone */
+  --text-muted: #6B5560;                     /* readable muted */
+  --text-faint: #9B8893;                     /* tertiary */
+
+  /* Legacy aliases (do NOT remove — used across components) */
+  --cyan: var(--wine);
+  --cyan-soft: var(--wine-deep);
+  --cyan-glow: var(--wine-soft);
+  --teal: var(--wine-rich);
+  --silver: #2A1118;                         /* now reads as dark text on light */
+  --silver-dim: var(--text-muted);
+  --champagne: var(--gold);
+  --champagne-soft: var(--gold-soft);
+  --champagne-glow: var(--gold-light);
+  --rose-accent: var(--wine-soft);
+  --rose-accent-soft: var(--wine-deep);
+  --gold-heading: var(--gold);
+  --gold-heading-deep: var(--gold-soft);
 
   /* Semantic — dark by default */
-  --background: var(--ink-deep);
-  --foreground: var(--silver);
-  --card: var(--ink-soft);
-  --card-foreground: var(--silver);
-  --popover: var(--ink);
-  --popover-foreground: var(--silver);
-  --primary: var(--cyan);
-  --primary-foreground: var(--ink-deep);
+  --background: var(--paper);
+  --foreground: var(--text);
+  --card: var(--paper-soft);
+  --card-foreground: var(--text);
+  --popover: var(--paper);
+  --popover-foreground: var(--text);
+  --primary: var(--wine);
+  --primary-foreground: #FFFFFF;
   --secondary: oklch(0.18 0.012 240);
   --secondary-foreground: var(--silver);
   --muted: oklch(0.16 0.01 240);
@@ -135,19 +158,19 @@
   --sidebar-ring: var(--cyan);
 
   /* Surfaces / hairlines used by glass + borders, redefined per theme */
-  --surface-tint: #BD93AD;                   /* pale rose — mixed via color-mix in utilities */
-  --surface-edge: color-mix(in oklab, var(--champagne) 28%, transparent);
-  --hero-bg: var(--ink-deep);                /* hero / mobile photo backdrop */
+  --surface-tint: var(--rose-quartz);
+  --surface-edge: color-mix(in oklab, var(--gold) 28%, transparent);
+  --hero-bg: var(--paper);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
 
-  html { color-scheme: dark; }
+  html { color-scheme: light; }
 
   html, body {
-    background-color: #f3dcc7;
-    color: #2A1118;
+    background-color: var(--paper);
+    color: var(--text);
   }
 
   body {
@@ -160,16 +183,14 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.02em;
-    color: var(--gold-heading);
-    text-shadow:
-      0 1px 0 color-mix(in oklab, var(--ink-deep) 40%, transparent),
-      0 0 18px color-mix(in oklab, var(--gold-heading) 25%, transparent);
+    letter-spacing: -0.025em;
+    color: var(--text);
+    text-shadow: none;
   }
 
   /* Selection */
   ::selection {
-    background: color-mix(in oklab, var(--cyan) 35%, transparent);
+    background: color-mix(in oklab, var(--wine) 25%, transparent);
     color: white;
   }
 }
@@ -200,23 +221,36 @@
     line-height: 0.95;
   }
 
-  /* Glow text — softened halo on key headings */
+  /* Glow text — soft wine halo on key headings */
   .text-glow {
     text-shadow:
-      0 0 18px color-mix(in oklab, var(--cyan-glow) 28%, transparent),
-      0 0 48px color-mix(in oklab, var(--cyan-glow) 14%, transparent);
+      0 0 24px color-mix(in oklab, var(--wine) 22%, transparent),
+      0 0 60px color-mix(in oklab, var(--gold) 18%, transparent);
   }
 
-  /* Cyan gradient text — softer ivory→pale-rose blend */
+  /* Wine→gold gradient text — premium signature accent */
   .text-gradient-cyan {
-    background: linear-gradient(135deg,
-      color-mix(in oklab, var(--silver) 92%, transparent) 0%,
-      color-mix(in oklab, var(--cyan-glow) 78%, var(--silver)) 50%,
-      color-mix(in oklab, var(--silver) 92%, transparent) 100%);
+    background: linear-gradient(120deg,
+      var(--wine-deep) 0%,
+      var(--wine) 45%,
+      var(--gold-soft) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
+
+  /* Pure gold gradient — for hero accent words */
+  .text-gradient-gold {
+    background: linear-gradient(120deg, var(--gold-soft) 0%, var(--gold-light) 50%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Refined wine-tone heading utility */
+  .text-wine { color: var(--wine); }
+  .text-wine-deep { color: var(--wine-deep); }
+  .text-gold { color: var(--gold-soft); }
 
   /* ─────────── Block reveal ───────────
    * Cinematic block-by-block entrance: a soft champagne curtain
@@ -260,15 +294,15 @@
   /* Radial deep background — used on hero / sections */
   .bg-aurora {
     background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, color-mix(in oklab, var(--cyan) 12%, transparent), transparent 60%),
-      radial-gradient(ellipse 60% 60% at 80% 100%, color-mix(in oklab, var(--teal) 8%, transparent), transparent 60%),
-      var(--ink-deep);
+      radial-gradient(ellipse 70% 45% at 20% 0%, color-mix(in oklab, var(--wine) 18%, transparent), transparent 60%),
+      radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 12%, transparent), transparent 65%),
+      linear-gradient(180deg, var(--ink-deep) 0%, #0F0A0C 50%, var(--ink-deep) 100%);
   }
 
   .bg-aurora-soft {
     background:
-      radial-gradient(ellipse 50% 30% at 50% 0%, color-mix(in oklab, var(--cyan) 8%, transparent), transparent 70%),
-      var(--ink-deep);
+      radial-gradient(ellipse 60% 40% at 50% 0%, color-mix(in oklab, var(--wine) 6%, transparent), transparent 70%),
+      var(--paper);
   }
 
   /* Grid pattern overlay */
@@ -287,16 +321,15 @@
   /* Glow ring for buttons / cards */
   .ring-glow {
     box-shadow:
-      0 0 0 1px color-mix(in oklab, var(--cyan) 30%, transparent),
-      0 0 24px color-mix(in oklab, var(--cyan) 25%, transparent),
-      inset 0 0 16px color-mix(in oklab, var(--cyan) 6%, transparent);
+      0 0 0 1px color-mix(in oklab, var(--wine) 22%, transparent),
+      0 0 36px color-mix(in oklab, var(--wine) 18%, transparent);
   }
 
   .ring-glow-strong {
     box-shadow:
-      0 0 0 1px var(--cyan),
-      0 0 32px color-mix(in oklab, var(--cyan) 50%, transparent),
-      0 0 64px color-mix(in oklab, var(--cyan) 25%, transparent);
+      0 0 0 1px var(--wine),
+      0 0 48px color-mix(in oklab, var(--wine) 30%, transparent),
+      0 0 96px color-mix(in oklab, var(--gold) 20%, transparent);
   }
 
   /* Glass panel */
@@ -306,14 +339,17 @@
     isolation: isolate;
     background:
       linear-gradient(135deg,
-        color-mix(in oklab, var(--cyan-glow) 6%, transparent) 0%,
-        color-mix(in oklab, var(--cyan-soft) 4%, transparent) 100%);
-    backdrop-filter: blur(14px) saturate(140%);
-    -webkit-backdrop-filter: blur(14px) saturate(140%);
-    border: 1px solid color-mix(in oklab, var(--cyan-glow) 14%, transparent);
+        color-mix(in oklab, white 80%, transparent) 0%,
+        color-mix(in oklab, var(--rose-mist) 35%, white) 100%);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid color-mix(in oklab, var(--gold) 22%, transparent);
+    border-radius: 24px;
+    color: var(--text);
     box-shadow:
-      inset 0 1px 0 0 color-mix(in oklab, var(--cyan-glow) 12%, transparent),
-      0 8px 32px -12px color-mix(in oklab, var(--cyan-soft) 35%, transparent);
+      inset 0 1px 0 0 rgba(255,255,255,0.85),
+      0 12px 38px -18px color-mix(in oklab, var(--wine) 30%, transparent),
+      0 2px 6px -2px color-mix(in oklab, var(--gold) 20%, transparent);
     transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.5s ease;
   }
 
@@ -323,14 +359,17 @@
     isolation: isolate;
     background:
       linear-gradient(135deg,
-        color-mix(in oklab, var(--cyan-glow) 9%, transparent) 0%,
-        color-mix(in oklab, var(--cyan-soft) 6%, transparent) 100%);
-    backdrop-filter: blur(20px) saturate(160%);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    border: 1px solid color-mix(in oklab, var(--cyan) 28%, transparent);
+        color-mix(in oklab, white 88%, transparent) 0%,
+        color-mix(in oklab, var(--rose-mist) 40%, white) 100%);
+    backdrop-filter: blur(22px) saturate(150%);
+    -webkit-backdrop-filter: blur(22px) saturate(150%);
+    border: 1px solid color-mix(in oklab, var(--gold) 35%, transparent);
+    border-radius: 28px;
+    color: var(--text);
     box-shadow:
-      inset 0 1px 0 0 color-mix(in oklab, var(--cyan-glow) 18%, transparent),
-      0 12px 40px -10px color-mix(in oklab, var(--cyan) 30%, transparent);
+      inset 0 1px 0 0 rgba(255,255,255,0.9),
+      0 24px 60px -28px color-mix(in oklab, var(--wine) 40%, transparent),
+      0 4px 14px -4px color-mix(in oklab, var(--gold) 25%, transparent);
     transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.5s ease;
   }
 
@@ -430,74 +469,78 @@
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .glass,
     .glass-strong {
-      background: color-mix(in oklab, var(--ink-soft) 92%, var(--cyan-soft) 8%);
+      background: color-mix(in oklab, white 92%, var(--rose-mist) 8%);
     }
   }
 
-  /* Hairline divider with cyan tint */
+  /* Hairline divider — gold thread */
   .hairline {
     height: 1px;
-    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--cyan) 40%, transparent), transparent);
+    background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 65%, transparent), transparent);
   }
   .hairline-tight {
     width: 56px;
     height: 1px;
-    background: var(--cyan);
-    box-shadow: 0 0 12px color-mix(in oklab, var(--cyan) 60%, transparent);
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    box-shadow: 0 0 12px color-mix(in oklab, var(--gold) 50%, transparent);
   }
 
-  /* Cyan button */
+  /* Premium wine button with gold glow */
   .btn-cyan {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    height: 3.25rem;
-    padding-inline: 1.75rem;
-    background: linear-gradient(135deg, color-mix(in oklab, var(--cyan) 18%, var(--ink)) 0%, color-mix(in oklab, var(--cyan) 8%, var(--ink)) 100%);
-    border: 1px solid color-mix(in oklab, var(--cyan) 50%, transparent);
-    color: var(--cyan-glow);
+    gap: 0.6rem;
+    height: 3.5rem;
+    padding-inline: 2rem;
+    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%);
+    border: 1px solid color-mix(in oklab, var(--gold) 55%, var(--wine));
+    border-radius: 999px;
+    color: #FFFFFF;
     font-family: var(--font-display);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 500;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    transition: all 0.3s ease;
+    transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     box-shadow:
-      0 0 24px color-mix(in oklab, var(--cyan) 18%, transparent),
-      inset 0 0 18px color-mix(in oklab, var(--cyan) 6%, transparent);
+      0 0 0 1px color-mix(in oklab, var(--gold) 30%, transparent),
+      0 18px 36px -16px color-mix(in oklab, var(--wine) 80%, transparent),
+      0 0 36px -8px color-mix(in oklab, var(--gold) 35%, transparent);
   }
   .btn-cyan:hover {
-    background: linear-gradient(135deg, color-mix(in oklab, var(--cyan) 30%, var(--ink)) 0%, color-mix(in oklab, var(--cyan) 15%, var(--ink)) 100%);
-    border-color: var(--cyan);
-    color: white;
+    transform: translateY(-2px);
+    border-color: var(--gold);
+    background: linear-gradient(135deg, var(--wine-deep) 0%, var(--wine) 100%);
     box-shadow:
-      0 0 36px color-mix(in oklab, var(--cyan) 40%, transparent),
-      0 0 80px color-mix(in oklab, var(--cyan) 18%, transparent),
-      inset 0 0 24px color-mix(in oklab, var(--cyan) 12%, transparent);
+      0 0 0 1px var(--gold),
+      0 24px 50px -18px color-mix(in oklab, var(--wine) 90%, transparent),
+      0 0 60px -10px color-mix(in oklab, var(--gold) 55%, transparent);
   }
 
   .btn-ghost {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    height: 3.25rem;
-    padding-inline: 1.75rem;
+    gap: 0.6rem;
+    height: 3.5rem;
+    padding-inline: 2rem;
     background: transparent;
-    border: 1px solid oklch(1 0 0 / 0.18);
-    color: var(--silver);
+    border: 1px solid color-mix(in oklab, var(--wine) 45%, transparent);
+    border-radius: 999px;
+    color: var(--wine-deep);
     font-family: var(--font-display);
-    font-size: 0.75rem;
+    font-size: 0.78rem;
     font-weight: 500;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    transition: all 0.25s ease;
+    transition: all 0.35s ease;
   }
   .btn-ghost:hover {
-    border-color: color-mix(in oklab, var(--cyan) 50%, transparent);
-    color: var(--cyan-glow);
-    background: color-mix(in oklab, var(--cyan) 6%, transparent);
+    border-color: var(--wine);
+    color: var(--wine);
+    background: color-mix(in oklab, var(--wine) 6%, transparent);
+    transform: translateY(-1px);
   }
 
   /* Particle dust — subtle background dots */
@@ -602,86 +645,76 @@
     width: 100%;
     background: transparent;
     border: 0;
-    border-bottom: 1px solid color-mix(in oklab, var(--surface-tint) 14%, transparent);
-    padding: 0.5rem 0;
-    color: var(--silver);
+    border-bottom: 1px solid color-mix(in oklab, var(--wine) 22%, transparent);
+    padding: 0.6rem 0;
+    color: var(--text);
     font-family: inherit;
     font-size: 1rem;
     outline: none;
     transition: border-color 200ms ease;
   }
-  .lead-input::placeholder { color: color-mix(in oklab, var(--silver) 40%, transparent); }
+  .lead-input::placeholder { color: var(--text-faint); }
   .lead-input:focus {
-    border-bottom-color: var(--cyan);
-    box-shadow: 0 1px 0 0 var(--cyan);
+    border-bottom-color: var(--wine);
+    box-shadow: 0 1px 0 0 var(--wine);
   }
 
   /* ─────────── Light luxe card ───────────
    * Cream-glass surface with dark wine text — used on the light
    * rose/cream gradient pages so content stays highly readable. */
+  /* Luxury card — clean white with whisper-rose tint and gold hairline */
   .card-lux {
     position: relative;
-    background: color-mix(in oklab, white 72%, var(--silver) 28%);
-    backdrop-filter: blur(10px) saturate(120%);
-    -webkit-backdrop-filter: blur(10px) saturate(120%);
-    border: 1px solid color-mix(in oklab, var(--gold-heading) 32%, transparent);
-    border-radius: 4px;
-    color: #2A1118;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(252,248,250,0.92) 100%);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    border: 1px solid color-mix(in oklab, var(--gold) 22%, var(--rose-mist));
+    border-radius: 24px;
+    color: var(--text);
     box-shadow:
-      0 1px 0 0 color-mix(in oklab, white 70%, transparent) inset,
-      0 18px 40px -24px color-mix(in oklab, #6a2735 55%, transparent),
-      0 4px 14px -10px color-mix(in oklab, var(--gold-heading) 30%, transparent);
-    transition: border-color 0.4s ease, box-shadow 0.5s ease, transform 0.4s ease;
+      inset 0 1px 0 0 rgba(255,255,255,0.95),
+      0 22px 48px -28px color-mix(in oklab, var(--wine) 28%, transparent),
+      0 4px 14px -10px color-mix(in oklab, var(--gold) 22%, transparent);
+    transition: border-color 0.5s ease, box-shadow 0.6s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .card-lux:hover {
-    border-color: color-mix(in oklab, var(--gold-heading) 70%, transparent);
-    transform: translateY(-2px);
+    border-color: color-mix(in oklab, var(--gold) 55%, transparent);
+    transform: translateY(-3px) scale(1.01);
     box-shadow:
-      0 1px 0 0 color-mix(in oklab, white 80%, transparent) inset,
-      0 26px 60px -28px color-mix(in oklab, #6a2735 65%, transparent),
-      0 0 0 1px color-mix(in oklab, var(--gold-heading) 35%, transparent),
-      0 6px 22px -10px color-mix(in oklab, var(--gold-heading) 45%, transparent);
+      inset 0 1px 0 0 rgba(255,255,255,1),
+      0 32px 70px -28px color-mix(in oklab, var(--wine) 38%, transparent),
+      0 0 0 1px color-mix(in oklab, var(--gold) 30%, transparent),
+      0 8px 28px -12px color-mix(in oklab, var(--gold) 40%, transparent);
   }
-  .card-lux h3 {
-    color: var(--gold-heading-deep);
-    text-shadow: 0 1px 0 color-mix(in oklab, white 60%, transparent);
-  }
+  .card-lux h3 { color: var(--text); text-shadow: none; }
   .card-lux p,
   .card-lux li,
-  .card-lux span {
-    color: #3a1a22;
-  }
+  .card-lux span { color: var(--text-muted); }
   .card-lux .smallcaps,
   .card-lux .text-cyan,
-  .card-lux .text-cyan-glow {
-    color: var(--gold-heading-deep);
-    text-shadow: none;
-  }
+  .card-lux .text-cyan-glow { color: var(--wine); text-shadow: none; }
   .card-lux .text-silver,
   .card-lux .text-silver\/85,
   .card-lux .text-silver\/80,
-  .card-lux .text-silver\/75 {
-    color: #2A1118;
-  }
-  .card-lux .text-silver-dim {
-    color: #5a3540;
-  }
+  .card-lux .text-silver\/75 { color: var(--text); }
+  .card-lux .text-silver-dim { color: var(--text-muted); }
   .card-lux .text-gradient-cyan {
-    background: linear-gradient(135deg, var(--gold-heading) 0%, var(--gold-heading-deep) 100%);
+    background: linear-gradient(120deg, var(--wine) 0%, var(--wine-deep) 60%, var(--gold-soft) 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     text-shadow: none;
   }
   .card-lux .btn-ghost {
-    color: var(--gold-heading-deep);
-    border-color: color-mix(in oklab, var(--gold-heading) 55%, transparent);
+    color: var(--wine-deep);
+    border-color: color-mix(in oklab, var(--wine) 40%, transparent);
     background: transparent;
   }
   .card-lux .btn-ghost:hover {
-    color: #2A1118;
-    border-color: var(--gold-heading);
-    background: color-mix(in oklab, var(--gold-heading) 14%, transparent);
+    color: var(--wine);
+    border-color: var(--wine);
+    background: color-mix(in oklab, var(--wine) 6%, transparent);
   }
 }
 
@@ -729,9 +762,9 @@
  * Hairline ornaments separate them softly. */
 .section-wine {
   background:
-    radial-gradient(ellipse 70% 50% at 20% 0%, color-mix(in oklab, var(--cyan) 14%, transparent), transparent 60%),
-    radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--champagne) 8%, transparent), transparent 65%),
-    linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 50%, var(--ink-deep) 100%);
+    radial-gradient(ellipse 70% 50% at 20% 0%, color-mix(in oklab, var(--wine) 8%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 7%, transparent), transparent 65%),
+    var(--paper);
 }
 .section-wine::before {
   content: "";
@@ -749,9 +782,9 @@
 
 .section-tint {
   background:
-    radial-gradient(ellipse 50% 40% at 80% 10%, color-mix(in oklab, var(--champagne) 10%, transparent), transparent 60%),
-    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in oklab, var(--cyan) 12%, transparent), transparent 60%),
-    var(--ink-soft);
+    radial-gradient(ellipse 50% 40% at 80% 10%, color-mix(in oklab, var(--gold) 7%, transparent), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 10% 90%, color-mix(in oklab, var(--wine) 6%, transparent), transparent 60%),
+    var(--paper-soft);
 }
 
 /* Ornamental hairline divider between sections */
@@ -759,18 +792,18 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: min(680px, 80%);
+  width: min(720px, 80%);
   height: 1px;
   pointer-events: none;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    color-mix(in oklab, var(--champagne) 35%, transparent) 30%,
-    color-mix(in oklab, var(--champagne-glow) 60%, transparent) 50%,
-    color-mix(in oklab, var(--champagne) 35%, transparent) 70%,
+    color-mix(in oklab, var(--gold) 45%, transparent) 30%,
+    var(--gold) 50%,
+    color-mix(in oklab, var(--gold) 45%, transparent) 70%,
     transparent 100%
   );
-  opacity: 0.55;
+  opacity: 0.6;
 }
 .section-divider-top { top: 0; }
 .section-divider-bottom { bottom: 0; }
