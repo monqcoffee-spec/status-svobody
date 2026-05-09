@@ -6,13 +6,13 @@ import iconBot from "@/assets/icons-3d/bot.png";
 export function BotIntensive() {
   return (
     <Section variant="darker" id="bot-intensive">
-      <SectionLabel n="06" title="Telegram-интенсив" />
+      <SectionLabel n="06" title="Открытый чат-бот" />
       <H2 className="mt-8 max-w-3xl">
-        Бесплатный <span className="text-cyan italic">интенсив по банкротству</span>
+        Телеграм <span className="text-cyan italic">интенсив</span>
       </H2>
       <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Закрытый Telegram-бот: пошаговое сопровождение, чек-листы и
-        материалы от финансового поверенного. Без воды — практика, которая
+        Пошаговая дорожная карта банкротства. Рассказываю всю правду о
+        процедуре: подходите вы или нет. Без воды — практика, которая
         работает в 2026 году.
       </p>
 
@@ -27,34 +27,13 @@ export function BotIntensive() {
         />
         <div className="relative grid gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-1.5 smallcaps rounded-full"
-              style={{
-                border: "1px solid color-mix(in oklab, var(--gold) 45%, transparent)",
-                background: "color-mix(in oklab, white 80%, var(--paper-tint))",
-                color: "var(--wine-deep)",
-              }}
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              Premium digital product
-            </div>
-            <h3 className="mt-6 font-display text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
+            <h3 className="font-display text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
               Получите доступ <br />
               к закрытому интенсиву
             </h3>
-            <ul className="mt-8 space-y-3 text-base md:text-lg" style={{ color: "var(--text-muted)" }}>
-              {[
-                "Пошаговая дорожная карта банкротства",
-                "Шаблоны заявлений и расчётов",
-                "Видео-разборы реальных кейсов",
-                "Прямые ответы поверенного в боте",
-              ].map((b) => (
-                <li key={b} className="flex gap-3">
-                  <span className="mt-2 h-1 w-3 shrink-0 rounded-full" style={{ background: "linear-gradient(90deg, var(--gold), var(--wine))" }} />
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
+            <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              Без воды — практика, которая работает в 2026 году.
+            </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
                 href="https://t.me/status_svobody_bot"
@@ -62,7 +41,6 @@ export function BotIntensive() {
                 rel="noopener"
                 className="btn-cyan group"
               >
-                <Send className="h-4 w-4" />
                 <span>Перейти в бот</span>
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
@@ -91,10 +69,7 @@ export function BotIntensive() {
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
                 <IconArt src={iconBot} alt="" size="lg" />
                 <div className="font-display text-2xl" style={{ color: "var(--text)" }}>@status_svobody_bot</div>
-                <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Закрытый канал</div>
-                <div className="text-sm" style={{ color: "var(--text-muted)" }}>
-                  Доступ открывается лично — после короткого диалога с поверенным.
-                </div>
+                <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Открытый чат-бот</div>
               </div>
             </div>
           </div>
