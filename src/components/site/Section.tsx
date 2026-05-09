@@ -12,12 +12,15 @@ export function Section({ variant = "default", className, children, id }: Props)
   return (
     <section
       id={id}
+      data-variant={variant}
       className={cn(
         "relative py-24 md:py-32 overflow-hidden [contain:paint]",
         // Light variants stay fully transparent so the unified white base
         // background shows through. Only wine/darker get a tinted wash,
         // applied via the overlay div below.
         "bg-transparent",
+        // On dim variants, lift child text contrast (see styles.css).
+        isDim && "section-dim",
         className,
       )}
     >
