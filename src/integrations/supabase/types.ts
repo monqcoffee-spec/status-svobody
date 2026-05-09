@@ -192,6 +192,39 @@ export type Database = {
         }
         Relationships: []
       }
+      credit_report_verifications: {
+        Row: {
+          bureau: string
+          created_at: string
+          id: string
+          model: string | null
+          notes: string | null
+          report_id: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          bureau: string
+          created_at?: string
+          id?: string
+          model?: string | null
+          notes?: string | null
+          report_id: string
+          status: string
+          user_id: string
+        }
+        Update: {
+          bureau?: string
+          created_at?: string
+          id?: string
+          model?: string | null
+          notes?: string | null
+          report_id?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       credit_reports: {
         Row: {
           bureau: string

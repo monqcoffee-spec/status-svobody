@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 import { verifyCreditReport } from "@/lib/portal.functions";
 import { toast } from "sonner";
-import { Upload, Check, AlertTriangle, Loader2, FileText, CreditCard, Download, ArrowLeft } from "lucide-react";
+import { Upload, Check, AlertTriangle, Loader2, FileText, CreditCard, Download, ArrowLeft, Sparkles } from "lucide-react";
 
 type Bureau = "nbki" | "okb" | "sb";
 const BUREAUS: { key: Bureau; label: string; sub: string }[] = [
@@ -122,6 +122,9 @@ function CreditModule() {
         <p className="text-xs uppercase tracking-[0.3em] text-cyan">Модуль 1</p>
         <h1 className="display mt-2 text-3xl md:text-4xl text-foreground">Восстановление кредитной истории</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">Загрузите три отчёта. Система автоматически проверит, что это действительно нужное бюро и что документ читается.</p>
+        <Link to="/portal/credit/verification" className="mt-4 inline-flex items-center gap-2 rounded-sm border border-cyan/30 bg-cyan/5 px-4 py-2 text-sm text-cyan hover:border-cyan/60 transition">
+          <Sparkles className="h-4 w-4" /> Результаты AI-проверки и история
+        </Link>
       </header>
 
       <Steps allVerified={allVerified} kase={kase!} />
