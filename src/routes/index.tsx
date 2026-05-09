@@ -335,7 +335,7 @@ function Process() {
       <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
           <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7 transition-all">
-            <IconArt src={s.art} alt={s.t} size="lg" />
+            <IconArt src={s.art} alt="" size="lg" />
             <div className="flex-1">
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
@@ -436,7 +436,7 @@ function Services() {
             delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
             className="card-lux group/card flex gap-5 p-7"
           >
-            <IconArt src={s.art} alt={s.t} size="md" />
+            <IconArt src={s.art} alt="" size="md" />
             <div>
               <h3 className="font-display text-lg md:text-xl leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
@@ -519,7 +519,7 @@ function Pricing() {
                 }}
               >Популярный</div>
             )}
-            <IconArt src={p.art} alt={p.t} size="lg" className="mb-4" />
+            <IconArt src={p.art} alt="" size="lg" className="mb-4" />
             <h3 className="font-display text-2xl md:text-3xl leading-snug">{p.t}</h3>
             <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
             <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">{p.price}</div>
@@ -661,7 +661,7 @@ function EntryPoint() {
             </div>
 
             <div className="card-lux relative inline-flex w-full items-center gap-4 px-6 py-4">
-              <IconArt src={iconPhone} alt="Телефон" size="xs" />
+              <IconArt src={iconPhone} alt="" size="xs" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Телефон</div>
                 <a href="tel:+79654457378" className="font-display text-lg tabular transition-colors" style={{ color: "#2A1118" }}>
@@ -677,7 +677,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <IconArt src={iconTelegram} alt="Telegram-канал" size="xs" />
+                <IconArt src={iconTelegram} alt="" size="xs" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram-канал</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
@@ -689,7 +689,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <IconArt src={iconBot} alt="Бесплатный интенсив" size="xs" />
+                <IconArt src={iconBot} alt="" size="xs" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Бесплатный интенсив</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>@status_svobody_bot</div>
