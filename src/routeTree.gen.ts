@@ -15,6 +15,7 @@ import { Route as BankruptcyRouteImport } from './routes/bankruptcy'
 import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedPortalRouteImport } from './routes/_authenticated/portal'
+import { Route as AuthenticatedPortalCreditRouteImport } from './routes/_authenticated/portal.credit'
 
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
@@ -45,20 +46,28 @@ const AuthenticatedPortalRoute = AuthenticatedPortalRouteImport.update({
   path: '/portal',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedPortalCreditRoute =
+  AuthenticatedPortalCreditRouteImport.update({
+    id: '/credit',
+    path: '/credit',
+    getParentRoute: () => AuthenticatedPortalRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/bankruptcy': typeof BankruptcyRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
-  '/portal': typeof AuthenticatedPortalRoute
+  '/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/bankruptcy': typeof BankruptcyRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
-  '/portal': typeof AuthenticatedPortalRoute
+  '/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -67,13 +76,20 @@ export interface FileRoutesById {
   '/bankruptcy': typeof BankruptcyRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
-  '/_authenticated/portal': typeof AuthenticatedPortalRoute
+  '/_authenticated/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/_authenticated/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/bankruptcy' | '/login' | '/signup' | '/portal'
+  fullPaths:
+    | '/'
+    | '/bankruptcy'
+    | '/login'
+    | '/signup'
+    | '/portal'
+    | '/portal/credit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bankruptcy' | '/login' | '/signup' | '/portal'
+  to: '/' | '/bankruptcy' | '/login' | '/signup' | '/portal' | '/portal/credit'
   id:
     | '__root__'
     | '/'
@@ -82,6 +98,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/_authenticated/portal'
+    | '/_authenticated/portal/credit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -136,15 +153,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPortalRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/portal/credit': {
+      id: '/_authenticated/portal/credit'
+      path: '/credit'
+      fullPath: '/portal/credit'
+      preLoaderRoute: typeof AuthenticatedPortalCreditRouteImport
+      parentRoute: typeof AuthenticatedPortalRoute
+    }
   }
 }
 
+interface AuthenticatedPortalRouteChildren {
+  AuthenticatedPortalCreditRoute: typeof AuthenticatedPortalCreditRoute
+}
+
+const AuthenticatedPortalRouteChildren: AuthenticatedPortalRouteChildren = {
+  AuthenticatedPortalCreditRoute: AuthenticatedPortalCreditRoute,
+}
+
+const AuthenticatedPortalRouteWithChildren =
+  AuthenticatedPortalRoute._addFileChildren(AuthenticatedPortalRouteChildren)
+
 interface AuthenticatedRouteChildren {
-  AuthenticatedPortalRoute: typeof AuthenticatedPortalRoute
+  AuthenticatedPortalRoute: typeof AuthenticatedPortalRouteWithChildren
 }
 
 const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
-  AuthenticatedPortalRoute: AuthenticatedPortalRoute,
+  AuthenticatedPortalRoute: AuthenticatedPortalRouteWithChildren,
 }
 
 const AuthenticatedRouteWithChildren = AuthenticatedRoute._addFileChildren(
@@ -161,3 +196,12 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}
