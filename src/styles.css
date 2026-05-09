@@ -673,6 +673,16 @@
     color: transparent;
     text-shadow: none;
   }
+  .card-lux .btn-ghost {
+    color: var(--gold-heading-deep);
+    border-color: color-mix(in oklab, var(--gold-heading) 55%, transparent);
+    background: transparent;
+  }
+  .card-lux .btn-ghost:hover {
+    color: #2A1118;
+    border-color: var(--gold-heading);
+    background: color-mix(in oklab, var(--gold-heading) 14%, transparent);
+  }
 }
 
 /* Highlight pulse for the contact section when scrolled to from CTAs */
