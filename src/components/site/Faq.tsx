@@ -41,13 +41,12 @@ export function Faq() {
           return (
             <li
               key={it.q}
-              className="glass relative overflow-hidden border border-white/10 transition-all duration-500 hover:border-cyan/40"
-              style={{
-                borderRadius: "2px",
-                boxShadow: isOpen
-                  ? "0 0 32px color-mix(in oklab, var(--cyan) 22%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)"
-                  : undefined,
-              }}
+              className="card-lux relative overflow-hidden transition-all duration-500"
+              style={isOpen ? {
+                borderColor: "color-mix(in oklab, var(--gold-heading) 70%, transparent)",
+                boxShadow:
+                  "0 0 0 1px color-mix(in oklab, var(--gold-heading) 45%, transparent), 0 18px 40px -20px color-mix(in oklab, #6a2735 50%, transparent)",
+              } : undefined}
             >
               {isOpen && (
                 <span
@@ -55,7 +54,7 @@ export function Faq() {
                   className="pointer-events-none absolute inset-x-0 top-0 h-px"
                   style={{
                     background:
-                      "linear-gradient(90deg, transparent, color-mix(in oklab, var(--cyan) 70%, transparent), transparent)",
+                      "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold-heading) 80%, transparent), transparent)",
                   }}
                 />
               )}
@@ -65,17 +64,19 @@ export function Faq() {
                 className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left"
               >
                 <span
-                  className={`font-display text-lg md:text-xl leading-snug transition-colors duration-500 ${
-                    isOpen ? "text-cyan-glow" : "text-silver"
-                  }`}
+                  className="font-display text-lg md:text-xl leading-snug transition-colors duration-500"
+                  style={{ color: isOpen ? "var(--gold-heading)" : "var(--gold-heading-deep)" }}
                 >
                   {it.q}
                 </span>
                 <Plus
-                  className={`h-5 w-5 shrink-0 text-cyan transition-all duration-500 ${
+                  className={`h-5 w-5 shrink-0 transition-all duration-500 ${
                     isOpen ? "rotate-[135deg] scale-110" : ""
                   }`}
-                  style={isOpen ? { filter: "drop-shadow(0 0 8px var(--cyan))" } : undefined}
+                  style={{
+                    color: "var(--gold-heading-deep)",
+                    filter: isOpen ? "drop-shadow(0 0 8px var(--gold-heading))" : undefined,
+                  }}
                 />
               </button>
               <div
@@ -84,7 +85,7 @@ export function Faq() {
               >
                 <div className="min-h-0">
                   <p
-                    className={`px-7 pb-6 text-base md:text-lg leading-relaxed text-silver-dim transition-all duration-700 ${
+                    className={`px-7 pb-6 text-base md:text-lg leading-relaxed transition-all duration-700 ${
                       isOpen
                         ? "translate-y-0 opacity-100 blur-0"
                         : "-translate-y-2 opacity-0 blur-sm"
