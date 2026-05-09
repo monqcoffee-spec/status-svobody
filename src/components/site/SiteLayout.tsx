@@ -3,6 +3,7 @@ import { SiteFooter } from "./SiteFooter";
 import { FloatingContacts } from "./FloatingContacts";
 import { ScrollTopButton } from "./ScrollTopButton";
 import { GoldParticles } from "./GoldParticles";
+import bgSunriseVeil from "@/assets/bg-sunrise-veil.jpg";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,8 +11,27 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       className="relative flex min-h-screen flex-col"
       style={{ background: "var(--paper)", color: "var(--text)" }}
     >
-      {/* Premium ambient layer — clean white with whisper wine + gold glows */}
+      {/* Premium ambient layer — sunrise veil + animated golden rays */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        {/* Base sunrise veil image, fixed across whole site */}
+        <div
+          className="absolute inset-0 bg-center bg-cover"
+          style={{
+            backgroundImage: `url(${bgSunriseVeil})`,
+            opacity: 0.55,
+          }}
+        />
+        {/* Soft white wash so content stays readable */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, color-mix(in oklab, var(--paper) 55%, transparent) 0%, color-mix(in oklab, var(--paper) 75%, transparent) 50%, color-mix(in oklab, var(--paper) 92%, transparent) 100%)",
+          }}
+        />
+        {/* Animated sun glow + rotating rays */}
+        <div className="sun-glow" />
+        <div className="sunrays" />
         {/* Top-left wine light shaft */}
         <div
           className="absolute -top-40 -left-40 h-[44rem] w-[44rem] rounded-full opacity-[0.35] animate-drift"
