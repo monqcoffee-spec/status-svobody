@@ -12,9 +12,10 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse 70% 50% at 50% 0%, color-mix(in oklab, var(--cyan-soft) 35%, transparent), transparent 65%)," +
-            "radial-gradient(ellipse 90% 60% at 100% 100%, color-mix(in oklab, var(--teal) 28%, transparent), transparent 70%)," +
-            "radial-gradient(ellipse 80% 50% at 0% 50%, color-mix(in oklab, var(--cyan) 14%, transparent), transparent 70%)," +
+            "radial-gradient(ellipse 60% 40% at 50% 0%, color-mix(in oklab, var(--champagne) 28%, transparent), transparent 65%)," +
+            "radial-gradient(ellipse 70% 50% at 50% 0%, color-mix(in oklab, var(--cyan) 22%, transparent), transparent 70%)," +
+            "radial-gradient(ellipse 90% 60% at 100% 100%, color-mix(in oklab, var(--cyan-soft) 30%, transparent), transparent 70%)," +
+            "radial-gradient(ellipse 80% 50% at 0% 50%, color-mix(in oklab, var(--champagne-soft) 18%, transparent), transparent 70%)," +
             "linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 50%, var(--ink-deep) 100%)",
         }}
       />
@@ -24,7 +25,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           className="absolute -top-24 -left-24 h-[42rem] w-[42rem] rounded-full opacity-60 mix-blend-screen animate-drift"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--cyan-glow) 22%, transparent) 0%, transparent 60%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--champagne) 30%, transparent) 0%, transparent 60%)",
             filter: "blur(80px)",
           }}
         />
@@ -32,7 +33,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           className="absolute top-1/3 -right-32 h-[38rem] w-[38rem] rounded-full opacity-55 mix-blend-screen animate-float"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--cyan) 28%, transparent) 0%, transparent 60%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--cyan) 32%, transparent) 0%, transparent 60%)",
             filter: "blur(90px)",
           }}
         />
@@ -40,7 +41,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
           className="absolute bottom-0 left-1/3 h-[34rem] w-[34rem] rounded-full opacity-50 mix-blend-screen animate-drift"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--teal) 35%, transparent) 0%, transparent 60%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--champagne-glow) 26%, transparent) 0%, transparent 60%)",
             filter: "blur(100px)",
             animationDelay: "4s",
           }}
