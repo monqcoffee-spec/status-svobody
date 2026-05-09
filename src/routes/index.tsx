@@ -128,7 +128,7 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden md:-mt-24">
+    <section className="relative overflow-hidden">
       <h1 className="sr-only">
         Статус Свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
