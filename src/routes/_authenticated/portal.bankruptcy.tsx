@@ -121,7 +121,7 @@ function BankruptcyModule() {
   );
 }
 
-function Questionnaire({ kase, onSave }: { kase: BCase; onSave: (u: Partial<BCase>) => Promise<void> }) {
+function Questionnaire({ kase, onSave }: { kase: BCase; onSave: (u: Partial<BCase>) => Promise<unknown> }) {
   const [marital, setMarital] = useState<"single" | "married" | "divorced">(kase.marital_status ?? "single");
   const [children, setChildren] = useState(kase.children_count);
   const [realEstate, setRealEstate] = useState(kase.has_real_estate);
@@ -202,7 +202,7 @@ function Toggle({ checked, onChange, label }: { checked: boolean; onChange: (v: 
   );
 }
 
-function Checklist({ docs, onUpload }: { docs: Doc[]; onUpload: (d: Doc, f: File) => Promise<void> }) {
+function Checklist({ docs, onUpload }: { docs: Doc[]; onUpload: (d: Doc, f: File) => Promise<unknown> }) {
   const remaining = docs.filter(d => !d.file_path).length;
   const total = docs.length;
   return (
@@ -221,7 +221,7 @@ function Checklist({ docs, onUpload }: { docs: Doc[]; onUpload: (d: Doc, f: File
   );
 }
 
-function ChecklistRow({ doc, onUpload }: { doc: Doc; onUpload: (d: Doc, f: File) => Promise<void> }) {
+function ChecklistRow({ doc, onUpload }: { doc: Doc; onUpload: (d: Doc, f: File) => Promise<unknown> }) {
   const ref = useRef<HTMLInputElement>(null);
   const done = !!doc.file_path;
   return (

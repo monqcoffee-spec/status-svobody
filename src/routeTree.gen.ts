@@ -16,6 +16,7 @@ import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedPortalRouteImport } from './routes/_authenticated/portal'
 import { Route as AuthenticatedPortalCreditRouteImport } from './routes/_authenticated/portal.credit'
+import { Route as AuthenticatedPortalBankruptcyRouteImport } from './routes/_authenticated/portal.bankruptcy'
 
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
@@ -52,6 +53,12 @@ const AuthenticatedPortalCreditRoute =
     path: '/credit',
     getParentRoute: () => AuthenticatedPortalRoute,
   } as any)
+const AuthenticatedPortalBankruptcyRoute =
+  AuthenticatedPortalBankruptcyRouteImport.update({
+    id: '/bankruptcy',
+    path: '/bankruptcy',
+    getParentRoute: () => AuthenticatedPortalRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
   '/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRoutesByTo {
@@ -67,6 +75,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
   '/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRoutesById {
@@ -77,6 +86,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
   '/_authenticated/portal': typeof AuthenticatedPortalRouteWithChildren
+  '/_authenticated/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
   '/_authenticated/portal/credit': typeof AuthenticatedPortalCreditRoute
 }
 export interface FileRouteTypes {
@@ -87,9 +97,17 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/portal'
+    | '/portal/bankruptcy'
     | '/portal/credit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/bankruptcy' | '/login' | '/signup' | '/portal' | '/portal/credit'
+  to:
+    | '/'
+    | '/bankruptcy'
+    | '/login'
+    | '/signup'
+    | '/portal'
+    | '/portal/bankruptcy'
+    | '/portal/credit'
   id:
     | '__root__'
     | '/'
@@ -98,6 +116,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/signup'
     | '/_authenticated/portal'
+    | '/_authenticated/portal/bankruptcy'
     | '/_authenticated/portal/credit'
   fileRoutesById: FileRoutesById
 }
@@ -160,14 +179,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedPortalCreditRouteImport
       parentRoute: typeof AuthenticatedPortalRoute
     }
+    '/_authenticated/portal/bankruptcy': {
+      id: '/_authenticated/portal/bankruptcy'
+      path: '/bankruptcy'
+      fullPath: '/portal/bankruptcy'
+      preLoaderRoute: typeof AuthenticatedPortalBankruptcyRouteImport
+      parentRoute: typeof AuthenticatedPortalRoute
+    }
   }
 }
 
 interface AuthenticatedPortalRouteChildren {
+  AuthenticatedPortalBankruptcyRoute: typeof AuthenticatedPortalBankruptcyRoute
   AuthenticatedPortalCreditRoute: typeof AuthenticatedPortalCreditRoute
 }
 
 const AuthenticatedPortalRouteChildren: AuthenticatedPortalRouteChildren = {
+  AuthenticatedPortalBankruptcyRoute: AuthenticatedPortalBankruptcyRoute,
   AuthenticatedPortalCreditRoute: AuthenticatedPortalCreditRoute,
 }
 
