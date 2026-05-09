@@ -461,6 +461,7 @@ function Pricing() {
       meta: "Включает 1 консультацию",
       features: ["Аудит отчётов в трёх БКИ", "Письменное заключение", "План действий"],
       highlight: false,
+      art: iconTierBasic,
     },
     {
       t: "Премиум",
@@ -469,6 +470,7 @@ function Pricing() {
       meta: "Включает 3 консультации",
       features: ["До 5 оспариваний в БКИ", "Переговоры с банками и коллекторами", "Сопровождение юриста"],
       highlight: true,
+      art: iconTierPremium,
     },
     {
       t: "Платинум — комплексный подход",
@@ -477,6 +479,7 @@ function Pricing() {
       meta: "5 консультаций · сопровождение 6 месяцев",
       features: ["Все направления под одним юристом", "Снятие арестов ФССП", "Выкуп долгов с дисконтом", "Контроль исполнения решений"],
       highlight: false,
+      art: iconTierPlatinum,
     },
   ];
   return (
@@ -519,6 +522,7 @@ function Pricing() {
                 }}
               >Популярный</div>
             )}
+            <IconArt src={p.art} alt={p.t} size="lg" className="mb-4" />
             <h3 className="font-display text-2xl md:text-3xl leading-snug">{p.t}</h3>
             <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
             <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">{p.price}</div>
