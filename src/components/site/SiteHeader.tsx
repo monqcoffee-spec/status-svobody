@@ -52,15 +52,15 @@ export function SiteHeader() {
           }}
         />
       )}
-      <div className="container-tight flex h-24 md:h-28 items-center justify-between gap-4 md:gap-6">
+      <div className="container-tight flex h-28 md:h-36 items-center justify-between gap-4 md:gap-6">
         <Link
           to="/"
           aria-label="Статус Свободы — на главную"
           className="group flex items-center gap-3 md:gap-4 min-w-0"
         >
           <Logo
-            size={88}
-            className="h-16 md:h-20 transition-transform duration-700 group-hover:rotate-[4deg]"
+            size={120}
+            className="h-20 md:h-28 transition-transform duration-700 group-hover:rotate-[4deg]"
           />
           <div className="leading-tight min-w-0 hidden sm:block">
             <div className="font-display text-[12px] md:text-[14px] tracking-[0.34em] uppercase whitespace-nowrap" style={{ color: "var(--text)" }}>
@@ -87,17 +87,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <a
-            href="https://t.me/status_svobody_bot"
-            target="_blank"
-            rel="noopener"
-            className="hidden lg:inline-flex btn-cyan h-11 px-6 text-[10px]"
-            style={{ height: "2.75rem" }}
-          >
-            <span className="relative h-1.5 w-1.5 rounded-full animate-pulse-glow" style={{ background: "var(--gold-light)", boxShadow: "0 0 10px var(--gold-light)" }} />
-            Консультация
-          </a>
-
           <button
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}

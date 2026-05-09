@@ -163,6 +163,19 @@ function Hero() {
           loading="eager"
           fetchPriority="high"
         />
+        <div
+          className="mt-6 md:mt-8 text-center font-display tracking-[0.32em] uppercase text-[13px] sm:text-base md:text-xl"
+          style={{
+            backgroundImage:
+              "linear-gradient(90deg, var(--gold-soft), var(--wine-deep) 50%, var(--gold-soft))",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            textShadow: "0 0 24px color-mix(in oklab, var(--gold) 30%, transparent)",
+          }}
+        >
+          Статус Свободы Юлии Арминой
+        </div>
       </div>
 
       <div className="relative container-tight pt-10 pb-24 md:pt-16 md:pb-36 lg:pt-20 lg:pb-40">
