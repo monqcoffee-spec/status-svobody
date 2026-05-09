@@ -52,7 +52,7 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
 export function H2({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <h2
-      className={cn("display text-4xl md:text-6xl lg:text-7xl", className)}
+      className={cn("display text-[2rem] leading-[1.08] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl", className)}
       style={{ color: "var(--text)", letterSpacing: "-0.035em" }}
     >
       {children}
