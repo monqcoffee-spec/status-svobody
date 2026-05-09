@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import {
   ArrowUpRight,
   Check,
-  Database,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
@@ -35,6 +34,10 @@ import iconFaq from "@/assets/icons-3d/faq.png";
 import iconPhone from "@/assets/icons-3d/phone.png";
 import iconTelegram from "@/assets/icons-3d/telegram.png";
 import iconBot from "@/assets/icons-3d/bot.png";
+import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
+import iconDataCourt from "@/assets/icons-3d/data-court.png";
+import iconDataBankruptcy from "@/assets/icons-3d/data-bankruptcy.png";
+import iconDataScore from "@/assets/icons-3d/data-score.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
