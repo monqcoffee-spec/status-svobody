@@ -1326,3 +1326,8 @@
   .testimonial-card, .testimonial-cta { transition: none; }
   .testimonial-card:hover, .testimonial-cta:hover { transform: none; }
 }
+
+@keyframes scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
