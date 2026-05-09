@@ -94,5 +94,15 @@ export const verifyCreditReport = createServerFn({ method: "POST" })
       verification_notes: notes,
     }).eq("id", report.id);
 
+    // Log to history
+    await supabase.from("credit_report_verifications").insert({
+      report_id: report.id,
+      user_id: userId,
+      bureau: report.bureau,
+      status,
+      notes,
+      model: "google/gemini-2.5-flash",
+    });
+
     return { status, notes };
   });
