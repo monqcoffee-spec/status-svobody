@@ -76,39 +76,62 @@
 :root {
   --radius: 0.25rem;
 
-  /* Brand palette — neutral black base with rose-burgundy + gold trail.
-   * Tone anchors (from reference): #D9C8D5 · #BD93AD · #A26… · #874255 ·
-   * #6C2A2D · #501410 · #350E03. Token names "cyan/teal" kept for compat. */
-  --ink: #0A0708;                            /* page surface — near-black */
-  --ink-deep: #050304;                       /* deepest black */
-  --ink-soft: #140E10;                       /* card / panel — lifted black with rose tint */
-  --cyan: #874255;                           /* primary rose accent */
-  --cyan-soft: #6C2A2D;                      /* mid burgundy — secondary */
-  --cyan-glow: #BD93AD;                      /* pale rose — highlight glow */
-  --teal: #501410;                           /* deep wine — accent shadow */
-  --silver: #D9C8D5;                         /* pale rose ivory text */
-  --silver-dim: oklch(0.68 0.030 350);       /* dusty rose muted text */
+  /* ─── STATUS SVOBODY · Luxury Minimalism ─────────────────────────────
+   * White / deep-black base with wine accent (#874255) and refined gold.
+   * Kept legacy token names (cyan/teal/champagne) as aliases so the rest
+   * of the codebase keeps working without touching every component.    */
 
-  /* Premium accent — champagne (default) + rose accent (hover/active) */
-  --champagne: #E8D4A8;                      /* warm champagne gold */
-  --champagne-soft: #C9B488;                 /* muted champagne */
-  --champagne-glow: #F5E6C2;                 /* light champagne highlight */
-  --rose-accent: #E8A7B0;                    /* warm rose accent */
-  --rose-accent-soft: #C97987;               /* muted rose */
+  /* Surfaces */
+  --paper: #FFFFFF;                          /* clean white */
+  --paper-soft: #FAF8F7;                     /* warm white */
+  --paper-tint: #F4ECEE;                     /* whisper-rose */
+  --ink: #0F0B0D;                            /* near-black panel */
+  --ink-deep: #0B0808;                       /* deepest black */
+  --ink-soft: #161113;                       /* lifted black */
 
-  /* Logo gold — used for headings + brand accents */
-  --gold-heading: #D4B26A;                   /* logo gold */
-  --gold-heading-deep: #A8884A;              /* darker gold for light backgrounds */
+  /* Wine spectrum (primary accent) */
+  --wine: #874255;                           /* signature wine */
+  --wine-deep: #6C2A3D;                      /* deeper wine */
+  --wine-rich: #4F1A2A;                      /* almost-black wine */
+  --wine-soft: #A26F86;                      /* dusty rose-mauve */
+  --rose-quartz: #BD93AD;                    /* pale rose */
+  --rose-mist: #D9C8D5;                      /* whisper rose */
+
+  /* Gold spectrum (premium accent) */
+  --gold: #C9A86A;                           /* refined gold */
+  --gold-soft: #B6915A;                      /* deeper gold */
+  --gold-light: #E4C77A;                     /* highlight gold */
+  --gold-mist: #F1E2C0;                      /* champagne mist */
+
+  /* Text */
+  --text: #14080C;                           /* near-black w/ wine undertone */
+  --text-muted: #6B5560;                     /* readable muted */
+  --text-faint: #9B8893;                     /* tertiary */
+
+  /* Legacy aliases (do NOT remove — used across components) */
+  --cyan: var(--wine);
+  --cyan-soft: var(--wine-deep);
+  --cyan-glow: var(--wine-soft);
+  --teal: var(--wine-rich);
+  --silver: #2A1118;                         /* now reads as dark text on light */
+  --silver-dim: var(--text-muted);
+  --champagne: var(--gold);
+  --champagne-soft: var(--gold-soft);
+  --champagne-glow: var(--gold-light);
+  --rose-accent: var(--wine-soft);
+  --rose-accent-soft: var(--wine-deep);
+  --gold-heading: var(--gold);
+  --gold-heading-deep: var(--gold-soft);
 
   /* Semantic — dark by default */
-  --background: var(--ink-deep);
-  --foreground: var(--silver);
-  --card: var(--ink-soft);
-  --card-foreground: var(--silver);
-  --popover: var(--ink);
-  --popover-foreground: var(--silver);
-  --primary: var(--cyan);
-  --primary-foreground: var(--ink-deep);
+  --background: var(--paper);
+  --foreground: var(--text);
+  --card: var(--paper-soft);
+  --card-foreground: var(--text);
+  --popover: var(--paper);
+  --popover-foreground: var(--text);
+  --primary: var(--wine);
+  --primary-foreground: #FFFFFF;
   --secondary: oklch(0.18 0.012 240);
   --secondary-foreground: var(--silver);
   --muted: oklch(0.16 0.01 240);
@@ -135,19 +158,19 @@
   --sidebar-ring: var(--cyan);
 
   /* Surfaces / hairlines used by glass + borders, redefined per theme */
-  --surface-tint: #BD93AD;                   /* pale rose — mixed via color-mix in utilities */
-  --surface-edge: color-mix(in oklab, var(--champagne) 28%, transparent);
-  --hero-bg: var(--ink-deep);                /* hero / mobile photo backdrop */
+  --surface-tint: var(--rose-quartz);
+  --surface-edge: color-mix(in oklab, var(--gold) 28%, transparent);
+  --hero-bg: var(--paper);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
 
-  html { color-scheme: dark; }
+  html { color-scheme: light; }
 
   html, body {
-    background-color: #f3dcc7;
-    color: #2A1118;
+    background-color: var(--paper);
+    color: var(--text);
   }
 
   body {
@@ -160,16 +183,14 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.02em;
-    color: var(--gold-heading);
-    text-shadow:
-      0 1px 0 color-mix(in oklab, var(--ink-deep) 40%, transparent),
-      0 0 18px color-mix(in oklab, var(--gold-heading) 25%, transparent);
+    letter-spacing: -0.025em;
+    color: var(--text);
+    text-shadow: none;
   }
 
   /* Selection */
   ::selection {
-    background: color-mix(in oklab, var(--cyan) 35%, transparent);
+    background: color-mix(in oklab, var(--wine) 25%, transparent);
     color: white;
   }
 }
