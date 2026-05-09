@@ -10,7 +10,6 @@ import { ParticleField } from "@/components/site/ParticleField";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
-import { IconBadge } from "@/components/site/IconBadge";
 import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
