@@ -109,8 +109,12 @@
 
   /* Text */
   --text: #14080C;                           /* near-black w/ wine undertone */
-  --text-muted: #6B5560;                     /* readable muted */
-  --text-faint: #9B8893;                     /* tertiary */
+  --text-muted: #4A3A42;                     /* readable muted (premium contrast) */
+  --text-faint: #7A6770;                     /* tertiary */
+
+  /* Card-specific text — keeps body copy crisp on white luxe surfaces */
+  --card-text: #2A1620;
+  --card-text-muted: #4A3A42;
 
   /* Legacy aliases (do NOT remove — used across components) */
   --cyan: var(--wine);
