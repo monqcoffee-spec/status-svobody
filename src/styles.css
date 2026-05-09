@@ -904,7 +904,15 @@
   .card-lux:hover::after { transform: translateX(130%); }
   /* Make sure card content stacks above sheen layers */
   .card-lux > * { position: relative; z-index: 2; }
-  .card-lux h3 { color: var(--card-text); text-shadow: none; font-weight: 500; }
+  .card-lux h3,
+  .card-lux h2,
+  .card-lux h4 {
+    color: var(--card-text);
+    text-shadow: none;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.005em;
+  }
   .card-lux p,
   .card-lux li { color: var(--card-text); }
   .card-lux p.muted,
