@@ -66,7 +66,7 @@ export function SiteHeader() {
             <div
               className={
                 "text-[9px] md:text-[10px] tracking-[0.4em] uppercase mt-1 transition-colors " +
-                (scrolled ? "text-cyan/80" : "text-[color:var(--wine-deep)]/70")
+                (scrolled ? "text-cyan/80" : "text-[color:var(--teal)]/70")
               }
             >
               Premium legal consulting
