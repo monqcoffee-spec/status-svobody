@@ -14,7 +14,7 @@ export function Section({ variant = "default", className, children, id }: Props)
       id={id}
       data-variant={variant}
       className={cn(
-        "relative py-24 md:py-32 overflow-hidden [contain:paint]",
+        "relative py-16 sm:py-20 md:py-28 lg:py-32 overflow-hidden [contain:paint]",
         // Light variants stay fully transparent so the unified white base
         // background shows through. Only wine/darker get a tinted wash,
         // applied via the overlay div below.
