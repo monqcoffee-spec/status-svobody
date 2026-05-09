@@ -24,10 +24,25 @@ export function Logo({
       decoding="async"
       loading="eager"
       style={{
-        mixBlendMode: onDark ? "screen" : "normal",
+        // Keep colors true — no blend modes that muddy mid-tones.
+        mixBlendMode: "normal",
         filter: onDark
-          ? "drop-shadow(0 0 10px rgba(212, 175, 110, 0.65)) drop-shadow(0 0 22px rgba(216, 166, 170, 0.45)) drop-shadow(0 0 40px rgba(176, 83, 95, 0.35))"
-          : "drop-shadow(0 1px 0 rgba(255,255,255,0.6)) drop-shadow(0 2px 6px rgba(74, 20, 30, 0.25)) drop-shadow(0 0 14px rgba(212, 175, 110, 0.45))",
+          ? // Dark theme: tight bright champagne core + warm rose halo.
+            // Layer order: crisp inner contrast → focused gold → soft warm wash.
+            [
+              "drop-shadow(0 0 0.5px rgba(255, 232, 190, 0.9))",
+              "drop-shadow(0 0 6px rgba(232, 196, 132, 0.75))",
+              "drop-shadow(0 0 14px rgba(212, 175, 110, 0.55))",
+              "drop-shadow(0 0 28px rgba(176, 102, 110, 0.28))",
+            ].join(" ")
+          : // Light theme: thin dark separation keeps edges crisp,
+            // then a focused gold bloom — no wide blur to avoid haze.
+            [
+              "drop-shadow(0 0 0.5px rgba(74, 20, 30, 0.55))",
+              "drop-shadow(0 1px 1px rgba(74, 20, 30, 0.18))",
+              "drop-shadow(0 0 8px rgba(212, 175, 110, 0.55))",
+              "drop-shadow(0 0 18px rgba(212, 175, 110, 0.28))",
+            ].join(" "),
         imageRendering: "auto",
       }}
       className={cn("block w-auto object-contain shrink-0 select-none", className)}
