@@ -231,16 +231,16 @@
 
   .display {
     font-family: var(--font-display);
-    font-weight: 300;
+    font-weight: 350;
     letter-spacing: -0.035em;
-    line-height: 0.95;
+    line-height: 1.02;
   }
 
   /* Glow text — soft wine halo on key headings */
   .text-glow {
     text-shadow:
-      0 0 24px color-mix(in oklab, var(--wine) 22%, transparent),
-      0 0 60px color-mix(in oklab, var(--gold) 18%, transparent);
+      0 0 18px color-mix(in oklab, var(--wine) 14%, transparent),
+      0 0 42px color-mix(in oklab, var(--gold) 10%, transparent);
   }
 
   /* Wine→gold gradient text — premium signature accent */
