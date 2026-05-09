@@ -229,16 +229,7 @@ function Hero() {
 function About() {
   return (
     <Section variant="wine" id="about">
-      <ScrollReveal>
-        <SectionLabel n="01" title="О компании" />
-      </ScrollReveal>
-      <ScrollReveal delay={1}>
-        <H2 className="mt-8 max-w-3xl">
-          О <span className="text-cyan italic">нас</span>
-        </H2>
-      </ScrollReveal>
-
-      <div className="mt-8 grid gap-6 md:gap-10 lg:grid-cols-12 lg:items-center">
+      <div className="grid gap-6 md:gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
           <figure className="relative">
             <div
