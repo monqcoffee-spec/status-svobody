@@ -10,6 +10,7 @@ import { ParticleField } from "@/components/site/ParticleField";
 import { LeadFormDialog } from "@/components/site/LeadFormDialog";
 import { Logo } from "@/components/site/Logo";
 import { Faq } from "@/components/site/Faq";
+import { Testimonials } from "@/components/site/Testimonials";
 import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
@@ -127,6 +128,7 @@ function IndexPage() {
       <DigitalProfile />
       <Process />
       <Pricing />
+      <Testimonials />
       <Faq />
       <BankruptcyCTA />
       <EntryPoint />
