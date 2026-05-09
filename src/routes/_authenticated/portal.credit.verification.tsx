@@ -5,6 +5,8 @@ import { useAuth } from "@/hooks/use-auth";
 import { ArrowLeft, Check, AlertTriangle, Clock, Download, FileDown, History } from "lucide-react";
 import jsPDF from "jspdf";
 import { toast } from "sonner";
+import { robotoBase64 as robotoRegular } from "@/assets/fonts/roboto-regular";
+import { robotoBase64 as robotoBold } from "@/assets/fonts/roboto-bold";
 
 const BUREAU_LABEL: Record<string, string> = {
   nbki: "НБКИ",
@@ -63,37 +65,35 @@ function VerificationPage() {
   function downloadPdf() {
     if (!reports.length) return toast.error("Нет данных для заключения");
     const doc = new jsPDF({ unit: "pt", format: "a4" });
-    // jsPDF default font (Helvetica) doesn't support Cyrillic. Use Times which doesn't either.
-    // Workaround: use the built-in courier with proper encoding via textEncoded — but cleanest is to
-    // embed a Unicode TTF. To avoid heavy bundles we encode text as UTF-8 and rely on Helvetica's
-    // partial coverage; this fails for Cyrillic. So we draw text using doc.text with proper font set
-    // — instead, we generate a simple text file fallback if Cyrillic. We'll embed PT Sans via a CDN
-    // is out of scope, so we use an in-memory approach: print transliterated header + Cyrillic body
-    // would be wrong. Better: use canvas-based rendering by drawing each line as image is too heavy.
-    //
-    // Pragmatic solution: rely on jsPDF's built-in Times-like font that lacks Cyrillic. Therefore
-    // we expose a parallel .txt download too. Here we still produce a PDF using a Unicode-capable
-    // approach via `addFileToVFS` of a font shipped at runtime would be needed. For now, render via
-    // HTML2Canvas-free path: we use jsPDF's html() method only when feasible. Falling back to plain
-    // text export below.
+    // Embed Roboto (Cyrillic-capable) so the PDF renders Russian correctly.
+    doc.addFileToVFS("Roboto-Regular.ttf", robotoRegular);
+    doc.addFont("Roboto-Regular.ttf", "Roboto", "normal");
+    doc.addFileToVFS("Roboto-Bold.ttf", robotoBold);
+    doc.addFont("Roboto-Bold.ttf", "Roboto", "bold");
+    doc.setFont("Roboto", "normal");
+
     let y = 60;
     const left = 48;
     const lineH = 16;
+    doc.setFont("Roboto", "bold");
     doc.setFontSize(16);
-    doc.text("Status Svobody — AI verification report", left, y); y += 28;
+    doc.text("Status Svobody — Заключение AI-верификации", left, y); y += 28;
+    doc.setFont("Roboto", "normal");
     doc.setFontSize(10);
-    doc.text(`User: ${user?.email ?? "-"}`, left, y); y += lineH;
-    doc.text(`Generated: ${new Date().toLocaleString("en-GB")}`, left, y); y += lineH * 2;
+    doc.text(`Пользователь: ${user?.email ?? "—"}`, left, y); y += lineH;
+    doc.text(`Сформировано: ${new Date().toLocaleString("ru-RU")}`, left, y); y += lineH * 2;
 
+    doc.setFont("Roboto", "bold");
     doc.setFontSize(12);
-    doc.text("Current report status", left, y); y += lineH + 4;
+    doc.text("Текущий статус отчётов", left, y); y += lineH + 4;
+    doc.setFont("Roboto", "normal");
     doc.setFontSize(10);
     for (const r of reports) {
       const s = statusUI(r.verification_status).label;
-      doc.text(`[${BUREAU_LABEL[r.bureau] ?? r.bureau}]  status=${s}  file=${r.file_name}`, left, y);
+      doc.text(`• ${BUREAU_LABEL[r.bureau] ?? r.bureau} — ${s}  ·  файл: ${r.file_name}`, left, y);
       y += lineH;
       if (r.verification_notes) {
-        const wrapped = doc.splitTextToSize(`notes: ${r.verification_notes}`, 500);
+        const wrapped = doc.splitTextToSize(`Комментарий: ${r.verification_notes}`, 500);
         doc.text(wrapped, left + 10, y);
         y += lineH * wrapped.length;
       }
@@ -102,11 +102,13 @@ function VerificationPage() {
     }
 
     y += 10;
+    doc.setFont("Roboto", "bold");
     doc.setFontSize(12);
-    doc.text("Verification history", left, y); y += lineH + 4;
+    doc.text("История проверок", left, y); y += lineH + 4;
+    doc.setFont("Roboto", "normal");
     doc.setFontSize(10);
     for (const h of history) {
-      const line = `${fmt(h.created_at)}  [${BUREAU_LABEL[h.bureau] ?? h.bureau}]  ${h.status}`;
+      const line = `${fmt(h.created_at)} · ${BUREAU_LABEL[h.bureau] ?? h.bureau} · ${statusUI(h.status).label}`;
       doc.text(line, left, y); y += lineH;
       if (h.notes) {
         const wrapped = doc.splitTextToSize(h.notes, 500);
