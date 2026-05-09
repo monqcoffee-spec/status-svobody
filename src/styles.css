@@ -573,6 +573,24 @@
     100% { transform: translateY(-120px); opacity: 0; }
   }
 
+  /* Gold light rays — slow rotating beams */
+  @keyframes ray-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  /* Floating gold spark — drifts up then fades */
+  @keyframes spark-float {
+    0%   { transform: translateY(0) translateX(0); opacity: 0; }
+    10%  { opacity: 1; }
+    90%  { opacity: 0.9; }
+    100% { transform: translateY(-140vh) translateX(20px); opacity: 0; }
+  }
+  /* Gentle twinkle for static gold dots */
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50%      { opacity: 1;   transform: scale(1.4); }
+  }
+
   .lead-input {
     width: 100%;
     background: transparent;
