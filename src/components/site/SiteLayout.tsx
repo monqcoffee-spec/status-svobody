@@ -5,18 +5,22 @@ import { ScrollTopButton } from "./ScrollTopButton";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex min-h-screen flex-col bg-ink-deep text-silver">
-      {/* Global cinematic wine backdrop */}
+    <div
+      className="relative flex min-h-screen flex-col text-silver"
+      style={{
+        background:
+          "linear-gradient(180deg, #ffffff 0%, #f4dbe0 18%, #d8a6ad 42%, #a8606e 70%, #874255 100%)",
+      }}
+    >
+      {/* Cinematic gold + accent glow overlay */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 -z-10 overflow-hidden"
         style={{
           background:
-            "radial-gradient(ellipse 60% 40% at 50% 0%, color-mix(in oklab, var(--champagne) 28%, transparent), transparent 65%)," +
-            "radial-gradient(ellipse 70% 50% at 50% 0%, color-mix(in oklab, var(--cyan) 22%, transparent), transparent 70%)," +
-            "radial-gradient(ellipse 90% 60% at 100% 100%, color-mix(in oklab, var(--cyan-soft) 30%, transparent), transparent 70%)," +
-            "radial-gradient(ellipse 80% 50% at 0% 50%, color-mix(in oklab, var(--champagne-soft) 18%, transparent), transparent 70%)," +
-            "linear-gradient(180deg, var(--ink-deep) 0%, var(--ink) 50%, var(--ink-deep) 100%)",
+            "radial-gradient(ellipse 60% 40% at 50% 5%, color-mix(in oklab, var(--champagne) 45%, transparent), transparent 65%)," +
+            "radial-gradient(ellipse 80% 50% at 100% 90%, color-mix(in oklab, var(--champagne-glow) 28%, transparent), transparent 70%)," +
+            "radial-gradient(ellipse 70% 45% at 0% 60%, color-mix(in oklab, var(--champagne-soft) 22%, transparent), transparent 70%)",
         }}
       />
       {/* Floating blur-glow orbs — cinematic bokeh */}
@@ -53,14 +57,6 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             backgroundImage:
               "radial-gradient(circle at 20% 30%, white 0.5px, transparent 1px), radial-gradient(circle at 70% 60%, white 0.5px, transparent 1px), radial-gradient(circle at 40% 80%, white 0.5px, transparent 1px)",
             backgroundSize: "180px 180px, 220px 220px, 160px 160px",
-          }}
-        />
-        {/* Top vignette for header legibility */}
-        <div
-          className="absolute inset-x-0 top-0 h-40"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--ink-deep) 70%, transparent), transparent)",
           }}
         />
       </div>

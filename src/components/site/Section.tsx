@@ -13,9 +13,9 @@ export function Section({ variant = "default", className, children, id }: Props)
       id={id}
       className={cn(
         "relative py-24 md:py-32 overflow-hidden",
-        variant === "default" && "bg-ink-deep",
+        variant === "default" && "bg-transparent",
         variant === "glow" && "bg-aurora-soft",
-        variant === "darker" && "bg-ink",
+        variant === "darker" && "bg-transparent",
         variant === "wine" && "section-wine",
         variant === "tint" && "section-tint",
         className,
