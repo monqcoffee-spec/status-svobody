@@ -163,60 +163,45 @@ function Hero() {
         <ParticleField density={20} />
       </div>
 
-      {/* Full-width hero image */}
-      <div className="relative reveal reveal-delay-1 w-full">
-        <img
-          src={yuliaPortrait}
-          alt="Юлия Армина — основатель Статус Свободы"
-          className="block w-full h-[70vh] sm:h-[75vh] md:h-auto object-cover object-[78%_center] sm:object-[72%_center] md:object-center"
-          loading="eager"
-          fetchPriority="high"
-        />
+      {/* Hero image — fully contained in viewport with breathing space */}
+      <div className="relative reveal reveal-delay-1 w-full container-tight pt-6 md:pt-10">
         <div
-          className="mt-6 md:mt-8 text-center font-display tracking-[0.32em] uppercase text-[13px] sm:text-base md:text-xl"
+          className="mx-auto overflow-hidden rounded-[1.5rem]"
           style={{
-            backgroundImage:
-              "linear-gradient(90deg, var(--gold-soft), var(--wine-deep) 50%, var(--gold-soft))",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            textShadow: "0 0 24px color-mix(in oklab, var(--gold) 30%, transparent)",
+            maxWidth: "min(960px, 92vw)",
+            background:
+              "radial-gradient(ellipse at center, color-mix(in oklab, var(--wine) 18%, transparent), transparent 70%)",
+            boxShadow:
+              "0 30px 80px -30px color-mix(in oklab, var(--wine-deep) 55%, transparent)",
           }}
         >
-          Статус Свободы Юлии Арминой
+          <img
+            src={yuliaPortrait}
+            alt="Юлия Армина — основатель Статус Свободы"
+            className="block w-full h-auto max-h-[58vh] sm:max-h-[62vh] md:max-h-[68vh] object-contain mx-auto"
+            style={{ filter: "contrast(1.08) saturate(1.12)" }}
+            loading="eager"
+            fetchPriority="high"
+          />
         </div>
       </div>
 
-      <div className="relative container-tight pt-10 pb-24 md:pt-16 md:pb-36 lg:pt-20 lg:pb-40">
+      <div className="relative container-tight pt-8 pb-24 md:pt-12 md:pb-36 lg:pt-16 lg:pb-40">
 
-        <h2 className="mx-auto mt-12 max-w-5xl text-center font-display tracking-[-0.03em] leading-[1.08] sm:leading-[1.05] md:leading-[1.02]"
+        <h2 className="mx-auto mt-6 max-w-5xl text-center font-display uppercase tracking-[0.01em] leading-[1.05]"
             style={{ color: "var(--text)" }}>
           <span
-            className="reveal reveal-delay-2 block text-[1.65rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.6rem]"
+            className="reveal reveal-delay-2 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] font-semibold"
           >
-            Испорченная кредитная история —{" "}
-            <span
-              className="italic font-serif text-gradient-cyan text-glow"
-              style={{ fontWeight: 400 }}
-            >
-              не клеймо
-            </span>
-            .
+            Кредитную историю невозможно исправить.
           </span>
           <span
-            className="reveal reveal-delay-3 mt-2 sm:mt-3 block text-[1.4rem] sm:text-[1.85rem] md:text-[2.4rem] lg:text-[2.8rem]"
-            style={{ color: "var(--text-muted)" }}
+            className="reveal reveal-delay-3 mt-3 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] italic font-serif text-gradient-cyan text-glow"
+            style={{ fontWeight: 500 }}
           >
-            Это запись, которую закон разрешает оспорить.
+            Но&nbsp;её можно оспорить.
           </span>
         </h2>
-
-        <p
-          className="reveal reveal-delay-3 mx-auto mt-8 max-w-2xl text-center font-display tracking-[0.18em] uppercase text-sm sm:text-base md:text-lg"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Конфиденциальность. <span style={{ color: "var(--text)" }}>Решение.</span> Поддержка.
-        </p>
 
         <div className="reveal reveal-delay-3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <LeadFormDialog
