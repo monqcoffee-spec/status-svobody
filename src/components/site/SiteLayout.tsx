@@ -11,22 +11,38 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       className="relative flex min-h-screen flex-col"
       style={{ background: "var(--paper)", color: "var(--text)" }}
     >
-      {/* Premium ambient layer — sunrise veil + animated golden rays */}
+      {/* Premium ambient layer — seamless sunrise gradient + animated golden rays */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        {/* Base sunrise veil image, fixed across whole site */}
+        {/* Seamless sunrise gradient base — pure CSS, no edges, no tiles */}
+        <div
+          className="absolute inset-0 animate-bg-shift"
+          style={{
+            backgroundImage: [
+              // warm sun glow center
+              "radial-gradient(ellipse 80% 60% at 50% 38%, color-mix(in oklab, var(--gold) 30%, transparent) 0%, color-mix(in oklab, var(--gold-mist) 16%, transparent) 35%, transparent 70%)",
+              // rose veil left
+              "radial-gradient(ellipse 50% 80% at 0% 60%, color-mix(in oklab, var(--rose-quartz) 30%, transparent) 0%, transparent 60%)",
+              // rose veil right
+              "radial-gradient(ellipse 50% 80% at 100% 55%, color-mix(in oklab, var(--rose-mist) 36%, transparent) 0%, transparent 60%)",
+              // wine whisper top-left
+              "radial-gradient(ellipse 60% 50% at 15% 0%, color-mix(in oklab, var(--wine-soft) 20%, transparent) 0%, transparent 65%)",
+              // soft cream wash
+              "linear-gradient(180deg, color-mix(in oklab, var(--paper-tint) 90%, white) 0%, color-mix(in oklab, var(--rose-mist) 35%, white) 45%, color-mix(in oklab, var(--paper) 95%, white) 100%)",
+            ].join(", "),
+            backgroundSize: "200% 200%, 180% 180%, 180% 180%, 160% 160%, 100% 100%",
+          }}
+        />
+        {/* Veil photograph — softly blended on top, masked at edges so it never looks like a chunk */}
         <div
           className="absolute inset-0 bg-center bg-cover"
           style={{
             backgroundImage: `url(${bgSunriseVeil})`,
-            opacity: 0.55,
-          }}
-        />
-        {/* Soft white wash so content stays readable */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, color-mix(in oklab, var(--paper) 55%, transparent) 0%, color-mix(in oklab, var(--paper) 75%, transparent) 50%, color-mix(in oklab, var(--paper) 92%, transparent) 100%)",
+            opacity: 0.35,
+            mixBlendMode: "soft-light",
+            WebkitMaskImage:
+              "radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%)",
+            maskImage:
+              "radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%)",
           }}
         />
         {/* Animated sun glow + rotating rays */}
