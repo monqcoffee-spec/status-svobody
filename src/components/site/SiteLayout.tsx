@@ -18,7 +18,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       */}
       <div
         aria-hidden
-        className="pointer-events-none fixed inset-0 -z-10"
+        className="pointer-events-none fixed inset-0 -z-10 bg-reduced-tint"
         style={{
           backgroundColor: "#FFFFFF",
           backgroundImage: [
