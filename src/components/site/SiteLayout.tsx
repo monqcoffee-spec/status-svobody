@@ -2,8 +2,10 @@ import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { FloatingContacts } from "./FloatingContacts";
 import { ScrollTopButton } from "./ScrollTopButton";
+import { useReducedTransparency } from "@/hooks/use-reduced-transparency";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
+  useReducedTransparency();
   return (
     <div
       className="relative isolate flex min-h-screen flex-col"
