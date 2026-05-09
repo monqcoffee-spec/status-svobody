@@ -282,12 +282,12 @@ function About() {
           <div
             className="card-lux relative mt-2 px-7 py-6"
           >
-            <div className="smallcaps text-[10px]" style={{ color: "var(--gold-heading-deep)" }}>Почему «Статус Свободы»</div>
-            <p className="mt-3 font-display text-xl md:text-2xl leading-snug">
+            <div className="smallcaps text-[11px]" style={{ color: "#000000" }}>Почему «Статус Свободы»</div>
+            <p className="mt-3 font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
               Статус свободы человека закреплён во{" "}
-              <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>второй главе Конституции РФ</span>.
+              <span className="italic" style={{ color: "#874255" }}>второй главе Конституции РФ</span>.
             </p>
-            <p className="mt-3 text-base md:text-lg leading-relaxed">
+            <p className="mt-3 text-base md:text-lg leading-relaxed" style={{ color: "#000000" }}>
               Бренд назван в честь основополагающего права —
               и зарегистрирован как товарный знак. Возвращаем
               финансовую свободу через закон.
@@ -295,22 +295,22 @@ function About() {
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
             <div>
-              <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
+              <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
                 <AnimatedCounter to={500} suffix="+" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#5a3540" }}>клиентов</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>клиентов</div>
             </div>
             <div>
-              <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
+              <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
                 <AnimatedCounter to={8} />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#5a3540" }}>лет практики</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>лет практики</div>
             </div>
             <div>
-              <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">
+              <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
                 <AnimatedCounter to={98} suffix="%" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#5a3540" }}>успех</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>успех</div>
             </div>
           </div>
         </ScrollReveal>
