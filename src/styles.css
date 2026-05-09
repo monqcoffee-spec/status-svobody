@@ -647,20 +647,26 @@
 
   .lead-input {
     width: 100%;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid color-mix(in oklab, var(--wine) 22%, transparent);
-    padding: 0.6rem 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.85), color-mix(in oklab, var(--paper-tint) 55%, white));
+    border: 1px solid color-mix(in oklab, var(--gold) 25%, var(--rose-mist));
+    border-radius: 16px;
+    padding: 0.95rem 1.15rem;
     color: var(--text);
     font-family: inherit;
     font-size: 1rem;
     outline: none;
-    transition: border-color 200ms ease;
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.9),
+      0 1px 2px color-mix(in oklab, var(--wine) 8%, transparent);
+    transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease;
   }
   .lead-input::placeholder { color: var(--text-faint); }
   .lead-input:focus {
-    border-bottom-color: var(--wine);
-    box-shadow: 0 1px 0 0 var(--wine);
+    border-color: color-mix(in oklab, var(--gold) 60%, var(--wine));
+    box-shadow:
+      inset 0 1px 0 0 rgba(255,255,255,0.95),
+      0 0 0 4px color-mix(in oklab, var(--wine) 12%, transparent),
+      0 6px 22px -10px color-mix(in oklab, var(--gold) 45%, transparent);
   }
 
   /* ─────────── Light luxe card ───────────
