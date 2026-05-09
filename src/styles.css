@@ -744,3 +744,45 @@
   .sr { opacity: 1; transform: none; filter: none; transition: none; }
 }
 
+/* ─────────── Unified gold glow on card hover / scroll-in ───────────
+ * Propagates the icon medallion's gold accent to the surrounding
+ * heading + label so the whole row reads as a single luminous block. */
+.group\/card h3,
+.group\/card .smallcaps,
+.group\/card .text-cyan-glow {
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+}
+.group\/card:hover h3 {
+  color: color-mix(in oklab, var(--champagne-glow) 65%, var(--silver));
+  text-shadow:
+    0 0 14px color-mix(in oklab, var(--champagne) 55%, transparent),
+    0 0 32px color-mix(in oklab, var(--champagne-glow) 35%, transparent);
+}
+.group\/card:hover .smallcaps,
+.group\/card:hover .text-cyan-glow {
+  color: var(--champagne-glow);
+  text-shadow: 0 0 12px color-mix(in oklab, var(--champagne) 55%, transparent);
+}
+/* Make the icon medallion react to card hover as well as direct hover */
+.group\/card:hover .icon-medallion {
+  transform: rotate(12deg) scale(1.04);
+}
+.group\/card:hover .icon-gold-ring {
+  opacity: 1;
+}
+
+/* Brief gold pass on card heading when the card scrolls into view */
+@keyframes card-gold-pulse {
+  0%   { text-shadow: 0 0 0 transparent; }
+  40%  { text-shadow:
+           0 0 18px color-mix(in oklab, var(--champagne-glow) 70%, transparent),
+           0 0 36px color-mix(in oklab, var(--champagne) 45%, transparent); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+.group\/card.sr-in h3 {
+  animation: card-gold-pulse 1.6s ease-out 0.2s 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .group\/card.sr-in h3 { animation: none; }
+}
+
