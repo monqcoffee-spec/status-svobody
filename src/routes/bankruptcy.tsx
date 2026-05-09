@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import {
   ArrowUpRight,
   Scale,
@@ -37,6 +38,23 @@ export const Route = createFileRoute("/bankruptcy")({
 });
 
 function BankruptcyPage() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const scrollToHash = () => {
+      if (!window.location.hash) return;
+      const id = window.location.hash.slice(1);
+      const el = document.getElementById(id);
+      if (el) {
+        requestAnimationFrame(() =>
+          el.scrollIntoView({ behavior: "smooth", block: "start" })
+        );
+      }
+    };
+    scrollToHash();
+    window.addEventListener("hashchange", scrollToHash);
+    return () => window.removeEventListener("hashchange", scrollToHash);
+  }, []);
+
   return (
     <SiteLayout>
       <BankruptcyHero />
