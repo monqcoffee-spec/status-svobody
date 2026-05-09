@@ -127,6 +127,13 @@
   --gold-heading: var(--gold);
   --gold-heading-deep: var(--gold-soft);
 
+  /* Reusable mask & gradient tokens — keep paint cheap and centralised */
+  --mask-radial-fade: radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%);
+  --mask-sunray: radial-gradient(circle at center, black 5%, rgba(0,0,0,0.5) 35%, transparent 70%);
+  --grad-section-dim: linear-gradient(180deg, color-mix(in oklab, var(--wine-deep) 88%, transparent) 0%, color-mix(in oklab, var(--wine) 84%, transparent) 100%);
+  --grad-section-light: linear-gradient(180deg, color-mix(in oklab, var(--paper) 82%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 88%, transparent) 100%);
+  --grad-sun-glow: radial-gradient(circle, color-mix(in oklab, var(--gold) 28%, transparent) 0%, color-mix(in oklab, var(--gold-mist) 16%, transparent) 28%, transparent 60%);
+
   /* Semantic — dark by default */
   --background: var(--paper);
   --foreground: var(--text);
