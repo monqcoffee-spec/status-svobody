@@ -9,7 +9,6 @@ type Props = {
 
 export function Section({ variant = "default", className, children, id }: Props) {
   const isDim = variant === "wine" || variant === "darker";
-  const isLight = variant === "default" || variant === "glow" || variant === "tint";
   return (
     <section
       id={id}
@@ -28,11 +27,7 @@ export function Section({ variant = "default", className, children, id }: Props)
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-[1]"
         style={{
-          background: isDim
-            ? "var(--grad-section-dim)"
-            : isLight
-              ? "var(--grad-section-light)"
-              : "transparent",
+          background: isDim ? "var(--grad-section-dim)" : "transparent",
           contain: "paint style",
         }}
       />
