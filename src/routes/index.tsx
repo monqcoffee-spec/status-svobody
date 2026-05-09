@@ -541,16 +541,12 @@ function Services() {
             key={s.t}
             variant="zoom"
             delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
-            className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--champagne)]/60"
-            style={{
-              borderRadius: "2px",
-              boxShadow: "0 0 0 0 transparent",
-            }}
+            className="card-lux group/card flex gap-5 p-7"
           >
             <IconBadge size="sm">{s.icon}</IconBadge>
             <div>
-              <h3 className="font-display text-lg md:text-xl text-silver leading-snug">{s.t}</h3>
-              <p className="mt-2 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
+              <h3 className="font-display text-lg md:text-xl leading-snug">{s.t}</h3>
+              <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
         ))}
