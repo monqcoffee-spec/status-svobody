@@ -978,6 +978,29 @@
 .section-divider::before { left: calc(50% - 4px); border-radius: 0; width: 5px; height: 5px; }
 .section-divider::after  { display: none; }
 
+/* ─────────── Dim section contrast lift ───────────
+ * On wine/darker sections the wash is dark, so headings, eyebrows,
+ * SectionLabel and body text need light tones to remain readable
+ * (WCAG AA on var(--wine) base). Buttons / cards keep their own colors. */
+.section-dim h1,
+.section-dim h2,
+.section-dim h3,
+.section-dim h4,
+.section-dim p,
+.section-dim li,
+.section-dim .smallcaps,
+.section-dim .text-wine,
+.section-dim .text-wine-deep {
+  color: #FFF7F2 !important;
+}
+.section-dim .text-gold,
+.section-dim [class*="text-gold"] {
+  color: var(--gold-light) !important;
+}
+.section-dim .hairline-tight {
+  background: color-mix(in oklab, var(--gold-light) 70%, transparent);
+}
+
 /* ─────────── Scroll reveal (IntersectionObserver) ───────────
  * Apply class .sr to a wrapper; it stays hidden until
  * .sr-in is toggled by the ScrollReveal hook. */
