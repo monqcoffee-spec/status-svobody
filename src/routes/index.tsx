@@ -651,30 +651,25 @@ function BankruptcyCTA() {
   return (
     <Section variant="default" id="bankruptcy-cta">
       <div
-        className="glass-strong relative overflow-hidden p-8 md:p-12"
-        style={{
-          borderRadius: "2px",
-          boxShadow:
-            "0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)",
-        }}
+        className="card-lux relative overflow-hidden p-8 md:p-12"
       >
         <div
           aria-hidden
           className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-50"
           style={{
             background:
-              "radial-gradient(circle, color-mix(in oklab, var(--cyan-glow) 40%, transparent), transparent 65%)",
+              "radial-gradient(circle, color-mix(in oklab, var(--gold-heading) 35%, transparent), transparent 65%)",
             filter: "blur(40px)",
           }}
         />
         <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-7">
-            <div className="smallcaps text-cyan-glow">Списать долги · Банкротство</div>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em] text-silver">
+            <div className="smallcaps" style={{ color: "var(--gold-heading-deep)" }}>Списать долги · Банкротство</div>
+            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
               Не уверены, спишут ли{" "}
               <span className="text-gradient-cyan italic">ваши долги</span>?
             </h2>
-            <p className="mt-5 text-base md:text-lg leading-relaxed text-silver/80">
+            <p className="mt-5 text-base md:text-lg leading-relaxed">
               Пройдите бесплатный интенсив — за 20 минут поймёте, подходит ли
               вам банкротство, какие долги списываются и что делать дальше.
               Без воды и без обязательств.
