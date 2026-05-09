@@ -321,6 +321,46 @@
       color-mix(in oklab, var(--paper) 40%, transparent);
   }
 
+  /* ─────────── Reduced transparency ───────────
+   * Honour both the standard `prefers-reduced-transparency` media query
+   * and an opt-in `[data-reduce-transparency="true"]` attribute on <html>
+   * (set via JS for browsers that don't expose the OS hint yet).
+   * In this mode: overlays become near-opaque and the warm wine/gold
+   * radial blobs in the base background are dimmed for a calmer image. */
+  @media (prefers-reduced-transparency: reduce) {
+    :root {
+      --grad-section-dim: linear-gradient(180deg, var(--wine-deep) 0%, var(--wine) 100%);
+      --grad-section-light: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+    }
+    .bg-aurora {
+      background:
+        linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 50%, var(--paper) 100%);
+    }
+    .bg-aurora-soft {
+      background: var(--paper);
+    }
+    .bg-reduced-tint {
+      /* the fixed sunrise layer hooks into this when reduced transparency is on */
+      background-color: #FFFFFF !important;
+      background-image: linear-gradient(180deg, #FFFFFF 0%, #FFF8F3 55%, #FFFFFF 100%) !important;
+    }
+  }
+  html[data-reduce-transparency="true"] {
+    --grad-section-dim: linear-gradient(180deg, var(--wine-deep) 0%, var(--wine) 100%);
+    --grad-section-light: linear-gradient(180deg, var(--paper) 0%, var(--paper-tint) 100%);
+  }
+  html[data-reduce-transparency="true"] .bg-aurora {
+    background:
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 50%, var(--paper) 100%);
+  }
+  html[data-reduce-transparency="true"] .bg-aurora-soft {
+    background: var(--paper);
+  }
+  html[data-reduce-transparency="true"] .bg-reduced-tint {
+    background-color: #FFFFFF !important;
+    background-image: linear-gradient(180deg, #FFFFFF 0%, #FFF8F3 55%, #FFFFFF 100%) !important;
+  }
+
   /* Grid pattern overlay */
   .bg-grid {
     background-image:
