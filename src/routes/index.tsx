@@ -441,7 +441,7 @@ function Process() {
       </ScrollReveal>
       <ol className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2" style={{ borderRadius: "2px" }}>
         {steps.map((s, i) => (
-          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="group/card flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div className="flex-1">
               <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
@@ -483,7 +483,7 @@ function DigitalProfile() {
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {profile.map((p, i) => (
-          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
+          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
             <IconBadge size="sm">
               <Database className="h-5 w-5" />
             </IconBadge>
