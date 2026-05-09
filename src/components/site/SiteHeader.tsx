@@ -31,14 +31,16 @@ export function SiteHeader() {
       className={
         "sticky top-0 z-40 transition-all duration-500 " +
         (scrolled
-          ? "border-b border-cyan/10 backdrop-blur-xl"
+          ? "backdrop-blur-xl"
           : "border-b border-transparent bg-transparent")
       }
       style={
         scrolled
           ? {
               backgroundColor:
-                "color-mix(in oklab, var(--ink-deep) 78%, transparent)",
+                "color-mix(in oklab, #faecd9 80%, transparent)",
+              borderBottom:
+                "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)",
             }
           : undefined
       }
@@ -51,22 +53,19 @@ export function SiteHeader() {
         >
           <Logo
             size={56}
-            onDark={scrolled}
             className="h-12 md:h-14 transition-transform duration-700 group-hover:rotate-[4deg]"
           />
           <div className="leading-tight min-w-0 hidden sm:block">
             <div
               className={
-                "font-display text-[12px] md:text-[14px] tracking-[0.28em] md:tracking-[0.34em] uppercase whitespace-nowrap transition-colors " +
-                (scrolled ? "text-silver" : "text-[color:var(--gold-heading-deep)]")
+                "font-display text-[12px] md:text-[14px] tracking-[0.28em] md:tracking-[0.34em] uppercase whitespace-nowrap transition-colors text-[color:var(--gold-heading-deep)]"
               }
             >
               Статус Свободы
             </div>
             <div
               className={
-                "text-[9px] md:text-[10px] tracking-[0.4em] uppercase mt-1 transition-colors " +
-                (scrolled ? "text-cyan/80" : "text-[color:var(--teal)]/70")
+                "text-[9px] md:text-[10px] tracking-[0.4em] uppercase mt-1 transition-colors text-[color:var(--teal)]/70"
               }
             >
               Premium legal consulting
@@ -79,12 +78,13 @@ export function SiteHeader() {
             <a
               key={n.href}
               href={n.href}
-              className="group relative text-silver/65 hover:text-cyan transition-colors duration-300"
+              className="group relative transition-colors duration-300"
+              style={{ color: "#2A1118" }}
             >
               {n.label}
               <span
-                className="absolute -bottom-1.5 left-0 h-px w-0 bg-cyan transition-all duration-300 group-hover:w-full"
-                style={{ boxShadow: "0 0 8px var(--cyan)" }}
+                className="absolute -bottom-1.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full"
+                style={{ background: "var(--gold-heading)", boxShadow: "0 0 8px var(--gold-heading)" }}
               />
             </a>
           ))}
@@ -95,17 +95,27 @@ export function SiteHeader() {
             href="https://t.me/status_svobody_bot"
             target="_blank"
             rel="noopener"
-            className="hidden lg:inline-flex h-11 items-center gap-2.5 px-5 text-[10px] font-medium tracking-[0.28em] uppercase text-cyan-glow border border-cyan/40 bg-cyan/5 hover:bg-cyan/15 hover:border-cyan transition-all rounded-sm"
-            style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 20%, transparent)" }}
+            className="hidden lg:inline-flex h-11 items-center gap-2.5 px-5 text-[10px] font-medium tracking-[0.28em] uppercase transition-all rounded-sm"
+            style={{
+              color: "var(--gold-heading-deep)",
+              border: "1px solid color-mix(in oklab, var(--gold-heading) 55%, transparent)",
+              background: "color-mix(in oklab, white 60%, transparent)",
+              boxShadow: "0 0 18px color-mix(in oklab, var(--gold-heading) 25%, transparent)",
+            }}
           >
-            <span className="relative h-1.5 w-1.5 rounded-full bg-cyan animate-pulse-glow" style={{ boxShadow: "0 0 8px var(--cyan)" }} />
+            <span className="relative h-1.5 w-1.5 rounded-full animate-pulse-glow" style={{ background: "var(--gold-heading)", boxShadow: "0 0 8px var(--gold-heading)" }} />
             Консультация
           </a>
 
           <button
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex h-10 w-10 items-center justify-center border border-cyan/20 text-silver hover:border-cyan/60 hover:text-cyan rounded-sm transition-colors"
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm transition-colors"
+            style={{
+              border: "1px solid color-mix(in oklab, var(--gold-heading) 45%, transparent)",
+              color: "var(--gold-heading-deep)",
+              background: "color-mix(in oklab, white 50%, transparent)",
+            }}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -114,17 +124,19 @@ export function SiteHeader() {
 
       {open && (
         <div
-          className="lg:hidden border-t border-cyan/10 backdrop-blur-xl"
+          className="lg:hidden backdrop-blur-xl"
           style={{
             backgroundColor:
-              "color-mix(in oklab, var(--ink-deep) 96%, transparent)",
+              "color-mix(in oklab, #faecd9 95%, transparent)",
+            borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)",
           }}
         >
           <nav className="container-tight flex flex-col py-6">
             <Link
               to="/"
               onClick={() => setOpen(false)}
-              className="flex items-center justify-between border-b border-white/5 py-4 font-display text-lg text-silver/80 hover:text-cyan tracking-wide"
+              className="flex items-center justify-between py-4 font-display text-lg tracking-wide hover:opacity-70"
+              style={{ borderBottom: "1px solid color-mix(in oklab, var(--gold-heading) 22%, transparent)", color: "#2A1118" }}
             >
               Главная
             </Link>
@@ -133,7 +145,8 @@ export function SiteHeader() {
                 key={n.href}
                 href={n.href}
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-between border-b border-white/5 py-4 font-display text-lg text-silver/80 hover:text-cyan tracking-wide"
+                className="flex items-center justify-between py-4 font-display text-lg tracking-wide hover:opacity-70"
+                style={{ borderBottom: "1px solid color-mix(in oklab, var(--gold-heading) 22%, transparent)", color: "#2A1118" }}
               >
                 <span>{n.label}</span>
               </a>

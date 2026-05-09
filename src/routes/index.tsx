@@ -151,7 +151,7 @@ function Hero() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
   return (
-    <section className="relative overflow-hidden bg-ink-deep md:-mt-20">
+    <section className="relative overflow-hidden bg-transparent md:-mt-20">
       <h1 className="sr-only">
         Статус Свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
@@ -177,7 +177,7 @@ function Hero() {
           className="pointer-events-none absolute -bottom-1 inset-x-0 h-20"
           style={{
             background:
-              "linear-gradient(180deg, transparent 0%, var(--ink-deep) 100%)",
+              "linear-gradient(180deg, transparent 0%, #f3dcc7 100%)",
           }}
         />
         <div
@@ -185,7 +185,7 @@ function Hero() {
           className="pointer-events-none absolute -top-1 inset-x-0 h-14"
           style={{
             background:
-              "linear-gradient(0deg, transparent 0%, var(--ink-deep) 100%)",
+              "linear-gradient(0deg, transparent 0%, #c89aa1 100%)",
           }}
         />
       </div>
@@ -206,7 +206,7 @@ function Hero() {
               <span className="hairline-tight" />
               <span className="smallcaps text-cyan">Статус Свободы</span>
             </div>
-            <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] text-silver lg:text-7xl">
+            <p className="mt-6 font-display text-[3.5rem] leading-[1.05] tracking-[-0.03em] lg:text-7xl" style={{ color: "var(--gold-heading-deep)" }}>
               <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
               <br />
               <span
@@ -216,11 +216,11 @@ function Hero() {
                 Юлии Арминой
               </span>
             </p>
-            <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed text-silver/85">
+            <p className="reveal reveal-delay-3 mt-7 max-w-lg text-xl leading-relaxed" style={{ color: "#2A1118" }}>
               Испорченная кредитная история — не клеймо. Это запись,
               которую закон разрешает оспорить.
             </p>
-            <p className="mt-3 smallcaps text-cyan-glow">
+            <p className="mt-3 smallcaps" style={{ color: "var(--gold-heading-deep)" }}>
               Конфиденциальность · Решение · Поддержка
             </p>
             <div className="reveal reveal-delay-3 mt-9 flex flex-wrap items-center gap-3">
@@ -260,9 +260,9 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative md:hidden bg-ink-deep px-5 pb-12 pt-2">
+      <div className="relative md:hidden bg-transparent px-5 pb-12 pt-2">
         <div className="mb-5 text-center">
-          <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em] text-silver">
+          <p className="font-display text-[2.15rem] leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
             <span className="block-reveal" style={{ ["--bi" as never]: 0 }}>СТАТУС СВОБОДЫ</span>
             <br />
             <span
@@ -272,11 +272,11 @@ function Hero() {
               Юлии Арминой
             </span>
           </p>
-          <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed text-silver/85">
+          <p className="reveal reveal-delay-2 mt-4 text-[1.0625rem] leading-relaxed" style={{ color: "#2A1118" }}>
             Испорченная кредитная история — не клеймо. Это запись,
             которую закон разрешает оспорить.
           </p>
-          <p className="mt-3 smallcaps text-cyan-glow text-[10px]">
+          <p className="mt-3 smallcaps text-[10px]" style={{ color: "var(--gold-heading-deep)" }}>
             Конфиденциальность · Решение · Поддержка
           </p>
         </div>
@@ -296,7 +296,7 @@ function Hero() {
             <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
-        <p className="mt-5 text-center text-[10px] uppercase tracking-[0.28em] text-silver-dim">
+        <p className="mt-5 text-center text-[10px] uppercase tracking-[0.28em]" style={{ color: "#5a3540" }}>
           Личное сопровождение · Конфиденциально
         </p>
       </div>
@@ -708,26 +708,11 @@ function EntryPoint() {
   return (
     <section
       id="contacts"
-      className="relative overflow-hidden bg-aurora py-28 md:py-36 scroll-mt-24"
+      className="relative overflow-hidden py-28 md:py-36 scroll-mt-24"
     >
       <ParticleField density={42} />
-      <img
-        src={particlesRise}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        width={1920}
-        height={1080}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25"
-        style={{
-          maskImage:
-            "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 70% 80% at 50% 60%, black, transparent 80%)",
-        }}
-      />
+      <img src={particlesRise} alt="" aria-hidden className="hidden" />
       <img src={featherImg} alt="" aria-hidden className="hidden" />
-      <div aria-hidden className="absolute inset-0 bg-grid bg-grid-fade opacity-25" />
 
       <div className="container-tight relative">
         <div className="text-center">
@@ -745,7 +730,7 @@ function EntryPoint() {
               Начните восстановление сегодня
             </span>
           </h2>
-          <p className="mx-auto mt-6 max-w-xl text-silver/80">
+          <p className="mx-auto mt-6 max-w-xl" style={{ color: "#2A1118" }}>
             Не ждите, пока проблема усугубится. Оставьте заявку — юрист
             свяжется с вами в течение 15 минут.
           </p>
@@ -773,13 +758,13 @@ function EntryPoint() {
               />
             </div>
 
-            <div className="glass relative inline-flex w-full items-center gap-4 px-6 py-4" style={{ borderRadius: "2px" }}>
-              <div className="inline-flex h-10 w-10 items-center justify-center border border-cyan/30 text-cyan" style={{ borderRadius: "2px" }}>
+            <div className="card-lux relative inline-flex w-full items-center gap-4 px-6 py-4">
+              <div className="inline-flex h-10 w-10 items-center justify-center border" style={{ borderRadius: "2px", borderColor: "color-mix(in oklab, var(--gold-heading) 55%, transparent)", color: "var(--gold-heading-deep)" }}>
                 <Phone className="h-5 w-5" />
               </div>
               <div className="text-left">
-                <div className="smallcaps text-[9px] text-silver-dim">Телефон</div>
-                <a href="tel:+79654457378" className="font-display text-lg text-silver hover:text-cyan transition-colors tabular">
+                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Телефон</div>
+                <a href="tel:+79654457378" className="font-display text-lg tabular transition-colors" style={{ color: "#2A1118" }}>
                   +7 (965) 445-73-78
                 </a>
               </div>
@@ -790,49 +775,42 @@ function EntryPoint() {
                 href="https://t.me/zakon_127"
                 target="_blank"
                 rel="noopener"
-                className="glass group flex items-center gap-3 px-5 py-3.5 transition-all hover:border-cyan/40"
-                style={{ borderRadius: "2px" }}
+                className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <Megaphone className="h-4 w-4 text-cyan shrink-0" />
+                <Megaphone className="h-4 w-4 shrink-0" style={{ color: "var(--gold-heading-deep)" }} />
                 <div className="text-left">
-                  <div className="smallcaps text-[9px] text-silver-dim">Telegram-канал</div>
-                  <div className="text-sm text-silver group-hover:text-cyan transition-colors">t.me/zakon_127</div>
+                  <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram-канал</div>
+                  <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
                 </div>
               </a>
               <a
                 href="https://t.me/status_svobody_bot"
                 target="_blank"
                 rel="noopener"
-                className="glass group flex items-center gap-3 px-5 py-3.5 transition-all hover:border-cyan/40"
-                style={{ borderRadius: "2px" }}
+                className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <AtSign className="h-4 w-4 text-cyan shrink-0" />
+                <AtSign className="h-4 w-4 shrink-0" style={{ color: "var(--gold-heading-deep)" }} />
                 <div className="text-left">
-                  <div className="smallcaps text-[9px] text-silver-dim">Бесплатный интенсив</div>
-                  <div className="text-sm text-silver group-hover:text-cyan transition-colors">@status_svobody_bot</div>
+                  <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Бесплатный интенсив</div>
+                  <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>@status_svobody_bot</div>
                 </div>
               </a>
             </div>
 
-            <p className="text-[11px] uppercase tracking-[0.2em] text-silver-dim">
+            <p className="text-[11px] uppercase tracking-[0.2em]" style={{ color: "#5a3540" }}>
               Свяжемся лично в течение 15 минут · конфиденциально
             </p>
           </div>
 
           <div className="lg:col-span-7">
             <div
-              className="glass-strong relative p-8 md:p-10"
-              style={{
-                borderRadius: "2px",
-                boxShadow:
-                  "0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent)",
-              }}
+              className="card-lux relative p-8 md:p-10"
             >
-              <div className="smallcaps text-cyan-glow">Заявка</div>
-              <h3 className="mt-3 font-display text-2xl md:text-3xl text-silver leading-snug">
+              <div className="smallcaps" style={{ color: "var(--gold-heading-deep)" }}>Заявка</div>
+              <h3 className="mt-3 font-display text-2xl md:text-3xl leading-snug">
                 Узнайте перспективы вашего дела
               </h3>
-              <p className="mt-3 text-sm md:text-base text-silver-dim">
+              <p className="mt-3 text-sm md:text-base">
                 Заполните форму — юрист подготовит экспресс-оценку и
                 свяжется с вами лично.
               </p>
@@ -849,7 +827,7 @@ function EntryPoint() {
                   </button>
                 }
               />
-              <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em] text-silver-dim">
+              <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em]" style={{ color: "#5a3540" }}>
                 Имя · Телефон · E-mail · Описание (опционально)
               </p>
             </div>

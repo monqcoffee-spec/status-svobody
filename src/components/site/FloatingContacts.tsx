@@ -8,8 +8,13 @@ export function FloatingContacts() {
         target="_blank"
         rel="noopener"
         aria-label="WhatsApp"
-        className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-cyan/30 bg-ink-soft text-cyan transition-all hover:border-cyan hover:text-cyan-glow"
-        style={{ boxShadow: "0 0 18px color-mix(in oklab, var(--cyan) 25%, transparent)" }}
+        className="group inline-flex h-12 w-12 items-center justify-center rounded-full transition-all"
+        style={{
+          border: "1px solid color-mix(in oklab, var(--gold-heading) 55%, transparent)",
+          background: "color-mix(in oklab, white 75%, var(--silver) 25%)",
+          color: "var(--gold-heading-deep)",
+          boxShadow: "0 6px 18px -8px color-mix(in oklab, var(--gold-heading) 45%, transparent)",
+        }}
       >
         <MessageCircle className="h-5 w-5" />
       </a>
@@ -18,8 +23,13 @@ export function FloatingContacts() {
         target="_blank"
         rel="noopener"
         aria-label="Telegram"
-        className="group inline-flex h-12 w-12 items-center justify-center rounded-full border border-cyan/40 bg-ink-soft text-cyan transition-all hover:border-cyan hover:text-cyan-glow"
-        style={{ boxShadow: "0 0 24px color-mix(in oklab, var(--cyan) 35%, transparent)" }}
+        className="group inline-flex h-12 w-12 items-center justify-center rounded-full transition-all"
+        style={{
+          border: "1px solid color-mix(in oklab, var(--gold-heading) 70%, transparent)",
+          background: "color-mix(in oklab, white 75%, var(--silver) 25%)",
+          color: "var(--gold-heading-deep)",
+          boxShadow: "0 8px 22px -8px color-mix(in oklab, var(--gold-heading) 55%, transparent)",
+        }}
       >
         <Send className="h-5 w-5" />
       </a>
