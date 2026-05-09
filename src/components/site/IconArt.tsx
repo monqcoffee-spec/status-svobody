@@ -46,12 +46,12 @@ export function IconArt({
       {/* Soft warm halo behind the icon — intensifies on hover */}
       <div
         aria-hidden
-        className="absolute inset-0 rounded-full pointer-events-none transition-opacity duration-500 group-hover/icon:opacity-100 group-hover/card:opacity-100"
+        className="absolute inset-0 rounded-full pointer-events-none transition-opacity duration-500 -z-[1] group-hover/icon:opacity-90 group-hover/card:opacity-90"
         style={{
           background:
-            "radial-gradient(closest-side, color-mix(in oklab, var(--champagne) 32%, transparent), transparent 70%)",
-          filter: "blur(12px)",
-          opacity: 0.7,
+            "radial-gradient(closest-side, color-mix(in oklab, var(--champagne) 22%, transparent), transparent 72%)",
+          filter: "blur(8px)",
+          opacity: 0.45,
         }}
       />
       <img
