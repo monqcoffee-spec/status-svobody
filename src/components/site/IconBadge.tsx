@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type Size = "sm" | "md" | "lg";
 
@@ -24,8 +24,20 @@ export function IconBadge({
   className?: string;
 }) {
   const { box } = sizes[size];
+  const ref = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    if (!ref.current) return;
+    const io = new IntersectionObserver(
+      ([entry]) => entry.isIntersecting && setInView(true),
+      { threshold: 0.4 },
+    );
+    io.observe(ref.current);
+    return () => io.disconnect();
+  }, []);
   return (
     <div
+      ref={ref}
       className={`group/badge relative shrink-0 ${box} ${className}`}
       style={{
         filter:
@@ -43,6 +55,30 @@ export function IconBadge({
             "inset 0 2px 4px color-mix(in oklab, var(--cyan-glow) 70%, transparent), inset 0 -8px 14px color-mix(in oklab, var(--teal) 70%, transparent), inset 0 0 0 1px color-mix(in oklab, var(--champagne) 60%, transparent), 0 6px 20px -4px color-mix(in oklab, var(--ink-deep) 80%, transparent)",
         }}
       />
+      {/* Breathing gold halo — activates when scrolled into view */}
+      <div
+        aria-hidden
+        className="absolute inset-0 rounded-full pointer-events-none transition-opacity duration-700"
+        style={{
+          opacity: inView ? 1 : 0,
+          animation: inView ? "gold-breathe 3.4s ease-in-out infinite" : "none",
+        }}
+      />
+      {/* Diagonal gold shimmer sweep — periodic pass across the medallion */}
+      <div
+        aria-hidden
+        className="absolute inset-0 rounded-full overflow-hidden pointer-events-none"
+      >
+        <div
+          className="absolute -inset-2"
+          style={{
+            background:
+              "linear-gradient(115deg, transparent 35%, color-mix(in oklab, var(--champagne-glow) 70%, transparent) 48%, color-mix(in oklab, white 70%, transparent) 50%, color-mix(in oklab, var(--champagne-glow) 70%, transparent) 52%, transparent 65%)",
+            animation: inView ? "gold-shimmer 3.6s ease-in-out infinite" : "none",
+            mixBlendMode: "screen",
+          }}
+        />
+      </div>
       {/* Glossy top highlight */}
       <div
         aria-hidden
@@ -60,7 +96,7 @@ export function IconBadge({
         className="absolute inset-0 rounded-full opacity-0 transition-opacity duration-500 group-hover/badge:opacity-100 pointer-events-none"
         style={{
           boxShadow:
-            "0 0 0 1px color-mix(in oklab, var(--champagne) 80%, transparent), 0 0 28px color-mix(in oklab, var(--champagne) 55%, transparent)",
+            "0 0 0 1px color-mix(in oklab, var(--champagne-glow) 90%, transparent), 0 0 32px color-mix(in oklab, var(--champagne) 75%, transparent), 0 0 64px color-mix(in oklab, var(--champagne-glow) 50%, transparent)",
         }}
       />
       {/* Icon */}
