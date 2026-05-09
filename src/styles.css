@@ -1125,3 +1125,19 @@
   .group\/card.sr-in h3 { animation: none; }
 }
 
+/* ───── IconArt hover shimmer + reduced-motion guard ───── */
+@keyframes icon-art-sweep {
+  0%   { transform: translateX(-130%); }
+  100% { transform: translateX(130%); }
+}
+.icon-art-shimmer {
+  animation: icon-art-sweep 1.4s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .icon-art {
+    transition: none !important;
+    transform: none !important;
+  }
+  .icon-art > div { animation: none !important; }
+  .icon-art-shimmer { animation: none !important; }
+}
