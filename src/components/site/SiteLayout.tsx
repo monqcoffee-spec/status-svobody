@@ -4,8 +4,10 @@ import { FloatingContacts } from "./FloatingContacts";
 import { ScrollTopButton } from "./ScrollTopButton";
 import { GoldParticles } from "./GoldParticles";
 import bgSunriseVeil from "@/assets/bg-sunrise-veil.jpg";
+import { useBgQuality } from "@/hooks/use-bg-quality";
 
 export function SiteLayout({ children }: { children: React.ReactNode }) {
+  useBgQuality();
   return (
     <div
       className="relative flex min-h-screen flex-col"
