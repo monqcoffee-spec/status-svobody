@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import { Section, SectionLabel, H2 } from "./Section";
+import { IconArt } from "./IconArt";
+import iconFaq from "@/assets/icons-3d/faq.png";
 
 type Item = { q: string; a: string };
 
@@ -32,9 +34,12 @@ export function Faq() {
   return (
     <Section variant="darker" id="faq">
       <SectionLabel n="07" title="Вопросы и ответы" />
-      <H2 className="mt-8 max-w-3xl">
-        Часто задаваемые <span className="text-cyan italic">вопросы</span>
-      </H2>
+      <div className="mt-8 flex items-center gap-5 max-w-3xl">
+        <IconArt src={iconFaq} alt="FAQ" size="lg" />
+        <H2 className="!mt-0">
+          Часто задаваемые <span className="text-cyan italic">вопросы</span>
+        </H2>
+      </div>
       <ul className="mt-12 max-w-4xl space-y-3">
         {ITEMS.map((it, i) => {
           const isOpen = open === i;
