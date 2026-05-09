@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { Section, SectionLabel, H2 } from "./Section";
-import intensiveBanner from "@/assets/intensive-banner.png";
+import { IconArt } from "./IconArt";
+import iconBot from "@/assets/icons-3d/bot.png";
 
 export function BotIntensive() {
   return (
@@ -55,22 +56,23 @@ export function BotIntensive() {
           </div>
           <div className="md:col-span-5 relative">
             <div
-              className="relative mx-auto w-full max-w-sm overflow-hidden aspect-[2/3]"
+              className="relative mx-auto w-full max-w-sm overflow-hidden aspect-square flex flex-col items-center justify-center p-10 backdrop-blur-md"
               style={{
                 borderRadius: "32px",
                 border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
+                background:
+                  "linear-gradient(135deg, color-mix(in oklab, var(--wine) 8%, white) 0%, color-mix(in oklab, var(--gold) 10%, white) 100%)",
                 boxShadow:
-                  "0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), 0 0 0 1px color-mix(in oklab, var(--gold) 18%, transparent)",
+                  "0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 60%, transparent)",
               }}
             >
-              <img
-                src={intensiveBanner}
-                alt="Бесплатный интенсив «Статус Свободы» — Юлия Армина"
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-top select-none"
-                style={{ borderRadius: "inherit" }}
-              />
+              <IconArt src={iconBot} alt="" size="xl" />
+              <div className="mt-6 text-center font-display text-xl md:text-2xl" style={{ color: "var(--text)" }}>
+                @status_svobody_bot
+              </div>
+              <div className="mt-2 smallcaps text-[11px]" style={{ color: "var(--text-muted)" }}>
+                Открытый чат-бот
+              </div>
             </div>
           </div>
         </div>
