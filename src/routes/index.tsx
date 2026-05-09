@@ -661,7 +661,7 @@ function EntryPoint() {
             </div>
 
             <div className="card-lux relative inline-flex w-full items-center gap-4 px-6 py-4">
-              <IconArt src={iconPhone} alt="Телефон" size="sm" />
+              <IconArt src={iconPhone} alt="Телефон" size="xs" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Телефон</div>
                 <a href="tel:+79654457378" className="font-display text-lg tabular transition-colors" style={{ color: "#2A1118" }}>
@@ -677,7 +677,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <IconArt src={iconTelegram} alt="Telegram-канал" size="sm" />
+                <IconArt src={iconTelegram} alt="Telegram-канал" size="xs" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram-канал</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
@@ -689,7 +689,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <IconArt src={iconBot} alt="Бесплатный интенсив" size="sm" />
+                <IconArt src={iconBot} alt="Бесплатный интенсив" size="xs" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Бесплатный интенсив</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>@status_svobody_bot</div>
