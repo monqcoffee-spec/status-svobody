@@ -29,7 +29,7 @@ export function BotIntensive() {
           <div className="md:col-span-7">
             <h3 className="font-display text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
               Получите доступ <br />
-              к закрытому интенсиву
+              к интенсиву
             </h3>
             <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
               Без воды — практика, которая работает в 2026 году.
