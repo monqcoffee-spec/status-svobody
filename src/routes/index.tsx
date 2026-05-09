@@ -239,7 +239,7 @@ function About() {
   return (
     <Section variant="wine" id="about">
       <ScrollReveal>
-        <SectionLabel n="02" title="О компании" />
+        <SectionLabel n="01" title="О компании" />
       </ScrollReveal>
       <ScrollReveal delay={1}>
         <H2 className="mt-8 max-w-3xl">
@@ -331,7 +331,7 @@ function Process() {
   return (
     <Section variant="tint" id="process">
       <ScrollReveal>
-        <SectionLabel n="05" title="Как мы работаем" />
+        <SectionLabel n="02" title="Как мы работаем" />
       </ScrollReveal>
       <ScrollReveal delay={1}>
         <H2 className="mt-8 max-w-3xl">
@@ -491,7 +491,7 @@ function Pricing() {
   return (
     <Section variant="wine" id="pricing">
       <ScrollReveal>
-        <SectionLabel n="06" title="Тарифы" />
+        <SectionLabel n="05" title="Тарифы" />
       </ScrollReveal>
       <ScrollReveal delay={1}>
         <H2 className="mt-8 max-w-3xl">
