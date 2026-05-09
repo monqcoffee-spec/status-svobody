@@ -161,7 +161,7 @@ function Steps({ allVerified, kase }: { allVerified: boolean; kase: Case }) {
   );
 }
 
-function ReportCard({ bureau, report, onUpload }: { bureau: { key: Bureau; label: string; sub: string }; report?: Report; onUpload: (f: File) => Promise<void> }) {
+function ReportCard({ bureau, report, onUpload }: { bureau: { key: Bureau; label: string; sub: string }; report?: Report; onUpload: (f: File) => Promise<unknown> }) {
   const ref = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
   const verifying = report && report.verification_status === "pending";
@@ -207,7 +207,7 @@ function ReportCard({ bureau, report, onUpload }: { bureau: { key: Bureau; label
   );
 }
 
-function ConsentSection({ kase, onUpload }: { kase: Case; onUpload: (f: File) => Promise<void> }) {
+function ConsentSection({ kase, onUpload }: { kase: Case; onUpload: (f: File) => Promise<unknown> }) {
   const ref = useRef<HTMLInputElement>(null);
 
   function downloadTemplate() {
