@@ -76,18 +76,18 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-function ReviewCard({ review, i }: { review: Review; i: number }) {
+function ReviewCard({ review, i, compact }: { review: Review; i: number; compact?: boolean }) {
   return (
     <ScrollReveal as="li" delay={(Math.min(i, 4) as 0 | 1 | 2 | 3 | 4)} className="snap-start">
       <a
         href={YANDEX_REVIEWS_URL}
         target="_blank"
         rel="noopener noreferrer nofollow"
-        className="testimonial-card group relative block h-full p-7 sm:p-8 cursor-pointer"
+        className={`testimonial-card group relative block h-full cursor-pointer ${compact ? "p-5 sm:p-6" : "p-7 sm:p-8"}`}
       >
         <div className="flex items-start justify-between gap-4">
           <div>
-            <div className="font-display text-lg" style={{ color: "var(--wine-deep)" }}>
+            <div className={`font-display ${compact ? "text-base" : "text-lg"}`} style={{ color: "var(--wine-deep)" }}>
               {review.name}
             </div>
             <div className="mt-1 flex items-center gap-2">
@@ -106,11 +106,11 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
           />
         </div>
 
-        <p className="mt-5 text-[15px] leading-relaxed" style={{ color: "var(--card-text)" }}>
+        <p className={`${compact ? "mt-3 text-[13.5px] leading-[1.55] line-clamp-4" : "mt-5 text-[15px] leading-relaxed"}`} style={{ color: "var(--card-text)" }}>
           {review.text}
         </p>
 
-        <div className="mt-6 flex items-center justify-between border-t pt-4" style={{ borderColor: "color-mix(in oklab, #874255 14%, transparent)" }}>
+        <div className={`${compact ? "mt-4 pt-3" : "mt-6 pt-4"} flex items-center justify-between border-t`} style={{ borderColor: "color-mix(in oklab, #874255 14%, transparent)" }}>
           <span className="inline-flex items-center gap-2 text-[11px] tracking-[0.14em] uppercase" style={{ color: "var(--card-text-muted)" }}>
             <span
               className="inline-block h-1.5 w-1.5 rounded-full"
@@ -129,42 +129,42 @@ function ReviewCard({ review, i }: { review: Review; i: number }) {
   );
 }
 
-export function Testimonials() {
+export function Testimonials({ compact = false }: { compact?: boolean } = {}) {
   return (
     <Section variant="default" id="testimonials">
       <div className="text-center max-w-3xl mx-auto">
         <Eyebrow>Отзывы клиентов</Eyebrow>
-        <H2 className="mt-5">
+        <H2 className={compact ? "mt-4 text-3xl md:text-4xl" : "mt-5"}>
           Нам доверяют люди, которым мы помогли начать новую жизнь
         </H2>
-        <p className="mt-5 text-base sm:text-lg" style={{ color: "var(--text-muted)" }}>
+        <p className={`mt-4 ${compact ? "text-sm sm:text-base" : "text-base sm:text-lg"}`} style={{ color: "var(--text-muted)" }}>
           Каждый отзыв — реальная история освобождения от тяжёлой ситуации.
         </p>
       </div>
 
       <ul
-        className="
-          mt-12 sm:mt-14
-          grid gap-5 sm:gap-6
+        className={`
+          ${compact ? "mt-8 sm:mt-10 gap-4" : "mt-12 sm:mt-14 gap-5 sm:gap-6"}
+          grid
           grid-cols-1 md:grid-cols-2 lg:grid-cols-3
           max-md:flex max-md:overflow-x-auto max-md:snap-x max-md:snap-mandatory
           max-md:-mx-4 max-md:px-4 max-md:pb-2
-        "
+        `}
         style={{ scrollbarWidth: "none" }}
       >
         {REVIEWS.map((r, i) => (
           <div key={i} className="max-md:min-w-[86%] max-md:flex-shrink-0">
-            <ReviewCard review={r} i={i} />
+            <ReviewCard review={r} i={i} compact={compact} />
           </div>
         ))}
       </ul>
 
-      <div className="mt-12 sm:mt-14 flex flex-col items-center gap-4">
+      <div className={`${compact ? "mt-8 sm:mt-10" : "mt-12 sm:mt-14"} flex flex-col items-center gap-4`}>
         <a
           href={YANDEX_LEAVE_REVIEW_URL}
           target="_blank"
           rel="noopener noreferrer nofollow"
-          className="testimonial-cta group inline-flex items-center gap-3 px-8 py-4 rounded-full font-display text-sm tracking-[0.14em] uppercase"
+          className={`testimonial-cta group inline-flex items-center gap-3 rounded-full font-display tracking-[0.14em] uppercase ${compact ? "px-6 py-3 text-xs" : "px-8 py-4 text-sm"}`}
         >
           <MessageSquarePlus size={18} />
           Оставить отзыв
