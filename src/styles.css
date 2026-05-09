@@ -107,14 +107,14 @@
   --gold-light: #E4C77A;                     /* highlight gold */
   --gold-mist: #F1E2C0;                      /* champagne mist */
 
-  /* Text */
-  --text: #14080C;                           /* near-black w/ wine undertone */
-  --text-muted: #4A3A42;                     /* readable muted (premium contrast) */
-  --text-faint: #7A6770;                     /* tertiary */
+  /* Text — only black or wine accent on light surfaces (no muddy greys) */
+  --text: #000000;                           /* pure black for max contrast */
+  --text-muted: #874255;                     /* wine accent (signature) */
+  --text-faint: #874255;                     /* wine accent (signature) */
 
   /* Card-specific text — keeps body copy crisp on white luxe surfaces */
-  --card-text: #2A1620;
-  --card-text-muted: #4A3A42;
+  --card-text: #000000;
+  --card-text-muted: #874255;
 
   /* Legacy aliases (do NOT remove — used across components) */
   --cyan: var(--wine);
@@ -236,11 +236,9 @@
     line-height: 1.02;
   }
 
-  /* Glow text — soft wine halo on key headings */
+  /* Glow text — disabled on light theme to keep gold/wine crisp (100% clarity) */
   .text-glow {
-    text-shadow:
-      0 0 18px color-mix(in oklab, var(--wine) 14%, transparent),
-      0 0 42px color-mix(in oklab, var(--gold) 10%, transparent);
+    text-shadow: none;
   }
 
   /* Wine→gold gradient text — premium signature accent */
