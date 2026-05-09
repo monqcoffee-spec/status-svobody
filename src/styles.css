@@ -606,6 +606,63 @@
   }
   .animate-drift { animation: drift 18s ease-in-out infinite; }
 
+  /* ── Site-wide ambient sunrays ───────────────────────────── */
+  @keyframes sunray-sweep {
+    0%   { transform: translate(-50%, -50%) rotate(0deg); opacity: 0.55; }
+    50%  { opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) rotate(360deg); opacity: 0.55; }
+  }
+  @keyframes sunray-pulse {
+    0%, 100% { opacity: 0.45; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: 0.75; transform: translate(-50%, -50%) scale(1.06); }
+  }
+  .sunrays {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    width: 220vmax;
+    height: 220vmax;
+    transform: translate(-50%, -50%);
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      color-mix(in oklab, var(--gold) 16%, transparent) 6deg,
+      transparent 14deg,
+      transparent 28deg,
+      color-mix(in oklab, var(--rose-quartz) 14%, transparent) 34deg,
+      transparent 42deg,
+      transparent 60deg,
+      color-mix(in oklab, var(--gold) 12%, transparent) 66deg,
+      transparent 74deg,
+      transparent 100deg,
+      color-mix(in oklab, var(--gold) 14%, transparent) 106deg,
+      transparent 114deg,
+      transparent 360deg
+    );
+    -webkit-mask-image: radial-gradient(circle at center, black 5%, rgba(0,0,0,0.5) 35%, transparent 70%);
+            mask-image: radial-gradient(circle at center, black 5%, rgba(0,0,0,0.5) 35%, transparent 70%);
+    filter: blur(6px);
+    animation: sunray-sweep 90s linear infinite;
+    will-change: transform, opacity;
+  }
+  .sun-glow {
+    position: absolute;
+    left: 50%;
+    top: 38%;
+    width: 70vmax;
+    height: 70vmax;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle,
+      color-mix(in oklab, var(--gold) 28%, transparent) 0%,
+      color-mix(in oklab, var(--gold-mist) 16%, transparent) 28%,
+      transparent 60%);
+    filter: blur(40px);
+    animation: sunray-pulse 9s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sunrays, .sun-glow { animation: none !important; }
+  }
+
   @keyframes reveal {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: none; }
