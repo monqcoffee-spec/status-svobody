@@ -1,5 +1,7 @@
 import { Send, Sparkles, ArrowUpRight } from "lucide-react";
 import { Section, SectionLabel, H2 } from "./Section";
+import { IconArt } from "./IconArt";
+import iconBot from "@/assets/icons-3d/bot.png";
 
 export function BotIntensive() {
   return (
@@ -87,19 +89,7 @@ export function BotIntensive() {
               }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-8 text-center">
-                <div
-                  className="flex h-20 w-20 items-center justify-center animate-pulse-glow"
-                  style={{
-                    borderRadius: "20px",
-                    border: "1px solid color-mix(in oklab, var(--gold) 50%, transparent)",
-                    background: "linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%)",
-                    color: "#fff",
-                    boxShadow:
-                      "0 0 30px color-mix(in oklab, var(--gold) 50%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.25)",
-                  }}
-                >
-                  <Send className="h-9 w-9" />
-                </div>
+                <IconArt src={iconBot} alt="" size="lg" />
                 <div className="font-display text-2xl" style={{ color: "var(--text)" }}>@status_svobody_bot</div>
                 <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Закрытый канал</div>
                 <div className="text-sm" style={{ color: "var(--text-muted)" }}>
