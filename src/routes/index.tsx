@@ -622,8 +622,8 @@ function EntryPoint() {
       className="relative overflow-hidden py-28 md:py-36 scroll-mt-24"
     >
       <ParticleField density={42} />
-      <img src={particlesRise} alt="" aria-hidden className="hidden" />
-      <img src={featherImg} alt="" aria-hidden className="hidden" />
+      <img src={particlesRise} alt="" aria-hidden className="hidden" loading="lazy" decoding="async" />
+      <img src={featherImg} alt="" aria-hidden className="hidden" loading="lazy" decoding="async" />
 
       <div className="container-tight relative">
         <div className="text-center">
