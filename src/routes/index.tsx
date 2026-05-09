@@ -439,16 +439,16 @@ function Process() {
           Путь к <span className="text-cyan italic">безупречной репутации</span>
         </H2>
       </ScrollReveal>
-      <ol className="mt-14 grid gap-px bg-white/5 border border-white/5 md:grid-cols-2" style={{ borderRadius: "2px" }}>
+      <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
-          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="group/card flex gap-5 bg-ink-soft p-8 transition-colors hover:bg-ink">
+          <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7 transition-all">
             <IconBadge size="md">{s.icon}</IconBadge>
             <div className="flex-1">
-              <div className="font-display text-xs tabular tracking-[0.22em] text-cyan-glow uppercase">
+              <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-xl md:text-2xl text-silver leading-snug">{s.t}</h3>
-              <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">{s.d}</p>
+              <h3 className="mt-2 font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
+              <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
         ))}
@@ -483,21 +483,21 @@ function DigitalProfile() {
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {profile.map((p, i) => (
-          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="group/card flex gap-5 border border-white/8 bg-ink-soft/60 p-7 transition-colors hover:border-cyan/40" style={{ borderRadius: "2px" }}>
+          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7">
             <IconBadge size="sm">
               <Database className="h-5 w-5" />
             </IconBadge>
-            <p className="text-base md:text-lg leading-relaxed text-silver/85 pt-1.5">{p}</p>
+            <p className="text-base md:text-lg leading-relaxed pt-1.5">{p}</p>
           </ScrollReveal>
         ))}
       </div>
-      <div className="mt-12 border-l-2 border-cyan/60 bg-cyan/5 px-7 py-6" style={{ borderRadius: "2px" }}>
-        <p className="font-display text-xl md:text-2xl leading-snug text-silver">
+      <div className="card-lux mt-12 px-7 py-6" style={{ borderLeftWidth: "3px", borderLeftColor: "var(--gold-heading)" }}>
+        <p className="font-display text-xl md:text-2xl leading-snug">
           Срок исковой давности
-          <span className="text-cyan-glow"> не обнуляет </span>
+          <span style={{ color: "var(--gold-heading-deep)", fontStyle: "italic" }}> не обнуляет </span>
           ваши долги.
         </p>
-        <p className="mt-3 text-base md:text-lg leading-relaxed text-silver-dim">
+        <p className="mt-3 text-base md:text-lg leading-relaxed">
           Записи продолжают влиять на скоринг и решения банков. Управлять
           этим можно — и нужно — целенаправленно.
         </p>
