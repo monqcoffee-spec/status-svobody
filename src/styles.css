@@ -685,6 +685,20 @@
     .animate-bg-shift { animation: none !important; }
   }
 
+  /* ── Adaptive background quality ───────────────────────────
+   * Set on <html> by useBgQuality(): "low" | "medium" | "high". */
+  /* MEDIUM: kill rotating sunrays + bg-shift, keep static glow & gold particles. */
+  html[data-bg-quality="medium"] .sunrays { animation: none !important; opacity: 0.35; }
+  html[data-bg-quality="medium"] .sun-glow { animation: none !important; }
+  html[data-bg-quality="medium"] .animate-bg-shift { animation: none !important; }
+
+  /* LOW: hide all expensive ambient layers entirely. */
+  html[data-bg-quality="low"] .sunrays,
+  html[data-bg-quality="low"] .sun-glow,
+  html[data-bg-quality="low"] .animate-drift,
+  html[data-bg-quality="low"] .animate-float { display: none !important; }
+  html[data-bg-quality="low"] .animate-bg-shift { animation: none !important; }
+
   @keyframes reveal {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: none; }
