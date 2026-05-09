@@ -243,48 +243,17 @@ function About() {
 
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
-          <div
-            className="group relative aspect-[4/5] w-full overflow-hidden"
-            style={{
-              borderRadius: "28px",
-              border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
-              background:
-                "linear-gradient(135deg, color-mix(in oklab, var(--rose-mist) 40%, white) 0%, color-mix(in oklab, var(--paper-tint) 70%, white) 100%)",
-              boxShadow:
-                "inset 0 1px 0 0 rgba(255,255,255,0.95), 0 40px 90px -50px color-mix(in oklab, var(--wine) 55%, transparent), 0 8px 28px -16px color-mix(in oklab, var(--gold) 35%, transparent)",
-            }}
-          >
+          <div className="relative flex aspect-[4/5] w-full items-center justify-center">
             <div
               aria-hidden
-              className="absolute inset-0 opacity-60 mix-blend-screen"
+              className="absolute inset-0 -z-10 animate-pulse-glow pointer-events-none"
               style={{
                 background:
-                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--gold) 30%, transparent), transparent 70%)",
-                filter: "blur(24px)",
+                  "radial-gradient(circle at 50% 50%, color-mix(in oklab, var(--champagne) 35%, transparent), color-mix(in oklab, var(--champagne-glow) 18%, transparent) 40%, transparent 70%)",
+                filter: "blur(36px)",
               }}
             />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="relative">
-                <Logo size={140} />
-                <div
-                  aria-hidden
-                  className="absolute inset-0 -z-10 animate-pulse-glow"
-                  style={{
-                    background:
-                      "radial-gradient(circle, color-mix(in oklab, var(--champagne) 55%, transparent), color-mix(in oklab, var(--champagne-glow) 25%, transparent) 40%, transparent 70%)",
-                    filter: "blur(32px)",
-                  }}
-                />
-              </div>
-            </div>
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-              style={{
-                background:
-                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--wine) 18%, transparent))",
-              }}
-            />
+            <Logo size={180} onDark />
           </div>
         </ScrollReveal>
 
