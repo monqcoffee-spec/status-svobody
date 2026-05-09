@@ -66,7 +66,7 @@ export function BotIntensive() {
                   "0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 60%, transparent)",
               }}
             >
-              <IconArt src={iconBot} alt="" size="xl" />
+              <IconArt src={iconBot} alt="" size="lg" />
               <div className="mt-6 text-center font-display text-xl md:text-2xl" style={{ color: "var(--text)" }}>
                 @status_svobody_bot
               </div>
