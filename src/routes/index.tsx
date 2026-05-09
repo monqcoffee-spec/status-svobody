@@ -14,7 +14,7 @@ import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
-import yuliaPortrait from "@/assets/yulia-armina-hero.png";
+import yuliaPortrait from "@/assets/hero-yulia.png";
 import featherImg from "@/assets/feather-light.jpg";
 import iconAudit from "@/assets/icons-3d/audit.png";
 import iconConclusion from "@/assets/icons-3d/conclusion.png";
