@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
 import {
   ArrowUpRight,
@@ -622,10 +622,9 @@ function BankruptcyCTA() {
             </p>
           </div>
           <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
-            <a
-              href="https://t.me/status_svobody_bot"
-              target="_blank"
-              rel="noopener"
+            <Link
+              to="/bankruptcy"
+              hash="bot-intensive"
               className="btn-cyan group w-full justify-center rounded-sm lg:w-auto"
               style={{
                 boxShadow:
@@ -634,14 +633,14 @@ function BankruptcyCTA() {
             >
               <span>Пройти бесплатный интенсив</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
-            <a
-              href="/bankruptcy"
+            </Link>
+            <Link
+              to="/bankruptcy"
               className="btn-ghost group w-full justify-center rounded-sm lg:w-auto"
             >
               <span>Подробнее о банкротстве</span>
               <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
