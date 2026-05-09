@@ -10,7 +10,7 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       className="relative flex min-h-screen flex-col text-silver"
       style={{
         background:
-          "linear-gradient(180deg, #ffffff 0%, #fbeaee 12%, #e9b9c0 32%, #b56776 58%, #874255 82%, #5a2a37 100%)",
+          "linear-gradient(215deg, #6a2735 0%, #9a5563 22%, #c0838c 45%, #dca99f 65%, #ecc8b5 82%, #f5e2cf 100%)",
       }}
     >
       {/* Cinematic gold + accent glow overlay */}
