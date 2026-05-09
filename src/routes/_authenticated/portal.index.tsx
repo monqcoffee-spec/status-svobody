@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/use-auth";
 
-export const Route = createFileRoute("/_authenticated/portal")({
+export const Route = createFileRoute("/_authenticated/portal/")({
   head: () => ({ meta: [{ title: "Кабинет — Status Svobody" }] }),
   component: PortalDashboard,
 });
