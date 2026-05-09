@@ -317,9 +317,17 @@ function BankruptcyCTA() {
   return (
     <section className="relative overflow-hidden bg-aurora py-28 md:py-36">
       <ParticleField density={40} />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-20 h-[600px] w-[600px] rounded-full opacity-30 animate-drift"
+        style={{
+          background:
+            "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 30%, transparent), transparent)",
+        }}
+      />
       <div className="container-tight relative text-center">
-        <h2 className="display text-[clamp(2rem,6vw,4.5rem)] max-w-4xl mx-auto">
-          <span className="text-gradient-cyan text-glow">Начните процедуру с честной оценки.</span>
+        <h2 className="display uppercase text-[clamp(2rem,6vw,4.5rem)] max-w-4xl mx-auto">
+          <span className="text-gradient-cyan text-glow">Получите индивидуальный разбор вашей ситуации</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-silver/75">
           Первая консультация бесплатна. Если банкротство вам не нужно —
