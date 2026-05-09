@@ -90,11 +90,11 @@ function BankruptcyHero() {
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
           </div>
-          <h1 className="mt-8 font-display text-5xl md:text-7xl leading-[1.05] tracking-[-0.03em] text-silver">
+          <h1 className="mt-8 font-display uppercase text-5xl md:text-7xl leading-[1.05] tracking-[-0.03em] text-silver">
             Финансовое <br />
             <span className="text-gradient-cyan text-glow italic font-serif">освобождение.</span>
           </h1>
-          <p className="mt-8 max-w-xl text-lg md:text-xl leading-relaxed text-silver/80">
+          <p className="mt-8 text-lg md:text-xl leading-relaxed text-silver/80">
             Долги — не приговор, а юридическая задача с предсказуемым решением.
             Премиальное сопровождение процедуры банкротства физических лиц:
             от стратегии до получения определения суда.
@@ -138,12 +138,12 @@ function BankruptcyAdvantages() {
         {items.map((it) => (
           <div
             key={it.t}
-            className="card-lux group/card flex gap-5 p-7"
+            className="card-lux group/card flex gap-6 p-9 md:p-11"
           >
-            <IconArt src={it.art} alt="" size="sm" />
+            <IconArt src={it.art} alt="" size="md" />
             <div>
-              <h3 className="font-display text-xl md:text-2xl leading-snug">{it.t}</h3>
-              <p className="mt-2 text-base md:text-lg leading-relaxed">{it.d}</p>
+              <h3 className="font-display uppercase text-2xl md:text-3xl leading-snug">{it.t}</h3>
+              <p className="mt-3 text-lg md:text-xl leading-relaxed">{it.d}</p>
             </div>
           </div>
         ))}
@@ -155,9 +155,9 @@ function BankruptcyAdvantages() {
 function BankruptcyStages() {
   const steps = [
     { art: iconAudit, t: "Аудит ситуации", d: "Анализируем долги, имущество, доходы. Определяем стратегию: банкротство, реструктуризация или альтернативный путь." },
-    { art: iconDataBureau, t: "Подготовка документов", d: "Собираем доказательную базу, выписки БКИ, ФССП, справки. Готовим заявление в арбитражный суд." },
+    { art: iconDataBureau, t: "Подготовка документов", d: "Собираем доказательную базу, выписки БКИ, ФССП, справки. Готовим заявление в АРБИТРАЖНЫЙ СУД." },
     { art: iconDataCourt, t: "Судебная процедура", d: "Сопровождение арбитражного процесса, взаимодействие с финансовым управляющим, защита интересов клиента." },
-    { art: iconUnlock, t: "Освобождение от долгов", d: "Получение определения суда. Полное юридическое освобождение от обязательств." },
+    { art: iconUnlock, t: "Завершение процедуры", d: "Получение определения суда, доведение до результата и полное юридическое сопровождение." },
   ];
   return (
     <Section variant="default" id="stages">
@@ -167,14 +167,14 @@ function BankruptcyStages() {
       </H2>
       <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
-          <li key={s.t} className="card-lux group/card flex gap-5 p-7">
-            <IconArt src={s.art} alt="" size="md" />
+          <li key={s.t} className="card-lux group/card flex gap-6 p-9 md:p-11">
+            <IconArt src={s.art} alt="" size="lg" />
             <div>
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-xl md:text-2xl leading-snug">{s.t}</h3>
-              <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
+              <h3 className="mt-2 font-display uppercase text-2xl md:text-3xl leading-snug">{s.t}</h3>
+              <p className="mt-3 text-lg md:text-xl leading-relaxed">{s.d}</p>
             </div>
           </li>
         ))}
@@ -215,10 +215,10 @@ function BankruptcySupport() {
 
 function BankruptcyResults() {
   const stats = [
-    { v: "100%", l: "Дел доведено до определения суда" },
+    { v: "888 млн ₽", l: "Списано долгов" },
+    { v: "1000+", l: "Семей прошли процедуру" },
     { v: "127-ФЗ", l: "Работаем строго в правовом поле" },
     { v: "от 6 мес", l: "Средний срок процедуры" },
-    { v: "0 ₽", l: "Стоимость первой консультации" },
   ];
   return (
     <Section variant="default" id="results">
@@ -241,6 +241,7 @@ function BankruptcyResults() {
 function BankruptcyFaq() {
   const items = [
     { q: "Сохраню ли я единственное жильё?", a: "Да, по общему правилу единственное жильё неприкосновенно. Стратегия защиты разрабатывается до подачи заявления." },
+    { q: "Сохраняется ли ипотека?", a: "Да, мы сохраняем ипотеку как единственное жильё в индивидуальных случаях. Возможность списания остальных долгов обсуждается на разборе." },
     { q: "Какие долги списываются?", a: "Кредиты банков, микрозаймы, задолженности перед физлицами, часть налоговых долгов и штрафов. Не списываются алименты, возмещение вреда жизни и здоровью, субсидиарная ответственность." },
     { q: "Сколько длится процедура?", a: "Реализация имущества — от 6 месяцев. Реструктуризация — до 3 лет. Конкретный срок зависит от состава долгов и имущества." },
     { q: "Можно ли работать после банкротства?", a: "Да. Ограничения касаются только руководящих должностей в финансовых организациях в течение определённого срока. Обычная работа и предпринимательство — без ограничений." },
