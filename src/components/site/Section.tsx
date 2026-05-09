@@ -14,7 +14,7 @@ export function Section({ variant = "default", className, children, id }: Props)
       id={id}
       data-variant={variant}
       className={cn(
-        "relative py-24 md:py-32 overflow-hidden [contain:paint]",
+        "relative py-16 sm:py-20 md:py-28 lg:py-32 overflow-hidden [contain:paint]",
         // Light variants stay fully transparent so the unified white base
         // background shows through. Only wine/darker get a tinted wash,
         // applied via the overlay div below.
@@ -52,7 +52,7 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
 export function H2({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
     <h2
-      className={cn("display text-4xl md:text-6xl lg:text-7xl", className)}
+      className={cn("display text-[2rem] leading-[1.08] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl", className)}
       style={{ color: "var(--text)", letterSpacing: "-0.035em" }}
     >
       {children}
