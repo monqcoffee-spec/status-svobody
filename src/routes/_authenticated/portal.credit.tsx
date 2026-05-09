@@ -60,20 +60,28 @@ function CreditModule() {
     const up = await supabase.storage.from("portal-docs").upload(path, file, { upsert: false });
     if (up.error) return toast.error(up.error.message);
 
-    // delete previous of same bureau
-    const old = reports.filter(r => r.bureau === bureau);
-    if (old.length) {
-      await supabase.storage.from("portal-docs").remove(old.map(o => o.file_path));
-      await supabase.from("credit_reports").delete().eq("case_id", kase.id).eq("bureau", bureau);
+    // Update existing row (preserves verification history) or insert new one
+    const existing = reports.find(r => r.bureau === bureau);
+    let newReport: Report;
+    if (existing) {
+      // remove the previous file from storage to avoid orphaned blobs
+      if (existing.file_path && existing.file_path !== path) {
+        await supabase.storage.from("portal-docs").remove([existing.file_path]);
+      }
+      const upd = await supabase.from("credit_reports").update({
+        file_path: path, file_name: file.name,
+        verified: false, verification_status: "pending", verification_notes: null,
+      }).eq("id", existing.id).select().single();
+      if (upd.error || !upd.data) return toast.error(upd.error?.message ?? "Ошибка");
+      newReport = upd.data as Report;
+    } else {
+      const ins = await supabase.from("credit_reports").insert({
+        case_id: kase.id, user_id: user.id, bureau,
+        file_path: path, file_name: file.name,
+      }).select().single();
+      if (ins.error || !ins.data) return toast.error(ins.error?.message ?? "Ошибка");
+      newReport = ins.data as Report;
     }
-
-    const ins = await supabase.from("credit_reports").insert({
-      case_id: kase.id, user_id: user.id, bureau,
-      file_path: path, file_name: file.name,
-    }).select().single();
-    if (ins.error || !ins.data) return toast.error(ins.error?.message ?? "Ошибка");
-
-    const newReport = ins.data as Report;
     setReports(prev => [...prev.filter(r => r.bureau !== bureau), newReport]);
     toast.message("Документ загружен — выполняем AI-проверку…");
 
@@ -91,10 +99,15 @@ function CreditModule() {
   async function uploadConsent(file: File) {
     if (!user || !kase) return;
     const path = `${user.id}/credit/${kase.id}/consent-${Date.now()}-${file.name}`;
-    const up = await supabase.storage.from("portal-docs").upload(path, file, { upsert: true });
+    const up = await supabase.storage.from("portal-docs").upload(path, file, { upsert: false });
     if (up.error) return toast.error(up.error.message);
+    // remove previous consent file if any
+    if (kase.consent_uploaded_path && kase.consent_uploaded_path !== path) {
+      await supabase.storage.from("portal-docs").remove([kase.consent_uploaded_path]);
+    }
     const { data } = await supabase.from("credit_cases").update({
-      consent_uploaded_path: path, status: "payment_pending",
+      consent_uploaded_path: path,
+      status: kase.status === "analysis" || kase.paid ? kase.status : "payment_pending",
     }).eq("id", kase.id).select().single();
     if (data) setKase(data as Case);
     toast.success("Согласие загружено");
