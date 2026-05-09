@@ -60,7 +60,7 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [
-      { rel: "preload", as: "image", href: yuliaPortrait, type: "image/webp", fetchpriority: "high" },
+      { rel: "preload", as: "image", href: yuliaPortrait, type: "image/png", fetchpriority: "high" },
     ],
     scripts: [
       {
