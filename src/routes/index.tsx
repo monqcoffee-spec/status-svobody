@@ -4,9 +4,6 @@ import {
   ArrowUpRight,
   Check,
   Database,
-  Phone,
-  AtSign,
-  Megaphone,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
@@ -31,6 +28,13 @@ import iconSvo from "@/assets/icons-3d/svo.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
 import iconBuyout from "@/assets/icons-3d/buyout.png";
 import iconSupport from "@/assets/icons-3d/support.png";
+import iconTierBasic from "@/assets/icons-3d/tier-basic.png";
+import iconTierPremium from "@/assets/icons-3d/tier-premium.png";
+import iconTierPlatinum from "@/assets/icons-3d/tier-platinum.png";
+import iconFaq from "@/assets/icons-3d/faq.png";
+import iconPhone from "@/assets/icons-3d/phone.png";
+import iconTelegram from "@/assets/icons-3d/telegram.png";
+import iconBot from "@/assets/icons-3d/bot.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -454,6 +458,7 @@ function Pricing() {
       meta: "Включает 1 консультацию",
       features: ["Аудит отчётов в трёх БКИ", "Письменное заключение", "План действий"],
       highlight: false,
+      art: iconTierBasic,
     },
     {
       t: "Премиум",
@@ -462,6 +467,7 @@ function Pricing() {
       meta: "Включает 3 консультации",
       features: ["До 5 оспариваний в БКИ", "Переговоры с банками и коллекторами", "Сопровождение юриста"],
       highlight: true,
+      art: iconTierPremium,
     },
     {
       t: "Платинум — комплексный подход",
@@ -470,6 +476,7 @@ function Pricing() {
       meta: "5 консультаций · сопровождение 6 месяцев",
       features: ["Все направления под одним юристом", "Снятие арестов ФССП", "Выкуп долгов с дисконтом", "Контроль исполнения решений"],
       highlight: false,
+      art: iconTierPlatinum,
     },
   ];
   return (
@@ -512,6 +519,7 @@ function Pricing() {
                 }}
               >Популярный</div>
             )}
+            <IconArt src={p.art} alt={p.t} size="lg" className="mb-4" />
             <h3 className="font-display text-2xl md:text-3xl leading-snug">{p.t}</h3>
             <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
             <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">{p.price}</div>
@@ -653,9 +661,7 @@ function EntryPoint() {
             </div>
 
             <div className="card-lux relative inline-flex w-full items-center gap-4 px-6 py-4">
-              <div className="inline-flex h-10 w-10 items-center justify-center border" style={{ borderRadius: "2px", borderColor: "color-mix(in oklab, var(--gold-heading) 55%, transparent)", color: "var(--gold-heading-deep)" }}>
-                <Phone className="h-5 w-5" />
-              </div>
+              <IconArt src={iconPhone} alt="Телефон" size="sm" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Телефон</div>
                 <a href="tel:+79654457378" className="font-display text-lg tabular transition-colors" style={{ color: "#2A1118" }}>
@@ -671,7 +677,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <Megaphone className="h-4 w-4 shrink-0" style={{ color: "var(--gold-heading-deep)" }} />
+                <IconArt src={iconTelegram} alt="Telegram-канал" size="sm" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram-канал</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
@@ -683,7 +689,7 @@ function EntryPoint() {
                 rel="noopener"
                 className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
               >
-                <AtSign className="h-4 w-4 shrink-0" style={{ color: "var(--gold-heading-deep)" }} />
+                <IconArt src={iconBot} alt="Бесплатный интенсив" size="sm" />
                 <div className="text-left">
                   <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Бесплатный интенсив</div>
                   <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>@status_svobody_bot</div>
