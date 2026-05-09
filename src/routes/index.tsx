@@ -257,7 +257,11 @@ function About() {
                 filter: "blur(36px)",
               }}
             />
-            <Logo size={180} onDark />
+            <Logo
+              size={180}
+              onDark
+              className="h-28 sm:h-36 md:h-44 lg:h-52 xl:h-56"
+            />
           </div>
         </ScrollReveal>
 

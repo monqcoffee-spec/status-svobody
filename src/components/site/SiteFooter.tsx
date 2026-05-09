@@ -34,7 +34,7 @@ export function SiteFooter() {
       <div className="container-tight relative grid gap-12 py-20 md:grid-cols-12">
         <div className="md:col-span-5">
           <div className="flex items-center gap-4">
-            <Logo size={64} className="h-14 md:h-16" />
+            <Logo size={64} className="h-12 sm:h-14 md:h-16" />
             <div className="leading-tight">
               <div className="font-display text-lg tracking-[0.32em] uppercase" style={{ color: "var(--wine-deep)" }}>Статус Свободы</div>
               <div className="text-[10px] tracking-[0.42em] uppercase mt-1" style={{ color: "var(--gold-soft)" }}>Юлии Арминой</div>
