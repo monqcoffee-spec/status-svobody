@@ -317,15 +317,15 @@ function About() {
             </div>
             <div>
               <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
-                <AnimatedCounter to={10} />
+                <AnimatedCounter to={15} />
               </div>
               <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>лет практики</div>
             </div>
             <div>
               <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
-                <AnimatedCounter to={98} suffix="%" />
+                <AnimatedCounter to={888} suffix=" млн" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>успех</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>списанных долгов</div>
             </div>
           </div>
         </ScrollReveal>
