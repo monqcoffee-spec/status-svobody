@@ -66,9 +66,6 @@ export function SiteHeader() {
             <div className="font-display text-[12px] md:text-[14px] tracking-[0.34em] uppercase whitespace-nowrap" style={{ color: "var(--text)" }}>
               Статус Свободы
             </div>
-            <div className="text-[9px] md:text-[10px] tracking-[0.42em] uppercase mt-1" style={{ color: "var(--gold-soft)" }}>
-              Premium legal consulting
-            </div>
           </div>
         </Link>
 
