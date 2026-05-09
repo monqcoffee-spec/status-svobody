@@ -32,12 +32,12 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
             backgroundSize: "200% 200%, 180% 180%, 180% 180%, 160% 160%, 100% 100%",
           }}
         />
-        {/* Veil photograph — softly blended on top, masked at edges so it never looks like a chunk */}
+        {/* Veil photograph — softly blended, hidden on small/low-power devices for FPS */}
         <div
-          className="absolute inset-0 bg-center bg-cover"
+          className="absolute inset-0 bg-center bg-cover hidden md:block"
           style={{
             backgroundImage: `url(${bgSunriseVeil})`,
-            opacity: 0.35,
+            opacity: 0.3,
             mixBlendMode: "soft-light",
             WebkitMaskImage:
               "radial-gradient(ellipse 90% 80% at 50% 45%, black 30%, transparent 85%)",
