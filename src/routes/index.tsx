@@ -542,10 +542,8 @@ function Pricing() {
               >Популярный</div>
             )}
             <IconArt src={p.art} alt="" size="lg" className="mb-4" />
-            <h3 className="font-display text-2xl md:text-3xl leading-snug">{p.t}</h3>
+            <h3 className="font-display uppercase tracking-[0.02em] text-2xl md:text-3xl leading-snug">{p.t}</h3>
             <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
-            <div className="mt-6 font-display text-3xl md:text-4xl text-gradient-cyan">{p.price}</div>
-            <div className="mt-2 smallcaps">{p.meta}</div>
             <ul className="mt-6 space-y-3 flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex gap-3 text-base md:text-lg">
@@ -563,6 +561,10 @@ function Pricing() {
                 </button>
               }
             />
+            <div className="mt-4 text-center">
+              <div className="font-display text-2xl md:text-3xl text-gradient-cyan">{p.price}</div>
+              <div className="mt-1 smallcaps text-[10px]">{p.meta}</div>
+            </div>
           </ScrollReveal>
         ))}
       </div>
