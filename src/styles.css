@@ -83,11 +83,15 @@
 
   /* Surfaces */
   --paper: #FFFFFF;                          /* clean white */
-  --paper-soft: #FAF8F7;                     /* warm white */
-  --paper-tint: #F4ECEE;                     /* whisper-rose */
-  --ink: #0F0B0D;                            /* near-black panel */
-  --ink-deep: #0B0808;                       /* deepest black */
-  --ink-soft: #161113;                       /* lifted black */
+  --paper-soft: #F8F5F7;                     /* warm white */
+  --paper-tint: #F4EEF2;                     /* whisper-rose */
+  --paper-mist: #EFE7EC;                     /* deeper rose veil */
+  --paper-deep: #D9C8D5;                     /* mauve mist */
+  /* "ink" tokens kept as light surfaces — historical aliases used by
+   * dialogs/cards that previously rendered dark. Now luxe light. */
+  --ink: var(--paper-soft);
+  --ink-deep: var(--paper-tint);
+  --ink-soft: var(--paper-mist);
 
   /* Wine spectrum (primary accent) */
   --wine: #874255;                           /* signature wine */
@@ -132,29 +136,29 @@
   --popover-foreground: var(--text);
   --primary: var(--wine);
   --primary-foreground: #FFFFFF;
-  --secondary: oklch(0.18 0.012 240);
-  --secondary-foreground: var(--silver);
-  --muted: oklch(0.16 0.01 240);
-  --muted-foreground: oklch(0.60 0.008 240);
+  --secondary: var(--paper-tint);
+  --secondary-foreground: var(--text);
+  --muted: var(--paper-mist);
+  --muted-foreground: var(--text-muted);
   --accent: var(--cyan);
-  --accent-foreground: var(--ink-deep);
+  --accent-foreground: #FFFFFF;
   --destructive: oklch(0.65 0.22 25);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 8%);
-  --input: oklch(1 0 0 / 12%);
+  --border: color-mix(in oklab, var(--gold) 20%, var(--paper-tint));
+  --input: color-mix(in oklab, var(--gold) 18%, var(--paper-tint));
   --ring: var(--cyan);
   --chart-1: var(--cyan);
   --chart-2: var(--teal);
   --chart-3: var(--silver);
   --chart-4: oklch(0.5 0.1 220);
   --chart-5: oklch(0.4 0.05 200);
-  --sidebar: var(--ink);
-  --sidebar-foreground: var(--silver);
-  --sidebar-primary: var(--cyan);
-  --sidebar-primary-foreground: var(--ink);
-  --sidebar-accent: var(--ink-soft);
-  --sidebar-accent-foreground: var(--silver);
-  --sidebar-border: oklch(1 0 0 / 8%);
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--text);
+  --sidebar-primary: var(--wine);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--paper-tint);
+  --sidebar-accent-foreground: var(--text);
+  --sidebar-border: color-mix(in oklab, var(--gold) 22%, transparent);
   --sidebar-ring: var(--cyan);
 
   /* Surfaces / hairlines used by glass + borders, redefined per theme */
@@ -294,9 +298,9 @@
   /* Radial deep background — used on hero / sections */
   .bg-aurora {
     background:
-      radial-gradient(ellipse 70% 45% at 20% 0%, color-mix(in oklab, var(--wine) 18%, transparent), transparent 60%),
-      radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 12%, transparent), transparent 65%),
-      linear-gradient(180deg, var(--ink-deep) 0%, #0F0A0C 50%, var(--ink-deep) 100%);
+      radial-gradient(ellipse 70% 45% at 20% 0%, color-mix(in oklab, var(--wine) 12%, transparent), transparent 60%),
+      radial-gradient(ellipse 60% 60% at 90% 100%, color-mix(in oklab, var(--gold) 10%, transparent), transparent 65%),
+      linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 50%, var(--paper) 100%);
   }
 
   .bg-aurora-soft {
