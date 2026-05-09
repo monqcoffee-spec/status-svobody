@@ -189,27 +189,33 @@ function Hero() {
 
       <div className="relative container-tight pt-10 pb-24 md:pt-16 md:pb-36 lg:pt-20 lg:pb-40">
 
-        <h2 className="mx-auto mt-12 max-w-5xl text-center font-display tracking-[-0.04em] leading-[0.98]"
+        <h2 className="mx-auto mt-12 max-w-5xl text-center font-display tracking-[-0.03em] leading-[1.08] sm:leading-[1.05] md:leading-[1.02]"
             style={{ color: "var(--text)" }}>
           <span
-            className="reveal reveal-delay-2 block text-[2.6rem] sm:text-[3.4rem] md:text-[5rem] lg:text-[6.4rem]"
+            className="reveal reveal-delay-2 block text-[1.65rem] sm:text-[2.25rem] md:text-[3rem] lg:text-[3.6rem]"
           >
-            Свобода начинается
+            Испорченная кредитная история —{" "}
+            <span
+              className="italic font-serif text-gradient-cyan text-glow"
+              style={{ fontWeight: 400 }}
+            >
+              не клеймо
+            </span>
+            .
           </span>
           <span
-            className="reveal reveal-delay-3 block text-[2.6rem] sm:text-[3.4rem] md:text-[5rem] lg:text-[6.4rem] italic font-serif text-gradient-cyan text-glow"
-            style={{ fontWeight: 400 }}
+            className="reveal reveal-delay-3 mt-2 sm:mt-3 block text-[1.4rem] sm:text-[1.85rem] md:text-[2.4rem] lg:text-[2.8rem]"
+            style={{ color: "var(--text-muted)" }}
           >
-            с правильного решения
+            Это запись, которую закон разрешает оспорить.
           </span>
         </h2>
 
         <p
-          className="reveal reveal-delay-3 mx-auto mt-8 max-w-2xl text-center text-base sm:text-lg md:text-xl leading-relaxed"
+          className="reveal reveal-delay-3 mx-auto mt-8 max-w-2xl text-center font-display tracking-[0.18em] uppercase text-sm sm:text-base md:text-lg"
           style={{ color: "var(--text-muted)" }}
         >
-          Личное сопровождение основателем бренда. Восстановление кредитной
-          истории, банкротство, ФССП, БКИ — без посредников и колл-центров.
+          Конфиденциальность. <span style={{ color: "var(--text)" }}>Решение.</span> Поддержка.
         </p>
 
         <div className="reveal reveal-delay-3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
