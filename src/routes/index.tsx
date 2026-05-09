@@ -26,7 +26,7 @@ import { IconBadge } from "@/components/site/IconBadge";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
-import yuliaPortrait from "@/assets/yulia-armina-hero.webp";
+import yuliaPortrait from "@/assets/yulia-armina-hero.png";
 import featherImg from "@/assets/feather-light.jpg";
 
 export const Route = createFileRoute("/")({

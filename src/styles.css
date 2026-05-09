@@ -96,6 +96,10 @@
   --rose-accent: #E8A7B0;                    /* warm rose accent */
   --rose-accent-soft: #C97987;               /* muted rose */
 
+  /* Logo gold — used for headings + brand accents */
+  --gold-heading: #D4B26A;                   /* logo gold */
+  --gold-heading-deep: #A8884A;              /* darker gold for light backgrounds */
+
   /* Semantic — dark by default */
   --background: var(--ink-deep);
   --foreground: var(--silver);
@@ -143,7 +147,7 @@
 
   html, body {
     background-color: var(--ink-deep);
-    color: var(--silver);
+    color: #2A1118;
   }
 
   body {
@@ -157,7 +161,10 @@
     font-family: var(--font-display);
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: var(--silver);
+    color: var(--gold-heading);
+    text-shadow:
+      0 1px 0 color-mix(in oklab, var(--ink-deep) 40%, transparent),
+      0 0 18px color-mix(in oklab, var(--gold-heading) 25%, transparent);
   }
 
   /* Selection */

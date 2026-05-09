@@ -39,7 +39,7 @@ export function Eyebrow({ children, className }: { children: React.ReactNode; cl
 
 export function H2({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <h2 className={cn("display text-4xl md:text-6xl text-silver", className)}>
+    <h2 className={cn("display text-4xl md:text-6xl", className)} style={{ color: "var(--gold-heading)" }}>
       {children}
     </h2>
   );
