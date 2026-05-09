@@ -259,13 +259,14 @@ function About() {
       <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:items-center">
         <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
           <div
-            className="group relative aspect-[4/5] w-full overflow-hidden border border-cyan/15"
+            className="group relative aspect-[4/5] w-full overflow-hidden"
             style={{
-              borderRadius: "2px",
+              borderRadius: "28px",
+              border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
               background:
-                "linear-gradient(135deg, color-mix(in oklab, var(--cyan-soft) 40%, var(--ink-soft)) 0%, var(--ink-deep) 100%)",
+                "linear-gradient(135deg, color-mix(in oklab, var(--rose-mist) 40%, white) 0%, color-mix(in oklab, var(--paper-tint) 70%, white) 100%)",
               boxShadow:
-                "inset 0 1px 0 0 color-mix(in oklab, white 8%, transparent), 0 30px 80px -40px color-mix(in oklab, var(--cyan) 60%, transparent)",
+                "inset 0 1px 0 0 rgba(255,255,255,0.95), 0 40px 90px -50px color-mix(in oklab, var(--wine) 55%, transparent), 0 8px 28px -16px color-mix(in oklab, var(--gold) 35%, transparent)",
             }}
           >
             <div
@@ -273,7 +274,7 @@ function About() {
               className="absolute inset-0 opacity-60 mix-blend-screen"
               style={{
                 background:
-                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--cyan-glow) 35%, transparent), transparent 70%)",
+                  "radial-gradient(ellipse 70% 60% at 50% 30%, color-mix(in oklab, var(--gold) 30%, transparent), transparent 70%)",
                 filter: "blur(24px)",
               }}
             />
@@ -296,7 +297,7 @@ function About() {
               className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
               style={{
                 background:
-                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--ink-deep) 75%, transparent))",
+                  "linear-gradient(180deg, transparent, color-mix(in oklab, var(--wine) 18%, transparent))",
               }}
             />
           </div>
