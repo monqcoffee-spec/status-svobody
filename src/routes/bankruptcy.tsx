@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowUpRight,
   Scale,
@@ -10,6 +10,7 @@ import {
   FileText,
   Gavel,
   Trophy,
+  Plus,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, SectionLabel, H2 } from "@/components/site/Section";
@@ -243,6 +244,7 @@ function BankruptcyFaq() {
     { q: "Можно ли работать после банкротства?", a: "Да. Ограничения касаются только руководящих должностей в финансовых организациях в течение определённого срока. Обычная работа и предпринимательство — без ограничений." },
     { q: "Когда можно снова брать кредиты?", a: "Сразу после завершения процедуры. Восстановление кредитной истории — отдельный сервис нашей команды." },
   ];
+  const [open, setOpen] = useState<number | null>(0);
   return (
     <Section variant="default" id="faq">
       <SectionLabel n="07" title="Вопросы и ответы" />
@@ -250,15 +252,59 @@ function BankruptcyFaq() {
         Частые <span className="text-cyan italic">вопросы</span>
       </H2>
       <ul className="mt-12 max-w-4xl space-y-3">
-        {items.map((it) => (
-          <li
-            key={it.q}
-            className="card-lux p-7"
-          >
-            <h3 className="font-display text-lg md:text-xl leading-snug">{it.q}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed">{it.a}</p>
-          </li>
-        ))}
+        {items.map((it, i) => {
+          const isOpen = open === i;
+          return (
+            <li
+              key={it.q}
+              className="card-lux relative overflow-hidden transition-all duration-500"
+              style={isOpen ? {
+                borderColor: "color-mix(in oklab, var(--gold-heading) 70%, transparent)",
+                boxShadow:
+                  "0 0 0 1px color-mix(in oklab, var(--gold-heading) 45%, transparent), 0 18px 40px -20px color-mix(in oklab, #6a2735 50%, transparent)",
+              } : undefined}
+            >
+              <button
+                type="button"
+                onClick={() => setOpen(isOpen ? null : i)}
+                aria-expanded={isOpen}
+                className="flex w-full items-center justify-between gap-6 px-7 py-6 text-left"
+              >
+                <span
+                  className="font-display text-lg md:text-xl leading-snug transition-colors duration-500"
+                  style={{ color: isOpen ? "var(--gold-heading)" : "var(--gold-heading-deep)" }}
+                >
+                  {it.q}
+                </span>
+                <Plus
+                  className={`h-5 w-5 shrink-0 transition-all duration-500 ${
+                    isOpen ? "rotate-[135deg] scale-110" : ""
+                  }`}
+                  style={{
+                    color: "var(--gold-heading-deep)",
+                    filter: isOpen ? "drop-shadow(0 0 8px var(--gold-heading))" : undefined,
+                  }}
+                />
+              </button>
+              <div
+                className="grid overflow-hidden transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+                style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+              >
+                <div className="min-h-0">
+                  <p
+                    className={`px-7 pb-6 text-base md:text-lg leading-relaxed transition-all duration-700 ${
+                      isOpen
+                        ? "translate-y-0 opacity-100 blur-0"
+                        : "-translate-y-2 opacity-0 blur-sm"
+                    }`}
+                  >
+                    {it.a}
+                  </p>
+                </div>
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </Section>
   );
