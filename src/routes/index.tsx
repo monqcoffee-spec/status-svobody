@@ -360,10 +360,10 @@ function Process() {
 /* ───────────────────── DIGITAL PROFILE ───────────────────── */
 function DigitalProfile() {
   const profile = [
-    "Данные из кредитных бюро — кредитная история во всех трёх БКИ",
-    "Информация о судебных взысканиях (ФССП)",
-    "Сведения о банкротстве и арбитражных процедурах",
-    "Иные финансовые индикаторы и скоринговые маркеры",
+    { art: iconDataBureau, t: "Данные из кредитных бюро — кредитная история во всех трёх БКИ" },
+    { art: iconDataCourt, t: "Информация о судебных взысканиях (ФССП)" },
+    { art: iconDataBankruptcy, t: "Сведения о банкротстве и арбитражных процедурах" },
+    { art: iconDataScore, t: "Иные финансовые индикаторы и скоринговые маркеры" },
   ];
   return (
     <Section variant="darker" id="digital-profile">
@@ -383,11 +383,14 @@ function DigitalProfile() {
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
         {profile.map((p, i) => (
-          <ScrollReveal key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7">
-            <IconBadge size="sm">
-              <Database className="h-5 w-5" />
-            </IconBadge>
-            <p className="text-base md:text-lg leading-relaxed pt-1.5">{p}</p>
+          <ScrollReveal
+            key={i}
+            variant="zoom"
+            delay={((i % 4) + 1) as 1 | 2 | 3 | 4}
+            className="card-lux group/card flex items-center gap-5 p-6 md:p-7"
+          >
+            <IconArt src={p.art} alt="" size="md" />
+            <p className="text-base md:text-lg leading-relaxed">{p.t}</p>
           </ScrollReveal>
         ))}
       </div>
