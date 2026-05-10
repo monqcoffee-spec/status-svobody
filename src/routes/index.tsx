@@ -260,10 +260,10 @@ function About() {
             >
               <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Юлия Армина</span>
               <span className="block mt-1 smallcaps text-[11px] tracking-[0.18em]" style={{ color: "#3a1a22" }}>
-                Основатель · Финансовый поверенный
+                Основатель · «Статус Свободы»
               </span>
               <span className="block mt-3 text-base md:text-lg leading-relaxed font-sans not-italic" style={{ color: "#2A1118" }}>
-                Основатель «Финансовой поверенности». 15 лет практики.
+                Основатель «Статус Свободы». 15 лет практики.
                 Сопровождение клиентов в вопросах долгов, кредитных историй,
                 БКИ, ФССП и банкротства.
               </span>
@@ -274,7 +274,7 @@ function About() {
         <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
             <span className="italic font-display" style={{ color: "#6A040F", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
-            «Финансовой поверенности». 15 лет практики в вопросах долгов,
+            «Статус Свободы». 15 лет практики в вопросах долгов,
             кредитных историй, БКИ, ФССП и банкротства.
           </p>
           <div
