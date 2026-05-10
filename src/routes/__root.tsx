@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/hooks/use-auth";
+import { ConsentGate } from "@/components/site/ConsentGate";
 
 import appCss from "../styles.css?url";
 
@@ -79,6 +80,7 @@ function RootComponent() {
       <div aria-hidden className="film-grain" />
       <Outlet />
       <Toaster />
+      <ConsentGate />
     </AuthProvider>
   );
 }
