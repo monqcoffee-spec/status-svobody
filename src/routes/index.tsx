@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import {
   ArrowUpRight,
@@ -31,9 +31,7 @@ import iconTierBasic from "@/assets/icons-3d/tier-basic.png";
 import iconTierPremium from "@/assets/icons-3d/tier-premium.png";
 import iconTierPlatinum from "@/assets/icons-3d/tier-platinum.png";
 import iconFaq from "@/assets/icons-3d/faq.png";
-import iconPhone from "@/assets/icons-3d/phone.png";
 import iconTelegram from "@/assets/icons-3d/telegram.png";
-import iconBot from "@/assets/icons-3d/bot.png";
 import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
 import iconDataCourt from "@/assets/icons-3d/data-court.png";
 import iconDataBankruptcy from "@/assets/icons-3d/data-bankruptcy.png";
@@ -129,7 +127,6 @@ function IndexPage() {
       <Process />
       <Pricing />
       <Faq />
-      <BankruptcyCTA />
       <EntryPoint />
     </SiteLayout>
   );
@@ -565,62 +562,6 @@ function Pricing() {
 }
 
 /* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
-function BankruptcyCTA() {
-  return (
-    <Section variant="default" id="bankruptcy-cta">
-      <div
-        className="card-lux relative overflow-hidden p-8 md:p-12"
-      >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-50"
-          style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklab, var(--gold-heading) 35%, transparent), transparent 65%)",
-            filter: "blur(40px)",
-          }}
-        />
-        <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
-            <div className="smallcaps" style={{ color: "var(--gold-heading-deep)" }}>Списать долги · Банкротство</div>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
-              Не уверены, спишут ли{" "}
-              <span className="text-gradient-cyan italic">ваши долги</span>?
-            </h2>
-            <p className="mt-5 text-base md:text-lg leading-relaxed">
-              Пройдите бесплатный интенсив — за 20 минут поймёте, подходит ли
-              вам банкротство, какие долги списываются и что делать дальше.
-              Без воды и без обязательств.
-            </p>
-          </div>
-          <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
-            <Link
-              to="/bankruptcy"
-              hash="bot-intensive"
-              className="btn-cyan group w-full justify-center rounded-sm lg:w-auto"
-              style={{
-                boxShadow:
-                  "0 0 32px color-mix(in oklab, var(--cyan) 35%, transparent), 0 0 80px -10px color-mix(in oklab, var(--cyan-glow) 40%, transparent)",
-              }}
-            >
-              <span>Пройти бесплатный интенсив</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/bankruptcy"
-              className="btn-ghost group w-full justify-center rounded-sm lg:w-auto"
-            >
-              <span>Подробнее о банкротстве</span>
-              <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-/* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
 function EntryPoint() {
   return (
     <section
@@ -633,15 +574,7 @@ function EntryPoint() {
 
       <div className="container-tight relative">
         <div className="text-center">
-          <Eyebrow>
-            Точка
-            <span
-              aria-hidden
-              className="mx-1.5 inline-block h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-cyan align-middle"
-              style={{ boxShadow: "0 0 10px var(--cyan), 0 0 20px var(--cyan-glow)" }}
-            />
-            входа
-          </Eyebrow>
+          <Eyebrow>Точка входа</Eyebrow>
           <h2 className="display mt-8 text-[clamp(2.25rem,7vw,4.5rem)] max-w-4xl mx-auto leading-[1.05]">
             <span className="text-gradient-cyan text-glow">
               Начните восстановление сегодня
@@ -653,100 +586,83 @@ function EntryPoint() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-5 space-y-6 text-center lg:text-left">
-            <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-              <LeadFormDialog
-                source="entry-point"
-                headline="Запись на консультацию"
-                trigger={
-                  <button
-                    type="button"
-                    className="btn-cyan group rounded-sm relative overflow-hidden"
-                    style={{
-                      boxShadow:
-                        "0 0 32px color-mix(in oklab, var(--cyan) 35%, transparent), 0 0 80px -10px color-mix(in oklab, var(--cyan-glow) 40%, transparent)",
-                    }}
-                  >
-                    <span>Оставить заявку</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </button>
-                }
-              />
-            </div>
-
-            <div className="card-lux relative inline-flex w-full items-center gap-4 px-6 py-4">
-              <IconArt src={iconPhone} alt="" size="xs" />
-              <div className="text-left">
-                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Телефон</div>
-                <a href="tel:+79654457378" className="font-display text-lg tabular transition-colors" style={{ color: "#2A1118" }}>
-                  +7 (965) 445-73-78
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-3 sm:grid-cols-2">
-              <a
-                href="https://t.me/zakon_127"
-                target="_blank"
-                rel="noopener"
-                className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+        <div className="mt-12 mx-auto max-w-2xl space-y-6">
+          <LeadFormDialog
+            source="entry-point"
+            headline="Запись на консультацию"
+            trigger={
+              <button
+                type="button"
+                className="btn-cyan btn-cta-pulse group w-full justify-center rounded-sm"
               >
-                <IconArt src={iconTelegram} alt="" size="xs" />
-                <div className="text-left">
-                  <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram-канал</div>
-                  <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
-                </div>
-              </a>
-              <a
-                href="https://t.me/status_svobody_bot"
-                target="_blank"
-                rel="noopener"
-                className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
-              >
-                <IconArt src={iconBot} alt="" size="xs" />
-                <div className="text-left">
-                  <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Бесплатный интенсив</div>
-                  <div className="text-sm transition-colors" style={{ color: "#2A1118" }}>@status_svobody_bot</div>
-                </div>
-              </a>
-            </div>
+                <span>Оставить заявку</span>
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </button>
+            }
+          />
 
-            <p className="text-[11px] uppercase tracking-[0.2em]" style={{ color: "#5a3540" }}>
-              Свяжемся лично в течение 15 минут · конфиденциально
-            </p>
-          </div>
-
-          <div className="lg:col-span-7">
-            <div
-              className="card-lux relative p-8 md:p-10"
+          <div className="grid gap-3 sm:grid-cols-3">
+            <a
+              href="https://t.me/zakon_127"
+              target="_blank"
+              rel="noopener"
+              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
             >
-              <div className="smallcaps" style={{ color: "var(--gold-heading-deep)" }}>Заявка</div>
-              <h3 className="mt-3 font-display text-2xl md:text-3xl leading-snug">
-                Узнайте перспективы вашего дела
-              </h3>
-              <p className="mt-3 text-sm md:text-base">
-                Заполните форму — юрист подготовит экспресс-оценку и
-                свяжется с вами лично.
-              </p>
-              <LeadFormDialog
-                source="entry-form"
-                headline="Заявка на консультацию"
-                trigger={
-                  <button
-                    type="button"
-                    className="btn-cyan group mt-6 w-full justify-center rounded-sm"
-                  >
-                    <span>Узнать подробнее</span>
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </button>
-                }
-              />
-              <p className="mt-4 text-center text-[10px] uppercase tracking-[0.22em]" style={{ color: "#5a3540" }}>
-                Имя · Телефон · E-mail · Описание (опционально)
-              </p>
-            </div>
+              <IconArt src={iconTelegram} alt="" size="xs" />
+              <div className="text-left">
+                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram</div>
+                <div className="text-sm" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
+              </div>
+            </a>
+            <a
+              href="https://vk.com/statussvobody"
+              target="_blank"
+              rel="noopener"
+              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+            >
+              <span
+                aria-hidden
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[13px] font-bold tracking-wider"
+                style={{
+                  background: "linear-gradient(135deg, #4A76A8, #2B587A)",
+                  color: "#fff",
+                  boxShadow: "0 4px 14px -4px rgba(74,118,168,0.55)",
+                }}
+              >
+                VK
+              </span>
+              <div className="text-left">
+                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>ВКонтакте</div>
+                <div className="text-sm" style={{ color: "#2A1118" }}>vk.com/statussvobody</div>
+              </div>
+            </a>
+            <a
+              href="https://max.ru/statussvobody"
+              target="_blank"
+              rel="noopener"
+              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+            >
+              <span
+                aria-hidden
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[13px] font-bold tracking-wider"
+                style={{
+                  background: "linear-gradient(135deg, var(--wine), var(--wine-deep))",
+                  color: "#fff",
+                  boxShadow: "0 4px 14px -4px color-mix(in oklab, var(--wine) 60%, transparent)",
+                }}
+              >
+                M
+              </span>
+              <div className="text-left">
+                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Max</div>
+                <div className="text-sm" style={{ color: "#2A1118" }}>max.ru/statussvobody</div>
+              </div>
+            </a>
           </div>
+
+          <p className="text-center text-[11px] uppercase tracking-[0.2em]" style={{ color: "#5a3540" }}>
+            Свяжемся лично в течение 15 минут · конфиденциально
+          </p>
         </div>
       </div>
     </section>
