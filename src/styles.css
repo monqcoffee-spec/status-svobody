@@ -606,6 +606,49 @@
   }
   .btn-cyan svg { color: #FFFFFF !important; stroke: #FFFFFF !important; }
 
+  /* Pulsing CTA — attention-grabbing wine glow + shine sweep */
+  @keyframes cta-pulse {
+    0%, 100% {
+      box-shadow:
+        0 0 0 1px color-mix(in oklab, var(--gold) 50%, transparent),
+        0 18px 36px -16px color-mix(in oklab, var(--wine) 80%, transparent),
+        0 0 24px -4px color-mix(in oklab, var(--gold) 35%, transparent);
+    }
+    50% {
+      box-shadow:
+        0 0 0 2px color-mix(in oklab, var(--gold) 80%, transparent),
+        0 24px 60px -16px color-mix(in oklab, var(--wine) 95%, transparent),
+        0 0 60px -2px color-mix(in oklab, var(--gold) 70%, transparent),
+        0 0 100px -10px color-mix(in oklab, var(--wine) 70%, transparent);
+    }
+  }
+  @keyframes cta-shine {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    60%, 100% { transform: translateX(250%) skewX(-20deg); }
+  }
+  .btn-cta-pulse {
+    position: relative;
+    overflow: hidden;
+    animation: cta-pulse 2.4s ease-in-out infinite;
+  }
+  .btn-cta-pulse::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0;
+    width: 35%;
+    background: linear-gradient(90deg,
+      transparent,
+      color-mix(in oklab, #fff 55%, transparent),
+      transparent);
+    pointer-events: none;
+    animation: cta-shine 3.2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn-cta-pulse,
+    .btn-cta-pulse::after { animation: none !important; }
+  }
+
   .btn-ghost {
     display: inline-flex;
     align-items: center;
