@@ -564,62 +564,6 @@ function Pricing() {
 }
 
 /* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
-function BankruptcyCTA() {
-  return (
-    <Section variant="default" id="bankruptcy-cta">
-      <div
-        className="card-lux relative overflow-hidden p-8 md:p-12"
-      >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full opacity-50"
-          style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklab, var(--gold-heading) 35%, transparent), transparent 65%)",
-            filter: "blur(40px)",
-          }}
-        />
-        <div className="relative grid gap-8 lg:grid-cols-12 lg:items-center">
-          <div className="lg:col-span-7">
-            <div className="smallcaps" style={{ color: "var(--gold-heading-deep)" }}>Списать долги · Банкротство</div>
-            <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-[-0.02em]" style={{ color: "var(--gold-heading-deep)" }}>
-              Не уверены, спишут ли{" "}
-              <span className="text-gradient-cyan italic">ваши долги</span>?
-            </h2>
-            <p className="mt-5 text-base md:text-lg leading-relaxed">
-              Пройдите бесплатный интенсив — за 20 минут поймёте, подходит ли
-              вам банкротство, какие долги списываются и что делать дальше.
-              Без воды и без обязательств.
-            </p>
-          </div>
-          <div className="lg:col-span-5 flex flex-col gap-3 lg:items-end">
-            <Link
-              to="/bankruptcy"
-              hash="bot-intensive"
-              className="btn-cyan group w-full justify-center rounded-sm lg:w-auto"
-              style={{
-                boxShadow:
-                  "0 0 32px color-mix(in oklab, var(--cyan) 35%, transparent), 0 0 80px -10px color-mix(in oklab, var(--cyan-glow) 40%, transparent)",
-              }}
-            >
-              <span>Пройти бесплатный интенсив</span>
-              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-            <Link
-              to="/bankruptcy"
-              className="btn-ghost group w-full justify-center rounded-sm lg:w-auto"
-            >
-              <span>Подробнее о банкротстве</span>
-              <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </Section>
-  );
-}
-
-/* ───────────────────── ENTRY POINT (combined contacts + CTA) ───────────────────── */
 function EntryPoint() {
   return (
     <section
