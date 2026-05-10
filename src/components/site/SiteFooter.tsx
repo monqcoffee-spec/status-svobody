@@ -92,8 +92,9 @@ export function SiteFooter() {
           <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Связь</div>
           <ul className="mt-5 space-y-2.5 text-sm">
             <li><a href="https://t.me/zakon_127" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Канал · t.me/zakon_127</a></li>
-            <li><a href="https://vk.com/statussvobody" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>ВКонтакте · /statussvobody</a></li>
-            <li><a href="https://max.ru/statussvobody" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Max · /statussvobody</a></li>
+            <li><a href="https://vk.ru/uarmina" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>ВКонтакте · /uarmina</a></li>
+            <li><a href="https://max.ru/id312300900561_biz" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Max · бизнес-аккаунт</a></li>
+            <li><a href="https://uslugi.yandex.ru/profile/YuliyaYurevnaArmina-108290" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Яндекс Услуги · профиль</a></li>
           </ul>
         </div>
       </div>
