@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
 import {
   ArrowUpRight,
@@ -129,7 +129,6 @@ function IndexPage() {
       <Process />
       <Pricing />
       <Faq />
-      <BankruptcyCTA />
       <EntryPoint />
     </SiteLayout>
   );
