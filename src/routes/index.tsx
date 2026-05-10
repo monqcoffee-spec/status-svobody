@@ -584,7 +584,6 @@ function EntryPoint() {
 
       <div className="container-tight relative">
         <div className="text-center">
-          <Eyebrow>Точка входа</Eyebrow>
           <h2 className="display mt-8 text-[clamp(2.25rem,7vw,4.5rem)] max-w-4xl mx-auto leading-[1.05]">
             <span className="text-gradient-cyan text-glow">
               Начните восстановление сегодня
