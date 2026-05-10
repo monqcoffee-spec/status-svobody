@@ -100,6 +100,40 @@ export function SiteFooter() {
       </div>
 
       <div style={{ borderTop: "1px solid color-mix(in oklab, var(--gold) 22%, transparent)" }}>
+        <div className="container-tight py-5">
+          <div
+            className="rounded-2xl px-5 py-4 text-[11px] leading-relaxed tracking-wide sm:text-xs"
+            style={{
+              background: "color-mix(in oklab, var(--paper) 55%, transparent)",
+              border: "1px solid color-mix(in oklab, var(--gold) 22%, transparent)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              color: "var(--text-muted)",
+            }}
+          >
+            <p>
+              Вся информация на сайте носит справочный характер и не является публичной офертой.
+            </p>
+            <div
+              aria-hidden
+              className="my-2.5 h-px w-full"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 35%, transparent), transparent)",
+              }}
+            />
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+              <span style={{ color: "var(--wine-deep)" }}>© Статус Свободы</span>
+              <a
+                href="/privacy"
+                className="underline-offset-4 transition-colors hover:underline"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Политика обработки персональных данных
+              </a>
+            </div>
+          </div>
+        </div>
         <div className="container-tight flex flex-col gap-3 py-6 text-[11px] tracking-wider md:flex-row md:items-center md:justify-between" style={{ color: "var(--text-muted)" }}>
           <div>© {new Date().getFullYear()} STATUS SVOBODY · Юлия Армина</div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
