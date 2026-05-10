@@ -155,7 +155,7 @@ export function ConsentGate() {
                 "0 12px 32px -10px color-mix(in oklab, var(--gold) 45%, transparent), inset 0 1px 0 color-mix(in oklab, white 25%, transparent)";
             }}
           >
-            Согласен
+            Ознакомлен(а)
           </button>
         </div>
       </div>
