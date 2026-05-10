@@ -274,8 +274,17 @@ function About() {
         <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
             <span className="italic font-display" style={{ color: "#6A040F", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
-            «Статус Свободы». 15 лет практики в вопросах долгов,
-            кредитных историй, БКИ, ФССП и банкротства.
+            «Статус Свободы». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
+          </p>
+          <p>
+            Кредитные истории, БКИ, ФССП, защита активов и законные решения сложных финансовых
+            ситуаций — в одном сопровождении с личным подходом и прямым контактом
+            с финансовым поверенным.
+          </p>
+          <p>
+            Более <span className="font-display italic" style={{ color: "#6A040F", fontWeight: 600 }}>888&nbsp;млн&nbsp;рублей</span> урегулированных долговых обязательств.
+            Помогаем восстановить финансовую репутацию, снизить давление со стороны
+            взыскателей и выстроить понятный план действий.
           </p>
           <div
             className="card-lux relative px-7 py-6"
@@ -284,7 +293,8 @@ function About() {
             }}
           >
             <p className="font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
-              <span className="italic" style={{ color: "#6A040F" }}>Ведём дела индивидуально</span>, без передачи на конвейер.
+              Прозрачные условия, поддержка на каждом этапе и честный подход:
+              <span className="italic" style={{ color: "#6A040F" }}> если вопрос можно решить проще и быстрее — скажем об этом сразу.</span>
             </p>
           </div>
           <div className="card-lux relative mt-2 px-7 py-6">
