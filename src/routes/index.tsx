@@ -396,7 +396,8 @@ function About() {
               <span className="block mt-3 text-base md:text-lg leading-relaxed font-sans not-italic" style={{ color: "#2A1118" }}>
                 Основатель «Статус свободы Юлии Арминой». 15 лет практики.
                 Сопровождение клиентов в вопросах долгов, кредитных историй,
-                БКИ, ФССП и банкротства.
+                бюро кредитных историй, Федеральной службы судебных приставов
+                и банкротства.
               </span>
             </figcaption>
           </figure>
@@ -408,34 +409,16 @@ function About() {
             «Статус свободы Юлии Арминой». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
           </p>
           <p>
-            Кредитные истории, БКИ, ФССП, защита активов и законные решения сложных финансовых
-            ситуаций — в одном сопровождении с личным подходом и прямым контактом
-            с финансовым поверенным.
+            Кредитные истории, бюро кредитных историй, Федеральная служба
+            судебных приставов, защита активов и законные решения сложных
+            финансовых ситуаций — в одном сопровождении с личным подходом
+            и прямым контактом с финансовым поверенным.
           </p>
           <p>
             Более <span className="font-display italic" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>888&nbsp;млн&nbsp;рублей</span> урегулированных долговых обязательств.
             Помогаем восстановить финансовую репутацию, снизить давление со стороны
             взыскателей и выстроить понятный план действий.
           </p>
-          <div
-            className="card-lux relative px-7 py-6"
-            style={{
-              borderColor: "color-mix(in oklab, var(--gold-heading) 55%, transparent)",
-            }}
-          >
-            <p className="font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
-              Прозрачные условия, поддержка на каждом этапе и честный подход:
-              <span className="italic" style={{ color: "#6A040F" }}> если вопрос можно решить проще и быстрее — скажем об этом сразу.</span>
-            </p>
-          </div>
-          <div className="card-lux relative mt-2 px-7 py-6">
-            <div className="smallcaps text-[11px]" style={{ color: "#000000" }}>Статус свободы Юлии Арминой · Глава 2 Конституции РФ</div>
-            <p className="mt-3 font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
-              Право на жизнь, достоинство, безопасность,
-              свободу слова, совести и&nbsp;вероисповедания, неприкосновенность
-              частной жизни, личную и&nbsp;семейную тайну, защиту чести и&nbsp;доброго имени.
-            </p>
-          </div>
           <div className="mt-8 grid grid-cols-3 gap-4 pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
             <div>
               <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
