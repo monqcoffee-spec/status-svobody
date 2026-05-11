@@ -22,6 +22,7 @@ export function BotIntensive() {
           <li
             key={b}
             className="card-lux p-6 md:p-7 font-display uppercase text-lg md:text-xl leading-snug"
+            style={{ color: "#000" }}
           >
             {b}
           </li>
