@@ -608,6 +608,76 @@
   }
   .liquid-glass:hover::after { transform: translateX(130%); }
 
+  /* ───── Form elements inside liquid-glass surfaces ─────
+   * Make inputs, textareas, buttons and inner panels share the
+   * same frosted material so dialogs read as one continuous
+   * piece of glass instead of stacked solid cards. */
+  .liquid-glass .lead-input,
+  .liquid-glass input[type="text"],
+  .liquid-glass input[type="email"],
+  .liquid-glass input[type="tel"],
+  .liquid-glass input[type="number"],
+  .liquid-glass input[type="search"],
+  .liquid-glass input[type="password"],
+  .liquid-glass textarea,
+  .liquid-glass select {
+    background: linear-gradient(
+      180deg,
+      color-mix(in oklab, white 55%, transparent) 0%,
+      color-mix(in oklab, white 30%, transparent) 100%
+    );
+    border: 1px solid color-mix(in oklab, white 45%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
+      0 1px 2px color-mix(in oklab, var(--wine) 6%, transparent);
+    color: var(--text);
+  }
+  .liquid-glass .lead-input:focus,
+  .liquid-glass input:focus,
+  .liquid-glass textarea:focus,
+  .liquid-glass select:focus {
+    border-color: color-mix(in oklab, var(--gold) 55%, transparent);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.75),
+      0 0 0 4px color-mix(in oklab, var(--gold) 18%, transparent),
+      0 6px 22px -10px color-mix(in oklab, var(--gold) 35%, transparent);
+  }
+
+  /* Ghost / secondary buttons translate to translucent glass pills */
+  .liquid-glass .btn-ghost {
+    background: color-mix(in oklab, white 28%, transparent);
+    border: 1px solid color-mix(in oklab, white 45%, transparent);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+  }
+  .liquid-glass .btn-ghost:hover {
+    background: color-mix(in oklab, white 42%, transparent);
+    border-color: color-mix(in oklab, var(--gold) 50%, transparent);
+  }
+
+  /* Inner panels (success state, headers, side rails) become
+   * a faint inset of frosted glass instead of opaque surfaces. */
+  .liquid-glass .glass-panel,
+  .liquid-glass [data-glass-panel] {
+    background: color-mix(in oklab, white 22%, transparent);
+    border: 1px solid color-mix(in oklab, white 35%, transparent);
+    border-radius: 18px;
+    backdrop-filter: blur(12px) saturate(150%);
+    -webkit-backdrop-filter: blur(12px) saturate(150%);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
+  }
+
+  /* Native checkbox / radio inside glass — soften the chrome */
+  .liquid-glass input[type="checkbox"],
+  .liquid-glass input[type="radio"] {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+  }
+
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .liquid-glass {
       background: color-mix(in oklab, white 92%, var(--rose-mist) 8%);
