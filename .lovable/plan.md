@@ -1,120 +1,106 @@
-# План редизайна сайта «Статус Свободы»
+# Аудит сайта «Статус свободы Юлии Арминой»
 
-Полный редизайн в dark luxury / premium fintech стиле с винной палитрой, переработкой структуры одностраничника и добавлением отдельной страницы «Банкротство».
+## A. Безопасность бэкенда (приоритет — критично)
 
-## 1. Дизайн-система (src/styles.css)
+### A1. CRITICAL — RLS-политики
 
-Заменить текущую gold/cyan палитру на винную:
-- `--wine-carmine: #9A0D1B` — основной акцент
-- `--wine-rosewood: #6A040F` — secondary
-- `--wine-cosmos: #550816`
-- `--wine-bean: #350616`
-- `--wine-purple: #1D0515` — фон
-- `--ink-deep: #0A0308` — ультра-тёмный
-- `--silver: warm ivory`, `--silver-dim`
+**lead_requests** (имена/телефоны/email/долги)
+- Есть только INSERT-политика. Любой авторизованный пользователь может читать ВСЕ заявки (включая контакты других людей).
+- **Фикс:** добавить SELECT-политику только для admin-роли.
 
-Переименовать утилиты: `--cyan*` токены остаются как алиасы → указывают на новые wine-токены (чтобы не ломать существующие классы `text-cyan`, `border-cyan/30` и т.п.). Никакого поиск/замены по компонентам — просто перенаправить семантику токена.
+**ai_consultations** (стенограммы AI-диалогов)
+- Нет SELECT-политики → любой авторизованный читает все стенограммы.
+- UPDATE-политика разрешает всем (включая anon) править любую запись младше 1 часа.
+- **Фикс:** SELECT только для admin; UPDATE привязать к session-токену записи.
 
-Обновить:
-- `bg-aurora` — wine radial glow вместо cyan
-- `btn-cyan` → wine glow button
-- `ring-glow`, `text-glow`, `text-gradient-cyan` → винные
+### A2. CRITICAL — Server functions без авторизации
 
-Шрифты: добавить **Manrope** как основной display + sans, оставить Inter как fallback. Cormorant убрать или использовать только для акцентных цитат.
+**`src/server/consultations.functions.ts` → `submitLeadWithConsultation`**
+- Использует `supabaseAdmin` (bypass RLS), не проверяет владельца `consultationId` → IDOR: можно привязать чужую консультацию к своей заявке.
+- **Фикс:** генерировать `session_token` при `saveConsultation`, сохранять в записи, требовать его при `submitLeadWithConsultation`.
 
-Light theme: усилить контраст, но проект явно dark-first — оставить light как secondary.
+**`src/server/consultations.functions.ts` → `saveConsultation`**
+- Без auth, без rate-limit, пишет до 80 КБ через service-role.
+- **Фикс:** добавить rate-limit по IP (in-memory или таблица `rate_limits`), вернуть `session_token` клиенту.
 
-## 2. Структура одностраничника (`src/routes/index.tsx`)
+**`src/server/leads.functions.ts` → `submitLead`**
+- Использует `supabaseAdmin` без необходимости.
+- **Фикс:** добавить INSERT-политику для anon на `lead_requests` и перейти на обычный `supabase`-клиент.
 
-**Удалить полностью:**
-- Свежие дела (Practice)
-- Команда (Team)
-- Освобождение (если есть)
-- Контроль (если есть)
-- Cases.tsx, Testimonials.tsx (если устаревшие — ревью)
+### A3. CRITICAL — Edge function `ai-diagnose`
 
-**Финальная структура секций:**
-1. **Hero** — «Статус Свободы Юлии Арминой», cinematic wine background, портрет Юлии (из user-uploads IMG_1870.png), 2 CTA, glass overlay, particle field
-2. **About** — короткий абзац + premium quote-card «Если ваша задача решается проще — скажем об этом на первой встрече бесплатно», слева портрет
-3. **Digital Profile** — отдельный cinematic section с анимированным сетевым фоном
-4. **Services** — 6 premium glass cards (Оспаривание БКИ, Коррекция КИ, Финансовая защита, Сопровождение банкротства, Юр. консалтинг, Защита репутации)
-5. **Pricing** — 3 тарифа: ЭКСПРЕСС-КОРРЕКЦИЯ / КОМПЛЕКСНОЕ РЕШЕНИЕ / ПРЕМИУМ-ЗАЩИТА
-6. **FAQ** — accordion (5 вопросов из ТЗ)
-7. **Contacts / Lead form** — имя, телефон, Telegram, комментарий
-8. **Final CTA**
+- `CORS: *`, без JWT, тратит `LOVABLE_API_KEY` на любых вызовах из интернета.
+- **Фикс:** ограничить CORS доменом сайта; либо удалить функцию, если она больше не используется (проверю — в проекте есть `lib/ai-gateway.ts`).
 
-Шапка: добавить ссылку на `/bankruptcy` (отдельная страница).
+### A4. HIGH — `_authenticated.tsx`
 
-Floating button «вверх» — компонент `ScrollTopButton`.
+- Защита через `useEffect` без `beforeLoad`. SSR может вернуть HTML кабинета анонимам.
+- **Фикс:** добавить `beforeLoad` с `supabase.auth.getUser()` и `redirect('/login')`.
 
-## 3. Страница «Банкротство» (`src/routes/bankruptcy.tsx`)
+### A5. WARN — Leaked Password Protection
 
-Новая отдельная route с собственным `head()` (title/description/og).
-Секции:
-- Hero (cinematic, эмоциональный)
-- Преимущества
-- Этапы работы
-- Сопровождение
-- Результаты
-- **Bot Intensive** — premium block с glass card, red glow, кнопки «Перейти в бот» / «Получить интенсив»
-- FAQ (банкротство-специфичный)
-- Lead form
+- Отключена. **Фикс:** включить HIBP-проверку.
 
-## 4. Активы
+### A6. WARN — Permissive RLS
 
-- Скопировать `user-uploads://IMG_1870.png` → `src/assets/yulia-armina.png` (портрет в hero/about)
-- Логотип уже есть, добавить premium glow + animated shine через CSS (filter + keyframe)
+- Два предупреждения о `USING (true)` — это политики на профили/публичные данные, посмотрю по контексту.
 
-## 5. Компоненты (новые / переработанные)
+---
 
-- `src/components/site/Hero.tsx` — переработка
-- `src/components/site/DigitalProfile.tsx` — новый cinematic block с анимированной сеткой
-- `src/components/site/Services.tsx` — 6 wine glass cards
-- `src/components/site/Pricing.tsx` — 3 тарифа
-- `src/components/site/Faq.tsx` — accordion
-- `src/components/site/ScrollTopButton.tsx` — floating button
-- `src/components/site/BotIntensive.tsx` — premium telegram block (для /bankruptcy)
-- Обновить `SiteHeader`, `SiteFooter`, `Logo` (glow shine)
+## B. SEO и метатеги
 
-**Удалить:** `Team.tsx`, `Cases.tsx` (если используются), портреты команды из `src/assets/team/`.
+- `src/routes/__root.tsx` — root-меты OK (title/desc/og).
+- `src/routes/bankruptcy.tsx` — head() есть, проверю наличие og:title/description/image (страница с собственным контентом — обязательны).
+- `src/routes/login.tsx` и `signup.tsx` — только `title`, нет description / og. Добавлю.
+- Нет `<link rel="canonical">` ни на одной странице.
+- Нет `robots.txt` и `sitemap.xml`.
+- JSON-LD `LegalService` — проверю на index.
 
-## 6. SEO
+---
 
-- Index route head(): title «Статус Свободы — премиальный финансово-юридический консалтинг», meta description, og:title/description/image (портрет Юлии)
-- Bankruptcy route head(): отдельные title/description/og
-- JSON-LD LegalService на index
+## C. UX и адаптивность
 
-## 7. Анимации
+- На мобильной (392px) уже исправил heading на `/bankruptcy`. Пройдусь скриншотами по `/`, `/bankruptcy`, `/login` — проверю overflow, читаемость, тапабельность кнопок (≥44px), порядок секций.
+- Floating contacts перекрывает CTA на мобильной (по скриншоту видно).
 
-Уже есть keyframes (reveal, drift, float, pulse-glow). Добавить:
-- `@keyframes shine` — для логотипа и CTA (movable gradient highlight)
-- `@keyframes wine-pulse` — для glow accents
-- Параллакс на hero через `transform: translateY(scrollY * 0.3)` в effect
-- Smooth scroll: `html { scroll-behavior: smooth }` уже на месте
+---
 
-## Технические детали
+## D. Код и производительность
 
-- Стек проекта — TanStack Start + Vite + Tailwind v4 (НЕ Next.js, как просит пользователь — объясню в финальном сообщении что используем уже подключённый стек, который функционально эквивалентен)
-- Framer Motion: проверить, установлен ли; если нет — `bun add framer-motion`
-- Lead form уже подключён к Supabase через `LeadFormDialog` — переиспользую
-- Логотип `src/assets/status-svobody-logo.png` — без фона, использую как есть, добавлю CSS glow
+- `Cases.tsx`, `Team.tsx` упомянуты в плане как «удалить», но `Testimonials.tsx` остался — проверю используется ли.
+- Дубли `bot.png`, `IconArt`, неиспользуемые ассеты.
+- Console: только vite reconnect warning — не критично.
+- `supabase/functions/ai-diagnose` дублирует логику с `src/lib/ai-gateway.ts` — кандидат на удаление.
 
-## Порядок работ
+---
 
-1. Скопировать портрет Юлии в assets
-2. Переписать `src/styles.css` (палитра + новые анимации)
-3. Создать новые компоненты секций
-4. Переписать `src/routes/index.tsx`
-5. Создать `src/routes/bankruptcy.tsx`
-6. Обновить `SiteHeader` (ссылка на /bankruptcy), `SiteFooter`, `Logo`
-7. Удалить `Team.tsx`, `Cases.tsx`, портреты команды
-8. SEO + JSON-LD
-9. Проверка превью в обеих темах, мобильный viewport
+## Порядок выполнения (3 волны)
 
-## Что НЕ делаем без подтверждения
+### Волна 1 — безопасные быстрые фиксы (без риска регрессий)
+1. `_authenticated.tsx` → добавить `beforeLoad` server-side guard.
+2. Enable Leaked Password Protection.
+3. SEO: добавить description/og на `login`, `signup`; проверить og на `bankruptcy`; добавить `canonical` через root head; создать `public/robots.txt`.
+4. Мобильные overflow-фиксы по скриншотам.
 
-- Не меняем backend / Supabase схему
-- Не трогаем edge functions
-- Не добавляем новые секреты
+### Волна 2 — RLS и роли (миграция БД)
+5. Создать `app_role` enum, `user_roles` table, `has_role()` SECURITY DEFINER функцию.
+6. Добавить SELECT-политику `lead_requests` (admin-only).
+7. Добавить INSERT-политику `lead_requests` для anon, перевести `submitLead` на обычный клиент.
+8. Добавить SELECT-политику `ai_consultations` (admin-only).
+9. Добавить колонку `ai_consultations.session_token uuid`; UPDATE-политика — по совпадению токена.
 
-Подтвердите план — приступаю к реализации.
+### Волна 3 — server functions и edge
+10. `saveConsultation` → возвращать `session_token`, простой in-memory rate-limit по IP.
+11. `submitLeadWithConsultation` → требовать `session_token`, проверять совпадение перед UPDATE.
+12. `ai-diagnose` edge: либо удалить (если не используется), либо ограничить CORS и добавить rate-limit.
+13. Чистка неиспользуемых компонентов/ассетов.
+
+---
+
+## Что НЕ трогаем
+
+- Дизайн-токены, темы, текущий UI компонентов — не меняем без отдельного запроса.
+- Backend-схемы существующих таблиц (только добавление политик/колонок).
+- Логика AI-консультанта — сохраняем поведение, только закрываем дыры.
+
+После подтверждения начну с Волны 1 (минимальный риск, максимум защиты сразу).
