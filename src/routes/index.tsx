@@ -393,12 +393,6 @@ function About() {
               <span className="block mt-1 smallcaps text-[11px] tracking-[0.18em]" style={{ color: "#3a1a22" }}>
                 Основатель · «Статус свободы Юлии Арминой»
               </span>
-              <span className="block mt-3 text-base md:text-lg leading-relaxed font-sans not-italic" style={{ color: "#2A1118" }}>
-                Основатель «Статус свободы Юлии Арминой». 15 лет практики.
-                Сопровождение клиентов в вопросах долгов, кредитных историй,
-                бюро кредитных историй, Федеральной службы судебных приставов
-                и банкротства.
-              </span>
             </figcaption>
           </figure>
         </ScrollReveal>
