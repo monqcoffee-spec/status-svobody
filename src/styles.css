@@ -1404,6 +1404,19 @@
 .card-lux .text-silver\/75 {
   color: var(--card-text) !important;
 }
+/* When .card-lux is applied directly to a list item (e.g. benefit cards
+ * rendered as <li class="card-lux">), the descendant selectors above don't
+ * match the element itself — and an ancestor .section-dim li rule would
+ * otherwise turn the text light. Force dark text on the element itself. */
+li.card-lux,
+p.card-lux,
+h1.card-lux,
+h2.card-lux,
+h3.card-lux,
+h4.card-lux {
+  color: var(--card-text) !important;
+  -webkit-text-fill-color: var(--card-text) !important;
+}
 .card-lux .text-silver-dim,
 .card-lux p.muted,
 .card-lux .text-faint {
