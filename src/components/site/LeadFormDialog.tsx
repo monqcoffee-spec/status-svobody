@@ -121,14 +121,14 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
       <DialogContent
-        className="p-0 sm:max-w-[480px]"
+        className="liquid-glass p-0 sm:max-w-[480px] overflow-hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0.98) 0%, color-mix(in oklab, var(--paper-tint) 60%, white) 100%)",
-          border: "1px solid color-mix(in oklab, var(--gold) 35%, var(--rose-mist))",
+            "linear-gradient(180deg, color-mix(in oklab, white 62%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 40%, transparent) 100%)",
+          border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
           borderRadius: "28px",
           boxShadow:
-            "0 40px 90px -32px color-mix(in oklab, var(--wine) 40%, transparent), 0 0 0 1px color-mix(in oklab, var(--gold) 18%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.95)",
+            "0 40px 90px -32px color-mix(in oklab, var(--wine) 40%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.85)",
         }}
       >
         <div className="relative overflow-hidden">
