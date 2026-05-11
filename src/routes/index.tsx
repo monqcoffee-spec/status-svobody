@@ -124,6 +124,7 @@ function IndexPage() {
   return (
     <SiteLayout>
       <Hero />
+      <Philosophy />
       <Services />
       <About />
       <DigitalProfile />
@@ -223,6 +224,127 @@ function Hero() {
 
       </div>
     </section>
+  );
+}
+
+/* ───────────────────── ABOUT ───────────────────── */
+/* ───────────────────── PHILOSOPHY ───────────────────── */
+function Philosophy() {
+  const values = [
+    {
+      title: "Конфиденциальность",
+      desc: "Ваши данные и обращения остаются строго защищёнными.",
+    },
+    {
+      title: "Законные механизмы",
+      desc: "Работаем исключительно в рамках действующего законодательства.",
+    },
+    {
+      title: "Сопровождение",
+      desc: "Поддержка на каждом этапе — от анализа ситуации до результата.",
+    },
+  ];
+  return (
+    <Section variant="tint" id="philosophy">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-px w-[min(720px,80%)] -translate-x-1/2"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 70%, transparent), transparent)",
+        }}
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -z-[1] left-1/2 top-24 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-50"
+        style={{
+          background:
+            "radial-gradient(closest-side, color-mix(in oklab, var(--champagne) 28%, transparent), transparent 70%)",
+          filter: "blur(70px)",
+        }}
+      />
+
+      <ScrollReveal>
+        <div className="text-center">
+          <span
+            className="smallcaps text-[11px] tracking-[0.3em]"
+            style={{ color: "var(--gold-heading-deep)" }}
+          >
+            Почему Status Svobody
+          </span>
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal delay={1}>
+        <H2 className="mx-auto mt-6 max-w-5xl text-center">
+          Статус свободы — это не просто юридическая помощь.{" "}
+          <span className="italic font-serif text-gradient-cyan text-glow" style={{ fontWeight: 500 }}>
+            Это восстановление финансовой репутации и контроля над собственной жизнью.
+          </span>
+        </H2>
+      </ScrollReveal>
+
+      <ScrollReveal delay={2}>
+        <div
+          className="mx-auto mt-10 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed"
+          style={{ color: "#2A1118" }}
+        >
+          <p>
+            В Российской Федерации статус свободы закреплён во второй главе Конституции РФ.
+            Человеку гарантированы: право на жизнь, достоинство, безопасность, свобода слова,
+            совести, вероисповедания, личная неприкосновенность, неприкосновенность частной
+            жизни, личная и семейная тайна, защита своей чести и доброго имени.
+          </p>
+          <p>
+            Цифровизация давно перестала быть будущим — она уже здесь. У каждого человека
+            сформирован цифровой финансовый профиль. Кредитная история — это невидимый,
+            но мощный актив, который влияет на решения банков, работодателей, партнёров
+            и государственных структур.
+          </p>
+          <p>
+            <span className="font-display italic" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>
+              Status Svobody
+            </span>{" "}
+            помогает восстановить финансовую репутацию законным, конфиденциальным и эффективным способом.
+          </p>
+          <p>
+            Мы возвращаем не просто кредитный рейтинг. Мы возвращаем свободу принимать
+            решения, строить карьеру, вести бизнес, получать финансирование и двигаться дальше.
+          </p>
+        </div>
+      </ScrollReveal>
+
+      <div className="mt-14 grid gap-5 sm:gap-6 md:grid-cols-3">
+        {values.map((v, i) => (
+          <ScrollReveal key={v.title} delay={(i + 1) as 1 | 2 | 3}>
+            <div
+              className="card-lux relative h-full p-7 md:p-8 transition-transform duration-500 hover:-translate-y-1"
+              style={{
+                borderColor: "color-mix(in oklab, var(--gold-heading) 45%, transparent)",
+              }}
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -top-px left-6 right-6 h-px"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 80%, transparent), transparent)",
+                }}
+              />
+              <h3
+                className="font-display text-xl md:text-2xl uppercase tracking-wide"
+                style={{ color: "#8B5A63" }}
+              >
+                {v.title}
+              </h3>
+              <p className="mt-3 text-base leading-relaxed" style={{ color: "#2A1118" }}>
+                {v.desc}
+              </p>
+            </div>
+          </ScrollReveal>
+        ))}
+      </div>
+    </Section>
   );
 }
 
