@@ -132,7 +132,7 @@ function BankruptcyAdvantages() {
         ЧТО ВЫ ПОЛУЧАЕТЕ <span className="text-cyan">ПОСЛЕ ПРОЦЕДУРЫ</span>
       </H2>
       <p className="mt-6 font-display uppercase text-xs md:text-lg leading-tight tracking-tight">
-        <span className="text-gradient-cyan text-glow">ЗАКОН НА ВАШЕЙ СТОРОНЕ</span>
+        <span className="text-gradient-cyan text-glow">ВОЗМОЖНОСТИ, КОТОРЫЕ ОТКРЫВАЕТ ПРОЦЕДУРА</span>
       </p>
       <div className="mt-14 grid gap-5 md:grid-cols-2">
         {items.map((it) => (
