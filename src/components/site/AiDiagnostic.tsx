@@ -240,6 +240,7 @@ export function AiDiagnostic() {
           <VerdictPanel
             verdict={stage.verdict}
             consultationId={stage.consultationId}
+            sessionToken={stage.sessionToken}
             onReset={reset}
           />
         )}
