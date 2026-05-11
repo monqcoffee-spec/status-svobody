@@ -115,7 +115,7 @@ function BankruptcyModule() {
       </Link>
       <header>
         <p className="text-xs uppercase tracking-[0.3em] text-cyan">Модуль 2</p>
-        <h1 className="display mt-2 text-lg md:text-xl text-foreground">Банкротство</h1>
+        <h1 className="display mt-2 text-[0.9375rem] md:text-lg text-foreground">Банкротство</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">Заполните анкету — система соберёт персональный список документов.</p>
       </header>
 
@@ -150,7 +150,7 @@ function Questionnaire({ kase, onSave }: { kase: BCase; onSave: (u: Partial<BCas
     <form onSubmit={submit} className="rounded-2xl border border-border bg-card/60 p-6 space-y-6">
       <div>
         <p className="text-[11px] uppercase tracking-[0.3em] text-cyan">Анкета</p>
-        <h2 className="display mt-2 text-xl text-foreground">Расскажите о себе</h2>
+        <h2 className="display mt-2 text-[0.625rem] text-foreground">Расскажите о себе</h2>
       </div>
 
       <div>
@@ -214,7 +214,7 @@ function Checklist({ docs, onUpload }: { docs: Doc[]; onUpload: (d: Doc, f: File
       <div className="flex items-baseline justify-between flex-wrap gap-2">
         <div>
           <p className="text-[11px] uppercase tracking-[0.3em] text-cyan">Чек-лист</p>
-          <h2 className="display mt-2 text-xl text-foreground">Документы для дела</h2>
+          <h2 className="display mt-2 text-[0.625rem] text-foreground">Документы для дела</h2>
         </div>
         <span className="text-sm text-muted-foreground tabular">{total - remaining} / {total} загружено</span>
       </div>

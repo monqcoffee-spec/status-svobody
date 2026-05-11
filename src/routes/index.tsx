@@ -338,7 +338,7 @@ function Philosophy() {
               }}
             >
               <h3
-                className="font-display text-xl md:text-base uppercase tracking-wide"
+                className="font-display text-[0.625rem] md:text-xs uppercase tracking-wide"
                 style={{ color: "var(--gold-heading-deep)" }}
               >
                 {v.title}
@@ -415,19 +415,19 @@ function About() {
           </p>
           <div className="mt-6 md:mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
             <div>
-              <div className="font-display text-xl sm:text-base md:text-xl" style={{ color: "var(--gold-heading)" }}>
+              <div className="font-display text-[0.625rem] sm:text-xs md:text-lg" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={500} suffix="+" />
               </div>
               <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>клиентов</div>
             </div>
             <div>
-              <div className="font-display text-xl sm:text-base md:text-xl" style={{ color: "var(--gold-heading)" }}>
+              <div className="font-display text-[0.625rem] sm:text-xs md:text-lg" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={15} />
               </div>
               <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>лет практики</div>
             </div>
             <div>
-              <div className="font-display text-xl sm:text-base md:text-xl" style={{ color: "var(--gold-heading)" }}>
+              <div className="font-display text-[0.625rem] sm:text-xs md:text-lg" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={888} suffix=" млн" />
               </div>
               <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>списанных долгов</div>
@@ -466,7 +466,7 @@ function Process() {
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-xl md:text-base leading-snug">{s.t}</h3>
+              <h3 className="mt-2 font-display text-[0.625rem] md:text-xs leading-snug">{s.t}</h3>
               <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
@@ -514,7 +514,7 @@ function DigitalProfile() {
         ))}
       </div>
       <div className="card-lux mt-12 px-7 py-6" style={{ borderLeftWidth: "3px", borderLeftColor: "var(--gold-heading)" }}>
-        <p className="font-display text-xl md:text-base leading-snug">
+        <p className="font-display text-[0.625rem] md:text-xs leading-snug">
           Срок исковой давности
           <span style={{ color: "var(--gold-heading-deep)", fontStyle: "italic" }}> не обнуляет </span>
           ваши долги.
@@ -546,7 +546,7 @@ function Services() {
       <ScrollReveal delay={2}>
         <div className="mt-8 max-w-3xl">
           <p
-            className="font-display text-xl md:text-base leading-snug"
+            className="font-display text-[0.625rem] md:text-xs leading-snug"
             style={{ color: "#2A1118" }}
           >
             Не просто подаём заявления —{" "}
@@ -593,7 +593,7 @@ function Services() {
           >
             <IconArt src={s.art} alt="" size="md" />
             <div>
-              <h3 className="font-display text-lg md:text-xl leading-snug">{s.t}</h3>
+              <h3 className="font-display text-[0.5625rem] md:text-[0.625rem] leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
@@ -675,7 +675,7 @@ function Pricing() {
               >Популярный</div>
             )}
             <IconArt src={p.art} alt="" size="lg" className="mb-4" />
-            <h3 className="font-display uppercase tracking-[0.02em] text-base md:text-lg leading-snug">{p.t}</h3>
+            <h3 className="font-display uppercase tracking-[0.02em] text-xs md:text-[0.9375rem] leading-snug">{p.t}</h3>
             <p className="mt-3 text-base md:text-lg leading-relaxed">{p.sub}</p>
             <ul className="mt-6 space-y-3 flex-1">
               {p.features.map((f) => (
@@ -695,7 +695,7 @@ function Pricing() {
               }
             />
             <div className="mt-4 text-center">
-              <div className="font-display text-base md:text-lg text-gradient-cyan">{p.price}</div>
+              <div className="font-display text-xs md:text-[0.9375rem] text-gradient-cyan">{p.price}</div>
               <div className="mt-1 smallcaps text-[10px]">{p.meta}</div>
             </div>
           </ScrollReveal>

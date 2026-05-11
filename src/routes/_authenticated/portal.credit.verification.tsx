@@ -163,7 +163,7 @@ function VerificationPage() {
       <header className="flex items-start justify-between gap-4 flex-wrap">
         <div>
           <p className="text-xs uppercase tracking-[0.3em] text-cyan">AI-проверка</p>
-          <h1 className="display mt-2 text-lg md:text-xl text-foreground">Результаты верификации</h1>
+          <h1 className="display mt-2 text-[0.9375rem] md:text-lg text-foreground">Результаты верификации</h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">Развёрнутый отчёт по каждой загрузке и полная история проверок документов кредитного бюро.</p>
         </div>
         <div className="flex flex-wrap gap-2">

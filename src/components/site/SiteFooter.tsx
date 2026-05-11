@@ -37,7 +37,7 @@ export function SiteFooter() {
             <Logo size={72} className="h-14 sm:h-16 md:h-20 shrink-0" />
             <div className="leading-tight">
               <div
-                className="font-display uppercase tracking-[0.18em] text-base sm:text-lg md:text-base leading-tight"
+                className="font-display uppercase tracking-[0.18em] text-xs sm:text-[0.9375rem] md:text-base leading-tight"
                 style={{ color: "var(--wine-deep)" }}
               >
                 Статус свободы Юлии Арминой

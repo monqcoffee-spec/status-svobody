@@ -145,7 +145,7 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
                 <Check className="h-6 w-6 text-cyan" />
               </div>
               <DialogHeader className="mt-6">
-                <DialogTitle className="display text-base text-silver">
+                <DialogTitle className="display text-xs text-silver">
                   Заявка принята
                 </DialogTitle>
                 <DialogDescription className="text-silver-dim">
@@ -166,7 +166,7 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
                 <div className="font-display text-xs tabular tracking-[0.3em] text-cyan">
                   КОНСУЛЬТАЦИЯ
                 </div>
-                <DialogTitle className="display mt-3 text-base text-silver md:text-lg">
+                <DialogTitle className="display mt-3 text-xs text-silver md:text-[0.9375rem]">
                   {headline ?? "Заявка на консультацию"}
                 </DialogTitle>
                 <DialogDescription className="mt-2 text-silver-dim">

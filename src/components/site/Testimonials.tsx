@@ -134,7 +134,7 @@ export function Testimonials({ compact = false }: { compact?: boolean } = {}) {
     <Section variant="default" id="testimonials">
       <div className="text-center max-w-3xl mx-auto">
         <Eyebrow>Отзывы клиентов</Eyebrow>
-        <H2 className={compact ? "mt-4 text-3xl md:text-4xl" : "mt-5"}>
+        <H2 className={compact ? "mt-4 text-[0.9375rem] md:text-lg" : "mt-5"}>
           Нам доверяют люди, которым мы помогли начать новую жизнь
         </H2>
         <p className={`mt-4 ${compact ? "text-sm sm:text-base" : "text-base sm:text-lg"}`} style={{ color: "var(--text-muted)" }}>
