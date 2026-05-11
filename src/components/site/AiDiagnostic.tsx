@@ -477,7 +477,7 @@ function HotLeadForm({
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    if (!consultationId) {
+    if (!consultationId || !sessionToken) {
       setErrors({ system: "Не удалось привязать консультацию. Попробуйте ещё раз." });
       return;
     }
@@ -487,6 +487,7 @@ function HotLeadForm({
       const res = await submitFn({
         data: {
           consultationId,
+          sessionToken,
           name: name.trim(),
           phone: phone.trim(),
           debtAmount: amount,
