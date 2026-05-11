@@ -129,11 +129,8 @@ function BankruptcyAdvantages() {
     <Section variant="darker" id="advantages">
       <SectionLabel n="01" title="Преимущества" />
       <H2 className="mt-8 max-w-4xl uppercase">
-        ЧТО ВЫ ПОЛУЧАЕТЕ <span className="text-cyan">ПОСЛЕ ПРОЦЕДУРЫ</span>
+        ВОЗМОЖНОСТИ, КОТОРЫЕ <span className="text-cyan">ОТКРЫВАЕТ ПРОЦЕДУРА</span>
       </H2>
-      <p className="mt-6 font-display uppercase text-xs md:text-lg leading-tight tracking-tight">
-        <span className="text-gradient-cyan text-glow">ВОЗМОЖНОСТИ, КОТОРЫЕ ОТКРЫВАЕТ ПРОЦЕДУРА</span>
-      </p>
       <div className="mt-14 grid gap-5 md:grid-cols-2">
         {items.map((it) => (
           <div
