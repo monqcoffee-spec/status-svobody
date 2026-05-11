@@ -310,22 +310,22 @@ function About() {
           </div>
           <div className="mt-8 grid grid-cols-3 gap-4 pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
             <div>
-              <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
+              <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={500} suffix="+" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>клиентов</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-heading)" }}>клиентов</div>
             </div>
             <div>
-              <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
+              <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={15} />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>лет практики</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-heading)" }}>лет практики</div>
             </div>
             <div>
-              <div className="font-display text-3xl md:text-4xl" style={{ color: "#000000" }}>
+              <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={888} suffix=" млн" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "#000000" }}>списанных долгов</div>
+              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-heading)" }}>списанных долгов</div>
             </div>
           </div>
         </ScrollReveal>
