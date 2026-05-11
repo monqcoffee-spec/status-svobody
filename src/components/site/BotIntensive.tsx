@@ -68,7 +68,7 @@ export function BotIntensive() {
           </div>
           <div className="md:col-span-5 relative order-first md:order-none">
             <div
-              className="relative mx-auto w-full max-w-sm overflow-hidden flex flex-col items-center justify-center p-6 md:p-10 md:aspect-square backdrop-blur-md"
+              className="relative mx-auto w-full max-w-xs overflow-hidden flex flex-col items-center justify-center p-3 md:p-6 backdrop-blur-md"
               style={{
                 borderRadius: "32px",
                 border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
@@ -78,8 +78,8 @@ export function BotIntensive() {
                   "0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 60%, transparent)",
               }}
             >
-              <IconArt src={iconBot} alt="" size="lg" />
-              <div className="mt-6 text-center font-display text-[0.625rem] md:text-xs" style={{ color: "var(--text)" }}>
+              <IconArt src={iconBot} alt="" size="sm" />
+              <div className="mt-2 text-center font-display text-[0.625rem] md:text-xs" style={{ color: "var(--text)" }}>
                 @status_svobody_bot
               </div>
             </div>
