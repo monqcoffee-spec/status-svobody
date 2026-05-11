@@ -133,7 +133,7 @@ function CreditModule() {
       </Link>
       <header>
         <p className="text-xs uppercase tracking-[0.3em] text-cyan">Модуль 1</p>
-        <h1 className="display mt-2 text-lg md:text-xl text-foreground">Восстановление кредитной истории</h1>
+        <h1 className="display mt-2 text-[0.9375rem] md:text-lg text-foreground">Восстановление кредитной истории</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">Загрузите три отчёта. Система автоматически проверит, что это действительно нужное бюро и что документ читается.</p>
         <Link to="/portal/credit/verification" className="mt-4 inline-flex items-center gap-2 rounded-sm border border-cyan/30 bg-cyan/5 px-4 py-2 text-sm text-cyan hover:border-cyan/60 transition">
           <Sparkles className="h-4 w-4" /> Результаты AI-проверки и история
@@ -272,7 +272,7 @@ function PaymentSection({ kase, canPay, onPay }: { kase: Case; canPay: boolean; 
       <p className="text-[11px] uppercase tracking-[0.3em] text-cyan">Шаг 3</p>
       <h2 className="display mt-2 text-xl text-foreground">Оплата экспертного анализа</h2>
       <div className="mt-3 flex items-baseline gap-2">
-        <span className="display text-lg text-foreground">5 000 ₽</span>
+        <span className="display text-[0.9375rem] text-foreground">5 000 ₽</span>
         <span className="text-sm text-muted-foreground">единоразово</span>
       </div>
       {kase.paid ? (

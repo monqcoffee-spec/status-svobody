@@ -74,7 +74,7 @@ function PortalDashboard() {
     <div className="space-y-8">
       <section>
         <p className="text-xs uppercase tracking-[0.3em] text-cyan">Сервисы</p>
-        <h1 className="display mt-2 text-lg md:text-xl text-foreground">Выберите услугу</h1>
+        <h1 className="display mt-2 text-[0.9375rem] md:text-lg text-foreground">Выберите услугу</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">
           Личный кабинет клиента. Прогресс автоматически сохраняется — вы можете вернуться в любой момент и продолжить с того же шага.
         </p>
@@ -122,7 +122,7 @@ function ServiceCard({ to, tag, title, desc, icon, className = "", progress }: {
           <span className="text-[11px] uppercase tracking-[0.3em] text-cyan">{tag}</span>
           <span className="rounded-full border border-border p-2 text-cyan transition group-hover:border-cyan/50">{icon}</span>
         </div>
-        <h3 className="display mt-6 text-xl md:text-base text-foreground">{title}</h3>
+        <h3 className="display mt-6 text-[0.625rem] md:text-xs text-foreground">{title}</h3>
         <p className="mt-3 text-sm text-muted-foreground">{desc}</p>
         {progress && (
           <div className="mt-5">

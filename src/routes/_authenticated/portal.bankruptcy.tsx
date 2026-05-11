@@ -115,7 +115,7 @@ function BankruptcyModule() {
       </Link>
       <header>
         <p className="text-xs uppercase tracking-[0.3em] text-cyan">Модуль 2</p>
-        <h1 className="display mt-2 text-lg md:text-xl text-foreground">Банкротство</h1>
+        <h1 className="display mt-2 text-[0.9375rem] md:text-lg text-foreground">Банкротство</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">Заполните анкету — система соберёт персональный список документов.</p>
       </header>
 
