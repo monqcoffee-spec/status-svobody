@@ -549,6 +549,12 @@ function Services() {
             </span>
             .
           </p>
+          <p
+            className="mt-6 text-base md:text-lg leading-relaxed italic"
+            style={{ color: "#3a1a22" }}
+          >
+            Каждый этап — под пристальным вниманием юриста.
+          </p>
         </div>
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
