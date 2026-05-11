@@ -121,10 +121,10 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
       <DialogTrigger asChild>{trigger}</DialogTrigger>
 
       <DialogContent
-        className="liquid-glass p-0 sm:max-w-[480px] overflow-hidden"
+        className="liquid-glass p-0 sm:max-w-[480px]"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in oklab, white 62%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 40%, transparent) 100%)",
+            "linear-gradient(180deg, color-mix(in oklab, white 88%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 75%, transparent) 100%)",
           border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
           borderRadius: "28px",
           boxShadow:
@@ -142,7 +142,7 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
           />
 
           {done ? (
-            <div className="px-8 py-12 text-center">
+            <div className="px-6 sm:px-8 py-10 sm:py-12 text-center">
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-cyan/40 bg-cyan/5">
                 <Check className="h-6 w-6 text-cyan" />
               </div>
@@ -163,7 +163,7 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} noValidate className="px-8 py-8">
+            <form onSubmit={handleSubmit} noValidate className="px-6 sm:px-8 py-7 sm:py-8">
               <DialogHeader className="text-left">
                 <div className="font-display text-xs tabular tracking-[0.3em] text-cyan">
                   КОНСУЛЬТАЦИЯ
