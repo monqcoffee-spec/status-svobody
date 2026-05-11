@@ -15,7 +15,7 @@ import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
 import yuliaPortrait from "@/assets/hero-yulia.png";
-import yuliaAbout from "@/assets/yulia-armina-vertical.png";
+import yuliaAbout from "@/assets/yulia-armina-vertical-v2.jpeg";
 import featherImg from "@/assets/feather-light.jpg";
 import iconAudit from "@/assets/icons-3d/audit.png";
 import iconConclusion from "@/assets/icons-3d/conclusion.png";
@@ -391,7 +391,7 @@ function About() {
             >
               <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Юлия Армина</span>
               <span className="block mt-1 smallcaps text-[9px] sm:text-[11px] tracking-[0.16em]" style={{ color: "#3a1a22" }}>
-                Основатель · «Статус свободы Юлии Арминой»
+                Основатель · «Статус свободы»
               </span>
             </figcaption>
           </figure>
