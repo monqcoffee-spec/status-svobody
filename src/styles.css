@@ -183,8 +183,8 @@
    * Tune these values once and the whole surface system follows. */
 
   /* Background — top/bottom opacities of the main gloss gradient */
-  --lg-bg-top:    color-mix(in oklab, white 62%, transparent);
-  --lg-bg-bottom: color-mix(in oklab, white 38%, transparent);
+  --lg-bg-top:    color-mix(in oklab, white 86%, transparent);
+  --lg-bg-bottom: color-mix(in oklab, white 72%, transparent);
   --lg-bg-fallback: color-mix(in oklab, white 92%, var(--rose-mist) 8%);
 
   /* Blur / saturation */
