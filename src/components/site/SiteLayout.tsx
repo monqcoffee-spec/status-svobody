@@ -1,6 +1,5 @@
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
-import { FloatingContacts } from "./FloatingContacts";
 import { ScrollTopButton } from "./ScrollTopButton";
 import { useReducedTransparency } from "@/hooks/use-reduced-transparency";
 
@@ -34,7 +33,6 @@ export function SiteLayout({ children }: { children: React.ReactNode }) {
       <SiteHeader />
       <main className="flex-1">{children}</main>
       <SiteFooter />
-      <FloatingContacts />
       <ScrollTopButton />
     </div>
   );
