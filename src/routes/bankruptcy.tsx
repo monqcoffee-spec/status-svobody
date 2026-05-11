@@ -89,11 +89,11 @@ function BankruptcyHero() {
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
           </div>
-          <h1 className="mt-10 font-display uppercase text-[2.5rem] sm:text-6xl md:text-8xl lg:text-9xl leading-[1.02] tracking-[-0.03em] text-silver break-words">
+          <h1 className="mt-10 font-display uppercase text-[2.5rem] sm:text-lg md:text-xl lg:text-base leading-[1.02] tracking-[-0.03em] text-silver break-words">
             ФИНАНСОВОЕ <br />
             <span className="text-gradient-cyan text-glow">ОСВОБОЖДЕНИЕ</span>
           </h1>
-          <p className="mt-10 w-full text-2xl md:text-4xl leading-tight text-silver/85 font-display uppercase tracking-tight">
+          <p className="mt-10 w-full text-base md:text-xl leading-tight text-silver/85 font-display uppercase tracking-tight">
             Долги — не приговор, а юридическая задача
           </p>
           <div className="reveal reveal-delay-2 mt-12 flex flex-wrap gap-4">
@@ -131,7 +131,7 @@ function BankruptcyAdvantages() {
       <H2 className="mt-8 max-w-4xl uppercase">
         ЧТО ВЫ ПОЛУЧАЕТЕ <span className="text-cyan">ПОСЛЕ ПРОЦЕДУРЫ</span>
       </H2>
-      <p className="mt-6 font-display uppercase text-2xl md:text-4xl leading-tight tracking-tight">
+      <p className="mt-6 font-display uppercase text-base md:text-xl leading-tight tracking-tight">
         <span className="text-gradient-cyan text-glow">ЗАКОН НА ВАШЕЙ СТОРОНЕ</span>
       </p>
       <div className="mt-14 grid gap-5 md:grid-cols-2">
@@ -142,7 +142,7 @@ function BankruptcyAdvantages() {
           >
             <IconArt src={it.art} alt="" size="md" />
             <div>
-              <h3 className="font-display uppercase text-2xl md:text-3xl leading-snug">{it.t}</h3>
+              <h3 className="font-display uppercase text-base md:text-lg leading-snug">{it.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{it.d}</p>
             </div>
           </div>
@@ -173,7 +173,7 @@ function BankruptcyStages() {
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display uppercase text-2xl md:text-3xl leading-snug">{s.t}</h3>
+              <h3 className="mt-2 font-display uppercase text-base md:text-lg leading-snug">{s.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{s.d}</p>
             </div>
           </li>
@@ -199,7 +199,7 @@ function BankruptcyResults() {
       <div className="mt-14 grid gap-5 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.l} className="card-lux p-8 text-center">
-            <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">{s.v}</div>
+            <div className="font-display text-lg md:text-xl text-gradient-cyan text-glow">{s.v}</div>
             <div className="mt-4 smallcaps">{s.l}</div>
           </div>
         ))}
@@ -296,7 +296,7 @@ function BankruptcyCTA() {
         }}
       />
       <div className="container-tight relative text-center">
-        <h2 className="font-display uppercase text-6xl md:text-8xl lg:text-9xl leading-[1.02] tracking-[-0.03em] max-w-6xl mx-auto text-silver">
+        <h2 className="font-display uppercase text-lg md:text-xl lg:text-base leading-[1.02] tracking-[-0.03em] max-w-6xl mx-auto text-silver">
           ПОЛУЧИТЕ РАЗБОР <br />
           <span className="text-gradient-cyan text-glow">ВАШЕЙ КОНКРЕТНОЙ СИТУАЦИИ</span>
         </h2>
