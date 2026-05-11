@@ -296,14 +296,6 @@ function Philosophy() {
           />
 
           <p>
-            Цифровизация давно перестала быть будущим — <strong style={{ fontWeight: 600 }}>она уже здесь</strong>.
-            У каждого человека сформирован цифровой финансовый профиль.{" "}
-            <span style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>Кредитная история</span> —
-            это невидимый, но мощный актив, который влияет на решения банков, работодателей,
-            партнёров и государственных структур.
-          </p>
-
-          <p>
             <span className="font-display italic" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>
               Status Svobody
             </span>{" "}
@@ -496,8 +488,10 @@ function DigitalProfile() {
       </ScrollReveal>
       <ScrollReveal delay={2}>
         <p className="mt-6 max-w-2xl text-lg md:text-xl leading-relaxed text-silver/75">
-          Цифровой профиль — совокупность всех финансовых следов, по которым
-          о вас судят банки, работодатели и партнёры.
+          Цифровизация уже здесь. У каждого сформирован цифровой финансовый профиль —
+          совокупность всех финансовых следов, по которым о вас судят банки,
+          работодатели и партнёры. <span className="text-cyan">Кредитная история</span> —
+          невидимый, но мощный актив, влияющий на их решения.
         </p>
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
