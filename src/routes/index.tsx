@@ -248,14 +248,6 @@ function Philosophy() {
     <Section variant="tint" id="philosophy">
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-0 h-px w-[min(720px,80%)] -translate-x-1/2"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 70%, transparent), transparent)",
-        }}
-      />
-      <div
-        aria-hidden
         className="pointer-events-none absolute -z-[1] left-1/2 top-24 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-50"
         style={{
           background:
