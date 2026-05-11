@@ -5,7 +5,7 @@ export function ScrollTopButton() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 600);
+    const onScroll = () => setVisible(window.scrollY > 300);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -16,8 +16,8 @@ export function ScrollTopButton() {
       type="button"
       aria-label="Наверх"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`liquid-glass fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center transition-all duration-500 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+      className={`liquid-glass fixed bottom-6 left-6 z-50 flex h-12 w-12 items-center justify-center transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+        visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-90 pointer-events-none"
       }`}
       style={{
         borderRadius: "999px",
