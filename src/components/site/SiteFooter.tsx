@@ -42,12 +42,6 @@ export function SiteFooter() {
               >
                 Статус свободы Юлии Арминой
               </div>
-              <div
-                className="text-xs sm:text-sm tracking-[0.32em] uppercase mt-1.5"
-                style={{ color: "var(--gold-soft)" }}
-              >
-                Юлия Арминова
-              </div>
             </div>
           </div>
           <p className="mt-6 max-w-md text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
