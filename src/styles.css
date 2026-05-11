@@ -1210,7 +1210,7 @@
   .card-lux h3,
   .card-lux h2,
   .card-lux h4 {
-    color: var(--card-text);
+    color: var(--gold-heading-deep);
     text-shadow: none;
     font-weight: 800;
     text-transform: uppercase;
