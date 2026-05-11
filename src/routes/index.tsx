@@ -124,6 +124,7 @@ function IndexPage() {
   return (
     <SiteLayout>
       <Hero />
+      <Philosophy />
       <Services />
       <About />
       <DigitalProfile />
