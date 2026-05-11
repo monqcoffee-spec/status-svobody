@@ -88,52 +88,9 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="md:col-span-4">
-          <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Связь</div>
-          <ul className="mt-5 space-y-2.5 text-sm">
-            <li><a href="https://t.me/zakon_127" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Канал · t.me/zakon_127</a></li>
-            <li><a href="https://vk.ru/uarmina" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>ВКонтакте · /uarmina</a></li>
-            <li><a href="https://max.ru/id312300900561_biz" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Max · бизнес-аккаунт</a></li>
-            <li><a href="https://uslugi.yandex.ru/profile/YuliyaYurevnaArmina-108290" target="_blank" rel="noopener" className="transition-colors hover:opacity-80" style={{ color: "var(--text-muted)" }}>Яндекс Услуги · профиль</a></li>
-          </ul>
-        </div>
       </div>
 
       <div style={{ borderTop: "1px solid color-mix(in oklab, var(--gold) 22%, transparent)" }}>
-        <div className="container-tight py-5">
-          <div
-            className="rounded-2xl px-5 py-4 text-[11px] leading-relaxed tracking-wide sm:text-xs"
-            style={{
-              background: "color-mix(in oklab, var(--paper) 55%, transparent)",
-              border: "1px solid color-mix(in oklab, var(--gold) 22%, transparent)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              color: "var(--text-muted)",
-            }}
-          >
-            <p>
-              Вся информация на сайте носит справочный характер и не является публичной офертой.
-            </p>
-            <div
-              aria-hidden
-              className="my-2.5 h-px w-full"
-              style={{
-                background:
-                  "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 35%, transparent), transparent)",
-              }}
-            />
-            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-              <span style={{ color: "var(--wine-deep)" }}>© Статус свободы Юлии Арминой</span>
-              <a
-                href="/privacy"
-                className="underline-offset-4 transition-colors hover:underline"
-                style={{ color: "var(--text-muted)" }}
-              >
-                Политика обработки персональных данных
-              </a>
-            </div>
-          </div>
-        </div>
         <div className="container-tight flex flex-col gap-3 py-6 text-[11px] tracking-wider md:flex-row md:items-center md:justify-between" style={{ color: "var(--text-muted)" }}>
           <div>© {new Date().getFullYear()} Статус свободы Юлии Арминой · Юлия Армина</div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
