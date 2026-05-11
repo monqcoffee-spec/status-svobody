@@ -88,6 +88,7 @@ type Stage =
       kind: "verdict";
       verdict: AiVerdict["verdict"];
       consultationId: string | null;
+      sessionToken: string | null;
     }
   | { kind: "error"; message: string };
 
@@ -134,6 +135,7 @@ export function AiDiagnostic() {
     setMessages(finalHistory);
 
     let consultationId: string | null = null;
+    let sessionToken: string | null = null;
     try {
       const saved = await saveConsultationFn({
         data: {
@@ -145,11 +147,14 @@ export function AiDiagnostic() {
           source: "index",
         },
       });
-      if (saved.ok) consultationId = saved.id;
+      if (saved.ok) {
+        consultationId = saved.id;
+        sessionToken = saved.sessionToken;
+      }
     } catch (e) {
       console.error("save consultation failed:", e);
     }
-    setStage({ kind: "verdict", verdict: v, consultationId });
+    setStage({ kind: "verdict", verdict: v, consultationId, sessionToken });
   }
 
   function handleStart() {
@@ -235,6 +240,7 @@ export function AiDiagnostic() {
           <VerdictPanel
             verdict={stage.verdict}
             consultationId={stage.consultationId}
+            sessionToken={stage.sessionToken}
             onReset={reset}
           />
         )}
@@ -372,10 +378,12 @@ function OptionsPanel({
 function VerdictPanel({
   verdict,
   consultationId,
+  sessionToken,
   onReset,
 }: {
   verdict: AiVerdict["verdict"];
   consultationId: string | null;
+  sessionToken: string | null;
   onReset: () => void;
 }) {
   return (
@@ -423,7 +431,7 @@ function VerdictPanel({
       </div>
 
       {verdict.hot && (
-        <HotLeadForm consultationId={consultationId} verdictTitle={verdict.title} />
+        <HotLeadForm consultationId={consultationId} sessionToken={sessionToken} verdictTitle={verdict.title} />
       )}
     </div>
   );
@@ -432,9 +440,11 @@ function VerdictPanel({
 /* ─────────── Hot lead inline form ─────────── */
 function HotLeadForm({
   consultationId,
+  sessionToken,
   verdictTitle,
 }: {
   consultationId: string | null;
+  sessionToken: string | null;
   verdictTitle: string;
 }) {
   const submitFn = useServerFn(submitLeadWithConsultation);
@@ -467,7 +477,7 @@ function HotLeadForm({
     setErrors(next);
     if (Object.keys(next).length > 0) return;
 
-    if (!consultationId) {
+    if (!consultationId || !sessionToken) {
       setErrors({ system: "Не удалось привязать консультацию. Попробуйте ещё раз." });
       return;
     }
@@ -477,6 +487,7 @@ function HotLeadForm({
       const res = await submitFn({
         data: {
           consultationId,
+          sessionToken,
           name: name.trim(),
           phone: phone.trim(),
           debtAmount: amount,

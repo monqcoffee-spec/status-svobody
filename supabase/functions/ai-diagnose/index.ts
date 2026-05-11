@@ -1,11 +1,44 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers":
-    "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+// Allowlist of origins permitted to call this function.
+// Use exact matches + a regex for *.lovable.app / *.lovableproject.com previews.
+const ALLOWED_ORIGINS = [
+  "https://status-svobody.lovable.app",
+  "http://localhost:3000",
+  "http://localhost:5173",
+];
+const ALLOWED_ORIGIN_RX = /^https:\/\/[a-z0-9-]+\.(lovable\.app|lovableproject\.com)$/i;
+
+function corsFor(origin: string | null) {
+  const allow =
+    origin && (ALLOWED_ORIGINS.includes(origin) || ALLOWED_ORIGIN_RX.test(origin))
+      ? origin
+      : ALLOWED_ORIGINS[0];
+  return {
+    "Access-Control-Allow-Origin": allow,
+    "Vary": "Origin",
+    "Access-Control-Allow-Headers":
+      "authorization, x-client-info, apikey, content-type",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Max-Age": "86400",
+  };
+}
+
+// Per-IP rate limit (best-effort; resets per isolate).
+const RATE_LIMIT = 30; // requests
+const RATE_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const buckets = new Map<string, { count: number; resetAt: number }>();
+function rateLimitOk(key: string) {
+  const now = Date.now();
+  const b = buckets.get(key);
+  if (!b || b.resetAt < now) {
+    buckets.set(key, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return true;
+  }
+  if (b.count >= RATE_LIMIT) return false;
+  b.count += 1;
+  return true;
+}
 
 const SYSTEM_PROMPT = `Ты — опытный российский финансовый консультант, специализация — кредитная история и работа с БКИ. Веди первичную диагностику: задавай ровно один уточняющий вопрос за раз, человеческим языком, без жаргона. Никогда не упоминай услуги банкротства, арбитражного управляющего, 127-ФЗ, ЕФРСБ, МФЦ, ФССП — это вне твоей зоны.
 
@@ -76,13 +109,48 @@ const tools = [
 ];
 
 serve(async (req) => {
+  const origin = req.headers.get("origin");
+  const corsHeaders = corsFor(origin);
+
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
+    // Reject calls from disallowed origins (browsers send Origin on cross-site fetches).
+    if (origin && !ALLOWED_ORIGINS.includes(origin) && !ALLOWED_ORIGIN_RX.test(origin)) {
+      return new Response(JSON.stringify({ error: "Origin not allowed" }), {
+        status: 403,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // Best-effort per-IP rate limit.
+    const ip =
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
+      req.headers.get("cf-connecting-ip") ??
+      "anon";
+    if (!rateLimitOk(ip)) {
+      return new Response(
+        JSON.stringify({ error: "Слишком много запросов. Попробуйте через минуту." }),
+        { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+
     const { messages } = await req.json();
-    if (!Array.isArray(messages)) {
+    if (
+      !Array.isArray(messages) ||
+      messages.length === 0 ||
+      messages.length > 40 ||
+      !messages.every(
+        (m) =>
+          m &&
+          typeof m === "object" &&
+          (m.role === "user" || m.role === "assistant") &&
+          typeof m.content === "string" &&
+          m.content.length <= 2000,
+      )
+    ) {
       return new Response(JSON.stringify({ error: "messages array required" }), {
         status: 400,
         headers: { ...corsHeaders, "Content-Type": "application/json" },

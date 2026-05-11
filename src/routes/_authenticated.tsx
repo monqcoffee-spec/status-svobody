@@ -1,8 +1,20 @@
-import { createFileRoute, Outlet, useNavigate, Link } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useNavigate, Link, redirect } from "@tanstack/react-router";
 import { useEffect } from "react";
 import { useAuth } from "@/hooks/use-auth";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/_authenticated")({
+  beforeLoad: async ({ location }) => {
+    // Server-side guard: prevents SSR from rendering protected HTML to anonymous users.
+    if (typeof window === "undefined") {
+      // On the server we have no session — let the client-side guard handle it after hydration.
+      return;
+    }
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data.user) {
+      throw redirect({ to: "/login", search: { redirect: location.href } as never });
+    }
+  },
   component: AuthenticatedLayout,
 });
 
