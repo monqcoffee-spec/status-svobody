@@ -92,7 +92,7 @@ export function SiteFooter() {
 
       <div style={{ borderTop: "1px solid color-mix(in oklab, var(--gold) 22%, transparent)" }}>
         <div className="container-tight flex flex-col gap-3 py-6 text-[11px] tracking-wider md:flex-row md:items-center md:justify-between" style={{ color: "var(--text-muted)" }}>
-          <div>© {new Date().getFullYear()} Статус свободы Юлии Арминой · Юлия Армина</div>
+          <div>© {new Date().getFullYear()} Статус свободы Юлии Арминой</div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <a href="/privacy" className="transition-colors hover:opacity-80">Политика конфиденциальности</a>
             <span aria-hidden style={{ opacity: 0.5 }}>·</span>
