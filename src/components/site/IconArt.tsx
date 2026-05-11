@@ -68,20 +68,6 @@ export function IconArt({
             "drop-shadow(0 14px 22px color-mix(in oklab, var(--ink-deep) 55%, transparent)) drop-shadow(0 0 14px color-mix(in oklab, var(--champagne-glow) 28%, transparent))",
         }}
       />
-      {/* Diagonal shimmer sweep — only on hover, masked to icon bounds */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 overflow-hidden rounded-[18%] opacity-0 transition-opacity duration-300 group-hover/icon:opacity-100 group-hover/card:opacity-100"
-      >
-        <div
-          className="absolute -inset-2 icon-art-shimmer"
-          style={{
-            background:
-              "linear-gradient(115deg, transparent 38%, color-mix(in oklab, var(--champagne-glow) 55%, transparent) 49%, color-mix(in oklab, white 75%, transparent) 50%, color-mix(in oklab, var(--champagne-glow) 55%, transparent) 51%, transparent 62%)",
-            mixBlendMode: "screen",
-          }}
-        />
-      </div>
       </div>
     </div>
   );

@@ -64,21 +64,6 @@ export function IconBadge({
           animation: inView ? "gold-breathe 3.4s ease-in-out infinite" : "none",
         }}
       />
-      {/* Diagonal gold shimmer sweep — periodic pass across the medallion */}
-      <div
-        aria-hidden
-        className="absolute inset-0 rounded-full overflow-hidden pointer-events-none"
-      >
-        <div
-          className="absolute -inset-2"
-          style={{
-            background:
-              "linear-gradient(115deg, transparent 35%, color-mix(in oklab, var(--champagne-glow) 70%, transparent) 48%, color-mix(in oklab, white 70%, transparent) 50%, color-mix(in oklab, var(--champagne-glow) 70%, transparent) 52%, transparent 65%)",
-            animation: inView ? "gold-shimmer 3.6s ease-in-out infinite" : "none",
-            mixBlendMode: "screen",
-          }}
-        />
-      </div>
       {/* Glossy top highlight */}
       <div
         aria-hidden
