@@ -30,11 +30,11 @@ export function BotIntensive() {
       <div className="relative mt-5">
         <div className="relative">
           <div>
-            <h3 className="font-display uppercase text-[0.9375rem] md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
-              ТЕЛЕГРАМ-БОТ
+            <h3 className="display uppercase text-2xl md:text-4xl lg:text-5xl leading-[1.05]" style={{ color: "var(--text)", letterSpacing: "-0.01em" }}>
+              ТЕЛЕГРАМ<span className="text-cyan">-БОТ</span>
             </h3>
-            <p className="mt-2 text-base md:text-lg leading-snug" style={{ color: "var(--text-muted)" }}>
-              Пошаговая дорожная карта и доступ к интенсиву — в одном боте.
+            <p className="mt-4 max-w-2xl text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+              Пошаговая дорожная карта и доступ к интенсиву — <span style={{ color: "var(--wine-deep)", fontWeight: 500 }}>в одном боте</span>.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
