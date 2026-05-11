@@ -1392,10 +1392,6 @@
  * dim sections, dialogs, popovers, sheets, drawers, tooltips, etc.
  * Ancestors there may set light/silver text colors that would otherwise
  * bleed onto the white card background and make it unreadable. */
-.card-lux h1,
-.card-lux h2,
-.card-lux h3,
-.card-lux h4,
 .card-lux p,
 .card-lux li,
 .card-lux .text-silver,
@@ -1403,6 +1399,13 @@
 .card-lux .text-silver\/80,
 .card-lux .text-silver\/75 {
   color: var(--card-text) !important;
+}
+.card-lux h1,
+.card-lux h2,
+.card-lux h3,
+.card-lux h4 {
+  color: var(--gold-heading-deep) !important;
+  -webkit-text-fill-color: var(--gold-heading-deep) !important;
 }
 /* When .card-lux is applied directly to a list item (e.g. benefit cards
  * rendered as <li class="card-lux">), the descendant selectors above don't
