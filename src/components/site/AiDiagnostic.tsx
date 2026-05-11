@@ -378,10 +378,12 @@ function OptionsPanel({
 function VerdictPanel({
   verdict,
   consultationId,
+  sessionToken,
   onReset,
 }: {
   verdict: AiVerdict["verdict"];
   consultationId: string | null;
+  sessionToken: string | null;
   onReset: () => void;
 }) {
   return (
@@ -429,7 +431,7 @@ function VerdictPanel({
       </div>
 
       {verdict.hot && (
-        <HotLeadForm consultationId={consultationId} verdictTitle={verdict.title} />
+        <HotLeadForm consultationId={consultationId} sessionToken={sessionToken} verdictTitle={verdict.title} />
       )}
     </div>
   );
@@ -438,9 +440,11 @@ function VerdictPanel({
 /* ─────────── Hot lead inline form ─────────── */
 function HotLeadForm({
   consultationId,
+  sessionToken,
   verdictTitle,
 }: {
   consultationId: string | null;
+  sessionToken: string | null;
   verdictTitle: string;
 }) {
   const submitFn = useServerFn(submitLeadWithConsultation);
