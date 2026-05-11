@@ -88,6 +88,7 @@ type Stage =
       kind: "verdict";
       verdict: AiVerdict["verdict"];
       consultationId: string | null;
+      sessionToken: string | null;
     }
   | { kind: "error"; message: string };
 
@@ -134,6 +135,7 @@ export function AiDiagnostic() {
     setMessages(finalHistory);
 
     let consultationId: string | null = null;
+    let sessionToken: string | null = null;
     try {
       const saved = await saveConsultationFn({
         data: {
@@ -145,11 +147,14 @@ export function AiDiagnostic() {
           source: "index",
         },
       });
-      if (saved.ok) consultationId = saved.id;
+      if (saved.ok) {
+        consultationId = saved.id;
+        sessionToken = saved.sessionToken;
+      }
     } catch (e) {
       console.error("save consultation failed:", e);
     }
-    setStage({ kind: "verdict", verdict: v, consultationId });
+    setStage({ kind: "verdict", verdict: v, consultationId, sessionToken });
   }
 
   function handleStart() {
