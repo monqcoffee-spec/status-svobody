@@ -74,7 +74,7 @@ export function SiteFooter() {
           <div className="smallcaps" style={{ color: "var(--gold-soft)" }}>Навигация</div>
           <ul className="mt-5 space-y-2.5 text-sm">
             {[
-              ["/#about", "О бренде"],
+              ["/#about", "О компании"],
               ["/#services", "Услуги"],
               ["/#pricing", "Тарифы"],
               ["/bankruptcy", "Банкротство"],
