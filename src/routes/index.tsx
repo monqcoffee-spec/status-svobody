@@ -195,13 +195,13 @@ function Hero() {
           <span
             className="reveal reveal-delay-2 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] font-semibold"
           >
-            Кредитную историю невозможно исправить.
+            Кредитную историю невозможно исправить
           </span>
           <span
             className="reveal reveal-delay-3 mt-3 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] italic font-serif text-gradient-cyan text-glow"
             style={{ fontWeight: 500 }}
           >
-            Но&nbsp;её можно оспорить.
+            Но&nbsp;её можно оспорить
           </span>
         </h2>
 
