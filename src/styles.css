@@ -176,6 +176,55 @@
   --surface-tint: var(--rose-quartz);
   --surface-edge: color-mix(in oklab, var(--gold) 28%, transparent);
   --hero-bg: var(--paper);
+
+  /* ─── Liquid-glass design tokens ──────────────────────────────────
+   * Single source of truth for the frosted-glass material used by
+   * headers, dialogs, sheets, floating buttons and inner panels.
+   * Tune these values once and the whole surface system follows. */
+
+  /* Background — top/bottom opacities of the main gloss gradient */
+  --lg-bg-top:    color-mix(in oklab, white 62%, transparent);
+  --lg-bg-bottom: color-mix(in oklab, white 38%, transparent);
+  --lg-bg-fallback: color-mix(in oklab, white 92%, var(--rose-mist) 8%);
+
+  /* Blur / saturation */
+  --lg-blur: 20px;
+  --lg-saturate: 180%;
+  --lg-blur-reduced: 8px;
+  --lg-saturate-reduced: 130%;
+
+  /* Border */
+  --lg-border: 1px solid color-mix(in oklab, white 55%, transparent);
+  --lg-border-strong: 1px solid color-mix(in oklab, var(--gold) 30%, transparent);
+
+  /* Shadows */
+  --lg-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.85),
+    inset 0 -1px 0 0 color-mix(in oklab, var(--gold) 18%, transparent),
+    0 8px 28px -14px color-mix(in oklab, var(--wine) 30%, transparent);
+
+  /* Top gloss highlight (::before) */
+  --lg-gloss-top:    color-mix(in oklab, white 55%, transparent);
+  --lg-gloss-bottom: color-mix(in oklab, white 18%, transparent);
+
+  /* Specular sheen sweep (::after) */
+  --lg-sheen: color-mix(in oklab, white 65%, transparent);
+
+  /* Nested form/panel materials */
+  --lg-field-bg-top:    color-mix(in oklab, white 55%, transparent);
+  --lg-field-bg-bottom: color-mix(in oklab, white 30%, transparent);
+  --lg-field-border:    1px solid color-mix(in oklab, white 45%, transparent);
+  --lg-field-blur: 14px;
+  --lg-field-saturate: 160%;
+  --lg-field-focus-border: color-mix(in oklab, var(--gold) 55%, transparent);
+  --lg-field-focus-ring:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.75),
+    0 0 0 4px color-mix(in oklab, var(--gold) 18%, transparent),
+    0 6px 22px -10px color-mix(in oklab, var(--gold) 35%, transparent);
+
+  --lg-panel-bg: color-mix(in oklab, white 22%, transparent);
+  --lg-panel-border: 1px solid color-mix(in oklab, white 35%, transparent);
+  --lg-panel-radius: 18px;
 }
 
 @layer base {
@@ -565,15 +614,12 @@
     isolation: isolate;
     background:
       linear-gradient(180deg,
-        color-mix(in oklab, white 62%, transparent) 0%,
-        color-mix(in oklab, white 38%, transparent) 100%);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid color-mix(in oklab, white 55%, transparent);
-    box-shadow:
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.85),
-      inset 0 -1px 0 0 color-mix(in oklab, var(--gold) 18%, transparent),
-      0 8px 28px -14px color-mix(in oklab, var(--wine) 30%, transparent);
+        var(--lg-bg-top) 0%,
+        var(--lg-bg-bottom) 100%);
+    backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    -webkit-backdrop-filter: blur(var(--lg-blur)) saturate(var(--lg-saturate));
+    border: var(--lg-border);
+    box-shadow: var(--lg-shadow);
     transition: background 0.4s ease, box-shadow 0.5s ease, border-color 0.4s ease;
   }
   .liquid-glass::before {
@@ -584,10 +630,10 @@
     pointer-events: none;
     background: linear-gradient(
       180deg,
-      color-mix(in oklab, white 55%, transparent) 0%,
+      var(--lg-gloss-top) 0%,
       transparent 38%,
       transparent 62%,
-      color-mix(in oklab, white 18%, transparent) 100%);
+      var(--lg-gloss-bottom) 100%);
     mix-blend-mode: overlay;
     opacity: 0.9;
   }
@@ -600,7 +646,7 @@
     background: linear-gradient(
       115deg,
       transparent 42%,
-      color-mix(in oklab, white 65%, transparent) 50%,
+      var(--lg-sheen) 50%,
       transparent 58%);
     transform: translateX(-130%);
     transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -623,12 +669,12 @@
   .liquid-glass select {
     background: linear-gradient(
       180deg,
-      color-mix(in oklab, white 55%, transparent) 0%,
-      color-mix(in oklab, white 30%, transparent) 100%
+      var(--lg-field-bg-top) 0%,
+      var(--lg-field-bg-bottom) 100%
     );
-    border: 1px solid color-mix(in oklab, white 45%, transparent);
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: var(--lg-field-border);
+    backdrop-filter: blur(var(--lg-field-blur)) saturate(var(--lg-field-saturate));
+    -webkit-backdrop-filter: blur(var(--lg-field-blur)) saturate(var(--lg-field-saturate));
     box-shadow:
       inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
       0 1px 2px color-mix(in oklab, var(--wine) 6%, transparent);
@@ -638,19 +684,16 @@
   .liquid-glass input:focus,
   .liquid-glass textarea:focus,
   .liquid-glass select:focus {
-    border-color: color-mix(in oklab, var(--gold) 55%, transparent);
-    box-shadow:
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.75),
-      0 0 0 4px color-mix(in oklab, var(--gold) 18%, transparent),
-      0 6px 22px -10px color-mix(in oklab, var(--gold) 35%, transparent);
+    border-color: var(--lg-field-focus-border);
+    box-shadow: var(--lg-field-focus-ring);
   }
 
   /* Ghost / secondary buttons translate to translucent glass pills */
   .liquid-glass .btn-ghost {
     background: color-mix(in oklab, white 28%, transparent);
-    border: 1px solid color-mix(in oklab, white 45%, transparent);
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border: var(--lg-field-border);
+    backdrop-filter: blur(var(--lg-field-blur)) saturate(var(--lg-field-saturate));
+    -webkit-backdrop-filter: blur(var(--lg-field-blur)) saturate(var(--lg-field-saturate));
   }
   .liquid-glass .btn-ghost:hover {
     background: color-mix(in oklab, white 42%, transparent);
@@ -661,9 +704,9 @@
    * a faint inset of frosted glass instead of opaque surfaces. */
   .liquid-glass .glass-panel,
   .liquid-glass [data-glass-panel] {
-    background: color-mix(in oklab, white 22%, transparent);
-    border: 1px solid color-mix(in oklab, white 35%, transparent);
-    border-radius: 18px;
+    background: var(--lg-panel-bg);
+    border: var(--lg-panel-border);
+    border-radius: var(--lg-panel-radius);
     backdrop-filter: blur(12px) saturate(150%);
     -webkit-backdrop-filter: blur(12px) saturate(150%);
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
@@ -680,14 +723,14 @@
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
     .liquid-glass {
-      background: color-mix(in oklab, white 92%, var(--rose-mist) 8%);
+      background: var(--lg-bg-fallback);
     }
   }
 
   @media (prefers-reduced-transparency: reduce), (prefers-reduced-motion: reduce) {
     .liquid-glass {
-      backdrop-filter: blur(8px) saturate(130%);
-      -webkit-backdrop-filter: blur(8px) saturate(130%);
+      backdrop-filter: blur(var(--lg-blur-reduced)) saturate(var(--lg-saturate-reduced));
+      -webkit-backdrop-filter: blur(var(--lg-blur-reduced)) saturate(var(--lg-saturate-reduced));
     }
     .liquid-glass::after { display: none; }
   }
