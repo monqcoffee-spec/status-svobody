@@ -358,8 +358,8 @@ function Philosophy() {
 function About() {
   return (
     <Section variant="wine" id="about">
-      <div className="grid gap-6 md:gap-10 lg:grid-cols-12 lg:items-center">
-        <ScrollReveal variant="left" delay={1} className="lg:col-span-5 order-1">
+      <div className="grid grid-cols-12 gap-4 sm:gap-6 md:gap-10 items-start lg:items-center">
+        <ScrollReveal variant="left" delay={1} className="col-span-5 order-1">
           <figure className="relative">
             <div
               aria-hidden
@@ -386,18 +386,18 @@ function About() {
               />
             </div>
             <figcaption
-              className="mt-5 text-center font-display text-lg md:text-xl"
+              className="mt-3 sm:mt-5 text-center font-display text-sm sm:text-base md:text-xl"
               style={{ color: "#2A1118" }}
             >
               <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Юлия Армина</span>
-              <span className="block mt-1 smallcaps text-[11px] tracking-[0.18em]" style={{ color: "#3a1a22" }}>
+              <span className="block mt-1 smallcaps text-[9px] sm:text-[11px] tracking-[0.16em]" style={{ color: "#3a1a22" }}>
                 Основатель · «Статус свободы Юлии Арминой»
               </span>
             </figcaption>
           </figure>
         </ScrollReveal>
 
-        <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
+        <ScrollReveal variant="right" delay={2} className="col-span-7 order-2 space-y-3 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
             <span className="italic font-display" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
             «Статус свободы Юлии Арминой». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
@@ -413,24 +413,24 @@ function About() {
             Помогаем восстановить финансовую репутацию, снизить давление со стороны
             взыскателей и выстроить понятный план действий.
           </p>
-          <div className="mt-8 grid grid-cols-3 gap-4 pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
+          <div className="mt-6 md:mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
             <div>
-              <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
+              <div className="font-display text-xl sm:text-2xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={500} suffix="+" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-heading)" }}>клиентов</div>
+              <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>клиентов</div>
             </div>
             <div>
-              <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
+              <div className="font-display text-xl sm:text-2xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={15} />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-heading)" }}>лет практики</div>
+              <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>лет практики</div>
             </div>
             <div>
-              <div className="font-display text-3xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
+              <div className="font-display text-xl sm:text-2xl md:text-4xl" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={888} suffix=" млн" />
               </div>
-              <div className="mt-2 smallcaps text-[10px]" style={{ color: "var(--gold-heading)" }}>списанных долгов</div>
+              <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>списанных долгов</div>
             </div>
           </div>
         </ScrollReveal>
