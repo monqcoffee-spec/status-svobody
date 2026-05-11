@@ -89,7 +89,7 @@ function BankruptcyHero() {
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
           </div>
-          <h1 className="mt-10 font-display uppercase text-[2.5rem] sm:text-lg md:text-xl lg:text-base leading-[1.02] tracking-[-0.03em] text-silver break-words">
+          <h1 className="mt-10 font-display uppercase text-lg sm:text-lg md:text-xl lg:text-base leading-[1.02] tracking-[-0.03em] text-silver break-words">
             ФИНАНСОВОЕ <br />
             <span className="text-gradient-cyan text-glow">ОСВОБОЖДЕНИЕ</span>
           </h1>
