@@ -27,6 +27,7 @@ import iconSvo from "@/assets/icons-3d/svo.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
 import iconBuyout from "@/assets/icons-3d/buyout.png";
 import iconSupport from "@/assets/icons-3d/support.png";
+import iconDebtRelief from "@/assets/icons-3d/debt-relief.png";
 import iconTierBasic from "@/assets/icons-3d/tier-basic.png";
 import iconTierPremium from "@/assets/icons-3d/tier-premium.png";
 import iconTierPlatinum from "@/assets/icons-3d/tier-platinum.png";
@@ -530,7 +531,7 @@ function Services() {
     { art: iconSvo, t: "Помощь в списании долгов участникам специальной военной операции", d: "Закон № 377-ФЗ допускает списание долгов участников специальной военной операции при гибели или инвалидности I группы. Аналогичное право — у членов семьи." },
     { art: iconUnlock, t: "Снятие арестов Федеральной службы судебных приставов", d: "Снимаем аресты на счета и имущество, закрываем исполнительные производства, удаляем недостоверную информацию." },
     { art: iconBuyout, t: "Выкуп долгов у коллекторов", d: "Помогаем выкупить долги у коллекторов с дисконтом до 90% и прекращаем преследование." },
-    { art: iconSupport, t: "Полное списание долгов", d: "От первой консультации до закрытия дела — единая точка ответственности и прозрачный план." },
+    { art: iconDebtRelief, t: "Полное списание долгов", d: "От первой консультации до закрытия дела — единая точка ответственности и прозрачный план." },
   ];
   return (
     <Section variant="default" id="services">
