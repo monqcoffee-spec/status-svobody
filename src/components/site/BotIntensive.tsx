@@ -30,8 +30,8 @@ export function BotIntensive() {
       </ul>
 
       <div className="relative mt-5">
-        <div className="relative grid gap-3 md:gap-6 md:grid-cols-12 md:items-center">
-          <div className="md:col-span-7">
+        <div className="relative">
+          <div>
             <h3 className="font-display uppercase text-[0.9375rem] md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
               ТЕЛЕГРАМ-БОТ
             </h3>
@@ -52,28 +52,11 @@ export function BotIntensive() {
                 href="https://t.me/status_svobody_bot"
                 target="_blank"
                 rel="noopener"
-                className="btn-ghost group"
+                className="group inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-display uppercase text-sm tracking-wider"
+                style={{ color: "var(--wine-deep)", border: "1px solid color-mix(in oklab, var(--gold) 50%, transparent)" }}
               >
                 <span>Получить интенсив</span>
               </a>
-            </div>
-          </div>
-          <div className="md:col-span-5 relative order-first md:order-none">
-            <div
-              className="relative mx-auto w-full max-w-xs overflow-hidden flex flex-col items-center justify-center p-3 md:p-6 backdrop-blur-md"
-              style={{
-                borderRadius: "32px",
-                border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
-                background:
-                  "linear-gradient(135deg, color-mix(in oklab, var(--wine) 8%, white) 0%, color-mix(in oklab, var(--gold) 10%, white) 100%)",
-                boxShadow:
-                  "0 30px 60px -30px color-mix(in oklab, var(--wine) 35%, transparent), inset 0 1px 0 0 color-mix(in oklab, white 60%, transparent)",
-              }}
-            >
-              <IconArt src={iconBot} alt="" size="sm" />
-              <div className="mt-2 text-center font-display text-[0.625rem] md:text-xs" style={{ color: "var(--text)" }}>
-                @status_svobody_bot
-              </div>
             </div>
           </div>
         </div>
