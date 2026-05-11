@@ -29,7 +29,7 @@ export function BotIntensive() {
         ))}
       </ul>
 
-      <div className="card-lux relative mt-14 overflow-hidden p-6 md:p-14">
+      <div className="card-lux relative mt-14 overflow-hidden p-4 md:p-8">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full opacity-40 animate-drift"
@@ -38,15 +38,15 @@ export function BotIntensive() {
               "radial-gradient(closest-side, color-mix(in oklab, var(--gold) 35%, transparent), transparent)",
           }}
         />
-        <div className="relative grid gap-6 md:gap-10 md:grid-cols-12 md:items-center">
+        <div className="relative grid gap-3 md:gap-6 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <h3 className="font-display uppercase text-[0.9375rem] md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
               ТЕЛЕГРАМ-БОТ
             </h3>
-            <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
+            <p className="mt-2 text-base md:text-lg leading-snug" style={{ color: "var(--text-muted)" }}>
               Пошаговая дорожная карта и доступ к интенсиву — в одном боте.
             </p>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap gap-2">
               <a
                 href="https://t.me/status_svobody_bot"
                 target="_blank"
