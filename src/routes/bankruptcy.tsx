@@ -62,7 +62,6 @@ function BankruptcyPage() {
       <BankruptcyHero />
       <BankruptcyAdvantages />
       <BankruptcyStages />
-      <BankruptcySupport />
       <BankruptcyResults />
       <BotIntensive />
       <Testimonials compact />
@@ -74,7 +73,7 @@ function BankruptcyPage() {
 
 function BankruptcyHero() {
   return (
-    <section className="relative overflow-hidden bg-aurora md:-mt-20 pt-32 md:pt-44 pb-20 md:pb-28">
+    <section className="relative overflow-hidden bg-aurora md:-mt-20 pt-36 md:pt-52 pb-24 md:pb-36">
       <ParticleField density={32} />
       <div
         aria-hidden
@@ -85,34 +84,32 @@ function BankruptcyHero() {
         }}
       />
       <div className="container-tight relative">
-        <div className="reveal max-w-3xl">
+        <div className="reveal">
           <div className="inline-flex items-center gap-3">
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
           </div>
-          <h1 className="mt-8 font-display uppercase text-5xl md:text-7xl leading-[1.05] tracking-[-0.03em] text-silver">
-            Финансовое <br />
-            <span className="text-gradient-cyan text-glow italic font-serif">освобождение.</span>
+          <h1 className="mt-10 font-display uppercase text-6xl md:text-8xl lg:text-9xl leading-[1.02] tracking-[-0.03em] text-silver">
+            ФИНАНСОВОЕ <br />
+            <span className="text-gradient-cyan text-glow">ОСВОБОЖДЕНИЕ</span>
           </h1>
-          <p className="mt-8 text-lg md:text-xl leading-relaxed text-silver/80">
-            Долги — не приговор, а юридическая задача с предсказуемым решением.
-            Премиальное сопровождение процедуры банкротства физических лиц:
-            от стратегии до получения определения суда.
+          <p className="mt-10 w-full text-2xl md:text-4xl leading-tight text-silver/85 font-display uppercase tracking-tight">
+            Долги — не приговор, а юридическая задача
           </p>
-          <div className="reveal reveal-delay-2 mt-10 flex flex-wrap gap-3">
+          <div className="reveal reveal-delay-2 mt-12 flex flex-wrap gap-4">
             <LeadFormDialog
               source="bankruptcy-hero"
               headline="Консультация по банкротству"
               trigger={
-                <button type="button" className="btn-cyan group rounded-sm">
+                <button type="button" className="btn-cyan group rounded-sm text-lg px-8 py-5">
                   <span>Получить консультацию</span>
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </button>
               }
             />
-            <a href="#bot-intensive" className="btn-ghost group rounded-sm">
+            <a href="#bot-intensive" className="btn-ghost group rounded-sm text-lg px-8 py-5">
               <span>Бесплатный интенсив</span>
-              <ArrowUpRight className="h-4 w-4 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              <ArrowUpRight className="h-5 w-5 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
         </div>
@@ -123,17 +120,20 @@ function BankruptcyHero() {
 
 function BankruptcyAdvantages() {
   const items = [
-    { art: iconSvo, t: "Закон на вашей стороне", d: "127-ФЗ — рабочий механизм. Списываем кредиты, микрозаймы, налоговые задолженности и долги перед физлицами." },
     { art: iconSupport, t: "Защита имущества", d: "Сохраняем единственное жильё, технику и ценные активы в рамках закона. Стратегия — до подачи заявления." },
     { art: iconHandshake, t: "Защита от коллекторов", d: "После принятия заявления — стоп звонки, аресты, исполнительные производства." },
-    { art: iconRestore, t: "Новый старт", d: "Чистый юридический статус. Возможность строить финансовую репутацию без груза прошлого." },
+    { art: iconSvo, t: "Чистый юридический статус", d: "127-ФЗ — рабочий механизм. Закрываем кредиты, микрозаймы, задолженности перед физлицами." },
+    { art: iconRestore, t: "Финансовое будущее без груза прошлого", d: "Возможность строить финансовую репутацию заново — без старых обязательств." },
   ];
   return (
     <Section variant="darker" id="advantages">
       <SectionLabel n="01" title="Преимущества" />
-      <H2 className="mt-8 max-w-3xl">
-        Что вы получаете <span className="text-cyan italic">после процедуры</span>
+      <H2 className="mt-8 max-w-4xl uppercase">
+        ЧТО ВЫ ПОЛУЧАЕТЕ <span className="text-cyan">ПОСЛЕ ПРОЦЕДУРЫ</span>
       </H2>
+      <p className="mt-6 font-display uppercase text-2xl md:text-4xl leading-tight tracking-tight">
+        <span className="text-gradient-cyan text-glow">ЗАКОН НА ВАШЕЙ СТОРОНЕ</span>
+      </p>
       <div className="mt-14 grid gap-5 md:grid-cols-2">
         {items.map((it) => (
           <div
@@ -154,16 +154,16 @@ function BankruptcyAdvantages() {
 
 function BankruptcyStages() {
   const steps = [
-    { art: iconAudit, t: "Аудит ситуации", d: "Анализируем долги, имущество, доходы. Определяем стратегию: банкротство, реструктуризация или альтернативный путь." },
-    { art: iconDataBureau, t: "Подготовка документов", d: "Собираем доказательную базу, выписки БКИ, ФССП, справки. Готовим заявление в АРБИТРАЖНЫЙ СУД." },
-    { art: iconDataCourt, t: "Судебная процедура", d: "Сопровождение арбитражного процесса, взаимодействие с финансовым управляющим, защита интересов клиента." },
-    { art: iconUnlock, t: "Завершение процедуры", d: "Получение определения суда, доведение до результата." },
+    { art: iconAudit, t: "АУДИТ СИТУАЦИИ", d: "Анализируем долги, имущество, доходы. Смотрим, подходит ли вам процедура банкротства." },
+    { art: iconDataCourt, t: "ОПРЕДЕЛЯЕМ СТРАТЕГИЮ", d: "Выбираем оптимальный путь: банкротство, реструктуризация или альтернативное решение." },
+    { art: iconDataBureau, t: "ПОДГОТОВКА ДОКУМЕНТОВ", d: "Собираем доказательную базу, выписки БКИ, ФССП, справки. Готовим заявление в арбитражный суд." },
+    { art: iconUnlock, t: "ЗАВЕРШЕНИЕ ПРОЦЕДУРЫ", d: "Получение определения суда и доведение вас до результата." },
   ];
   return (
     <Section variant="default" id="stages">
       <SectionLabel n="02" title="Этапы работы" />
-      <H2 className="mt-8 max-w-3xl">
-        Прозрачный путь к <span className="text-cyan italic">финансовой свободе</span>
+      <H2 className="mt-8 max-w-4xl uppercase">
+        ПРОЗРАЧНЫЙ ПУТЬ К <span className="text-cyan">ФИНАНСОВОЙ СВОБОДЕ</span>
       </H2>
       <ol className="mt-14 grid gap-5 md:grid-cols-2">
         {steps.map((s, i) => (
@@ -183,53 +183,23 @@ function BankruptcyStages() {
   );
 }
 
-function BankruptcySupport() {
-  return (
-    <Section variant="darker" id="support">
-      <SectionLabel n="03" title="Сопровождение" />
-      <H2 className="mt-8 max-w-3xl">
-        Полное сопровождение <span className="text-cyan italic">под ключ</span>
-      </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed" style={{ color: "#3a1a22" }}>
-        Прямой контакт с финансовым поверенным на всех этапах. Защищённый канал
-        связи, единая точка ответственности, ежемесячные отчёты по делу.
-      </p>
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
-        {[
-          { t: "Подготовка", d: "Сбор и оформление документов, разработка стратегии, расчёт сценариев." },
-          { t: "Процесс", d: "Представительство в суде, взаимодействие с финансовым управляющим и кредиторами." },
-          { t: "После процедуры", d: "Восстановление кредитной истории, чистый Цифровой профиль, новый финансовый старт." },
-        ].map((p) => (
-          <div
-            key={p.t}
-            className="card-lux p-8"
-          >
-            <h3 className="font-display text-2xl">{p.t}</h3>
-            <p className="mt-3 text-base md:text-lg leading-relaxed">{p.d}</p>
-          </div>
-        ))}
-      </div>
-    </Section>
-  );
-}
-
 function BankruptcyResults() {
   const stats = [
-    { v: "888 млн ₽", l: "Списано долгов" },
-    { v: "1000+", l: "Семей прошли процедуру" },
+    { v: "888 000 000 ₽", l: "Списано долгов" },
+    { v: "Более 1000", l: "Семей прошли процедуру" },
     { v: "127-ФЗ", l: "Работаем строго в правовом поле" },
     { v: "от 6 мес", l: "Средний срок процедуры" },
   ];
   return (
     <Section variant="default" id="results">
       <SectionLabel n="04" title="Результаты" />
-      <H2 className="mt-8 max-w-3xl">
-        Цифры, которые <span className="text-cyan italic">говорят за нас</span>
+      <H2 className="mt-8 max-w-4xl uppercase">
+        ЦИФРЫ, КОТОРЫЕ <span className="text-cyan">ГОВОРЯТ ЗА НАС</span>
       </H2>
       <div className="mt-14 grid gap-5 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.l} className="card-lux p-8 text-center">
-            <div className="font-display text-4xl md:text-5xl text-gradient-cyan text-glow">{s.v}</div>
+            <div className="font-display text-3xl md:text-4xl text-gradient-cyan text-glow">{s.v}</div>
             <div className="mt-4 smallcaps">{s.l}</div>
           </div>
         ))}
@@ -326,21 +296,18 @@ function BankruptcyCTA() {
         }}
       />
       <div className="container-tight relative text-center">
-        <h2 className="display uppercase text-[clamp(2rem,6vw,4.5rem)] max-w-4xl mx-auto">
-          <span className="text-gradient-cyan text-glow">Получите индивидуальный разбор вашей ситуации</span>
+        <h2 className="font-display uppercase text-6xl md:text-8xl lg:text-9xl leading-[1.02] tracking-[-0.03em] max-w-6xl mx-auto text-silver">
+          ПОЛУЧИТЕ РАЗБОР <br />
+          <span className="text-gradient-cyan text-glow">ВАШЕЙ КОНКРЕТНОЙ СИТУАЦИИ</span>
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-silver/75">
-          Первая консультация бесплатна. Если банкротство вам не нужно —
-          скажу об этом сразу.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <LeadFormDialog
             source="bankruptcy-final"
             headline="Консультация по банкротству"
             trigger={
-              <button type="button" className="btn-cyan group rounded-sm">
+              <button type="button" className="btn-cyan group rounded-sm text-lg px-8 py-5">
                 <span>Получить консультацию</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
             }
           />
@@ -348,7 +315,7 @@ function BankruptcyCTA() {
             href="https://t.me/status_svobody_bot"
             target="_blank"
             rel="noopener"
-            className="btn-ghost rounded-sm"
+            className="btn-ghost rounded-sm text-lg px-8 py-5"
           >
             Написать в Telegram
           </a>
