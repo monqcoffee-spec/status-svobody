@@ -28,11 +28,11 @@ export function SiteHeader() {
 
   return (
     <header
-      className="sticky top-0 z-40 transition-all duration-500 backdrop-blur-2xl"
+      className="liquid-glass sticky top-0 z-40 transition-all duration-500"
       style={{
         backgroundColor: scrolled
-          ? "color-mix(in oklab, var(--paper) 88%, transparent)"
-          : "color-mix(in oklab, var(--paper) 70%, transparent)",
+          ? "color-mix(in oklab, var(--paper) 62%, transparent)"
+          : "color-mix(in oklab, var(--paper) 42%, transparent)",
         borderBottom: scrolled
           ? "1px solid color-mix(in oklab, var(--gold) 28%, transparent)"
           : "1px solid transparent",
@@ -124,9 +124,9 @@ export function SiteHeader() {
 
       {open && (
         <div
-          className="lg:hidden backdrop-blur-2xl"
+          className="lg:hidden liquid-glass"
           style={{
-            backgroundColor: "color-mix(in oklab, var(--paper) 96%, transparent)",
+            backgroundColor: "color-mix(in oklab, var(--paper) 72%, transparent)",
             borderTop: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
           }}
         >
