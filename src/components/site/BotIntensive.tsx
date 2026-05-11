@@ -4,17 +4,29 @@ import { IconArt } from "./IconArt";
 import iconBot from "@/assets/icons-3d/bot.png";
 
 export function BotIntensive() {
+  const benefits = [
+    "Вся правда о процедуре банкротства",
+    "Пошаговая дорожная карта",
+    "Вся внутрянка: подходите вы или нет",
+    "Без воды, практика, которая работает в 2026 году",
+  ];
   return (
     <Section variant="darker" id="bot-intensive">
-      <SectionLabel n="06" title="Открытый чат-бот" />
-      <H2 className="mt-8 max-w-3xl">
-        Телеграм <span className="text-cyan italic">интенсив</span>
+      <SectionLabel n="06" title="Интенсив и бот" />
+      <H2 className="mt-8 max-w-4xl uppercase">
+        БЕСПЛАТНЫЙ <span className="text-cyan">ИНТЕНСИВ</span>
       </H2>
-      <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-        Пошаговая дорожная карта банкротства. Рассказываю всю правду о
-        процедуре: подходите вы или нет. Без воды — практика, которая
-        работает в 2026 году.
-      </p>
+
+      <ul className="mt-10 grid gap-4 md:grid-cols-2 max-w-4xl">
+        {benefits.map((b) => (
+          <li
+            key={b}
+            className="card-lux p-6 md:p-7 font-display uppercase text-lg md:text-xl leading-snug"
+          >
+            {b}
+          </li>
+        ))}
+      </ul>
 
       <div className="card-lux relative mt-14 overflow-hidden p-6 md:p-14">
         <div
@@ -27,12 +39,11 @@ export function BotIntensive() {
         />
         <div className="relative grid gap-6 md:gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
-            <h3 className="font-display text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
-              Получите доступ <br />
-              к интенсиву
+            <h3 className="font-display uppercase text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
+              ТЕЛЕГРАМ-БОТ
             </h3>
             <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              Без воды — практика, которая работает в 2026 году.
+              Пошаговая дорожная карта и доступ к интенсиву — в одном боте.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
               <a
@@ -69,9 +80,6 @@ export function BotIntensive() {
               <IconArt src={iconBot} alt="" size="lg" />
               <div className="mt-6 text-center font-display text-xl md:text-2xl" style={{ color: "var(--text)" }}>
                 @status_svobody_bot
-              </div>
-              <div className="mt-2 smallcaps text-[11px]" style={{ color: "var(--text-muted)" }}>
-                Открытый чат-бот
               </div>
             </div>
           </div>
