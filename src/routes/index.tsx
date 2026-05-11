@@ -352,7 +352,7 @@ function About() {
   return (
     <Section variant="wine" id="about">
       <div className="grid grid-cols-12 gap-4 sm:gap-6 md:gap-10 items-start lg:items-center">
-        <ScrollReveal variant="left" delay={1} className="col-span-5 order-1">
+        <ScrollReveal variant="right" delay={1} className="col-span-5 order-1 md:order-2">
           <figure className="relative">
             <div
               aria-hidden
@@ -390,7 +390,7 @@ function About() {
           </figure>
         </ScrollReveal>
 
-        <ScrollReveal variant="right" delay={2} className="col-span-7 order-2 space-y-3 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
+        <ScrollReveal variant="left" delay={2} className="col-span-7 order-2 md:order-1 space-y-3 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
             <span className="italic font-display" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
             «Статус свободы Юлии Арминой». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
