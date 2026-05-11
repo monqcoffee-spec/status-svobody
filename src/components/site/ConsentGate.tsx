@@ -64,11 +64,11 @@ export function ConsentGate() {
         }}
       >
         <div
-          className="relative px-6 py-7 sm:px-8 sm:py-9"
+          className="liquid-glass relative px-6 py-7 sm:px-8 sm:py-9"
           style={{
             borderRadius: 23,
             background:
-              "linear-gradient(180deg, color-mix(in oklab, #1a0810 88%, transparent) 0%, color-mix(in oklab, #0a0306 92%, transparent) 100%)",
+              "linear-gradient(180deg, color-mix(in oklab, #1a0810 70%, transparent) 0%, color-mix(in oklab, #0a0306 78%, transparent) 100%)",
             boxShadow:
               "inset 0 1px 0 color-mix(in oklab, var(--gold) 30%, transparent), inset 0 0 60px color-mix(in oklab, var(--gold) 6%, transparent)",
           }}
