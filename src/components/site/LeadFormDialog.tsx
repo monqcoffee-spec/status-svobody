@@ -125,8 +125,6 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
         style={{
           background:
             "linear-gradient(180deg, color-mix(in oklab, white 88%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 75%, transparent) 100%)",
-          border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
-          borderRadius: "28px",
           boxShadow:
             "0 40px 90px -32px color-mix(in oklab, var(--wine) 40%, transparent), inset 0 1px 0 0 rgba(255,255,255,0.85)",
         }}
