@@ -63,13 +63,13 @@ export function SiteHeader() {
             className="h-[60px] sm:h-[70px] md:h-25 lg:h-30 transition-transform duration-700 group-hover:rotate-[4deg]"
           />
           <div className="leading-tight min-w-0 hidden sm:block">
-            <div className="font-display text-[12px] md:text-[14px] tracking-[0.34em] uppercase whitespace-nowrap" style={{ color: "var(--text)" }}>
+            <div className="font-display text-[11px] md:text-[12px] xl:text-[13px] tracking-[0.22em] xl:tracking-[0.28em] uppercase truncate" style={{ color: "var(--text)" }}>
               Статус свободы Юлии Арминой
             </div>
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7 text-[13px]">
+        <nav className="hidden xl:flex items-center gap-6 text-[12px] shrink-0">
           {nav.map((n) => (
             <a
               key={n.href}
@@ -109,7 +109,7 @@ export function SiteHeader() {
           <button
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}
-            className="liquid-glass lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors"
+            className="liquid-glass xl:hidden inline-flex h-11 w-11 items-center justify-center rounded-full transition-colors"
             style={{
               color: "var(--wine-deep)",
             }}
@@ -121,7 +121,7 @@ export function SiteHeader() {
 
       {open && (
         <div
-          className="lg:hidden liquid-glass"
+          className="xl:hidden liquid-glass"
           style={{
             backgroundColor: "color-mix(in oklab, var(--paper) 72%, transparent)",
             borderTop: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
