@@ -286,31 +286,53 @@ function Philosophy() {
 
       <ScrollReveal delay={2}>
         <div
-          className="mx-auto mt-10 max-w-3xl space-y-5 text-base md:text-lg leading-relaxed"
+          className="philosophy-prose mx-auto mt-12 max-w-3xl space-y-6 text-base md:text-lg leading-[1.75]"
           style={{ color: "#2A1118" }}
         >
-          <p>
-            В Российской Федерации статус свободы закреплён во второй главе Конституции РФ.
+          <p className="philosophy-lead text-lg md:text-xl" style={{ color: "#1F0A10" }}>
+            В Российской Федерации <strong style={{ fontWeight: 600 }}>статус свободы</strong> закреплён во{" "}
+            <em className="italic" style={{ color: "var(--gold-heading-deep)" }}>второй главе Конституции РФ</em>.
             Человеку гарантированы: право на жизнь, достоинство, безопасность, свобода слова,
             совести, вероисповедания, личная неприкосновенность, неприкосновенность частной
             жизни, личная и семейная тайна, защита своей чести и доброго имени.
           </p>
+
+          <div
+            aria-hidden
+            className="mx-auto h-px w-16"
+            style={{ background: "color-mix(in oklab, var(--gold) 60%, transparent)" }}
+          />
+
           <p>
-            Цифровизация давно перестала быть будущим — она уже здесь. У каждого человека
-            сформирован цифровой финансовый профиль. Кредитная история — это невидимый,
-            но мощный актив, который влияет на решения банков, работодателей, партнёров
-            и государственных структур.
+            Цифровизация давно перестала быть будущим — <strong style={{ fontWeight: 600 }}>она уже здесь</strong>.
+            У каждого человека сформирован цифровой финансовый профиль.{" "}
+            <span style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>Кредитная история</span> —
+            это невидимый, но мощный актив, который влияет на решения банков, работодателей,
+            партнёров и государственных структур.
           </p>
+
           <p>
             <span className="font-display italic" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>
               Status Svobody
             </span>{" "}
-            помогает восстановить финансовую репутацию законным, конфиденциальным и эффективным способом.
+            помогает восстановить финансовую репутацию{" "}
+            <strong style={{ fontWeight: 600 }}>законным, конфиденциальным и эффективным</strong> способом.
           </p>
-          <p>
-            Мы возвращаем не просто кредитный рейтинг. Мы возвращаем свободу принимать
-            решения, строить карьеру, вести бизнес, получать финансирование и двигаться дальше.
-          </p>
+
+          <blockquote
+            className="relative mt-2 pl-6 text-lg md:text-xl italic font-display leading-snug"
+            style={{
+              color: "#1F0A10",
+              borderLeft: "2px solid color-mix(in oklab, var(--gold) 75%, transparent)",
+            }}
+          >
+            Мы возвращаем не просто кредитный рейтинг. Мы возвращаем{" "}
+            <span className="not-italic" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>
+              свободу
+            </span>{" "}
+            принимать решения, строить карьеру, вести бизнес, получать финансирование
+            и двигаться дальше.
+          </blockquote>
         </div>
       </ScrollReveal>
 
@@ -323,14 +345,6 @@ function Philosophy() {
                 borderColor: "color-mix(in oklab, var(--gold-heading) 45%, transparent)",
               }}
             >
-              <div
-                aria-hidden
-                className="pointer-events-none absolute -top-px left-6 right-6 h-px"
-                style={{
-                  background:
-                    "linear-gradient(90deg, transparent, color-mix(in oklab, var(--gold) 80%, transparent), transparent)",
-                }}
-              />
               <h3
                 className="font-display text-xl md:text-2xl uppercase tracking-wide"
                 style={{ color: "#8B5A63" }}
