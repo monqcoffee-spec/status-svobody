@@ -632,17 +632,7 @@ function EntryPoint() {
               rel="noopener"
               className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
             >
-              <span
-                aria-hidden
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[13px] font-bold tracking-wider"
-                style={{
-                  background: "linear-gradient(135deg, #4A76A8, #2B587A)",
-                  color: "#fff",
-                  boxShadow: "0 4px 14px -4px rgba(74,118,168,0.55)",
-                }}
-              >
-                VK
-              </span>
+              <IconArt src={iconVk} alt="" size="xs" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>ВКонтакте</div>
                 <div className="text-sm" style={{ color: "#2A1118" }}>vk.ru/uarmina</div>
@@ -654,17 +644,7 @@ function EntryPoint() {
               rel="noopener"
               className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
             >
-              <span
-                aria-hidden
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[13px] font-bold tracking-wider"
-                style={{
-                  background: "linear-gradient(135deg, var(--wine), var(--wine-deep))",
-                  color: "#fff",
-                  boxShadow: "0 4px 14px -4px color-mix(in oklab, var(--wine) 60%, transparent)",
-                }}
-              >
-                M
-              </span>
+              <IconArt src={iconMax} alt="" size="xs" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Max</div>
                 <div className="text-sm" style={{ color: "#2A1118" }}>Бизнес-аккаунт</div>
@@ -676,17 +656,7 @@ function EntryPoint() {
               rel="noopener"
               className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
             >
-              <span
-                aria-hidden
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-display text-[13px] font-bold tracking-wider"
-                style={{
-                  background: "linear-gradient(135deg, #FFCC00, #FC3F1D)",
-                  color: "#fff",
-                  boxShadow: "0 4px 14px -4px rgba(252,63,29,0.55)",
-                }}
-              >
-                Я
-              </span>
+              <IconArt src={iconYandex} alt="" size="xs" />
               <div className="text-left">
                 <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Яндекс Услуги</div>
                 <div className="text-sm" style={{ color: "#2A1118" }}>Профиль Ю. Арминой</div>
