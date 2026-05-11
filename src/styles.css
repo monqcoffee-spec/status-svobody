@@ -712,13 +712,83 @@
     box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.55);
   }
 
-  /* Native checkbox / radio inside glass — soften the chrome */
+  /* Native checkbox / radio inside glass — full liquid-glass treatment
+   * so they feel cut from the same frosted material as inputs and ghost
+   * buttons. Replaces the OS chrome with a small glass tile that fills
+   * with a wine→gold check on :checked. */
   .liquid-glass input[type="checkbox"],
   .liquid-glass input[type="radio"] {
-    background: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      var(--lg-field-bg-top) 0%,
+      var(--lg-field-bg-bottom) 100%
+    );
+    border: var(--lg-field-border);
+    border-radius: 6px;
+    backdrop-filter: blur(var(--lg-field-blur)) saturate(var(--lg-field-saturate));
+    -webkit-backdrop-filter: blur(var(--lg-field-blur)) saturate(var(--lg-field-saturate));
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.6),
+      0 1px 2px color-mix(in oklab, var(--wine) 6%, transparent);
+    transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .liquid-glass input[type="radio"] { border-radius: 999px; }
+
+  .liquid-glass input[type="checkbox"]:hover,
+  .liquid-glass input[type="radio"]:hover {
+    border-color: color-mix(in oklab, var(--gold) 50%, transparent);
+  }
+  .liquid-glass input[type="checkbox"]:focus-visible,
+  .liquid-glass input[type="radio"]:focus-visible {
+    outline: none;
+    border-color: var(--lg-field-focus-border);
+    box-shadow:
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.75),
+      0 0 0 3px color-mix(in oklab, var(--gold) 22%, transparent);
+  }
+
+  /* Checked state — wine fill with gold rim */
+  .liquid-glass input[type="checkbox"]:checked,
+  .liquid-glass input[type="radio"]:checked {
+    background: linear-gradient(135deg, var(--wine) 0%, var(--wine-deep) 100%);
+    border-color: color-mix(in oklab, var(--gold) 65%, var(--wine));
+    box-shadow:
+      inset 0 1px 0 0 color-mix(in oklab, var(--gold) 35%, transparent),
+      0 4px 10px -4px color-mix(in oklab, var(--wine) 55%, transparent),
+      0 0 0 1px color-mix(in oklab, var(--gold) 30%, transparent);
+  }
+
+  /* Checkmark glyph */
+  .liquid-glass input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%23F5E2B3' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'><polyline points='3.5,8.5 7,11.5 12.5,5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 78% 78%;
+  }
+  /* Radio dot */
+  .liquid-glass input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    inset: 25%;
+    border-radius: 999px;
+    background: radial-gradient(circle, var(--gold) 0%, color-mix(in oklab, var(--gold) 60%, transparent) 70%, transparent 100%);
+  }
+
+  .liquid-glass input[type="checkbox"]:disabled,
+  .liquid-glass input[type="radio"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
