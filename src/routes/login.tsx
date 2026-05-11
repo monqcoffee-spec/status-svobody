@@ -5,7 +5,15 @@ import { lovable } from "@/integrations/lovable";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/login")({
-  head: () => ({ meta: [{ title: "Вход — Status Svobody" }] }),
+  head: () => ({
+    meta: [
+      { title: "Вход в кабинет · Статус свободы Юлии Арминой" },
+      { name: "description", content: "Личный кабинет клиентов «Статус свободы Юлии Арминой». Вход по email или Google." },
+      { name: "robots", content: "noindex, nofollow" },
+      { property: "og:title", content: "Вход в кабинет · Статус свободы Юлии Арминой" },
+      { property: "og:description", content: "Личный кабинет клиентов." },
+    ],
+  }),
   component: LoginPage,
 });
 
