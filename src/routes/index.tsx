@@ -339,7 +339,7 @@ function Philosophy() {
             >
               <h3
                 className="font-display text-xl md:text-2xl uppercase tracking-wide"
-                style={{ color: "#8B5A63" }}
+                style={{ color: "var(--gold-heading-deep)" }}
               >
                 {v.title}
               </h3>
