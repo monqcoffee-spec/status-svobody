@@ -55,7 +55,7 @@ export function SiteHeader() {
       <div className="container-tight flex h-20 sm:h-24 md:h-28 lg:h-32 items-center justify-between gap-3 sm:gap-4 md:gap-6">
         <Link
           to="/"
-          aria-label="Статус Свободы — на главную"
+          aria-label="Статус свободы Юлии Арминой — на главную"
           className="group flex items-center gap-3 md:gap-4 min-w-0"
         >
           <Logo
@@ -64,7 +64,7 @@ export function SiteHeader() {
           />
           <div className="leading-tight min-w-0 hidden sm:block">
             <div className="font-display text-[12px] md:text-[14px] tracking-[0.34em] uppercase whitespace-nowrap" style={{ color: "var(--text)" }}>
-              Статус Свободы
+              Статус свободы Юлии Арминой
             </div>
           </div>
         </Link>

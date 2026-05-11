@@ -20,7 +20,7 @@ export function Logo({
   return (
     <img
       src={logo}
-      alt="Статус Свободы"
+      alt="Статус свободы Юлии Арминой"
       decoding="async"
       loading="eager"
       style={{
