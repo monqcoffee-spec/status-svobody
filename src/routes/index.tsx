@@ -549,32 +549,6 @@ function Services() {
             </span>
             .
           </p>
-          <ul
-            className="mt-6 grid gap-3 sm:grid-cols-2 text-base md:text-lg leading-relaxed"
-            style={{ color: "#2A1118" }}
-          >
-            {[
-              "Анализ кредитной истории",
-              "Переговоры с банками и коллекторами",
-              "Жалобы в Бюро кредитных историй",
-              "Контроль исполнения судебных решений",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span
-                  aria-hidden
-                  className="mt-2 inline-block h-1.5 w-1.5 shrink-0 rounded-full"
-                  style={{ background: "var(--gold-heading-deep)" }}
-                />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p
-            className="mt-6 text-base md:text-lg leading-relaxed italic"
-            style={{ color: "#3a1a22" }}
-          >
-            Каждый этап — под пристальным вниманием юриста.
-          </p>
         </div>
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
