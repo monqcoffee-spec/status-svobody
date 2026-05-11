@@ -405,24 +405,24 @@ function About() {
             Помогаем восстановить финансовую репутацию, снизить давление со стороны
             взыскателей и выстроить понятный план действий.
           </p>
-          <div className="mt-6 md:mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-4 sm:pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
-            <div>
-              <div className="font-display text-[0.625rem] sm:text-xs md:text-lg" style={{ color: "var(--gold-heading)" }}>
+          <div className="mt-6 md:mt-8 grid grid-cols-3 gap-3 sm:gap-4 pt-4 sm:pt-8" style={{ borderTop: "1px solid color-mix(in oklab, var(--gold-heading) 30%, transparent)" }}>
+            <div className="min-w-0">
+              <div className="font-display text-sm sm:text-base md:text-lg leading-none" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={500} suffix="+" />
               </div>
-              <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>клиентов</div>
+              <div className="mt-2 font-display uppercase text-[9px] sm:text-[10px] leading-tight tracking-tight break-words" style={{ color: "var(--gold-heading)" }}>клиентов</div>
             </div>
-            <div>
-              <div className="font-display text-[0.625rem] sm:text-xs md:text-lg" style={{ color: "var(--gold-heading)" }}>
+            <div className="min-w-0">
+              <div className="font-display text-sm sm:text-base md:text-lg leading-none" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={15} />
               </div>
-              <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>лет практики</div>
+              <div className="mt-2 font-display uppercase text-[9px] sm:text-[10px] leading-tight tracking-tight break-words" style={{ color: "var(--gold-heading)" }}>лет практики</div>
             </div>
-            <div>
-              <div className="font-display text-[0.625rem] sm:text-xs md:text-lg" style={{ color: "var(--gold-heading)" }}>
+            <div className="min-w-0">
+              <div className="font-display text-sm sm:text-base md:text-lg leading-none" style={{ color: "var(--gold-heading)" }}>
                 <AnimatedCounter to={888} suffix=" млн" />
               </div>
-              <div className="mt-1 sm:mt-2 smallcaps text-[8px] sm:text-[10px]" style={{ color: "var(--gold-heading)" }}>списанных долгов</div>
+              <div className="mt-2 font-display uppercase text-[9px] sm:text-[10px] leading-tight tracking-tight break-words" style={{ color: "var(--gold-heading)" }}>списано долгов</div>
             </div>
           </div>
         </ScrollReveal>
