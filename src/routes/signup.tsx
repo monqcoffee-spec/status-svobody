@@ -5,7 +5,15 @@ import { lovable } from "@/integrations/lovable";
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/signup")({
-  head: () => ({ meta: [{ title: "Регистрация — Status Svobody" }] }),
+  head: () => ({
+    meta: [
+      { title: "Регистрация · Статус свободы Юлии Арминой" },
+      { name: "description", content: "Регистрация в личном кабинете клиентов «Статус свободы Юлии Арминой»." },
+      { name: "robots", content: "noindex, nofollow" },
+      { property: "og:title", content: "Регистрация · Статус свободы Юлии Арминой" },
+      { property: "og:description", content: "Создайте аккаунт клиента для сопровождения дел." },
+    ],
+  }),
   component: SignupPage,
 });
 
