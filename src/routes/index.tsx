@@ -593,7 +593,7 @@ function Services() {
           >
             <IconArt src={s.art} alt="" size="md" />
             <div>
-              <h3 className="font-display text-lg md:text-xl leading-snug">{s.t}</h3>
+              <h3 className="font-display text-[0.5625rem] md:text-[0.625rem] leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>

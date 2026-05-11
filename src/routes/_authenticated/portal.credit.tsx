@@ -247,7 +247,7 @@ function ConsentSection({ kase, onUpload }: { kase: Case; onUpload: (f: File) =>
       <div className="flex items-center justify-between flex-wrap gap-3">
         <div>
           <p className="text-[11px] uppercase tracking-[0.3em] text-cyan">Шаг 2</p>
-          <h2 className="display mt-2 text-xl text-foreground">Согласие на обработку</h2>
+          <h2 className="display mt-2 text-[0.625rem] text-foreground">Согласие на обработку</h2>
           <p className="mt-1 text-sm text-muted-foreground">Скачайте бланк, распечатайте, подпишите и загрузите фото или скан.</p>
         </div>
         <button onClick={downloadTemplate} className="inline-flex items-center gap-2 rounded-sm border border-border bg-background px-4 py-2 text-sm hover:border-cyan/40 hover:text-cyan transition">
@@ -270,7 +270,7 @@ function PaymentSection({ kase, canPay, onPay }: { kase: Case; canPay: boolean; 
   return (
     <section className="rounded-2xl border border-border bg-card/60 p-6">
       <p className="text-[11px] uppercase tracking-[0.3em] text-cyan">Шаг 3</p>
-      <h2 className="display mt-2 text-xl text-foreground">Оплата экспертного анализа</h2>
+      <h2 className="display mt-2 text-[0.625rem] text-foreground">Оплата экспертного анализа</h2>
       <div className="mt-3 flex items-baseline gap-2">
         <span className="display text-[0.9375rem] text-foreground">5 000 ₽</span>
         <span className="text-sm text-muted-foreground">единоразово</span>
@@ -291,7 +291,7 @@ function AnalysisSection({ kase }: { kase: Case }) {
   return (
     <section className="rounded-2xl border border-border bg-card/60 p-6">
       <p className="text-[11px] uppercase tracking-[0.3em] text-cyan">Шаг 4</p>
-      <h2 className="display mt-2 text-xl text-foreground">Заключение эксперта</h2>
+      <h2 className="display mt-2 text-[0.625rem] text-foreground">Заключение эксперта</h2>
       {kase.analysis_ready && kase.analysis_text ? (
         <article className="mt-4 whitespace-pre-wrap text-sm text-foreground">{kase.analysis_text}</article>
       ) : (
