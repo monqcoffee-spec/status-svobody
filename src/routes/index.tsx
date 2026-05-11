@@ -507,8 +507,8 @@ function Pricing() {
       </ScrollReveal>
       <ScrollReveal delay={1}>
         <H2 className="mt-8 max-w-3xl">
-          Прозрачные тарифы{" "}
-          <span className="text-cyan italic">без скрытых платежей</span>
+          Понятные пакеты —{" "}
+          <span className="text-cyan italic">цена закреплена в договоре</span>
         </H2>
       </ScrollReveal>
       <ScrollReveal delay={2}>
