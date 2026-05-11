@@ -540,17 +540,13 @@ function Services() {
       <ScrollReveal delay={2}>
         <div className="mt-8 max-w-3xl">
           <p
-            className="font-display text-[0.625rem] md:text-xs leading-snug"
-            style={{ color: "#2A1118" }}
+            className="text-xs uppercase tracking-[0.3em]"
+            style={{ color: "var(--gold-heading-deep)" }}
           >
-            Не просто подаём заявления —{" "}
-            <span style={{ color: "var(--gold-heading-deep)", fontStyle: "italic" }}>
-              ведём дела до конца
-            </span>
-            .
+            Не просто подаём заявления — ведём дела до конца.
           </p>
           <p
-            className="mt-4 text-xs uppercase tracking-[0.3em]"
+            className="mt-2 text-xs uppercase tracking-[0.3em]"
             style={{ color: "var(--gold-heading-deep)" }}
           >
             Каждый этап — под пристальным вниманием юриста.
