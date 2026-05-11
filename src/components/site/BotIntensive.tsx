@@ -29,15 +29,7 @@ export function BotIntensive() {
         ))}
       </ul>
 
-      <div className="card-lux relative mt-5 overflow-hidden p-4 md:p-8">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full opacity-40 animate-drift"
-          style={{
-            background:
-              "radial-gradient(closest-side, color-mix(in oklab, var(--gold) 35%, transparent), transparent)",
-          }}
-        />
+      <div className="relative mt-5">
         <div className="relative grid gap-3 md:gap-6 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <h3 className="font-display uppercase text-[0.9375rem] md:text-2xl leading-tight" style={{ color: "var(--text)" }}>
