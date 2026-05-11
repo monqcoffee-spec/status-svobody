@@ -1,7 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
 import { Section, SectionLabel, H2 } from "./Section";
-import { IconArt } from "./IconArt";
-import iconBot from "@/assets/icons-3d/bot.png";
 
 export function BotIntensive() {
   const benefits = [
