@@ -16,7 +16,7 @@ export function BotIntensive() {
         работает в 2026 году.
       </p>
 
-      <div className="card-lux relative mt-14 overflow-hidden p-8 md:p-14">
+      <div className="card-lux relative mt-14 overflow-hidden p-6 md:p-14">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full opacity-40 animate-drift"
@@ -25,7 +25,7 @@ export function BotIntensive() {
               "radial-gradient(closest-side, color-mix(in oklab, var(--gold) 35%, transparent), transparent)",
           }}
         />
-        <div className="relative grid gap-10 md:grid-cols-12 md:items-center">
+        <div className="relative grid gap-6 md:gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <h3 className="font-display text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
               Получите доступ <br />
@@ -54,9 +54,9 @@ export function BotIntensive() {
               </a>
             </div>
           </div>
-          <div className="md:col-span-5 relative">
+          <div className="md:col-span-5 relative order-first md:order-none">
             <div
-              className="relative mx-auto w-full max-w-sm overflow-hidden aspect-square flex flex-col items-center justify-center p-10 backdrop-blur-md"
+              className="relative mx-auto w-full max-w-sm overflow-hidden flex flex-col items-center justify-center p-6 md:p-10 md:aspect-square backdrop-blur-md"
               style={{
                 borderRadius: "32px",
                 border: "1px solid color-mix(in oklab, var(--gold) 40%, transparent)",
