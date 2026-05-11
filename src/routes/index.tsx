@@ -550,8 +550,8 @@ function Services() {
             .
           </p>
           <p
-            className="mt-6 text-base md:text-lg leading-relaxed italic"
-            style={{ color: "#3a1a22" }}
+            className="mt-4 text-xs uppercase tracking-[0.3em]"
+            style={{ color: "var(--gold-heading-deep)" }}
           >
             Каждый этап — под пристальным вниманием юриста.
           </p>
