@@ -11,13 +11,13 @@ export function BotIntensive() {
     "Без воды, практика, которая работает в 2026 году",
   ];
   return (
-    <Section variant="darker" id="bot-intensive">
+    <Section variant="darker" id="bot-intensive" className="!py-8 sm:!py-12 md:!py-16">
       <SectionLabel n="06" title="Интенсив и бот" />
-      <H2 className="mt-8 max-w-4xl uppercase">
+      <H2 className="mt-4 max-w-4xl uppercase">
         БЕСПЛАТНЫЙ <span className="text-cyan">ИНТЕНСИВ</span>
       </H2>
 
-      <ul className="mt-10 grid gap-4 md:grid-cols-2 max-w-4xl">
+      <ul className="mt-5 grid gap-3 md:grid-cols-2 max-w-4xl">
         {benefits.map((b) => (
           <li
             key={b}
@@ -29,7 +29,7 @@ export function BotIntensive() {
         ))}
       </ul>
 
-      <div className="card-lux relative mt-14 overflow-hidden p-4 md:p-8">
+      <div className="card-lux relative mt-5 overflow-hidden p-4 md:p-8">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full opacity-40 animate-drift"
