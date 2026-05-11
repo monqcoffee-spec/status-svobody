@@ -124,7 +124,7 @@ export function LeadFormDialog({ source = "index", trigger, headline }: Props) {
         className="liquid-glass p-0 sm:max-w-[480px]"
         style={{
           background:
-            "linear-gradient(180deg, color-mix(in oklab, white 62%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 40%, transparent) 100%)",
+            "linear-gradient(180deg, color-mix(in oklab, white 88%, transparent) 0%, color-mix(in oklab, var(--paper-tint) 75%, transparent) 100%)",
           border: "1px solid color-mix(in oklab, var(--gold) 30%, transparent)",
           borderRadius: "28px",
           boxShadow:
