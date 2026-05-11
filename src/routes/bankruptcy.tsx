@@ -23,13 +23,13 @@ import iconUnlock from "@/assets/icons-3d/unlock.png";
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
     meta: [
-      { title: "Банкротство — премиальное юридическое сопровождение · STATUS SVOBODY" },
+      { title: "Банкротство — премиальное юридическое сопровождение · Статус свободы Юлии Арминой" },
       {
         name: "description",
         content:
           "Личное банкротство под ключ: списание долгов по 127-ФЗ, сопровождение арбитражного процесса, защита имущества. Юлия Армина и команда финансовых юристов.",
       },
-      { property: "og:title", content: "Банкротство · STATUS SVOBODY" },
+      { property: "og:title", content: "Банкротство · Статус свободы Юлии Арминой" },
       {
         property: "og:description",
         content: "Финансовое освобождение и новый старт. Премиальное сопровождение процедуры банкротства физических лиц.",

@@ -43,19 +43,19 @@ import iconDataScore from "@/assets/icons-3d/data-score.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "STATUS SVOBODY — юридические решения для вашей свободы" },
+      { title: "Статус свободы Юлии Арминой — юридические решения для вашей свободы" },
       {
         name: "description",
         content:
           "Премиальный финансово-юридический консалтинг Юлии Арминой: цифровой профиль, кредитная история, ФССП, банкротство — под одной точкой ответственности.",
       },
-      { property: "og:title", content: "STATUS SVOBODY — юридические решения для вашей свободы" },
+      { property: "og:title", content: "Статус свободы Юлии Арминой — юридические решения для вашей свободы" },
       {
         property: "og:description",
         content:
           "Финансовый поверенный Юлия Армина и команда юристов. Восстановление кредитной истории, БКИ, ФССП, банкротство.",
       },
-      { name: "twitter:title", content: "STATUS SVOBODY — юридические решения для вашей свободы" },
+      { name: "twitter:title", content: "Статус свободы Юлии Арминой — юридические решения для вашей свободы" },
       {
         name: "twitter:description",
         content: "Финансовый поверенный Юлия Армина и команда юристов.",
@@ -72,7 +72,7 @@ export const Route = createFileRoute("/")({
           "@graph": [
             {
               "@type": "LegalService",
-              name: "STATUS SVOBODY",
+              name: "Статус свободы Юлии Арминой",
               description:
                 "Премиальный финансово-юридический консалтинг: восстановление кредитной истории, БКИ, ФССП, банкротство.",
               areaServed: "RU",
@@ -89,7 +89,7 @@ export const Route = createFileRoute("/")({
               "@type": "Person",
               name: "Юлия Армина",
               jobTitle: "Финансовый поверенный",
-              worksFor: { "@type": "Organization", name: "STATUS SVOBODY" },
+              worksFor: { "@type": "Organization", name: "Статус свободы Юлии Арминой" },
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Москва",
@@ -140,7 +140,7 @@ function Hero() {
   return (
     <section className="relative overflow-hidden">
       <h1 className="sr-only">
-        Статус Свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
+        Статус свободы Юлии Арминой Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
 
       {/* Cinematic ambient lights */}
@@ -178,7 +178,7 @@ function Hero() {
         >
           <img
             src={yuliaPortrait}
-            alt="Юлия Армина — основатель Статус Свободы"
+            alt="Юлия Армина — основатель Статус свободы Юлии Арминой"
             className="block w-full h-auto max-h-[58vh] sm:max-h-[62vh] md:max-h-[68vh] object-contain mx-auto"
             style={{ filter: "contrast(1.08) saturate(1.12)" }}
             loading="eager"
@@ -251,7 +251,7 @@ function About() {
             >
               <img
                 src={yuliaAbout}
-                alt="Юлия Армина — основатель Статус Свободы"
+                alt="Юлия Армина — основатель Статус свободы Юлии Арминой"
                 className="block w-full h-auto object-cover"
                 loading="lazy"
                 decoding="async"
@@ -263,10 +263,10 @@ function About() {
             >
               <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Юлия Армина</span>
               <span className="block mt-1 smallcaps text-[11px] tracking-[0.18em]" style={{ color: "#3a1a22" }}>
-                Основатель · «Статус Свободы»
+                Основатель · «Статус свободы Юлии Арминой»
               </span>
               <span className="block mt-3 text-base md:text-lg leading-relaxed font-sans not-italic" style={{ color: "#2A1118" }}>
-                Основатель «Статус Свободы». 15 лет практики.
+                Основатель «Статус свободы Юлии Арминой». 15 лет практики.
                 Сопровождение клиентов в вопросах долгов, кредитных историй,
                 БКИ, ФССП и банкротства.
               </span>
@@ -277,7 +277,7 @@ function About() {
         <ScrollReveal variant="right" delay={2} className="lg:col-span-7 order-2 space-y-6 text-lg md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
           <p>
             <span className="italic font-display" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
-            «Статус Свободы». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
+            «Статус свободы Юлии Арминой». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
           </p>
           <p>
             Кредитные истории, БКИ, ФССП, защита активов и законные решения сложных финансовых
@@ -301,7 +301,7 @@ function About() {
             </p>
           </div>
           <div className="card-lux relative mt-2 px-7 py-6">
-            <div className="smallcaps text-[11px]" style={{ color: "#000000" }}>Статус Свободы · Глава 2 Конституции РФ</div>
+            <div className="smallcaps text-[11px]" style={{ color: "#000000" }}>Статус свободы Юлии Арминой · Глава 2 Конституции РФ</div>
             <p className="mt-3 font-display text-xl md:text-2xl leading-snug" style={{ color: "#000000" }}>
               Право на жизнь, достоинство, безопасность,
               свободу слова, совести и&nbsp;вероисповедания, неприкосновенность

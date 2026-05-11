@@ -40,7 +40,7 @@ export function SiteFooter() {
                 className="font-display uppercase tracking-[0.18em] text-2xl sm:text-3xl md:text-[2rem] leading-tight"
                 style={{ color: "var(--wine-deep)" }}
               >
-                Статус Свободы
+                Статус свободы Юлии Арминой
               </div>
               <div
                 className="text-xs sm:text-sm tracking-[0.32em] uppercase mt-1.5"
@@ -123,7 +123,7 @@ export function SiteFooter() {
               }}
             />
             <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
-              <span style={{ color: "var(--wine-deep)" }}>© Статус Свободы</span>
+              <span style={{ color: "var(--wine-deep)" }}>© Статус свободы Юлии Арминой</span>
               <a
                 href="/privacy"
                 className="underline-offset-4 transition-colors hover:underline"
@@ -135,7 +135,7 @@ export function SiteFooter() {
           </div>
         </div>
         <div className="container-tight flex flex-col gap-3 py-6 text-[11px] tracking-wider md:flex-row md:items-center md:justify-between" style={{ color: "var(--text-muted)" }}>
-          <div>© {new Date().getFullYear()} STATUS SVOBODY · Юлия Армина</div>
+          <div>© {new Date().getFullYear()} Статус свободы Юлии Арминой · Юлия Армина</div>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
             <a href="/privacy" className="transition-colors hover:opacity-80">Политика конфиденциальности</a>
             <span aria-hidden style={{ opacity: 0.5 }}>·</span>
