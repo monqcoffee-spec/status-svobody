@@ -560,18 +560,12 @@ function Services() {
       <ScrollReveal>
         <SectionLabel n="04" title="Наши услуги" />
       </ScrollReveal>
-      <ScrollReveal delay={1}>
-        <H2 className="mt-8 max-w-3xl">
-          Полный спектр решений для{" "}
-          <span className="text-cyan italic">восстановления кредитной истории</span>
-        </H2>
-      </ScrollReveal>
       <ScrollReveal delay={2}>
-        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-          Не просто подаём заявления — ведём дела до конца: анализ КИ,
-          переговоры с банками и коллекторами, жалобы в БКИ, контроль
-          исполнения решений суда. Каждый этап — под пристальным вниманием
-          юриста.
+        <p className="mt-8 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
+          Не просто подаём заявления — ведём дела до конца: анализ кредитной
+          истории, переговоры с банками и коллекторами, жалобы в Бюро кредитных
+          историй, контроль исполнения судебных решений. Каждый этап — под
+          пристальным вниманием юриста.
         </p>
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
