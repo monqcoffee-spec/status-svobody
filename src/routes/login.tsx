@@ -44,7 +44,7 @@ function LoginPage() {
     <div className="min-h-screen flex items-center justify-center bg-background px-4">
       <div className="w-full max-w-md rounded-2xl border border-border bg-card/60 backdrop-blur p-8 shadow-xl">
         <Link to="/" className="text-xs uppercase tracking-[0.3em] text-muted-foreground hover:text-foreground">← На главную</Link>
-        <h1 className="display mt-4 text-3xl text-foreground">Вход в кабинет</h1>
+        <h1 className="display mt-4 text-lg text-foreground">Вход в кабинет</h1>
         <p className="mt-2 text-sm text-muted-foreground">Восстановление кредитной истории и сопровождение банкротства.</p>
         <form onSubmit={onSubmit} className="mt-8 space-y-4">
           <Field label="E-mail">

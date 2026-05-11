@@ -266,7 +266,7 @@ function IntroPanel({ onStart }: { onStart: () => void }) {
   return (
     <div className="grid gap-8 md:grid-cols-[1.2fr_1fr] md:items-center">
       <div>
-        <h3 className="display text-2xl text-silver md:text-3xl">
+        <h3 className="display text-base text-silver md:text-lg">
           За 3–5 вопросов поймём,{" "}
           <span className="text-cyan italic text-glow">что вам подходит</span>
         </h3>
@@ -401,7 +401,7 @@ function VerdictPanel({
             </span>
           )}
         </div>
-        <h3 className="display mt-4 text-2xl text-silver md:text-3xl">
+        <h3 className="display mt-4 text-base text-silver md:text-lg">
           {verdict.title}
         </h3>
         <p className="mt-4 text-silver-dim">{verdict.summary}</p>

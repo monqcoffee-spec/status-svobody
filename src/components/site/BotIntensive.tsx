@@ -40,7 +40,7 @@ export function BotIntensive() {
         />
         <div className="relative grid gap-6 md:gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
-            <h3 className="font-display uppercase text-3xl md:text-5xl leading-tight" style={{ color: "var(--text)" }}>
+            <h3 className="font-display uppercase text-lg md:text-base leading-tight" style={{ color: "var(--text)" }}>
               ТЕЛЕГРАМ-БОТ
             </h3>
             <p className="mt-6 text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
@@ -79,7 +79,7 @@ export function BotIntensive() {
               }}
             >
               <IconArt src={iconBot} alt="" size="lg" />
-              <div className="mt-6 text-center font-display text-xl md:text-2xl" style={{ color: "var(--text)" }}>
+              <div className="mt-6 text-center font-display text-xl md:text-base" style={{ color: "var(--text)" }}>
                 @status_svobody_bot
               </div>
             </div>
