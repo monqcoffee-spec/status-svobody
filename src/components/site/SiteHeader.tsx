@@ -64,7 +64,7 @@ export function SiteHeader() {
           />
           <div className="leading-tight min-w-0 hidden sm:block">
             <div className="font-display text-[11px] md:text-[12px] xl:text-[13px] tracking-[0.22em] xl:tracking-[0.28em] uppercase truncate" style={{ color: "var(--text)" }}>
-              Статус свободы Юлии Арминой
+              Статус свободы
             </div>
           </div>
         </Link>
