@@ -238,7 +238,7 @@ function Philosophy() {
     },
   ];
   return (
-    <Section variant="tint" id="philosophy">
+    <Section variant="tint" id="philosophy" className="!pt-6 sm:!pt-8 md:!pt-12 lg:!pt-14">
       <div
         aria-hidden
         className="pointer-events-none absolute -z-[1] left-1/2 top-24 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-50"
