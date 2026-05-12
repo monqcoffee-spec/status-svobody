@@ -217,16 +217,15 @@ function Hero() {
           </h2>
 
           <div className="reveal reveal-delay-3 hero-content__cta">
-            <LeadFormDialog
-              source="hero"
-              headline="Запись на консультацию"
-              trigger={
-                <button type="button" className="btn-cyan group">
-                  <span>Оставить заявку</span>
-                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </button>
-              }
-            />
+            <a
+              href="https://t.me/u_armina"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cyan group"
+            >
+              <span>Оставить заявку</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
             <a href="#services" className="btn-ghost group">
               <span>Узнать подробнее</span>
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -846,19 +845,15 @@ function Pricing() {
             <div className="mt-8 text-center">
               <div className="font-display font-bold text-2xl md:text-3xl lg:text-4xl text-gradient-cyan leading-none">{p.price}</div>
             </div>
-            <LeadFormDialog
-              source={`pricing-${p.t}`}
-              headline={`Тариф · ${p.t}`}
-              trigger={
-                <button
-                  type="button"
-                  className="btn-cta-pulse mt-5 rounded-full font-medium transition px-5 py-3"
-                  style={{ background: "var(--wine)", color: "#fff" }}
-                >
-                  Оставить заявку
-                </button>
-              }
-            />
+            <a
+              href="https://t.me/u_armina"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-cta-pulse mt-5 inline-block rounded-full font-medium transition px-5 py-3 text-center"
+              style={{ background: "var(--wine)", color: "#fff" }}
+            >
+              Оставить заявку
+            </a>
           </ScrollReveal>
         ))}
       </div>
@@ -890,19 +885,15 @@ function EntryPoint() {
         </div>
 
         <div className="mt-12 mx-auto max-w-2xl space-y-6">
-          <LeadFormDialog
-            source="entry-point"
-            headline="Запись на консультацию"
-            trigger={
-              <button
-                type="button"
-                className="btn-cyan btn-cta-pulse group w-full justify-center rounded-sm"
-              >
-                <span>Оставить заявку</span>
-                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </button>
-            }
-          />
+          <a
+            href="https://t.me/u_armina"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-cyan btn-cta-pulse group w-full justify-center rounded-sm"
+          >
+            <span>Оставить заявку</span>
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
 
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
