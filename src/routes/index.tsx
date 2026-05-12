@@ -300,6 +300,168 @@ function Philosophy() {
 }
 
 /* ───────────────────── ABOUT ───────────────────── */
+function PhilosophyAccordion() {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const reduce =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) {
+      setOpen(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            // small delay so user notices the reveal animation
+            setTimeout(() => setOpen(true), 280);
+            io.disconnect();
+          }
+        }
+      },
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.2 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const guarantees = [
+    "Жизнь",
+    "Достоинство",
+    "Безопасность",
+    "Свобода слова",
+    "Совесть",
+    "Вероисповедание",
+    "Личная неприкосновенность",
+    "Частная жизнь",
+    "Семейная тайна",
+    "Честь и доброе имя",
+  ];
+
+  return (
+    <div ref={ref} className="mx-auto mt-12 max-w-3xl" style={{ color: "#2A1118" }}>
+      {/* Lead — always visible */}
+      <p
+        className="philosophy-lead font-display text-center"
+        style={{
+          color: "#1F0A10",
+          fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)",
+          lineHeight: 1.5,
+          fontWeight: 500,
+        }}
+      >
+        В Российской Федерации <strong style={{ fontWeight: 700 }}>статус свободы</strong> закреплён
+        во{" "}
+        <em className="italic" style={{ color: "var(--gold-heading-deep)" }}>
+          второй главе Конституции РФ
+        </em>
+        .
+      </p>
+
+      {/* Trigger */}
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="mx-auto mt-6 flex items-center gap-2 rounded-full px-4 py-2 text-[11px] uppercase tracking-[0.28em] transition-colors"
+        style={{
+          color: "var(--gold-heading-deep)",
+          border: "1px solid color-mix(in oklab, var(--gold-light) 55%, transparent)",
+          background:
+            "linear-gradient(180deg, color-mix(in oklab, var(--gold-mist) 18%, transparent), transparent)",
+        }}
+      >
+        <span>{open ? "Свернуть" : "Подробнее"}</span>
+        <ChevronDown
+          className="h-3.5 w-3.5 transition-transform duration-500"
+          style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+        />
+      </button>
+
+      {/* Collapsible body — grid-rows trick for smooth height anim */}
+      <div
+        className="grid transition-[grid-template-rows,opacity] duration-700 ease-out"
+        style={{
+          gridTemplateRows: open ? "1fr" : "0fr",
+          opacity: open ? 1 : 0,
+        }}
+      >
+        <div className="overflow-hidden">
+          <div className="pt-8 space-y-6">
+            <p className="text-base md:text-lg leading-[1.7] text-center">
+              Человеку гарантированы:
+            </p>
+
+            <ul className="flex flex-wrap justify-center gap-2">
+              {guarantees.map((g, i) => (
+                <li
+                  key={g}
+                  className="rounded-full px-3.5 py-1.5 text-[12px] md:text-sm tracking-wide transition-all"
+                  style={{
+                    color: "#2A1118",
+                    border: "1px solid color-mix(in oklab, var(--gold-light) 55%, transparent)",
+                    background:
+                      "linear-gradient(180deg, color-mix(in oklab, var(--gold-mist) 22%, transparent), color-mix(in oklab, var(--gold-light) 8%, transparent))",
+                    transitionDelay: open ? `${i * 40 + 200}ms` : "0ms",
+                    transform: open ? "translateY(0)" : "translateY(6px)",
+                    opacity: open ? 1 : 0,
+                  }}
+                >
+                  {g}
+                </li>
+              ))}
+            </ul>
+
+            <div
+              aria-hidden
+              className="mx-auto h-px w-16"
+              style={{ background: "color-mix(in oklab, var(--gold-light) 70%, transparent)" }}
+            />
+
+            <p className="text-base md:text-lg leading-[1.7]">
+              <span
+                className="font-display italic"
+                style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}
+              >
+                Status Svobody
+              </span>{" "}
+              помогает восстановить финансовую репутацию{" "}
+              <strong style={{ fontWeight: 600 }}>
+                законным, конфиденциальным и эффективным
+              </strong>{" "}
+              способом.
+            </p>
+
+            <blockquote
+              className="relative pl-6 text-lg md:text-xl italic font-display leading-snug"
+              style={{
+                color: "#1F0A10",
+                borderLeft: "2px solid color-mix(in oklab, var(--gold-light) 80%, transparent)",
+              }}
+            >
+              Мы возвращаем не просто кредитный рейтинг. Мы возвращаем{" "}
+              <span
+                className="not-italic"
+                style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}
+              >
+                свободу
+              </span>{" "}
+              принимать решения, строить карьеру, вести бизнес, получать финансирование
+              и двигаться дальше.
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ───────────────────── ABOUT ───────────────────── */
 function About() {
   return (
     <Section variant="wine" id="about">
