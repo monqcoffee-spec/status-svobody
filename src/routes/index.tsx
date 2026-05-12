@@ -599,20 +599,7 @@ function Pricing() {
   return (
     <Section variant="wine" id="pricing">
       <ScrollReveal>
-        <SectionLabel n="05" title="Тарифы" />
-      </ScrollReveal>
-      <ScrollReveal delay={1}>
-        <H2 className="mt-8 max-w-3xl">
-          Понятные пакеты —{" "}
-          <span className="text-cyan italic">цена закреплена в договоре</span>
-        </H2>
-      </ScrollReveal>
-      <ScrollReveal delay={2}>
-        <p className="mt-6 max-w-3xl text-lg md:text-xl leading-relaxed text-silver/75">
-          Три чётких пакета — от быстрого оспаривания одной записи до
-          полного восстановления кредитной истории. В договоре все цены
-          фиксированы, никаких дополнительных сборов.
-        </p>
+        <H2 className="uppercase">Тарифы</H2>
       </ScrollReveal>
       <div className="mt-14 grid gap-5 lg:grid-cols-3">
         {tiers.map((p, i) => (
