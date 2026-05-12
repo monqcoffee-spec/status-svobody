@@ -20,6 +20,7 @@ import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
 import iconDataCourt from "@/assets/icons-3d/data-court.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
 import heroBankruptcy from "@/assets/bankruptcy-hero.png";
+import heroBankruptcySrcSet from "@/assets/bankruptcy-hero.png?w=640;960;1280;1600;1920&format=webp&as=srcset";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -78,7 +79,12 @@ function BankruptcyHero() {
       <ParticleField density={32} />
       <img
         src={heroBankruptcy}
+        srcSet={heroBankruptcySrcSet}
+        sizes="100vw"
         alt="Status Svobody — освобождение от долгов"
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
         className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_35%] opacity-90 select-none"
       />
       <div
