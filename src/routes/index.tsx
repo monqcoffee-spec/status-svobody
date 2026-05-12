@@ -548,15 +548,6 @@ function About() {
                 decoding="async"
               />
             </div>
-            <figcaption
-              className="mt-3 sm:mt-5 text-center font-display text-sm sm:text-base md:text-xl"
-              style={{ color: "#2A1118" }}
-            >
-              <span className="italic" style={{ color: "var(--gold-heading-deep)" }}>Юлия Армина</span>
-              <span className="block mt-1 smallcaps text-[9px] sm:text-[11px] tracking-[0.16em]" style={{ color: "#3a1a22" }}>
-                Основатель · «Статус свободы»
-              </span>
-            </figcaption>
           </figure>
         </ScrollReveal>
 
