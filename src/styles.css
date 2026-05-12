@@ -1654,8 +1654,8 @@ h4.card-lux {
   /* Mobile-first: AR keeps both window and woman fully in frame */
   background-size: cover;
   background-position: right center;
-  aspect-ratio: 4 / 5;
-  max-height: 78vh;
+  aspect-ratio: 1 / 1;
+  max-height: 70vh;
   filter: contrast(1.06) saturate(1.1);
   margin-top: clamp(0.5rem, 2vw, 2.5rem);
 }
@@ -1675,7 +1675,7 @@ h4.card-lux {
 /* sm: 640–767px — slightly wider, still portrait-priority */
 @media (min-width: 640px) {
   .hero-portrait {
-    aspect-ratio: 5 / 6;
+    aspect-ratio: 5 / 4;
     background-size: cover;
     background-position: right center;
     max-height: 75vh;
