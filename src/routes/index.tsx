@@ -4,6 +4,9 @@ import {
   ArrowUpRight,
   Check,
   ChevronDown,
+  ShieldCheck,
+  Scale,
+  LifeBuoy,
 } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
