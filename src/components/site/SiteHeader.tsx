@@ -32,13 +32,15 @@ export function SiteHeader() {
       style={{
         backgroundColor: scrolled
           ? "color-mix(in oklab, var(--paper) 62%, transparent)"
-          : "color-mix(in oklab, var(--paper) 42%, transparent)",
+          : "transparent",
         borderBottom: scrolled
           ? "1px solid color-mix(in oklab, var(--gold) 28%, transparent)"
           : "1px solid transparent",
         boxShadow: scrolled
           ? "0 18px 40px -32px color-mix(in oklab, var(--wine) 35%, transparent)"
           : "none",
+        backdropFilter: scrolled ? undefined : "none",
+        WebkitBackdropFilter: scrolled ? undefined : "none",
       }}
     >
       {/* Gold hairline thread under header */}
