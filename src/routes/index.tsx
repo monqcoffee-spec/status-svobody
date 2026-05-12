@@ -752,6 +752,17 @@ function Services() {
           </ScrollReveal>
         ))}
       </div>
+      <div className="mt-12 flex justify-center">
+        <a
+          href="https://t.me/u_armina"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-cyan inline-flex items-center gap-2"
+        >
+          Онлайн-консультация
+          <ArrowUpRight className="h-4 w-4" />
+        </a>
+      </div>
     </Section>
   );
 }
