@@ -57,11 +57,22 @@ export function IconArt({
       {/* Contact ground shadow under the icon */}
       <div
         aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 -bottom-3 h-5 w-[92%] rounded-[50%] pointer-events-none transition-all duration-500 group-hover/icon:w-[72%] group-hover/card:w-[72%]"
+        className="absolute left-1/2 -translate-x-1/2 -bottom-2 h-[10%] w-[95%] rounded-[50%] pointer-events-none transition-all duration-500 group-hover/icon:w-[78%] group-hover/icon:translate-y-1 group-hover/card:w-[78%] group-hover/card:translate-y-1"
         style={{
           background:
-            "radial-gradient(50% 50% at 50% 50%, rgba(20, 8, 16, 0.55) 0%, rgba(20, 8, 16, 0) 72%)",
-          filter: "blur(10px)",
+            "radial-gradient(50% 50% at 50% 50%, rgba(20, 8, 16, 0.65) 0%, rgba(20, 8, 16, 0.35) 35%, rgba(20, 8, 16, 0) 75%)",
+          filter: "blur(7px)",
+        }}
+      />
+      {/* Wider, softer floor shadow halo */}
+      <div
+        aria-hidden
+        className="absolute left-1/2 -translate-x-1/2 -bottom-4 h-[16%] w-[120%] rounded-[50%] pointer-events-none transition-all duration-500 group-hover/icon:opacity-80 group-hover/card:opacity-80"
+        style={{
+          background:
+            "radial-gradient(50% 50% at 50% 50%, rgba(20, 8, 16, 0.28) 0%, rgba(20, 8, 16, 0) 70%)",
+          filter: "blur(14px)",
+          opacity: 0.7,
         }}
       />
       <img
@@ -75,7 +86,7 @@ export function IconArt({
         className="relative h-full w-full object-contain transition-[filter] duration-500"
         style={{
           filter:
-            "drop-shadow(0 22px 28px rgba(20, 8, 16, 0.45)) drop-shadow(0 10px 14px rgba(20, 8, 16, 0.35)) drop-shadow(0 3px 5px rgba(20, 8, 16, 0.4))",
+            "drop-shadow(0 6px 4px rgba(20, 8, 16, 0.25)) drop-shadow(0 2px 2px rgba(20, 8, 16, 0.2))",
         }}
       />
       </div>
