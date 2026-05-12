@@ -57,12 +57,11 @@ export function IconArt({
       {/* Contact ground shadow under the icon */}
       <div
         aria-hidden
-        className="absolute left-1/2 -translate-x-1/2 bottom-[-9%] h-[18%] w-[88%] rounded-[50%] pointer-events-none -z-[1] transition-all duration-500 group-hover/icon:w-[70%] group-hover/icon:opacity-95 group-hover/card:w-[70%] group-hover/card:opacity-95"
+        className="absolute left-1/2 -translate-x-1/2 -bottom-3 h-5 w-[92%] rounded-[50%] pointer-events-none transition-all duration-500 group-hover/icon:w-[72%] group-hover/card:w-[72%]"
         style={{
           background:
-            "radial-gradient(50% 50% at 50% 50%, color-mix(in oklab, var(--ink-deep) 78%, transparent) 0%, transparent 72%)",
-          filter: "blur(9px)",
-          opacity: 0.8,
+            "radial-gradient(50% 50% at 50% 50%, rgba(20, 8, 16, 0.55) 0%, rgba(20, 8, 16, 0) 72%)",
+          filter: "blur(10px)",
         }}
       />
       <img
@@ -76,7 +75,7 @@ export function IconArt({
         className="relative h-full w-full object-contain transition-[filter] duration-500"
         style={{
           filter:
-            "drop-shadow(0 24px 36px color-mix(in oklab, var(--ink-deep) 85%, transparent)) drop-shadow(0 12px 18px color-mix(in oklab, var(--ink-deep) 65%, transparent)) drop-shadow(0 4px 6px color-mix(in oklab, var(--ink-deep) 55%, transparent)) drop-shadow(0 0 14px color-mix(in oklab, var(--champagne-glow) 28%, transparent))",
+            "drop-shadow(0 22px 28px rgba(20, 8, 16, 0.45)) drop-shadow(0 10px 14px rgba(20, 8, 16, 0.35)) drop-shadow(0 3px 5px rgba(20, 8, 16, 0.4))",
         }}
       />
       </div>
