@@ -164,17 +164,30 @@ function Hero() {
         Статус свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
 
-      {/* 1. Fullscreen hero image — фото отдельным верхним баннером */}
-      <section
-        className="hero-banner"
-        aria-label="Юлия Армина — финансовый поверенный"
-        style={{
-          ["--hero-bg-mobile" as never]: `url(${heroWebp640})`,
-          ["--hero-bg-tablet" as never]: `url(${heroWebp1280})`,
-          ["--hero-bg-desktop" as never]: `url(${heroWebp2048})`,
-          ["--hero-bg-xl" as never]: `url(${heroWebp3200})`,
-        }}
-      />
+      {/* 1. Hero image — полный баннер, отдельным блоком ниже header */}
+      <section className="hero-banner" aria-label="Статус свободы — Юлия Армина">
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={[
+              `${heroWebp640} 640w`,
+              `${heroWebp1024} 1024w`,
+              `${heroWebp1280} 1280w`,
+              `${heroWebp1600} 1600w`,
+              `${heroWebp2048} 2048w`,
+              `${heroWebp3200} 3200w`,
+            ].join(", ")}
+            sizes="100vw"
+          />
+          <img
+            src={heroWebp1600}
+            alt="Статус свободы Юлии Арминой — баннер"
+            className="hero-banner__img"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
+      </section>
 
       {/* 2. Контентный блок ниже изображения — текст и кнопки отдельно */}
       <section className="hero-content">
