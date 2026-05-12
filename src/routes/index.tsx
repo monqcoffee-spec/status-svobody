@@ -37,6 +37,7 @@ import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
 import iconDataCourt from "@/assets/icons-3d/data-court.png";
 import iconDataBankruptcy from "@/assets/icons-3d/data-bankruptcy.png";
 import iconDataScore from "@/assets/icons-3d/data-score.png";
+import iconRomanII from "@/assets/icons-3d/roman-ii.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
