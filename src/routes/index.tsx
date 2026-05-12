@@ -345,9 +345,50 @@ function PhilosophyAccordion() {
 
   return (
     <div ref={ref} className="mx-auto mt-12 max-w-3xl" style={{ color: "#2A1118" }}>
+      {/* Art anchor — Roman II */}
+      <figure
+        aria-hidden
+        className="relative mx-auto flex flex-col items-center select-none"
+      >
+        <div
+          className="pointer-events-none absolute -inset-6 -z-[1] rounded-full opacity-70"
+          style={{
+            background:
+              "radial-gradient(closest-side, color-mix(in oklab, var(--gold-light) 28%, transparent), transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
+        <span
+          className="font-display leading-none"
+          style={{
+            fontSize: "clamp(5.5rem, 12vw, 10rem)",
+            fontWeight: 600,
+            fontStyle: "italic",
+            background:
+              "linear-gradient(160deg, var(--gold-light) 0%, var(--gold-mist) 45%, var(--gold-light) 100%)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+            letterSpacing: "-0.04em",
+          }}
+        >
+          II
+        </span>
+        <span
+          className="mt-2 block h-px w-20"
+          style={{ background: "color-mix(in oklab, var(--gold-light) 70%, transparent)" }}
+        />
+        <figcaption
+          className="smallcaps mt-3 text-[10px] tracking-[0.32em]"
+          style={{ color: "var(--gold-heading-deep)" }}
+        >
+          Глава · Конституция РФ
+        </figcaption>
+      </figure>
+
       {/* Lead — always visible */}
       <p
-        className="philosophy-lead font-display text-center"
+        className="philosophy-lead font-display text-center mt-8"
         style={{
           color: "#1F0A10",
           fontSize: "clamp(1.1rem, 1.5vw, 1.4rem)",
