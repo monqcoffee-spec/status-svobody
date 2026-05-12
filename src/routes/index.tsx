@@ -381,9 +381,9 @@ function About() {
           </figure>
         </ScrollReveal>
 
-        <ScrollReveal variant="left" delay={2} className="col-span-7 order-2 md:order-1 space-y-3 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-xl leading-relaxed" style={{ color: "#2A1118" }}>
+        <ScrollReveal variant="left" delay={2} className="col-span-7 order-2 md:order-1 space-y-3 sm:space-y-5 md:space-y-6 text-sm sm:text-base md:text-xl leading-relaxed" style={{ color: "var(--gold-heading)" }}>
           <p>
-            <span className="italic font-display" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>Юлия&nbsp;Армина</span> — основатель
+            <span className="italic font-display" style={{ color: "var(--gold-heading)", fontWeight: 700 }}>Юлия&nbsp;Армина</span> — основатель
             «Статус свободы Юлии Арминой». 15&nbsp;лет практики в сфере финансово-юридического сопровождения.
           </p>
           <p>
@@ -393,7 +393,7 @@ function About() {
             и прямым контактом с финансовым поверенным.
           </p>
           <p>
-            Более <span className="font-display italic" style={{ color: "var(--gold-heading-deep)", fontWeight: 600 }}>888&nbsp;млн&nbsp;рублей</span> урегулированных долговых обязательств.
+            Более <span className="font-display italic" style={{ color: "var(--gold-heading)", fontWeight: 700 }}>888&nbsp;млн&nbsp;рублей</span> урегулированных долговых обязательств.
             Помогаем восстановить финансовую репутацию, снизить давление со стороны
             взыскателей и выстроить понятный план действий.
           </p>
