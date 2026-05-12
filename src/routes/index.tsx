@@ -178,7 +178,7 @@ function Hero() {
         />
       </div>
 
-      <div className="relative container-tight pt-8 pb-24 md:pt-12 md:pb-36 lg:pt-16 lg:pb-40">
+      <div className="relative container-tight pt-8 pb-10 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20">
 
         <h2 className="mx-auto mt-6 max-w-5xl text-center font-display uppercase tracking-[0.01em] leading-[1.05]"
             style={{ color: "var(--text)" }}>
@@ -238,7 +238,7 @@ function Philosophy() {
     },
   ];
   return (
-    <Section variant="tint" id="philosophy">
+    <Section variant="tint" id="philosophy" className="!pt-6 sm:!pt-8 md:!pt-12 lg:!pt-14">
       <div
         aria-hidden
         className="pointer-events-none absolute -z-[1] left-1/2 top-24 h-[420px] w-[820px] -translate-x-1/2 rounded-full opacity-50"
