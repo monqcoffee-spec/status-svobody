@@ -322,7 +322,7 @@ function Philosophy() {
               }}
             >
               <h3
-                className="font-display text-[0.625rem] md:text-xs uppercase tracking-wide"
+                className="font-display text-sm md:text-base uppercase tracking-wide"
                 style={{ color: "var(--gold-heading-deep)" }}
               >
                 {v.title}
@@ -450,7 +450,7 @@ function Process() {
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-[0.625rem] md:text-xs leading-snug">{s.t}</h3>
+              <h3 className="mt-2 font-display text-sm md:text-base leading-snug">{s.t}</h3>
               <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
@@ -500,7 +500,7 @@ function DigitalProfile() {
         ))}
       </div>
       <div className="card-lux mt-12 px-7 py-6" style={{ borderLeftWidth: "3px", borderLeftColor: "var(--gold-heading)" }}>
-        <p className="font-display text-[0.625rem] md:text-xs leading-snug">
+        <p className="font-display text-sm md:text-base leading-snug">
           Срок исковой давности
           <span style={{ color: "var(--gold-heading-deep)", fontStyle: "italic" }}> не обнуляет </span>
           ваши долги.
@@ -532,14 +532,14 @@ function Services() {
       <ScrollReveal delay={2}>
         <div className="mt-8 max-w-3xl">
           <p
-            className="text-xs uppercase tracking-[0.3em]"
-            style={{ color: "var(--gold-heading-deep)" }}
+            className="text-base md:text-lg leading-relaxed"
+            style={{ color: "var(--text)" }}
           >
             Не просто подаём заявления — ведём дела до конца.
           </p>
           <p
-            className="mt-2 text-xs uppercase tracking-[0.3em]"
-            style={{ color: "var(--gold-heading-deep)" }}
+            className="mt-2 text-base md:text-lg leading-relaxed"
+            style={{ color: "var(--text)" }}
           >
             Каждый этап — под пристальным вниманием юриста.
           </p>
@@ -555,7 +555,7 @@ function Services() {
           >
             <IconArt src={s.art} alt="" size="md" />
             <div>
-              <h3 className="font-display text-[0.5625rem] md:text-[0.625rem] leading-snug">{s.t}</h3>
+              <h3 className="font-display text-sm md:text-base uppercase leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
