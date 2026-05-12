@@ -11,7 +11,16 @@ import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 import particlesRise from "@/assets/particles-rise.jpg";
-import yuliaPortrait from "@/assets/hero-yulia.svg";
+// Hero portrait — оптимизированные WebP + PNG fallback с retina-вариантами
+import heroWebp640 from "@/assets/hero/webp/hero-640.webp";
+import heroWebp1024 from "@/assets/hero/webp/hero-1024.webp";
+import heroWebp1280 from "@/assets/hero/webp/hero-1280.webp";
+import heroWebp1600 from "@/assets/hero/webp/hero-1600.webp";
+import heroWebp2048 from "@/assets/hero/webp/hero-2048.webp";
+import heroWebp3200 from "@/assets/hero/webp/hero-3200.webp";
+import heroPng640 from "@/assets/hero/png/hero-640.png";
+import heroPng1024 from "@/assets/hero/png/hero-1024.png";
+import heroPng1280 from "@/assets/hero/png/hero-1280.png";
 import yuliaAbout from "@/assets/yulia-armina-vertical-v2.jpeg";
 import featherImg from "@/assets/feather-light.jpg";
 import iconAudit from "@/assets/icons-3d/audit.png";
@@ -61,7 +70,22 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [
-      { rel: "preload", as: "image", href: yuliaPortrait, type: "image/png", fetchpriority: "high" },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroWebp1280,
+        type: "image/webp",
+        imagesrcset: [
+          `${heroWebp640} 640w`,
+          `${heroWebp1024} 1024w`,
+          `${heroWebp1280} 1280w`,
+          `${heroWebp1600} 1600w`,
+          `${heroWebp2048} 2048w`,
+          `${heroWebp3200} 3200w`,
+        ].join(", "),
+        imagesizes: "100vw",
+        fetchpriority: "high",
+      },
     ],
     scripts: [
       {
@@ -164,16 +188,41 @@ function Hero() {
         <ParticleField density={20} />
       </div>
 
-      {/* Hero image — always fully visible, identical composition across devices */}
+      {/* Hero image — WebP с PNG fallback, retina (D-2) исходники, всё ≤250 КБ/вариант */}
       <div className="hero-portrait reveal reveal-delay-1">
-        <img
-          src={yuliaPortrait}
-          alt="Юлия Армина — основатель Статус свободы"
-          className="hero-portrait__img"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source
+            type="image/webp"
+            srcSet={[
+              `${heroWebp640} 640w`,
+              `${heroWebp1024} 1024w`,
+              `${heroWebp1280} 1280w`,
+              `${heroWebp1600} 1600w`,
+              `${heroWebp2048} 2048w`,
+              `${heroWebp3200} 3200w`,
+            ].join(", ")}
+            sizes="100vw"
+          />
+          <source
+            type="image/png"
+            srcSet={[
+              `${heroPng640} 640w`,
+              `${heroPng1024} 1024w`,
+              `${heroPng1280} 1280w`,
+            ].join(", ")}
+            sizes="100vw"
+          />
+          <img
+            src={heroPng1280}
+            alt="Юлия Армина — основатель Статус свободы"
+            className="hero-portrait__img"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            width={1280}
+            height={720}
+          />
+        </picture>
       </div>
 
       <div className="relative container-tight pt-8 pb-10 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20">
