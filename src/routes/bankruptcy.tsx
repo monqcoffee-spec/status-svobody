@@ -139,7 +139,7 @@ function BankruptcyAdvantages() {
           >
             <IconArt src={it.art} alt="" size="md" />
             <div>
-              <h3 className="font-display uppercase text-xs md:text-[0.9375rem] leading-snug">{it.t}</h3>
+              <h3 className="font-display uppercase text-sm md:text-base leading-snug">{it.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{it.d}</p>
             </div>
           </div>
@@ -170,7 +170,7 @@ function BankruptcyStages() {
               <div className="smallcaps text-xs tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display uppercase text-xs md:text-[0.9375rem] leading-snug">{s.t}</h3>
+              <h3 className="mt-2 font-display uppercase text-sm md:text-base leading-snug">{s.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{s.d}</p>
             </div>
           </li>
@@ -196,7 +196,7 @@ function BankruptcyResults() {
       <div className="mt-14 grid gap-5 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.l} className="card-lux p-8 text-center">
-            <div className="font-display text-[0.9375rem] md:text-lg text-gradient-cyan text-glow">{s.v}</div>
+            <div className="font-display text-base md:text-xl text-gradient-cyan text-glow">{s.v}</div>
             <div className="mt-4 smallcaps">{s.l}</div>
           </div>
         ))}
