@@ -447,10 +447,10 @@ function Process() {
           <ScrollReveal as="li" key={i} variant="zoom" delay={((i % 4) + 1) as 1 | 2 | 3 | 4} className="card-lux group/card flex gap-5 p-7 transition-all">
             <IconArt src={s.art} alt="" size="lg" />
             <div className="flex-1">
-              <div className="smallcaps text-xs tabular">
+              <div className="smallcaps text-sm md:text-base tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display text-sm md:text-base leading-snug">{s.t}</h3>
+              <h3 className="mt-2 font-display text-base md:text-lg uppercase leading-snug">{s.t}</h3>
               <p className="mt-3 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>
@@ -555,7 +555,7 @@ function Services() {
           >
             <IconArt src={s.art} alt="" size="md" />
             <div>
-              <h3 className="font-display text-sm md:text-base uppercase leading-snug">{s.t}</h3>
+              <h3 className="font-display text-base md:text-lg uppercase leading-snug">{s.t}</h3>
               <p className="mt-2 text-base md:text-lg leading-relaxed">{s.d}</p>
             </div>
           </ScrollReveal>

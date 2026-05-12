@@ -139,7 +139,7 @@ function BankruptcyAdvantages() {
           >
             <IconArt src={it.art} alt="" size="md" />
             <div>
-              <h3 className="font-display uppercase text-sm md:text-base leading-snug">{it.t}</h3>
+              <h3 className="font-display uppercase text-base md:text-lg leading-snug">{it.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{it.d}</p>
             </div>
           </div>
@@ -167,10 +167,10 @@ function BankruptcyStages() {
           <li key={s.t} className="card-lux group/card flex gap-6 p-9 md:p-11">
             <IconArt src={s.art} alt="" size="lg" />
             <div>
-              <div className="smallcaps text-xs tabular">
+              <div className="smallcaps text-sm md:text-base tabular">
                 Шаг {String(i + 1).padStart(2, "0")}
               </div>
-              <h3 className="mt-2 font-display uppercase text-sm md:text-base leading-snug">{s.t}</h3>
+              <h3 className="mt-2 font-display uppercase text-base md:text-lg leading-snug">{s.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{s.d}</p>
             </div>
           </li>
