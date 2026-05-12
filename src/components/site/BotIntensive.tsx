@@ -34,7 +34,7 @@ export function BotIntensive() {
               ТЕЛЕГРАМ<span className="text-cyan">-БОТ</span>
             </h3>
             <p className="mt-4 max-w-2xl text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
-              Пошаговая дорожная карта и доступ к интенсиву — <span style={{ color: "var(--wine-deep)", fontWeight: 500 }}>в одном боте</span>.
+              Пошаговая дорожная карта и доступ к интенсиву — <span className="text-gradient-gold" style={{ fontWeight: 600 }}>в одном боте</span>.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <a
