@@ -656,18 +656,18 @@ function Pricing() {
                 </li>
               ))}
             </ul>
+            <div className="mt-8 text-center">
+              <div className="font-display text-2xl md:text-3xl lg:text-4xl text-gradient-cyan leading-none">{p.price}</div>
+            </div>
             <LeadFormDialog
               source={`pricing-${p.t}`}
               headline={`Тариф · ${p.t}`}
               trigger={
-                <button type="button" className={`mt-8 ${p.highlight ? "btn-cyan" : "btn-ghost"} rounded-sm`}>
+                <button type="button" className={`mt-5 ${p.highlight ? "btn-cyan" : "btn-ghost"} rounded-sm`}>
                   Оставить заявку
                 </button>
               }
             />
-            <div className="mt-4 text-center">
-              <div className="font-display text-xs md:text-[0.9375rem] text-gradient-cyan">{p.price}</div>
-            </div>
           </ScrollReveal>
         ))}
       </div>
