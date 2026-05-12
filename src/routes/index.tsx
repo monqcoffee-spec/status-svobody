@@ -159,53 +159,63 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section
-      className="hero-fullbleed"
-      style={{
-        ["--hero-bg-mobile" as never]: `url(${heroWebp640})`,
-        ["--hero-bg-tablet" as never]: `url(${heroWebp1280})`,
-        ["--hero-bg-desktop" as never]: `url(${heroWebp2048})`,
-        ["--hero-bg-xl" as never]: `url(${heroWebp3200})`,
-      }}
-    >
+    <>
       <h1 className="sr-only">
-        Статус свободы Юлии Арминой Юлии Арминой — премиальный финансово-юридический консалтинг.
+        Статус свободы Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
 
-      <div className="hero-fullbleed__inner">
-        <h2 className="mx-auto max-w-5xl text-center font-display uppercase tracking-[0.01em] leading-[1.05]"
-            style={{ color: "var(--text)" }}>
-          <span
-            className="reveal reveal-delay-2 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] font-semibold"
-          >
-            Кредитную историю невозможно исправить
-          </span>
-          <span
-            className="reveal reveal-delay-3 mt-3 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] italic font-serif text-gradient-cyan text-glow"
-            style={{ fontWeight: 500 }}
-          >
-            Но&nbsp;её можно оспорить
-          </span>
-        </h2>
+      {/* 1. Fullscreen hero image — фото отдельным верхним баннером */}
+      <section
+        className="hero-banner"
+        aria-label="Юлия Армина — финансовый поверенный"
+        style={{
+          ["--hero-bg-mobile" as never]: `url(${heroWebp640})`,
+          ["--hero-bg-tablet" as never]: `url(${heroWebp1280})`,
+          ["--hero-bg-desktop" as never]: `url(${heroWebp2048})`,
+          ["--hero-bg-xl" as never]: `url(${heroWebp3200})`,
+        }}
+      />
 
-        <div className="reveal reveal-delay-3 mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-xl">
-          <LeadFormDialog
-            source="hero"
-            headline="Запись на консультацию"
-            trigger={
-              <button type="button" className="btn-cyan group w-full sm:w-auto">
-                <span>Оставить заявку</span>
-                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </button>
-            }
-          />
-          <a href="#services" className="btn-ghost group w-full sm:w-auto">
-            <span>Узнать подробнее</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+      {/* 2. Контентный блок ниже изображения — текст и кнопки отдельно */}
+      <section className="hero-content">
+        <div className="hero-content__inner">
+          <h2
+            className="font-display uppercase tracking-[0.01em] leading-[1.06]"
+            style={{ color: "var(--text)" }}
+          >
+            <span
+              className="reveal reveal-delay-2 block font-semibold"
+              style={{ fontSize: "clamp(1.6rem, 4.4vw, 3.4rem)" }}
+            >
+              Кредитную историю невозможно исправить
+            </span>
+            <span
+              className="reveal reveal-delay-3 mt-3 block italic font-serif text-gradient-cyan text-glow"
+              style={{ fontWeight: 500, fontSize: "clamp(1.6rem, 4.4vw, 3.4rem)" }}
+            >
+              Но&nbsp;её можно оспорить
+            </span>
+          </h2>
+
+          <div className="reveal reveal-delay-3 hero-content__cta">
+            <LeadFormDialog
+              source="hero"
+              headline="Запись на консультацию"
+              trigger={
+                <button type="button" className="btn-cyan group">
+                  <span>Оставить заявку</span>
+                  <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </button>
+              }
+            />
+            <a href="#services" className="btn-ghost group">
+              <span>Узнать подробнее</span>
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
