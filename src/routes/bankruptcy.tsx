@@ -75,7 +75,7 @@ function BankruptcyPage() {
 
 function BankruptcyHero() {
   return (
-    <section className="relative overflow-hidden bg-aurora md:-mt-20 pt-36 md:pt-52 pb-24 md:pb-36">
+    <section className="relative overflow-hidden bg-aurora md:-mt-20 flex items-center min-h-[600px] sm:min-h-[680px] md:min-h-[760px] lg:min-h-[820px] xl:min-h-[880px] pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-20 sm:pb-24 md:pb-32 lg:pb-40">
       <ParticleField density={32} />
       <img
         src={heroBankruptcy}
