@@ -79,7 +79,7 @@ function BankruptcyHero() {
       <img
         src={heroBankruptcy}
         alt="Status Svobody — освобождение от долгов"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-90 select-none"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_35%] opacity-90 select-none"
       />
       <div
         aria-hidden
