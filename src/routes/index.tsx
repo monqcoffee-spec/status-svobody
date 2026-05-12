@@ -881,54 +881,42 @@ function EntryPoint() {
             }
           />
 
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="https://t.me/zakon_127"
               target="_blank"
               rel="noopener"
-              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+              aria-label="Telegram · t.me/zakon_127"
+              className="card-lux group flex items-center justify-center p-3 transition-all"
             >
               <IconArt src={iconTelegram} alt="" size="xs" />
-              <div className="text-left">
-                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Telegram</div>
-                <div className="text-sm" style={{ color: "#2A1118" }}>t.me/zakon_127</div>
-              </div>
             </a>
             <a
               href="https://vk.ru/uarmina"
               target="_blank"
               rel="noopener"
-              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+              aria-label="ВКонтакте · vk.ru/uarmina"
+              className="card-lux group flex items-center justify-center p-3 transition-all"
             >
               <IconArt src={iconVk} alt="" size="xs" />
-              <div className="text-left">
-                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>ВКонтакте</div>
-                <div className="text-sm" style={{ color: "#2A1118" }}>vk.ru/uarmina</div>
-              </div>
             </a>
             <a
               href="https://max.ru/id312300900561_biz"
               target="_blank"
               rel="noopener"
-              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+              aria-label="Max · Бизнес-аккаунт"
+              className="card-lux group flex items-center justify-center p-3 transition-all"
             >
               <IconArt src={iconMax} alt="" size="xs" />
-              <div className="text-left">
-                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Max</div>
-                <div className="text-sm" style={{ color: "#2A1118" }}>Бизнес-аккаунт</div>
-              </div>
             </a>
             <a
               href="https://uslugi.yandex.ru/profile/YuliyaYurevnaArmina-108290"
               target="_blank"
               rel="noopener"
-              className="card-lux group flex items-center gap-3 px-5 py-3.5 transition-all"
+              aria-label="Яндекс Услуги · Профиль Ю. Арминой"
+              className="card-lux group flex items-center justify-center p-3 transition-all"
             >
               <IconArt src={iconYandex} alt="" size="xs" />
-              <div className="text-left">
-                <div className="smallcaps text-[9px]" style={{ color: "#5a3540" }}>Яндекс Услуги</div>
-                <div className="text-sm" style={{ color: "#2A1118" }}>Профиль Ю. Арминой</div>
-              </div>
             </a>
           </div>
 
