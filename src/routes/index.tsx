@@ -167,27 +167,17 @@ function Hero() {
       </div>
 
       {/* Hero image — fully contained in viewport with breathing space */}
-      <div className="relative reveal reveal-delay-1 w-full container-tight pt-6 md:pt-10">
-        <div
-          className="mx-auto overflow-hidden rounded-[1.5rem]"
-          style={{
-            maxWidth: "min(960px, 92vw)",
-            background:
-              "radial-gradient(ellipse at center, color-mix(in oklab, var(--wine) 18%, transparent), transparent 70%)",
-            boxShadow:
-              "0 30px 80px -30px color-mix(in oklab, var(--wine-deep) 55%, transparent)",
-          }}
-        >
-          <img
-            src={yuliaPortrait}
-            alt="Юлия Армина — основатель Статус свободы Юлии Арминой"
-            className="block w-full h-auto max-h-[58vh] sm:max-h-[62vh] md:max-h-[68vh] object-contain mx-auto"
-            style={{ filter: "contrast(1.08) saturate(1.12)" }}
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </div>
+      {/* Hero image — full viewport width on every device */}
+      <div className="relative reveal reveal-delay-1 w-screen left-1/2 -translate-x-1/2 pt-6 md:pt-10">
+        <img
+          src={yuliaPortrait}
+          alt="Юлия Армина — основатель Статус свободы Юлии Арминой"
+          className="block w-full h-auto object-contain"
+          style={{ filter: "contrast(1.08) saturate(1.12)" }}
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
       </div>
 
       <div className="relative container-tight pt-8 pb-24 md:pt-12 md:pb-36 lg:pt-16 lg:pb-40">
