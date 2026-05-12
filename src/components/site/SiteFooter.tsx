@@ -47,6 +47,15 @@ export function SiteFooter() {
           <p className="mt-6 max-w-md text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Юридические решения для вашей свободы.
           </p>
+          <ul className="mt-5 space-y-1.5 text-sm" style={{ color: "var(--text-muted)" }}>
+            <li>ИП Армина Юлия Юрьевна</li>
+            <li>ИНН 312300900561</li>
+            <li>
+              <a href="mailto:s1271s@yandex.ru" className="transition-colors hover:opacity-80">
+                s1271s@yandex.ru
+              </a>
+            </li>
+          </ul>
         </div>
 
         <div className="md:col-span-3">
