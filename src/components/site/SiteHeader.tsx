@@ -30,17 +30,15 @@ export function SiteHeader() {
     <header
       className="liquid-glass sticky top-0 z-40 transition-all duration-500"
       style={{
-        backgroundColor: scrolled
-          ? "color-mix(in oklab, var(--paper) 62%, transparent)"
-          : "transparent",
+        backgroundColor: "var(--paper)",
         borderBottom: scrolled
           ? "1px solid color-mix(in oklab, var(--gold) 28%, transparent)"
-          : "1px solid transparent",
+          : "1px solid color-mix(in oklab, var(--gold) 14%, transparent)",
         boxShadow: scrolled
           ? "0 18px 40px -32px color-mix(in oklab, var(--wine) 35%, transparent)"
           : "none",
-        backdropFilter: scrolled ? undefined : "none",
-        WebkitBackdropFilter: scrolled ? undefined : "none",
+        backdropFilter: "none",
+        WebkitBackdropFilter: "none",
       }}
     >
       {/* Gold hairline thread under header */}

@@ -1653,7 +1653,7 @@ h4.card-lux {
 @media (min-width: 768px) { :root { --header-h: 8rem; } }
 @media (min-width: 1024px) { :root { --header-h: 9rem; } }
 
-/* ─── HERO BANNER — фото отдельным верхним блоком ─── */
+/* ─── HERO BANNER — отдельный image-блок, ниже header, без overlap ─── */
 .hero-banner {
   position: relative;
   width: 100vw;
@@ -1661,61 +1661,17 @@ h4.card-lux {
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  margin-top: calc(-1 * var(--header-h));
-  padding: 0;
-  border-radius: 0;
-  min-height: 52vh;
-  overflow: hidden;
-  background-color: var(--paper);
-  background-image: var(--hero-bg-mobile);
-  background-size: cover;
-  background-position: 65% center;
-  background-repeat: no-repeat;
-  isolation: isolate;
+  background-color: #f5ebe7;
+  display: block;
+  line-height: 0;
 }
-/* Плавный переход к нижнему контентному блоку */
-.hero-banner::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: clamp(80px, 14vh, 180px);
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    color-mix(in oklab, var(--paper) 60%, transparent) 55%,
-    var(--paper) 100%
-  );
-  z-index: 1;
-}
-@media (min-width: 768px) {
-  .hero-banner {
-    min-height: 75vh;
-    background-image: var(--hero-bg-tablet);
-    background-position: center center;
-  }
-}
-@media (min-width: 1024px) {
-  .hero-banner {
-    min-height: 100vh;
-  }
-}
-@media (min-width: 1280px) {
-  .hero-banner { background-image: var(--hero-bg-desktop); }
-}
-@media (min-width: 1920px) {
-  .hero-banner { background-image: var(--hero-bg-xl); }
-}
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-  .hero-banner { background-image: var(--hero-bg-tablet); }
-  @media (min-width: 768px) {
-    .hero-banner { background-image: var(--hero-bg-desktop); }
-  }
-  @media (min-width: 1280px) {
-    .hero-banner { background-image: var(--hero-bg-xl); }
-  }
+.hero-banner__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center center;
 }
 
 /* ─── HERO CONTENT — отдельный блок с текстом и кнопками ─── */
