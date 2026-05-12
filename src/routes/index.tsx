@@ -844,7 +844,7 @@ function Pricing() {
               trigger={
                 <button
                   type="button"
-                  className="mt-5 rounded-sm font-medium transition px-5 py-3"
+                  className="mt-5 rounded-full font-medium transition px-5 py-3"
                   style={{ background: "var(--wine)", color: "#fff" }}
                 >
                   Оставить заявку
