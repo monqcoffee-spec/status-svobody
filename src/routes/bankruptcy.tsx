@@ -209,7 +209,7 @@ function BankruptcyResults() {
       <div className="mt-14 grid gap-5 md:grid-cols-4">
         {stats.map((s) => (
           <div key={s.l} className="card-lux p-8 text-center">
-            <div className="font-display text-base md:text-xl text-gradient-cyan text-glow">{s.v}</div>
+            <div className="font-display text-xl md:text-3xl text-gradient-gold text-glow">{s.v}</div>
             <div className="mt-4 smallcaps">{s.l}</div>
           </div>
         ))}
