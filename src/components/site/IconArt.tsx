@@ -32,8 +32,8 @@ export function IconArt({
       className={cn(
         "icon-art group/icon relative shrink-0 select-none",
         "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
-        "hover:-translate-y-1.5 hover:scale-[1.04]",
-        "group-hover/card:-translate-y-1.5 group-hover/card:scale-[1.04]",
+        "hover:-translate-y-1.5 hover:scale-[1.04] hover:rotate-[6deg]",
+        "group-hover/card:-translate-y-1.5 group-hover/card:scale-[1.04] group-hover/card:rotate-[6deg]",
         sizes[size],
         className,
       )}
