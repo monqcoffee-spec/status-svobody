@@ -811,7 +811,7 @@ function Pricing() {
               >Популярный</div>
             )}
             <IconArt src={p.art} alt="" size="lg" className="mb-4" />
-            <h3 className="font-display uppercase tracking-[0.02em] text-xs md:text-[0.9375rem] leading-snug">{p.t}</h3>
+            <h3 className="font-display text-base md:text-lg uppercase leading-snug">{p.t}</h3>
             <ul className="mt-6 space-y-3 flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex gap-3 text-base md:text-lg">
