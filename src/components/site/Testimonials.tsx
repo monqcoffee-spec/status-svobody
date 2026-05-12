@@ -3,9 +3,9 @@ import { Section, Eyebrow, H2 } from "@/components/site/Section";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
 
 const YANDEX_REVIEWS_URL =
-  "https://yandex.ru/uslugi/profile/JuliaArmina-2227671";
+  "https://uslugi.yandex.ru/profile/YuliyaYurevnaArmina-108290";
 const YANDEX_LEAVE_REVIEW_URL =
-  "https://yandex.ru/uslugi/profile/JuliaArmina-2227671?utm_source=lovable&utm_medium=site#reviews";
+  "https://uslugi.yandex.ru/profile/YuliyaYurevnaArmina-108290?utm_source=lovable&utm_medium=site#reviews";
 
 type Review = {
   name: string;
