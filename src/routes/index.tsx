@@ -285,12 +285,12 @@ function Philosophy() {
             return (
               <li
                 key={v.title}
-                className="group flex items-start gap-4 px-5 py-6 md:flex-col md:items-center md:gap-3 md:py-8 md:text-center"
+                className="group/card flex items-start gap-4 px-5 py-6 md:flex-col md:items-center md:gap-3 md:py-8 md:text-center"
                 style={{
                   borderColor: "color-mix(in oklab, var(--gold-light) 30%, transparent)",
                 }}
               >
-                <IconArt src={v.art} alt="" size="sm" className="group-hover:-translate-y-1" />
+                <IconArt src={v.art} alt="" size="sm" />
                 <div className="md:contents">
                   <h3
                     className="font-display text-[11px] uppercase tracking-[0.28em]"
