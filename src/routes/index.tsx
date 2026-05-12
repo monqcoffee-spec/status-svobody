@@ -387,8 +387,7 @@ function PhilosophyAccordion() {
           className="pointer-events-none absolute -inset-6 -z-[1] rounded-full opacity-70"
           style={{
             background:
-              "radial-gradient(closest-side, color-mix(in oklab, var(--wine) 32%, transparent), color-mix(in oklab, var(--gold-light) 22%, transparent) 55%, transparent 75%)",
-            filter: "blur(40px)",
+              "transparent",
           }}
         />
         <span
@@ -401,12 +400,11 @@ function PhilosophyAccordion() {
             paddingInline: "0.18em",
             paddingBlock: "0.05em",
             background:
-              "linear-gradient(150deg, var(--gold-light) 0%, var(--gold-mist) 30%, var(--wine) 65%, var(--wine-deep) 100%)",
+              "linear-gradient(160deg, var(--wine) 0%, var(--wine-deep) 50%, var(--wine-rich) 100%)",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             color: "transparent",
             letterSpacing: "0.02em",
-            filter: "drop-shadow(0 6px 24px color-mix(in oklab, var(--wine) 35%, transparent)) drop-shadow(0 0 18px color-mix(in oklab, var(--gold-light) 45%, transparent))",
           }}
         >
           II
