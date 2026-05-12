@@ -85,7 +85,7 @@ function BankruptcyHero() {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_35%] opacity-75 md:opacity-90 select-none"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_32%] lg:object-[50%_35%] xl:object-[50%_38%] opacity-75 md:opacity-90 select-none"
       />
       {/* Mobile overlay — stronger contrast for narrow screens */}
       <div
