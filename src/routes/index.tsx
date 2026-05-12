@@ -164,19 +164,13 @@ function Hero() {
         <ParticleField density={20} />
       </div>
 
-      {/* Hero image — fully contained in viewport with breathing space */}
-      {/* Hero image — full viewport width on every device */}
-      <div className="relative reveal reveal-delay-1 w-screen left-1/2 -translate-x-1/2 pt-6 md:pt-10">
-        <img
-          src={yuliaPortrait}
-          alt="Юлия Армина — основатель Статус свободы Юлии Арминой"
-          className="block w-full h-auto object-contain"
-          style={{ filter: "contrast(1.08) saturate(1.12)" }}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
-      </div>
+      {/* Hero image — responsive background, woman never cropped */}
+      <div
+        role="img"
+        aria-label="Юлия Армина — основатель Статус свободы"
+        className="hero-portrait reveal reveal-delay-1"
+        style={{ backgroundImage: `url(${yuliaPortrait})` }}
+      />
 
       <div className="relative container-tight pt-8 pb-10 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20">
 
