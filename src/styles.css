@@ -1639,3 +1639,54 @@ h4.card-lux {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(400%); }
 }
+
+/* ─────────── Hero portrait — responsive background ─────────── */
+.hero-portrait {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right center;
+  aspect-ratio: 16 / 9;
+  max-height: 78vh;
+  filter: contrast(1.06) saturate(1.1);
+  margin-top: clamp(0.5rem, 2vw, 2.5rem);
+}
+.hero-portrait::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    rgba(255, 248, 246, 0.88) 0%,
+    rgba(255, 248, 246, 0.55) 28%,
+    rgba(255, 248, 246, 0.15) 55%,
+    rgba(255, 248, 246, 0) 75%
+  );
+}
+@media (max-width: 1024px) {
+  .hero-portrait {
+    aspect-ratio: 4 / 3;
+    background-position: 62% center;
+    background-size: cover;
+    max-height: 70vh;
+  }
+}
+@media (max-width: 640px) {
+  .hero-portrait {
+    aspect-ratio: 3 / 4;
+    background-position: 72% center;
+    background-size: cover;
+    max-height: 82vh;
+  }
+  .hero-portrait::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 248, 246, 0) 55%,
+      rgba(255, 248, 246, 0.85) 100%
+    );
+  }
+}
