@@ -19,6 +19,7 @@ import iconAudit from "@/assets/icons-3d/audit.png";
 import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
 import iconDataCourt from "@/assets/icons-3d/data-court.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
+import iconLiberation from "@/assets/icons-3d/liberation.png";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -85,6 +86,18 @@ function BankruptcyHero() {
       />
       <div className="container-tight relative w-full">
         <div className="reveal">
+          <div className="reveal mb-6 md:mb-10 flex justify-center md:justify-start">
+            <img
+              src={iconLiberation}
+              alt="Финансовое освобождение — символ"
+              width={1024}
+              height={1024}
+              loading="eager"
+              decoding="async"
+              className="block h-auto w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] xl:w-[340px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] select-none"
+              draggable={false}
+            />
+          </div>
           <div className="inline-flex items-center gap-3">
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
