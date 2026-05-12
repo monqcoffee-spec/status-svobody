@@ -414,27 +414,55 @@ function PhilosophyAccordion() {
               "transparent",
           }}
         />
-        <span
-          className="font-display"
+        <svg
+          viewBox="0 0 200 180"
+          className="block"
           style={{
-            fontSize: "clamp(5.5rem, 12vw, 10rem)",
-            fontWeight: 700,
-            fontStyle: "italic",
-            lineHeight: 1.15,
-            paddingInline: "0.18em",
-            paddingBlock: "0.05em",
-            background:
-              "linear-gradient(160deg, var(--wine) 0%, var(--wine-deep) 50%, var(--wine-rich) 100%)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            color: "transparent",
-            letterSpacing: "0.02em",
+            width: "clamp(8rem, 22vw, 14rem)",
+            height: "auto",
+            filter:
+              "drop-shadow(0 14px 22px color-mix(in oklab, var(--wine-deep) 35%, transparent)) drop-shadow(0 2px 0 color-mix(in oklab, var(--wine-rich) 60%, transparent))",
           }}
         >
-          II
-        </span>
+          <defs>
+            <linearGradient id="ii-face" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="var(--wine)" />
+              <stop offset="45%" stopColor="var(--wine-deep)" />
+              <stop offset="100%" stopColor="var(--wine-rich)" />
+            </linearGradient>
+            <linearGradient id="ii-hi" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.55" />
+              <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ii-shade" x1="1" y1="0" x2="0" y2="0">
+              <stop offset="0%" stopColor="#000000" stopOpacity="0.35" />
+              <stop offset="100%" stopColor="#000000" stopOpacity="0" />
+            </linearGradient>
+            <linearGradient id="ii-bar" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="var(--wine)" />
+              <stop offset="100%" stopColor="var(--wine-rich)" />
+            </linearGradient>
+          </defs>
+          {/* Group: each "I" with serifs */}
+          {[55, 130].map((cx) => (
+            <g key={cx} transform={`translate(${cx - 15}, 20)`}>
+              {/* Top serif bar */}
+              <rect x="-10" y="0" width="50" height="10" rx="2" fill="url(#ii-bar)" />
+              <rect x="-10" y="0" width="50" height="3" fill="#FFFFFF" opacity="0.35" />
+              {/* Vertical shaft */}
+              <rect x="8" y="10" width="14" height="120" fill="url(#ii-face)" />
+              {/* Highlight on left edge of shaft */}
+              <rect x="8" y="10" width="4" height="120" fill="url(#ii-hi)" />
+              {/* Shadow on right edge */}
+              <rect x="18" y="10" width="4" height="120" fill="url(#ii-shade)" />
+              {/* Bottom serif bar */}
+              <rect x="-10" y="130" width="50" height="10" rx="2" fill="url(#ii-bar)" />
+              <rect x="-10" y="137" width="50" height="3" fill="#000000" opacity="0.25" />
+            </g>
+          ))}
+        </svg>
         <span
-          className="mt-2 block h-px w-20"
+          className="mt-3 block h-px w-20"
           style={{ background: "linear-gradient(90deg, transparent, var(--wine) 50%, transparent)" }}
         />
         <figcaption
