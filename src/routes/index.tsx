@@ -500,7 +500,7 @@ function DigitalProfile() {
         ))}
       </div>
       <div className="card-lux mt-12 px-7 py-6" style={{ borderLeftWidth: "3px", borderLeftColor: "var(--gold-heading)" }}>
-        <p className="font-display text-sm md:text-base leading-snug">
+        <p className="font-display text-base md:text-xl leading-snug">
           Срок исковой давности
           <span style={{ color: "var(--gold-heading-deep)", fontStyle: "italic" }}> не обнуляет </span>
           ваши долги.
