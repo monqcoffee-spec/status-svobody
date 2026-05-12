@@ -75,7 +75,7 @@ function BankruptcyPage() {
 
 function BankruptcyHero() {
   return (
-    <section className="relative overflow-hidden bg-aurora md:-mt-20 flex items-center min-h-[600px] sm:min-h-[680px] md:min-h-[760px] lg:min-h-[820px] xl:min-h-[880px] pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-20 sm:pb-24 md:pb-32 lg:pb-40">
+    <section className="relative overflow-hidden bg-aurora md:-mt-20 flex items-end md:items-center min-h-[600px] sm:min-h-[680px] md:min-h-[760px] lg:min-h-[820px] xl:min-h-[880px] pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-10 sm:pb-16 md:pb-32 lg:pb-40">
       <ParticleField density={32} />
       <img
         src={heroBankruptcy}
@@ -113,20 +113,20 @@ function BankruptcyHero() {
             "radial-gradient(closest-side, color-mix(in oklab, var(--cyan) 30%, transparent), transparent)",
         }}
       />
-      <div className="container-tight relative">
+      <div className="container-tight relative w-full">
         <div className="reveal">
           <div className="inline-flex items-center gap-3">
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
           </div>
-          <h1 className="mt-10 font-display uppercase text-xl sm:text-3xl md:text-5xl lg:text-[4rem] leading-[1.02] tracking-[-0.03em] text-silver break-words">
+          <h1 className="mt-4 md:mt-10 font-display uppercase text-xl sm:text-3xl md:text-5xl lg:text-[4rem] leading-[1.02] tracking-[-0.03em] text-silver break-words">
             ФИНАНСОВОЕ <br />
             <span className="text-gradient-cyan text-glow">ОСВОБОЖДЕНИЕ</span>
           </h1>
-          <p className="mt-10 w-full text-xs md:text-lg leading-tight text-silver/85 font-display uppercase tracking-tight">
+          <p className="mt-4 md:mt-10 w-full text-xs md:text-lg leading-tight text-silver/85 font-display uppercase tracking-tight">
             Долги — не приговор, а юридическая задача
           </p>
-          <div className="reveal reveal-delay-2 mt-12 flex flex-wrap gap-4">
+          <div className="reveal reveal-delay-2 mt-6 md:mt-12 flex flex-wrap gap-3 md:gap-4">
             <LeadFormDialog
               source="bankruptcy-hero"
               headline="Консультация по банкротству"
