@@ -543,6 +543,21 @@ function Services() {
           >
             Каждый этап — под пристальным вниманием юриста.
           </p>
+          <div
+            className="mt-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs sm:text-sm font-medium tracking-wide"
+            style={{
+              background: "color-mix(in oklab, var(--gold) 14%, transparent)",
+              border: "1px solid color-mix(in oklab, var(--gold) 35%, transparent)",
+              color: "var(--wine-deep)",
+            }}
+          >
+            <span
+              aria-hidden
+              className="inline-block h-2 w-2 rounded-full"
+              style={{ background: "var(--gold)", boxShadow: "0 0 8px var(--gold)" }}
+            />
+            Работаем онлайн по всей России
+          </div>
         </div>
       </ScrollReveal>
       <div className="mt-12 grid gap-5 md:grid-cols-2">
