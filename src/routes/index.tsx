@@ -70,7 +70,22 @@ export const Route = createFileRoute("/")({
       },
     ],
     links: [
-      { rel: "preload", as: "image", href: yuliaPortrait, type: "image/png", fetchpriority: "high" },
+      {
+        rel: "preload",
+        as: "image",
+        href: heroWebp1280,
+        type: "image/webp",
+        imagesrcset: [
+          `${heroWebp640} 640w`,
+          `${heroWebp1024} 1024w`,
+          `${heroWebp1280} 1280w`,
+          `${heroWebp1600} 1600w`,
+          `${heroWebp2048} 2048w`,
+          `${heroWebp3200} 3200w`,
+        ].join(", "),
+        imagesizes: "100vw",
+        fetchpriority: "high",
+      },
     ],
     scripts: [
       {
