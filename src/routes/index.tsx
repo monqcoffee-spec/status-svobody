@@ -178,7 +178,7 @@ function Hero() {
         />
       </div>
 
-      <div className="relative container-tight pt-8 pb-24 md:pt-12 md:pb-36 lg:pt-16 lg:pb-40">
+      <div className="relative container-tight pt-8 pb-10 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20">
 
         <h2 className="mx-auto mt-6 max-w-5xl text-center font-display uppercase tracking-[0.01em] leading-[1.05]"
             style={{ color: "var(--text)" }}>
