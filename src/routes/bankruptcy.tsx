@@ -19,8 +19,6 @@ import iconAudit from "@/assets/icons-3d/audit.png";
 import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
 import iconDataCourt from "@/assets/icons-3d/data-court.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
-import heroBankruptcy from "@/assets/bankruptcy-hero.png";
-import heroBankruptcySrcSet from "@/assets/bankruptcy-hero.png?w=640;960;1280;1600;1920&format=webp&as=srcset";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -77,40 +75,6 @@ function BankruptcyHero() {
   return (
     <section className="relative overflow-hidden bg-aurora md:-mt-20 flex items-end md:items-center min-h-[600px] sm:min-h-[680px] md:min-h-[760px] lg:min-h-[820px] xl:min-h-[880px] pt-32 sm:pt-40 md:pt-48 lg:pt-56 pb-10 sm:pb-16 md:pb-32 lg:pb-40">
       <ParticleField density={32} />
-      <img
-        src={heroBankruptcy}
-        srcSet={heroBankruptcySrcSet}
-        sizes="100vw"
-        alt="Status Svobody — освобождение от долгов"
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75 md:opacity-90 select-none"
-        style={{
-          // Fluid object-position-Y: smoothly interpolates between
-          // 30% (≤375px) and 38% (≥1280px) without breakpoint jumps.
-          objectPosition:
-            "50% clamp(30%, calc(30% + (100vw - 375px) * 8 / 905), 38%)",
-        }}
-      />
-      {/* Mobile overlay — stronger contrast for narrow screens */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 md:hidden"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(20,8,14,0.55) 0%, rgba(20,8,14,0.25) 45%, rgba(255,255,255,0.35) 85%, rgba(255,255,255,0.75) 100%)",
-        }}
-      />
-      {/* Desktop overlay — lighter, preserves image */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 hidden md:block"
-        style={{
-          background:
-            "linear-gradient(180deg, rgba(20,8,14,0.35) 0%, rgba(20,8,14,0.1) 40%, rgba(255,255,255,0.2) 75%, rgba(255,255,255,0.6) 100%)",
-        }}
-      />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 top-20 h-[600px] w-[600px] rounded-full opacity-30 animate-drift"
