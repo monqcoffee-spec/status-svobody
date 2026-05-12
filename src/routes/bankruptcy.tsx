@@ -85,31 +85,20 @@ function BankruptcyHero() {
         }}
       />
       <div className="container-tight relative w-full">
-        <div className="reveal">
-          <div className="reveal mb-6 md:mb-10 flex justify-center md:justify-start">
-            <img
-              src={iconLiberation}
-              alt="Финансовое освобождение — символ"
-              width={1024}
-              height={1024}
-              loading="eager"
-              decoding="async"
-              className="block h-auto w-[180px] sm:w-[220px] md:w-[260px] lg:w-[300px] xl:w-[340px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] select-none"
-              draggable={false}
-            />
-          </div>
+        <div className="reveal flex flex-col-reverse md:flex-row md:items-center md:gap-10 lg:gap-14">
+          <div className="flex-1 min-w-0">
           <div className="inline-flex items-center gap-3">
             <span className="hairline-tight" />
             <span className="smallcaps text-cyan">127-ФЗ · Личное банкротство</span>
           </div>
-          <h1 className="mt-4 md:mt-10 font-display uppercase text-xl sm:text-3xl md:text-5xl lg:text-[4rem] leading-[1.02] tracking-[-0.03em] text-silver break-words">
+          <h1 className="mt-4 md:mt-8 font-display uppercase text-xl sm:text-3xl md:text-5xl lg:text-[4rem] leading-[1.02] tracking-[-0.03em] text-silver break-words">
             ФИНАНСОВОЕ <br />
             <span className="text-gradient-cyan text-glow">ОСВОБОЖДЕНИЕ</span>
           </h1>
-          <p className="mt-4 md:mt-10 w-full text-xs md:text-lg leading-tight text-silver/85 font-display uppercase tracking-tight">
+          <p className="mt-4 md:mt-8 w-full text-xs md:text-lg leading-tight text-silver/85 font-display uppercase tracking-tight">
             Долги — не приговор, а юридическая задача
           </p>
-          <div className="reveal reveal-delay-2 mt-6 md:mt-12 flex flex-wrap gap-3 md:gap-4">
+          <div className="reveal reveal-delay-2 mt-6 md:mt-10 flex flex-wrap gap-3 md:gap-4">
             <LeadFormDialog
               source="bankruptcy-hero"
               headline="Консультация по банкротству"
@@ -124,6 +113,19 @@ function BankruptcyHero() {
               <span>Бесплатный интенсив</span>
               <ArrowUpRight className="h-5 w-5 text-cyan transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
+          </div>
+          </div>
+          <div className="reveal mb-2 md:mb-0 flex justify-center md:justify-end md:flex-shrink-0">
+            <img
+              src={iconLiberation}
+              alt="Финансовое освобождение — символ"
+              width={1024}
+              height={1024}
+              loading="eager"
+              decoding="async"
+              className="block h-auto w-[160px] sm:w-[200px] md:w-[280px] lg:w-[340px] xl:w-[380px] drop-shadow-[0_30px_60px_rgba(0,0,0,0.45)] select-none"
+              draggable={false}
+            />
           </div>
         </div>
       </div>
