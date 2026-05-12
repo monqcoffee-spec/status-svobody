@@ -18,9 +18,6 @@ import heroWebp1280 from "@/assets/hero/webp/hero-1280.webp";
 import heroWebp1600 from "@/assets/hero/webp/hero-1600.webp";
 import heroWebp2048 from "@/assets/hero/webp/hero-2048.webp";
 import heroWebp3200 from "@/assets/hero/webp/hero-3200.webp";
-import heroPng640 from "@/assets/hero/png/hero-640.png";
-import heroPng1024 from "@/assets/hero/png/hero-1024.png";
-import heroPng1280 from "@/assets/hero/png/hero-1280.png";
 import yuliaAbout from "@/assets/yulia-armina-vertical-v2.jpeg";
 import featherImg from "@/assets/feather-light.jpg";
 import iconAudit from "@/assets/icons-3d/audit.png";
@@ -162,72 +159,21 @@ function IndexPage() {
 /* ───────────────────── HERO ───────────────────── */
 function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section
+      className="hero-fullbleed"
+      style={{
+        ["--hero-bg-mobile" as never]: `url(${heroWebp640})`,
+        ["--hero-bg-tablet" as never]: `url(${heroWebp1280})`,
+        ["--hero-bg-desktop" as never]: `url(${heroWebp2048})`,
+        ["--hero-bg-xl" as never]: `url(${heroWebp3200})`,
+      }}
+    >
       <h1 className="sr-only">
         Статус свободы Юлии Арминой Юлии Арминой — премиальный финансово-юридический консалтинг.
       </h1>
 
-      {/* Cinematic ambient lights */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-0 overflow-hidden">
-        <div
-          className="absolute -top-40 left-1/2 h-[700px] w-[1100px] -translate-x-1/2 rounded-full opacity-60 animate-drift"
-          style={{
-            background:
-              "radial-gradient(closest-side, color-mix(in oklab, var(--wine) 28%, transparent), color-mix(in oklab, var(--wine-soft) 15%, transparent) 45%, transparent 75%)",
-            filter: "blur(80px)",
-          }}
-        />
-        <div
-          className="absolute top-1/4 -right-24 h-[460px] w-[460px] rounded-full opacity-50 animate-float"
-          style={{
-            background:
-              "radial-gradient(circle, color-mix(in oklab, var(--gold) 28%, transparent), transparent 70%)",
-            filter: "blur(70px)",
-          }}
-        />
-        <ParticleField density={20} />
-      </div>
-
-      {/* Hero image — WebP с PNG fallback, retina (D-2) исходники, всё ≤250 КБ/вариант */}
-      <div className="hero-portrait reveal reveal-delay-1">
-        <picture>
-          <source
-            type="image/webp"
-            srcSet={[
-              `${heroWebp640} 640w`,
-              `${heroWebp1024} 1024w`,
-              `${heroWebp1280} 1280w`,
-              `${heroWebp1600} 1600w`,
-              `${heroWebp2048} 2048w`,
-              `${heroWebp3200} 3200w`,
-            ].join(", ")}
-            sizes="100vw"
-          />
-          <source
-            type="image/png"
-            srcSet={[
-              `${heroPng640} 640w`,
-              `${heroPng1024} 1024w`,
-              `${heroPng1280} 1280w`,
-            ].join(", ")}
-            sizes="100vw"
-          />
-          <img
-            src={heroPng1280}
-            alt="Юлия Армина — основатель Статус свободы"
-            className="hero-portrait__img"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-            width={1280}
-            height={720}
-          />
-        </picture>
-      </div>
-
-      <div className="relative container-tight pt-8 pb-10 md:pt-12 md:pb-16 lg:pt-16 lg:pb-20">
-
-        <h2 className="mx-auto mt-6 max-w-5xl text-center font-display uppercase tracking-[0.01em] leading-[1.05]"
+      <div className="hero-fullbleed__inner">
+        <h2 className="mx-auto max-w-5xl text-center font-display uppercase tracking-[0.01em] leading-[1.05]"
             style={{ color: "var(--text)" }}>
           <span
             className="reveal reveal-delay-2 block text-[1.5rem] sm:text-[2.1rem] md:text-[2.9rem] lg:text-[3.4rem] font-semibold"
@@ -242,7 +188,7 @@ function Hero() {
           </span>
         </h2>
 
-        <div className="reveal reveal-delay-3 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="reveal reveal-delay-3 mt-8 md:mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-xl">
           <LeadFormDialog
             source="hero"
             headline="Запись на консультацию"
@@ -258,7 +204,6 @@ function Hero() {
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
         </div>
-
       </div>
     </section>
   );

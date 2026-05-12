@@ -1640,26 +1640,98 @@ h4.card-lux {
   100% { transform: translateX(400%); }
 }
 
-/* ─────────── Hero portrait — responsive background ───────────
-   Source asset: 1536×1024 (3:2). Woman ≈ 75% horizontal, upper
-   body in upper 70% vertical. Tailwind breakpoints used:
-   xl ≥1280, lg ≥1024, md ≥768, sm ≥640.
+/* ─────────── Hero — full-bleed background section ───────────
+   Хиро на всю ширину, без отступов сверху, header плавает поверх.
+   Высота: 100vh (≥md), 70vh (mobile). Картинка как background-image
+   (cover, no-repeat). Адаптивные источники через CSS-переменные,
+   выбираемые медиазапросами по ширине и плотности экрана.
 ----------------------------------------------------------------*/
-.hero-portrait {
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: clamp(0.5rem, 2vw, 2.5rem);
+:root {
+  --header-h: 6rem;
 }
-.hero-portrait__img {
-  display: block;
+@media (min-width: 640px) { :root { --header-h: 7rem; } }
+@media (min-width: 768px) { :root { --header-h: 8rem; } }
+@media (min-width: 1024px) { :root { --header-h: 9rem; } }
+
+.hero-fullbleed {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: calc(-1 * var(--header-h));
+  padding: 0;
+  min-height: 70vh;
+  overflow: hidden;
+  background-color: var(--paper);
+  background-image: var(--hero-bg-mobile);
+  background-size: cover;
+  background-position: 65% center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  isolation: isolate;
+}
+/* Tablet and up: full viewport height, centered composition */
+@media (min-width: 768px) {
+  .hero-fullbleed {
+    min-height: 100vh;
+    background-image: var(--hero-bg-tablet);
+    background-position: center center;
+    align-items: center;
+  }
+}
+/* Desktop */
+@media (min-width: 1280px) {
+  .hero-fullbleed {
+    background-image: var(--hero-bg-desktop);
+  }
+}
+/* Ultra wide */
+@media (min-width: 1920px) {
+  .hero-fullbleed {
+    background-image: var(--hero-bg-xl);
+  }
+}
+/* Retina mobile/tablet — поднимаем разрешение источника */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  .hero-fullbleed { background-image: var(--hero-bg-tablet); }
+  @media (min-width: 768px) {
+    .hero-fullbleed { background-image: var(--hero-bg-desktop); }
+  }
+  @media (min-width: 1280px) {
+    .hero-fullbleed { background-image: var(--hero-bg-xl); }
+  }
+}
+
+/* Tone overlay — читаемость текста поверх картинки */
+.hero-fullbleed::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--paper) 35%, transparent) 0%,
+      transparent 35%,
+      transparent 55%,
+      color-mix(in oklab, var(--paper) 70%, transparent) 100%
+    );
+}
+
+.hero-fullbleed__inner {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  height: auto;
-  max-height: clamp(360px, 75vh, 820px);
-  object-fit: contain;
-  object-position: center;
+  padding-top: calc(var(--header-h) + clamp(1rem, 4vw, 3rem));
+  padding-bottom: clamp(1.5rem, 5vw, 4rem);
+  padding-left: clamp(1rem, 4vw, 2.5rem);
+  padding-right: clamp(1rem, 4vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
