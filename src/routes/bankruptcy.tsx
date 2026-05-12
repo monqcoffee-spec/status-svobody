@@ -139,7 +139,7 @@ function BankruptcyAdvantages() {
           >
             <IconArt src={it.art} alt="" size="md" />
             <div>
-              <h3 className="font-display uppercase text-sm md:text-base leading-snug">{it.t}</h3>
+              <h3 className="font-display uppercase text-base md:text-lg leading-snug">{it.t}</h3>
               <p className="mt-3 text-lg md:text-xl leading-relaxed">{it.d}</p>
             </div>
           </div>
