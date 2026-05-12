@@ -85,14 +85,24 @@ function BankruptcyHero() {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_35%] opacity-90 select-none"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_35%] opacity-75 md:opacity-90 select-none"
       />
+      {/* Mobile overlay — stronger contrast for narrow screens */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0"
+        className="pointer-events-none absolute inset-0 md:hidden"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0.55) 100%)",
+            "linear-gradient(180deg, rgba(20,8,14,0.55) 0%, rgba(20,8,14,0.25) 45%, rgba(255,255,255,0.35) 85%, rgba(255,255,255,0.75) 100%)",
+        }}
+      />
+      {/* Desktop overlay — lighter, preserves image */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(20,8,14,0.35) 0%, rgba(20,8,14,0.1) 40%, rgba(255,255,255,0.2) 75%, rgba(255,255,255,0.6) 100%)",
         }}
       />
       <div
