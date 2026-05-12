@@ -19,6 +19,7 @@ import iconAudit from "@/assets/icons-3d/audit.png";
 import iconDataBureau from "@/assets/icons-3d/data-bureau.png";
 import iconDataCourt from "@/assets/icons-3d/data-court.png";
 import iconUnlock from "@/assets/icons-3d/unlock.png";
+import heroBankruptcy from "@/assets/bankruptcy-hero.png";
 
 export const Route = createFileRoute("/bankruptcy")({
   head: () => ({
@@ -75,6 +76,19 @@ function BankruptcyHero() {
   return (
     <section className="relative overflow-hidden bg-aurora md:-mt-20 pt-36 md:pt-52 pb-24 md:pb-36">
       <ParticleField density={32} />
+      <img
+        src={heroBankruptcy}
+        alt="Status Svobody — освобождение от долгов"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-90 select-none"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 60%, rgba(255,255,255,0.55) 100%)",
+        }}
+      />
       <div
         aria-hidden
         className="pointer-events-none absolute -right-40 top-20 h-[600px] w-[600px] rounded-full opacity-30 animate-drift"
