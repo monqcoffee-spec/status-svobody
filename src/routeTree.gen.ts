@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SignupRouteImport } from './routes/signup'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as BankruptcyRouteImport } from './routes/bankruptcy'
@@ -20,6 +21,11 @@ import { Route as AuthenticatedPortalCreditRouteImport } from './routes/_authent
 import { Route as AuthenticatedPortalBankruptcyRouteImport } from './routes/_authenticated/portal.bankruptcy'
 import { Route as AuthenticatedPortalCreditVerificationRouteImport } from './routes/_authenticated/portal.credit.verification'
 
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
@@ -79,6 +85,7 @@ export interface FileRoutesByFullPath {
   '/bankruptcy': typeof BankruptcyRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/portal': typeof AuthenticatedPortalRouteWithChildren
   '/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
   '/portal/credit': typeof AuthenticatedPortalCreditRouteWithChildren
@@ -90,6 +97,7 @@ export interface FileRoutesByTo {
   '/bankruptcy': typeof BankruptcyRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
   '/portal/credit': typeof AuthenticatedPortalCreditRouteWithChildren
   '/portal': typeof AuthenticatedPortalIndexRoute
@@ -102,6 +110,7 @@ export interface FileRoutesById {
   '/bankruptcy': typeof BankruptcyRoute
   '/login': typeof LoginRoute
   '/signup': typeof SignupRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_authenticated/portal': typeof AuthenticatedPortalRouteWithChildren
   '/_authenticated/portal/bankruptcy': typeof AuthenticatedPortalBankruptcyRoute
   '/_authenticated/portal/credit': typeof AuthenticatedPortalCreditRouteWithChildren
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/bankruptcy'
     | '/login'
     | '/signup'
+    | '/sitemap.xml'
     | '/portal'
     | '/portal/bankruptcy'
     | '/portal/credit'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/bankruptcy'
     | '/login'
     | '/signup'
+    | '/sitemap.xml'
     | '/portal/bankruptcy'
     | '/portal/credit'
     | '/portal'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
     | '/bankruptcy'
     | '/login'
     | '/signup'
+    | '/sitemap.xml'
     | '/_authenticated/portal'
     | '/_authenticated/portal/bankruptcy'
     | '/_authenticated/portal/credit'
@@ -150,10 +162,18 @@ export interface RootRouteChildren {
   BankruptcyRoute: typeof BankruptcyRoute
   LoginRoute: typeof LoginRoute
   SignupRoute: typeof SignupRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/signup': {
       id: '/signup'
       path: '/signup'
@@ -275,6 +295,7 @@ const rootRouteChildren: RootRouteChildren = {
   BankruptcyRoute: BankruptcyRoute,
   LoginRoute: LoginRoute,
   SignupRoute: SignupRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
