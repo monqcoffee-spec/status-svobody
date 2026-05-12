@@ -1,4 +1,4 @@
-import { useLocation } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Logo } from "./Logo";
@@ -87,25 +87,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <Link
-            to="/login"
-            className="liquid-glass inline-flex items-center rounded-full px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-[12px] tracking-[0.18em] md:tracking-[0.2em] uppercase transition-colors whitespace-nowrap"
-            style={{
-              color: "var(--text)",
-            }}
-          >
-            Войти
-          </Link>
-          <Link
-            to="/signup"
-            className="hidden sm:inline-flex items-center rounded-full px-3 py-1.5 md:px-4 md:py-2 text-[10px] md:text-[12px] tracking-[0.18em] md:tracking-[0.2em] uppercase transition-colors whitespace-nowrap"
-            style={{
-              background: "var(--wine-deep)",
-              color: "var(--paper)",
-            }}
-          >
-            Регистрация
-          </Link>
           <button
             aria-label="Меню"
             onClick={() => setOpen((v) => !v)}
