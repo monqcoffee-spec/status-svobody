@@ -251,7 +251,7 @@ function Philosophy() {
       <ScrollReveal>
         <div className="text-center">
           <span
-            className="smallcaps text-[11px] tracking-[0.3em]"
+            className="smallcaps text-[13px] tracking-[0.3em]"
             style={{ color: "var(--gold-heading-deep)" }}
           >
             Почему Status Svobody
