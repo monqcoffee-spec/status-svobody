@@ -228,14 +228,17 @@ function Hero() {
 function Philosophy() {
   const values = [
     {
+      icon: ShieldCheck,
       title: "Конфиденциальность",
       desc: "Ваши данные и обращения остаются строго защищёнными.",
     },
     {
+      icon: Scale,
       title: "Законные механизмы",
       desc: "Работаем исключительно в рамках действующего законодательства.",
     },
     {
+      icon: LifeBuoy,
       title: "Сопровождение",
       desc: "Поддержка на каждом этапе — от анализа ситуации до результата.",
     },
@@ -276,28 +279,55 @@ function Philosophy() {
         <PhilosophyAccordion />
       </ScrollReveal>
 
-      <div className="mt-14 grid gap-5 sm:gap-6 md:grid-cols-3">
-        {values.map((v, i) => (
-          <ScrollReveal key={v.title} delay={(i + 1) as 1 | 2 | 3}>
-            <div
-              className="card-lux relative h-full p-7 md:p-8 transition-transform duration-500 hover:-translate-y-1"
-              style={{
-                borderColor: "color-mix(in oklab, var(--gold-heading) 45%, transparent)",
-              }}
-            >
-              <h3
-                className="font-display text-sm md:text-base uppercase tracking-wide"
-                style={{ color: "var(--gold-heading-deep)" }}
+      <ScrollReveal delay={3}>
+        <ul
+          className="mx-auto mt-14 grid max-w-4xl grid-cols-1 md:grid-cols-3 md:divide-x"
+          style={{
+            borderTop: "1px solid color-mix(in oklab, var(--gold-light) 35%, transparent)",
+            borderBottom: "1px solid color-mix(in oklab, var(--gold-light) 35%, transparent)",
+            ["--tw-divide-opacity" as never]: 1,
+          }}
+        >
+          {values.map((v) => {
+            const Icon = v.icon;
+            return (
+              <li
+                key={v.title}
+                className="group flex items-start gap-4 px-5 py-6 md:flex-col md:items-center md:gap-3 md:py-8 md:text-center"
+                style={{
+                  borderColor: "color-mix(in oklab, var(--gold-light) 30%, transparent)",
+                }}
               >
-                {v.title}
-              </h3>
-              <p className="mt-3 text-base leading-relaxed" style={{ color: "#2A1118" }}>
-                {v.desc}
-              </p>
-            </div>
-          </ScrollReveal>
-        ))}
-      </div>
+                <span
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-transform duration-500 group-hover:-translate-y-0.5"
+                  style={{
+                    border: "1px solid color-mix(in oklab, var(--gold-light) 60%, transparent)",
+                    background:
+                      "radial-gradient(closest-side, color-mix(in oklab, var(--gold-light) 18%, transparent), transparent 70%)",
+                    color: "var(--gold-heading-deep)",
+                  }}
+                >
+                  <Icon className="h-4.5 w-4.5" strokeWidth={1.5} />
+                </span>
+                <div className="md:contents">
+                  <h3
+                    className="font-display text-[11px] uppercase tracking-[0.28em]"
+                    style={{ color: "var(--gold-heading-deep)" }}
+                  >
+                    {v.title}
+                  </h3>
+                  <p
+                    className="mt-1 text-[13px] md:text-sm leading-snug md:mt-2 md:max-w-[22ch]"
+                    style={{ color: "#2A1118" }}
+                  >
+                    {v.desc}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </ScrollReveal>
     </Section>
   );
 }
