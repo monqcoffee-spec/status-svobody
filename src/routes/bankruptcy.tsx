@@ -85,7 +85,13 @@ function BankruptcyHero() {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover object-[50%_30%] md:object-[50%_32%] lg:object-[50%_35%] xl:object-[50%_38%] opacity-75 md:opacity-90 select-none"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75 md:opacity-90 select-none"
+        style={{
+          // Fluid object-position-Y: smoothly interpolates between
+          // 30% (≤375px) and 38% (≥1280px) without breakpoint jumps.
+          objectPosition:
+            "50% clamp(30%, calc(30% + (100vw - 375px) * 8 / 905), 38%)",
+        }}
       />
       {/* Mobile overlay — stronger contrast for narrow screens */}
       <div
