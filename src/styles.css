@@ -1650,82 +1650,16 @@ h4.card-lux {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  background-repeat: no-repeat;
-  /* Mobile-first: AR keeps both window and woman fully in frame */
-  background-size: cover;
-  background-position: right center;
-  aspect-ratio: 1 / 1;
-  max-height: 70vh;
-  filter: contrast(1.06) saturate(1.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: clamp(0.5rem, 2vw, 2.5rem);
 }
-.hero-portrait::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  /* Mobile: bottom fade so headline reads under image */
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 248, 246, 0) 55%,
-    rgba(255, 248, 246, 0.9) 100%
-  );
-}
-
-/* sm: 640–767px — slightly wider, still portrait-priority */
-@media (min-width: 640px) {
-  .hero-portrait {
-    aspect-ratio: 5 / 4;
-    background-size: cover;
-    background-position: right center;
-    max-height: 75vh;
-  }
-}
-
-/* md: 768–1023px — tablet, balanced composition */
-@media (min-width: 768px) {
-  .hero-portrait {
-    aspect-ratio: 3 / 2;
-    background-position: 68% center;
-    background-size: cover;
-    max-height: 75vh;
-  }
-  .hero-portrait::after {
-    background: linear-gradient(
-      to right,
-      rgba(255, 248, 246, 0.78) 0%,
-      rgba(255, 248, 246, 0.4) 32%,
-      rgba(255, 248, 246, 0.1) 58%,
-      rgba(255, 248, 246, 0) 78%
-    );
-  }
-}
-
-/* lg: 1024–1279px — desktop, cinematic */
-@media (min-width: 1024px) {
-  .hero-portrait {
-    aspect-ratio: 16 / 9;
-    background-position: right center;
-    background-size: cover;
-    max-height: 80vh;
-  }
-  .hero-portrait::after {
-    background: linear-gradient(
-      to right,
-      rgba(255, 248, 246, 0.88) 0%,
-      rgba(255, 248, 246, 0.5) 30%,
-      rgba(255, 248, 246, 0.12) 58%,
-      rgba(255, 248, 246, 0) 75%
-    );
-  }
-}
-
-/* xl: ≥1280px — wide desktop, keep woman fully on right edge */
-@media (min-width: 1280px) {
-  .hero-portrait {
-    aspect-ratio: 21 / 9;
-    background-position: right center;
-    background-size: cover;
-    max-height: clamp(520px, 78vh, 820px);
-  }
+.hero-portrait__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: clamp(360px, 75vh, 820px);
+  object-fit: contain;
+  object-position: center;
 }
