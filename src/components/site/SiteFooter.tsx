@@ -47,21 +47,6 @@ export function SiteFooter() {
           <p className="mt-6 max-w-md text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Юридические решения для вашей свободы.
           </p>
-          <div
-            className="mt-5 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-medium tracking-wide"
-            style={{
-              background: "color-mix(in oklab, var(--gold) 14%, transparent)",
-              border: "1px solid color-mix(in oklab, var(--gold) 35%, transparent)",
-              color: "var(--wine-deep)",
-            }}
-          >
-            <span
-              aria-hidden
-              className="inline-block h-2 w-2 rounded-full"
-              style={{ background: "var(--gold)", boxShadow: "0 0 8px var(--gold)" }}
-            />
-            Работаем онлайн по всей России (дистанционно)
-          </div>
         </div>
 
         <div className="md:col-span-3">
