@@ -65,8 +65,14 @@ export const Route = createFileRoute("/")({
         name: "twitter:description",
         content: "Финансовый поверенный Юлия Армина и команда юристов.",
       },
+      { property: "og:url", content: "https://status-svobody.lovable.app/" },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "ru_RU" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "keywords", content: "Статус свободы, Юлия Армина, финансовый поверенный, восстановление кредитной истории, бюро кредитных историй, банкротство физических лиц, ФССП, списание долгов, юрист по кредитам, Москва" },
     ],
     links: [
+      { rel: "canonical", href: "https://status-svobody.lovable.app/" },
       {
         rel: "preload",
         as: "image",
