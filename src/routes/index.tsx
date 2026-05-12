@@ -1,13 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
-import {
-  ArrowUpRight,
-  Check,
-  ChevronDown,
-  ShieldCheck,
-  Scale,
-  LifeBuoy,
-} from "lucide-react";
+import { ArrowUpRight, Check, ChevronDown } from "lucide-react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Section, Eyebrow, H2, SectionLabel } from "@/components/site/Section";
 import { ParticleField } from "@/components/site/ParticleField";
@@ -228,17 +221,17 @@ function Hero() {
 function Philosophy() {
   const values = [
     {
-      icon: ShieldCheck,
+      art: iconUnlock,
       title: "Конфиденциальность",
       desc: "Ваши данные и обращения остаются строго защищёнными.",
     },
     {
-      icon: Scale,
+      art: iconDispute,
       title: "Законные механизмы",
       desc: "Работаем исключительно в рамках действующего законодательства.",
     },
     {
-      icon: LifeBuoy,
+      art: iconSupport,
       title: "Сопровождение",
       desc: "Поддержка на каждом этапе — от анализа ситуации до результата.",
     },
