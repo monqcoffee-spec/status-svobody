@@ -299,15 +299,39 @@ function Philosophy() {
                 }}
               >
                 <span
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-transform duration-500 group-hover:-translate-y-0.5"
+                  className="relative flex h-14 w-14 shrink-0 items-center justify-center rounded-full transition-transform duration-700 ease-out group-hover:-translate-y-1 group-hover:rotate-[8deg] group-hover:scale-[1.05]"
                   style={{
-                    border: "1px solid color-mix(in oklab, var(--gold-light) 60%, transparent)",
                     background:
-                      "radial-gradient(closest-side, color-mix(in oklab, var(--gold-light) 18%, transparent), transparent 70%)",
-                    color: "var(--gold-heading-deep)",
+                      "radial-gradient(circle at 32% 26%, var(--champagne-glow) 0%, var(--champagne) 38%, var(--gold-light) 70%, var(--gold-heading-deep) 100%)",
+                    boxShadow: [
+                      "inset 0 2px 4px color-mix(in oklab, var(--champagne-glow) 80%, transparent)",
+                      "inset 0 -8px 14px color-mix(in oklab, var(--wine-deep) 45%, transparent)",
+                      "inset 0 0 0 1px color-mix(in oklab, var(--gold-heading-deep) 55%, transparent)",
+                      "0 8px 22px -6px color-mix(in oklab, var(--wine-deep) 55%, transparent)",
+                      "0 2px 6px color-mix(in oklab, var(--gold-heading-deep) 35%, transparent)",
+                    ].join(", "),
+                    color: "var(--wine-deep)",
                   }}
                 >
-                  <Icon className="h-4.5 w-4.5" strokeWidth={1.5} />
+                  {/* glossy top highlight */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute rounded-full"
+                    style={{
+                      inset: "8%",
+                      background:
+                        "radial-gradient(ellipse 70% 45% at 50% 16%, color-mix(in oklab, #FFFFFF 75%, transparent) 0%, transparent 62%)",
+                      opacity: 0.85,
+                    }}
+                  />
+                  <Icon
+                    className="relative h-5 w-5"
+                    strokeWidth={1.6}
+                    style={{
+                      filter:
+                        "drop-shadow(0 1px 0 color-mix(in oklab, #FFFFFF 70%, transparent)) drop-shadow(0 1px 1px color-mix(in oklab, var(--wine-deep) 55%, transparent))",
+                    }}
+                  />
                 </span>
                 <div className="md:contents">
                   <h3
