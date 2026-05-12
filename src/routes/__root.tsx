@@ -35,8 +35,6 @@ export const Route = createRootRoute({
       { name: "theme-color", content: "#2A0C12" },
       { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1" },
       { name: "format-detection", content: "telephone=no" },
-      { name: "yandex-verification", content: "" },
-      { httpEquiv: "content-language", content: "ru" },
       { title: "Статус свободы Юлии Арминой — премиальные юридические решения · Юлия Армина" },
       { name: "description", content: "Юридические решения для вашей свободы: личное сопровождение в делах о финансах, долгах и кредитной истории. Юлия Армина — основатель бренда Статус свободы Юлии Арминой, Москва." },
       { property: "og:site_name", content: "Статус свободы Юлии Арминой" },
