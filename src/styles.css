@@ -1651,10 +1651,10 @@ h4.card-lux {
   transform: translateX(-50%);
   width: 100vw;
   background-repeat: no-repeat;
-  /* Mobile-first: scale by height so woman is fully visible on the right */
-  background-size: auto 100%;
+  /* Mobile-first: AR keeps both window and woman fully in frame */
+  background-size: cover;
   background-position: right center;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   max-height: 78vh;
   filter: contrast(1.06) saturate(1.1);
   margin-top: clamp(0.5rem, 2vw, 2.5rem);
@@ -1675,8 +1675,8 @@ h4.card-lux {
 /* sm: 640–767px — slightly wider, still portrait-priority */
 @media (min-width: 640px) {
   .hero-portrait {
-    aspect-ratio: 4 / 5;
-    background-size: auto 100%;
+    aspect-ratio: 5 / 6;
+    background-size: cover;
     background-position: right center;
     max-height: 75vh;
   }
