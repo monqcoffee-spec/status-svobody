@@ -1640,7 +1640,11 @@ h4.card-lux {
   100% { transform: translateX(400%); }
 }
 
-/* ─────────── Hero portrait — responsive background ─────────── */
+/* ─────────── Hero portrait — responsive background ───────────
+   Source asset: 1536×1024 (3:2). Woman ≈ 75% horizontal, upper
+   body in upper 70% vertical. Tailwind breakpoints used:
+   xl ≥1280, lg ≥1024, md ≥768, sm ≥640.
+----------------------------------------------------------------*/
 .hero-portrait {
   position: relative;
   left: 50%;
@@ -1648,9 +1652,10 @@ h4.card-lux {
   width: 100vw;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right center;
-  aspect-ratio: 16 / 9;
-  max-height: 78vh;
+  /* Mobile-first: focus on woman + upper body, no aggressive zoom */
+  background-position: 78% 28%;
+  aspect-ratio: 4 / 5;
+  max-height: 82vh;
   filter: contrast(1.06) saturate(1.1);
   margin-top: clamp(0.5rem, 2vw, 2.5rem);
 }
@@ -1659,34 +1664,67 @@ h4.card-lux {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  /* Mobile: bottom fade so headline reads under image */
   background: linear-gradient(
-    to right,
-    rgba(255, 248, 246, 0.88) 0%,
-    rgba(255, 248, 246, 0.55) 28%,
-    rgba(255, 248, 246, 0.15) 55%,
-    rgba(255, 248, 246, 0) 75%
+    to bottom,
+    rgba(255, 248, 246, 0) 55%,
+    rgba(255, 248, 246, 0.9) 100%
   );
 }
-@media (max-width: 1024px) {
-  .hero-portrait {
-    aspect-ratio: 4 / 3;
-    background-position: 62% center;
-    background-size: cover;
-    max-height: 70vh;
-  }
-}
-@media (max-width: 640px) {
+
+/* sm: 640–767px — slightly wider, still portrait-priority */
+@media (min-width: 640px) {
   .hero-portrait {
     aspect-ratio: 3 / 4;
-    background-position: 72% center;
+    background-position: 75% 30%;
+    max-height: 78vh;
+  }
+}
+
+/* md: 768–1023px — tablet, balanced composition */
+@media (min-width: 768px) {
+  .hero-portrait {
+    aspect-ratio: 3 / 2;
+    background-position: 68% center;
     background-size: cover;
-    max-height: 82vh;
+    max-height: 75vh;
   }
   .hero-portrait::after {
     background: linear-gradient(
-      to bottom,
-      rgba(255, 248, 246, 0) 55%,
-      rgba(255, 248, 246, 0.85) 100%
+      to right,
+      rgba(255, 248, 246, 0.78) 0%,
+      rgba(255, 248, 246, 0.4) 32%,
+      rgba(255, 248, 246, 0.1) 58%,
+      rgba(255, 248, 246, 0) 78%
     );
+  }
+}
+
+/* lg: 1024–1279px — desktop, cinematic */
+@media (min-width: 1024px) {
+  .hero-portrait {
+    aspect-ratio: 16 / 9;
+    background-position: right center;
+    background-size: cover;
+    max-height: 80vh;
+  }
+  .hero-portrait::after {
+    background: linear-gradient(
+      to right,
+      rgba(255, 248, 246, 0.88) 0%,
+      rgba(255, 248, 246, 0.5) 30%,
+      rgba(255, 248, 246, 0.12) 58%,
+      rgba(255, 248, 246, 0) 75%
+    );
+  }
+}
+
+/* xl: ≥1280px — wide desktop, keep woman fully on right edge */
+@media (min-width: 1280px) {
+  .hero-portrait {
+    aspect-ratio: 21 / 9;
+    background-position: right center;
+    background-size: cover;
+    max-height: clamp(520px, 78vh, 820px);
   }
 }
