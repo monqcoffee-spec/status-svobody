@@ -185,6 +185,7 @@ function Hero() {
             style={{ filter: "contrast(1.08) saturate(1.12)" }}
             loading="eager"
             fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>
