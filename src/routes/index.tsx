@@ -10,6 +10,7 @@ import { Faq } from "@/components/site/Faq";
 import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
+import { useDocumentTitle } from "@/lib/use-document-title";
 import particlesRise from "@/assets/particles-rise.jpg";
 // Hero portrait — оптимизированные WebP + PNG fallback с retina-вариантами
 import heroWebp640 from "@/assets/hero/webp/hero-640.webp";
@@ -46,91 +47,14 @@ import iconDataScore from "@/assets/icons-3d/data-score.png";
 import iconRomanII from "@/assets/icons-3d/roman-ii.png";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Статус свободы Юлии Арминой — юридические решения для вашей свободы" },
-      {
-        name: "description",
-        content:
-          "Премиальный финансово-юридический консалтинг Юлии Арминой: цифровой профиль, кредитная история, Федеральной службы судебных приставов, банкротство — под одной точкой ответственности.",
-      },
-      { property: "og:title", content: "Статус свободы Юлии Арминой — юридические решения для вашей свободы" },
-      {
-        property: "og:description",
-        content:
-          "Финансовый поверенный Юлия Армина и команда юристов. Восстановление кредитной истории, бюро кредитных историй, Федеральной службы судебных приставов, банкротство.",
-      },
-      { name: "twitter:title", content: "Статус свободы Юлии Арминой — юридические решения для вашей свободы" },
-      {
-        name: "twitter:description",
-        content: "Финансовый поверенный Юлия Армина и команда юристов.",
-      },
-      { property: "og:url", content: "https://status-svobody.lovable.app/" },
-      { property: "og:type", content: "website" },
-      { property: "og:locale", content: "ru_RU" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "keywords", content: "Статус свободы, Юлия Армина, финансовый поверенный, восстановление кредитной истории, бюро кредитных историй, банкротство физических лиц, ФССП, списание долгов, юрист по кредитам, Москва" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://status-svobody.lovable.app/" },
-      {
-        rel: "preload",
-        as: "image",
-        href: heroWebp1280,
-        type: "image/webp",
-        imagesrcset: [
-          `${heroWebp640} 640w`,
-          `${heroWebp1024} 1024w`,
-          `${heroWebp1280} 1280w`,
-          `${heroWebp1600} 1600w`,
-          `${heroWebp2048} 2048w`,
-          `${heroWebp3200} 3200w`,
-        ].join(", "),
-        imagesizes: "100vw",
-        fetchpriority: "high",
-      },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "LegalService",
-              name: "Статус свободы Юлии Арминой",
-              description:
-                "Премиальный финансово-юридический консалтинг: восстановление кредитной истории, бюро кредитных историй, Федеральной службы судебных приставов, банкротство.",
-              areaServed: "RU",
-              priceRange: "₽₽₽",
-              telephone: "+7 (965) 445-73-78",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Москва",
-                addressCountry: "RU",
-              },
-              url: "https://status-svobody.lovable.app",
-            },
-            {
-              "@type": "Person",
-              name: "Юлия Армина",
-              jobTitle: "Финансовый поверенный",
-              worksFor: { "@type": "Organization", name: "Статус свободы Юлии Арминой" },
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Москва",
-                addressCountry: "RU",
-              },
-            },
-          ],
-        }),
-      },
-    ],
-  }),
   component: IndexPage,
 });
 
 function IndexPage() {
+  useDocumentTitle(
+    "Статус свободы Юлии Арминой — юридические решения для вашей свободы",
+    "Премиальный финансово-юридический консалтинг Юлии Арминой: цифровой профиль, кредитная история, ФССП, банкротство — под одной точкой ответственности.",
+  );
   // Smooth scroll on hash navigation (works for clicks within the page).
   useEffect(() => {
     if (typeof window === "undefined") return;
