@@ -22,63 +22,6 @@ import iconUnlock from "@/assets/icons-3d/unlock.png";
 import iconLiberation from "@/assets/icons-3d/liberation.png";
 
 export const Route = createFileRoute("/bankruptcy")({
-  head: () => ({
-    meta: [
-      { title: "Банкротство — премиальное юридическое сопровождение · Статус свободы Юлии Арминой" },
-      {
-        name: "description",
-        content:
-          "Личное банкротство под ключ: списание долгов по 127-ФЗ, сопровождение арбитражного процесса, защита имущества. Юлия Армина и команда финансовых юристов.",
-      },
-      { property: "og:title", content: "Банкротство · Статус свободы Юлии Арминой" },
-      {
-        property: "og:description",
-        content: "Финансовое освобождение и новый старт. Премиальное сопровождение процедуры банкротства физических лиц.",
-      },
-      { property: "og:url", content: "https://status-svobody.lovable.app/bankruptcy" },
-      { property: "og:type", content: "website" },
-      { property: "og:locale", content: "ru_RU" },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OiZ42u0lVjM3ZnNSjkibJZJYtqA3/social-images/social-1778498014592-1816.webp" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Банкротство · Статус свободы Юлии Арминой" },
-      { name: "twitter:description", content: "Личное банкротство под ключ: списание долгов по 127-ФЗ." },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/OiZ42u0lVjM3ZnNSjkibJZJYtqA3/social-images/social-1778498014592-1816.webp" },
-      { name: "keywords", content: "банкротство физических лиц, списание долгов, 127-ФЗ, арбитражный управляющий, банкротство Москва, Юлия Армина, Статус свободы" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://status-svobody.lovable.app/bankruptcy" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Service",
-              serviceType: "Сопровождение банкротства физических лиц",
-              provider: {
-                "@type": "LegalService",
-                name: "Статус свободы Юлии Арминой",
-                url: "https://status-svobody.lovable.app",
-              },
-              areaServed: "RU",
-              description:
-                "Личное банкротство под ключ по 127-ФЗ: списание долгов, защита имущества, сопровождение арбитражного процесса.",
-              url: "https://status-svobody.lovable.app/bankruptcy",
-            },
-            {
-              "@type": "BreadcrumbList",
-              itemListElement: [
-                { "@type": "ListItem", position: 1, name: "Главная", item: "https://status-svobody.lovable.app/" },
-                { "@type": "ListItem", position: 2, name: "Банкротство", item: "https://status-svobody.lovable.app/bankruptcy" },
-              ],
-            },
-          ],
-        }),
-      },
-    ],
-  }),
   component: BankruptcyPage,
 });
 
