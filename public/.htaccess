@@ -1,15 +1,25 @@
 # SPA fallback for Apache (REG.RU и любой shared hosting на Apache).
-# Все запросы к несуществующим файлам отдают index.html — клиентский роутер обработает путь.
+# Сначала пытаемся отдать статический файл/каталог (например, /bankruptcy/index.html),
+# и только если ничего не нашли — отдаём корневой index.html (SPA-фолбэк).
+
+DirectoryIndex index.html
+Options +FollowSymLinks -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Реальные файлы и каталоги отдаём как есть
+  # 1) Если путь — каталог без слеша (например, /bankruptcy), добавляем слеш,
+  #    чтобы mod_dir отдал его DirectoryIndex (bankruptcy/index.html).
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.+[^/])$ /$1/ [R=301,L]
+
+  # 2) Реально существующие файлы и каталоги отдаём как есть.
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # Всё остальное — на index.html
+  # 3) Всё остальное — корневой index.html (SPA-фолбэк для прочих маршрутов).
   RewriteRule . /index.html [L]
 </IfModule>
 
