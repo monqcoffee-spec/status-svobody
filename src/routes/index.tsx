@@ -10,6 +10,7 @@ import { Faq } from "@/components/site/Faq";
 import { IconArt } from "@/components/site/IconArt";
 import { AnimatedCounter } from "@/components/site/AnimatedCounter";
 import { ScrollReveal } from "@/components/site/ScrollReveal";
+import { useDocumentTitle } from "@/lib/use-document-title";
 import particlesRise from "@/assets/particles-rise.jpg";
 // Hero portrait — оптимизированные WebP + PNG fallback с retina-вариантами
 import heroWebp640 from "@/assets/hero/webp/hero-640.webp";
@@ -50,6 +51,10 @@ export const Route = createFileRoute("/")({
 });
 
 function IndexPage() {
+  useDocumentTitle(
+    "Статус свободы Юлии Арминой — юридические решения для вашей свободы",
+    "Премиальный финансово-юридический консалтинг Юлии Арминой: цифровой профиль, кредитная история, ФССП, банкротство — под одной точкой ответственности.",
+  );
   // Smooth scroll on hash navigation (works for clicks within the page).
   useEffect(() => {
     if (typeof window === "undefined") return;
