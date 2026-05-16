@@ -5,4 +5,4 @@ Disallow: /login
 Disallow: /signup
 Disallow: /api/
 
-Sitemap: https://status-svobody.lovable.app/sitemap.xml
+Sitemap: https://status-svobody.ru/sitemap.xml
