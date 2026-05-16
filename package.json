@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "postbuild": "mkdir -p dist/bankruptcy && cp dist/index.html dist/bankruptcy/index.html",
+    "postbuild": "node scripts/postbuild-seo.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
